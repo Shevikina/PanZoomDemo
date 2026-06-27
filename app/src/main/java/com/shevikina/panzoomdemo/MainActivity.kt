@@ -18,6 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PanZoomDemoTheme {
                 Box(Modifier.fillMaxSize()) {
+                    NaiveImageViewer(assetName = "test_image_medium.jpg")
                     MetricsOverlay()
                 }
             }
