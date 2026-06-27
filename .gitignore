@@ -1,7 +1,7 @@
 *.iml
 .gradle
 /local.properties
-/.idea/*
+/.idea
 .DS_Store
 /build
 /captures
@@ -11,6 +11,3 @@ local.properties
 /app/build
 /app/release
 /app/debug
-/docs
-/plans
-/preza_draft
