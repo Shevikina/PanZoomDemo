@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PanZoomDemo</string>
+
+    <string name="demo_naive_title">Загрузка изображения в лоб</string>
+    <string name="demo_naive_subtitle">(Мгновенное падение с OOM)</string>
+    <string name="demo_tiling_title">Tiling</string>
+    <string name="demo_tiling_subtitle">(Взять только видимый кусок)</string>
+    <string name="demo_culling_title">Culling</string>
+    <string name="demo_culling_subtitle">(Не отрисовываем скрытые тайлы)</string>
+    <string name="demo_lod_title">LOD + Subsampling</string>
+    <string name="demo_lod_subtitle">(Управляем детализацией тайлов)</string>
 </resources>
