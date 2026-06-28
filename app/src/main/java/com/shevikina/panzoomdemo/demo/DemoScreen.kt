@@ -17,16 +17,17 @@ import com.shevikina.panzoomdemo.demo.imageviewer.TiledImageViewer
 import com.shevikina.panzoomdemo.metrics.MetricsOverlay
 import com.shevikina.panzoomdemo.models.enums.TestImageAsset
 import com.shevikina.panzoomdemo.models.states.DemoScreenState
+import com.shevikina.panzoomdemo.models.states.DemoToggleItemState
 import com.shevikina.panzoomdemo.models.states.ToggleState
 import com.shevikina.panzoomdemo.ui.theme.PanZoomDemoTheme
 
 /**
- * Главный экран демо с тумблерами для переключения оптимизаций на сцене.
+ * Главный экран демо с тумблерами для переключения оптимизаций на сцене
  */
 @Composable
 fun DemoScreen(viewModel: DemoScreenViewModel = viewModel()) {
     val state by viewModel.state.collectAsState()
-    val toggleList by viewModel.toggleList.collectAsState()
+    val toggleList by viewModel.toggleItemList.collectAsState()
 
     DemoScreenContent(state = state, toggleList = toggleList)
 }
@@ -34,7 +35,7 @@ fun DemoScreen(viewModel: DemoScreenViewModel = viewModel()) {
 @Composable
 private fun DemoScreenContent(
     state: DemoScreenState,
-    toggleList: List<ToggleState>,
+    toggleList: List<DemoToggleItemState>,
 ) {
     val isPreview = LocalInspectionMode.current
 
@@ -45,15 +46,15 @@ private fun DemoScreenContent(
                 .fillMaxSize()
                 .systemBarsPadding()
         ) {
-            if (state.tilingToggle) {
+            if (state.tilingToggle.checked) {
                 TiledImageViewer(
                     assetName = if (!isPreview) TestImageAsset.LARGE.fileName else TestImageAsset.SMALL.fileName,
-                    checkedCulling = state.cullingToggle,
-                    checkedLod = state.lodToggle,
+                    checkedCulling = state.cullingToggle.checked,
+                    checkedLod = state.lodToggle.checked,
                 )
             } else {
                 NaiveImageViewer(
-                    assetName = if (!isPreview && state.naiveToggle) TestImageAsset.MEDIUM.fileName else TestImageAsset.SMALL.fileName,
+                    assetName = if (!isPreview && state.naiveToggle.checked) TestImageAsset.MEDIUM.fileName else TestImageAsset.SMALL.fileName,
                 )
             }
         }
@@ -61,7 +62,8 @@ private fun DemoScreenContent(
         MetricsOverlay()
 
         DemoControlPanel(
-            toggleStateList = toggleList, modifier = Modifier.align(Alignment.BottomCenter)
+            toggleStateList = toggleList,
+            modifier = Modifier.align(Alignment.BottomCenter)
         )
     }
 }
@@ -71,7 +73,10 @@ private fun DemoScreenContent(
 private fun DemoScreenContentPreview() {
     PanZoomDemoTheme {
         DemoScreenContent(
-            state = DemoScreenState(tilingToggle = true), toggleList = emptyList()
+            state = DemoScreenState(
+                tilingToggle = ToggleState(enabled = true, checked = true)
+            ),
+            toggleList = emptyList()
         )
     }
 }

@@ -19,6 +19,7 @@ import com.shevikina.panzoomdemo.ui.theme.PanZoomDemoTheme
 fun DemoToggleItem(
     label: String,
     description: String,
+    enabled: Boolean,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
 ) {
@@ -32,7 +33,11 @@ fun DemoToggleItem(
             Text(label, color = Color.White, overflow = TextOverflow.Ellipsis)
             Text(description, color = Color.LightGray, overflow = TextOverflow.Ellipsis)
         }
-        Switch(checked = checked, onCheckedChange = onCheckedChange)
+        Switch(
+            enabled = enabled,
+            checked = checked,
+            onCheckedChange = onCheckedChange
+        )
     }
 }
 
@@ -43,6 +48,7 @@ private fun DemoToggleItemPreview() {
         DemoToggleItem(
             label = "Заголовок",
             description = "Пояснение",
+            enabled = true,
             checked = false,
             onCheckedChange = {}
         )

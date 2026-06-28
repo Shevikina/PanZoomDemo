@@ -1,9 +1,12 @@
 package com.shevikina.panzoomdemo.models.states
 
+/**
+ * Состояние экрана Демо с тумблерами оптимизаций
+ */
 data class DemoScreenState(
-    val naiveToggle: Boolean = false,
-    val tilingToggle: Boolean = false,
-    val cullingToggle: Boolean = false,
-    val lodToggle: Boolean = false,
-    val graphicsLayerToggle: Boolean = false
+    val naiveToggle: ToggleState = ToggleState.EMPTY,
+    val tilingToggle: ToggleState = ToggleState.EMPTY,
+    val cullingToggle: ToggleState = ToggleState.EMPTY,
+    val lodToggle: ToggleState = ToggleState.EMPTY,
+    val graphicsLayerToggle: ToggleState = ToggleState.EMPTY
 )

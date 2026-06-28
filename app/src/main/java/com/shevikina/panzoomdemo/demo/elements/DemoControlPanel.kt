@@ -9,11 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.shevikina.panzoomdemo.models.states.ToggleState
+import com.shevikina.panzoomdemo.models.states.DemoToggleItemState
 
 @Composable
 fun DemoControlPanel(
-    toggleStateList: List<ToggleState>,
+    toggleStateList: List<DemoToggleItemState>,
     modifier: Modifier = Modifier,
 ) {
     Surface(
@@ -29,6 +29,7 @@ fun DemoControlPanel(
                 DemoToggleItem(
                     label = state.title,
                     description = state.subtitle ?: "",
+                    enabled = state.enabled,
                     checked = state.checked,
                     onCheckedChange = state.onChange
                 )

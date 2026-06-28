@@ -8,6 +8,7 @@ import com.shevikina.panzoomdemo.R
 import com.shevikina.panzoomdemo.models.enums.Enemies
 import com.shevikina.panzoomdemo.models.enums.Weapons
 import com.shevikina.panzoomdemo.models.states.DemoScreenState
+import com.shevikina.panzoomdemo.models.states.DemoToggleItemState
 import com.shevikina.panzoomdemo.models.states.ToggleState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -33,35 +34,39 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
     private val lodTitle = application.getString(R.string.demo_lod_title)
     private val lodSubtitle = application.getString(R.string.demo_lod_subtitle)
 
-    val toggleList: StateFlow<List<ToggleState>> = _state
+    val toggleItemList: StateFlow<List<DemoToggleItemState>> = _state
         .map { state ->
             listOf(
-                ToggleState(
-                    checked = state.naiveToggle,
+                DemoToggleItemState(
+                    enabled = state.naiveToggle.enabled,
+                    checked = state.naiveToggle.checked,
                     title = naiveTitle,
                     subtitle = naiveSubtitle,
                     onChange = ::onNaiveChange,
                     enemy = Enemies.START_STATE,
                     weapon = Weapons.START_STATE
                 ),
-                ToggleState(
-                    checked = state.tilingToggle,
+                DemoToggleItemState(
+                    enabled = state.tilingToggle.enabled,
+                    checked = state.tilingToggle.checked,
                     title = tilingTitle,
                     subtitle = tilingSubtitle,
                     onChange = ::onTilingChange,
                     enemy = Enemies.MEMORY,
                     weapon = Weapons.REGION_DECODE
                 ),
-                ToggleState(
-                    checked = state.cullingToggle,
+                DemoToggleItemState(
+                    enabled = state.cullingToggle.enabled,
+                    checked = state.cullingToggle.checked,
                     title = cullingTitle,
                     subtitle = cullingSubtitle,
                     onChange = ::onCullingChange,
                     enemy = Enemies.MEMORY,
                     weapon = Weapons.REGION_DECODE
                 ),
-                ToggleState(
-                    checked = state.lodToggle,
+                DemoToggleItemState(
+                    enabled = state.lodToggle.enabled,
+                    checked = state.lodToggle.checked,
                     title = lodTitle,
                     subtitle = lodSubtitle,
                     onChange = ::onLodChange,
@@ -78,45 +83,47 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
 
     private fun onNaiveChange(checked: Boolean) {
         Log.d(TAG, "Toggle Naive: $checked (остальные значения сброшены)")
-        _state.update { DemoScreenState(naiveToggle = checked) }
+        _state.update { DemoScreenState(naiveToggle = ToggleState(checked = checked)) }
     }
 
     private fun onTilingChange(checked: Boolean) {
         Log.d(TAG, "Toggle Tiling: $checked")
         _state.update { current ->
             if (!checked) {
-                if (current.cullingToggle)
-                    Log.d(TAG, "Toggle Culling: false (сброшен вместе с Tiling)")
-                if (current.lodToggle)
-                    Log.d(TAG, "Toggle LOD: false (сброшен вместе с Tiling)")
-                current.copy(tilingToggle = false, cullingToggle = false, lodToggle = false)
+                if (current.cullingToggle.checked)
+                    Log.d(TAG, "Toggle Culling: checked+enabled false (сброшен вместе с Tiling)")
+                if (current.lodToggle.checked)
+                    Log.d(TAG, "Toggle LOD: checked+enabled false (сброшен вместе с Tiling)")
+                current.copy(
+                    tilingToggle = ToggleState(checked = false),
+                    cullingToggle = ToggleState(checked = false, enabled = false),
+                    lodToggle = ToggleState(checked = false, enabled = false)
+                )
             } else {
-                current.copy(tilingToggle = true)
+                Log.d(TAG, "Toggle Culling: enabled true (доступен только вместе с Tiling)")
+                Log.d(TAG, "Toggle LOD: enabled true (доступен только вместе с Tiling)")
+                current.copy(
+                    tilingToggle = ToggleState(checked = true),
+                    cullingToggle = ToggleState(
+                        checked = current.cullingToggle.checked,
+                        enabled = true
+                    ),
+                    lodToggle = ToggleState(
+                        checked = current.lodToggle.checked,
+                        enabled = true
+                    )
+                )
             }
         }
     }
 
     private fun onCullingChange(checked: Boolean) {
-        _state.update { current ->
-            if (current.tilingToggle) {
-                Log.d(TAG, "Toggle Culling: $checked")
-                current.copy(cullingToggle = checked)
-            } else {
-                Log.d(TAG, "Toggle Culling: проигнорирован (Tiling выключен)")
-                current
-            }
-        }
+        Log.d(TAG, "Toggle Culling: $checked")
+        _state.update { it.copy(cullingToggle = ToggleState(checked = checked)) }
     }
 
     private fun onLodChange(checked: Boolean) {
-        _state.update { current ->
-            if (current.tilingToggle) {
-                Log.d(TAG, "Toggle LOD: $checked")
-                current.copy(lodToggle = checked)
-            } else {
-                Log.d(TAG, "Toggle LOD: проигнорирован (Tiling выключен)")
-                current
-            }
-        }
+        Log.d(TAG, "Toggle LOD: $checked")
+        _state.update { it.copy(lodToggle = ToggleState(checked = checked)) }
     }
 }
