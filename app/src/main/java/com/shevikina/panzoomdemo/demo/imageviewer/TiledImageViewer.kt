@@ -18,8 +18,8 @@ import androidx.compose.ui.unit.IntSize
 @Composable
 fun TiledImageViewer(
     assetName: String,
-    enableCulling: Boolean,
-    enableLod: Boolean,
+    checkedCulling: Boolean,
+    checkedLod: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val state = rememberTiledImageViewerState(assetName)
@@ -28,13 +28,13 @@ fun TiledImageViewer(
         val screenW = constraints.maxWidth.toFloat()
         val screenH = constraints.maxHeight.toFloat()
 
-        LaunchedEffect(state.panZoom.scale, state.panZoom.offset, enableCulling, enableLod) {
+        LaunchedEffect(state.panZoom.scale, state.panZoom.offset, checkedCulling, checkedLod) {
             state.updateTiles(
                 scope = this,
                 screenW = screenW,
                 screenH = screenH,
-                enableCulling = enableCulling,
-                enableLod = enableLod
+                checkedCulling = checkedCulling,
+                checkedLod = checkedLod
             )
         }
 
@@ -75,7 +75,7 @@ private fun TiledImageViewerContent(
                 dstSize = IntSize(
                     width = (rect.width() * scale).toInt(),
                     height = (rect.height() * scale).toInt(),
-                ),
+                )
             )
         }
     }

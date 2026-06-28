@@ -37,7 +37,7 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
         .map { state ->
             listOf(
                 ToggleState(
-                    enable = state.naiveToggle,
+                    checked = state.naiveToggle,
                     title = naiveTitle,
                     subtitle = naiveSubtitle,
                     onChange = ::onNaiveChange,
@@ -45,7 +45,7 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
                     weapon = Weapons.START_STATE
                 ),
                 ToggleState(
-                    enable = state.tilingToggle,
+                    checked = state.tilingToggle,
                     title = tilingTitle,
                     subtitle = tilingSubtitle,
                     onChange = ::onTilingChange,
@@ -53,7 +53,7 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
                     weapon = Weapons.REGION_DECODE
                 ),
                 ToggleState(
-                    enable = state.cullingToggle,
+                    checked = state.cullingToggle,
                     title = cullingTitle,
                     subtitle = cullingSubtitle,
                     onChange = ::onCullingChange,
@@ -61,7 +61,7 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
                     weapon = Weapons.REGION_DECODE
                 ),
                 ToggleState(
-                    enable = state.lodToggle,
+                    checked = state.lodToggle,
                     title = lodTitle,
                     subtitle = lodSubtitle,
                     onChange = ::onLodChange,
@@ -76,15 +76,15 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
             initialValue = emptyList()
         )
 
-    private fun onNaiveChange(enable: Boolean) {
-        Log.d(TAG, "Toggle Naive: $enable (остальные значения сброшены)")
-        _state.update { DemoScreenState(naiveToggle = enable) }
+    private fun onNaiveChange(checked: Boolean) {
+        Log.d(TAG, "Toggle Naive: $checked (остальные значения сброшены)")
+        _state.update { DemoScreenState(naiveToggle = checked) }
     }
 
-    private fun onTilingChange(enable: Boolean) {
-        Log.d(TAG, "Toggle Tiling: $enable")
+    private fun onTilingChange(checked: Boolean) {
+        Log.d(TAG, "Toggle Tiling: $checked")
         _state.update { current ->
-            if (!enable) {
+            if (!checked) {
                 if (current.cullingToggle)
                     Log.d(TAG, "Toggle Culling: false (сброшен вместе с Tiling)")
                 if (current.lodToggle)
@@ -96,11 +96,11 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    private fun onCullingChange(enable: Boolean) {
+    private fun onCullingChange(checked: Boolean) {
         _state.update { current ->
             if (current.tilingToggle) {
-                Log.d(TAG, "Toggle Culling: $enable")
-                current.copy(cullingToggle = enable)
+                Log.d(TAG, "Toggle Culling: $checked")
+                current.copy(cullingToggle = checked)
             } else {
                 Log.d(TAG, "Toggle Culling: проигнорирован (Tiling выключен)")
                 current
@@ -108,11 +108,11 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    private fun onLodChange(enable: Boolean) {
+    private fun onLodChange(checked: Boolean) {
         _state.update { current ->
             if (current.tilingToggle) {
-                Log.d(TAG, "Toggle LOD: $enable")
-                current.copy(lodToggle = enable)
+                Log.d(TAG, "Toggle LOD: $checked")
+                current.copy(lodToggle = checked)
             } else {
                 Log.d(TAG, "Toggle LOD: проигнорирован (Tiling выключен)")
                 current

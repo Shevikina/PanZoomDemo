@@ -29,7 +29,7 @@ fun DemoControlPanel(
                 DemoToggleItem(
                     label = state.title,
                     description = state.subtitle ?: "",
-                    checked = state.enable,
+                    checked = state.checked,
                     onCheckedChange = state.onChange
                 )
             }

@@ -48,8 +48,8 @@ private fun DemoScreenContent(
             if (state.tilingToggle) {
                 TiledImageViewer(
                     assetName = if (!isPreview) TestImageAsset.LARGE.fileName else TestImageAsset.SMALL.fileName,
-                    enableCulling = state.cullingToggle,
-                    enableLod = state.lodToggle,
+                    checkedCulling = state.cullingToggle,
+                    checkedLod = state.lodToggle,
                 )
             } else {
                 NaiveImageViewer(
@@ -61,8 +61,7 @@ private fun DemoScreenContent(
         MetricsOverlay()
 
         DemoControlPanel(
-            toggleStateList = toggleList,
-            modifier = Modifier.align(Alignment.BottomCenter)
+            toggleStateList = toggleList, modifier = Modifier.align(Alignment.BottomCenter)
         )
     }
 }
@@ -72,8 +71,7 @@ private fun DemoScreenContent(
 private fun DemoScreenContentPreview() {
     PanZoomDemoTheme {
         DemoScreenContent(
-            state = DemoScreenState(tilingToggle = true),
-            toggleList = emptyList()
+            state = DemoScreenState(tilingToggle = true), toggleList = emptyList()
         )
     }
 }

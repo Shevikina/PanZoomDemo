@@ -31,10 +31,10 @@ class TiledImageViewerState(
         scope: CoroutineScope,
         screenW: Float,
         screenH: Float,
-        enableCulling: Boolean,
-        enableLod: Boolean,
+        checkedCulling: Boolean,
+        checkedLod: Boolean,
     ) {
-        val viewportInImage = if (enableCulling) {
+        val viewportInImage = if (checkedCulling) {
             screenRectToImageRect(screenW, screenH, panZoom.offset, panZoom.scale)
         } else {
             RectF(0f, 0f, tiledImage.fullWidth.toFloat(), tiledImage.fullHeight.toFloat())
@@ -52,7 +52,7 @@ class TiledImageViewerState(
             scope.launch(Dispatchers.IO) {
                 val bmp = tiledImage.decodeTile(
                     rect = rect,
-                    scale = if (enableLod) panZoom.scale else 1f,
+                    scale = if (checkedLod) panZoom.scale else 1f,
                 ) ?: return@launch
                 activeTiles[rect] = bmp
             }

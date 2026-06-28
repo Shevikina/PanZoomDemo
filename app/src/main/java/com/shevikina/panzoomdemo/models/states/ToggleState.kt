@@ -7,7 +7,7 @@ import com.shevikina.panzoomdemo.models.enums.Weapons
  * UI-состояние переключателя
  */
 data class ToggleState(
-    val enable: Boolean,
+    val checked: Boolean,
     val title: String,
     val subtitle: String? = null,
     val onChange: (Boolean) -> Unit,
