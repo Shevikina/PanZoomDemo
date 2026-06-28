@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -29,7 +30,6 @@ private const val TAG = "PanZoomDemo"
 private const val FPS_LOG_DELTA = 5
 private const val RAM_LOG_DELTA_MB = 5L
 
-
 /**
  * Оверлей для мониторинга производительности в реальном времени.
  *
@@ -39,6 +39,9 @@ private const val RAM_LOG_DELTA_MB = 5L
  *
  * RAM отражает использованный heap JVM ([Runtime.totalMemory] − [Runtime.freeMemory]),
  * не учитывает нативную память (NDK, Skia-буферы) - для ориентира достаточно.
+ *
+ * Jank-счётчик получает данные от [JankTracker], который питается из
+ * [androidx.metrics.performance.JankStats] в MainActivity.
  */
 @Composable
 fun MetricsOverlay(fileName: String) {
@@ -52,6 +55,7 @@ fun MetricsOverlay(fileName: String) {
 
     var fps by remember { mutableFloatStateOf(0f) }
     var memMb by remember { mutableLongStateOf(0L) }
+    var jankPerSec by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(Unit) {
         var lastTime = System.nanoTime()
@@ -67,6 +71,8 @@ fun MetricsOverlay(fileName: String) {
                     val newMem = Runtime.getRuntime().run {
                         (totalMemory() - freeMemory()) / BYTES_PER_MB
                     }
+                    val newJank = JankTracker.flushAndGet()
+
                     if (kotlin.math.abs(newFps - lastLoggedFps) >= FPS_LOG_DELTA) {
                         Log.d(TAG, "FPS: $newFps")
                         lastLoggedFps = newFps
@@ -75,10 +81,13 @@ fun MetricsOverlay(fileName: String) {
                         Log.d(TAG, "RAM: ${newMem}MB")
                         lastLoggedMem = newMem
                     }
+                    if (newJank > 0) Log.w(TAG, "Jank frames/s: $newJank")
+
                     fps = newFps.toFloat()
+                    memMb = newMem
+                    jankPerSec = newJank
                     frames = 0
                     lastTime = now
-                    memMb = newMem
                 }
             }
         }
@@ -87,16 +96,17 @@ fun MetricsOverlay(fileName: String) {
     MetricsOverlayContent(
         imageFullSize = imageSize,
         fps = fps.toInt(),
-        ram = memMb
+        ram = memMb,
+        jank = jankPerSec
     )
 }
-
 
 @Composable
 private fun MetricsOverlayContent(
     imageFullSize: Long,
     fps: Int,
-    ram: Long
+    ram: Long,
+    jank: Int
 ) {
     val imageSizeMb = imageFullSize / BYTES_PER_MB
     val imageSizeKb = imageFullSize / BYTES_PER_KB
@@ -114,7 +124,7 @@ private fun MetricsOverlayContent(
             .padding(8.dp)
     ) {
         MetricsOverlayItem(
-            text = "FPS: $fps  RAM: ${ram}MB",
+            text = "FPS: $fps  RAM: ${ram}MB  Jank: $jank/s",
             modifier = Modifier.align(Alignment.TopEnd)
         )
         MetricsOverlayItem(
@@ -131,7 +141,8 @@ private fun MetricsOverlayContentPreview() {
         MetricsOverlayContent(
             imageFullSize = 8 * BYTES_PER_MB,
             fps = 60,
-            ram = 90
+            ram = 90,
+            jank = 3
         )
     }
 }
