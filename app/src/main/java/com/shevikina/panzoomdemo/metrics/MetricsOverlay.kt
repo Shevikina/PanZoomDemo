@@ -5,9 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -18,14 +15,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.shevikina.panzoomdemo.metrics.elements.MetricsOverlayItem
 import com.shevikina.panzoomdemo.ui.theme.PanZoomDemoTheme
 
 private const val NANOS_PER_SECOND = 1_000_000_000f
 private const val BYTES_PER_MB = 1_048_576L
+private const val BYTES_PER_KB = 1_024L
+
 private const val TAG = "PanZoomDemo"
 private const val FPS_LOG_DELTA = 5
 private const val RAM_LOG_DELTA_MB = 5L
@@ -42,7 +41,15 @@ private const val RAM_LOG_DELTA_MB = 5L
  * не учитывает нативную память (NDK, Skia-буферы) - для ориентира достаточно.
  */
 @Composable
-fun MetricsOverlay() {
+fun MetricsOverlay(fileName: String) {
+    val context = LocalContext.current
+    val imageSize = remember(fileName) {
+        runCatching { context.assets.openFd(fileName).use { it.length } }
+            .onSuccess { Log.d(TAG, "Image $fileName is open. Size: $it bytes") }
+            .onFailure { Log.e(TAG, "Image $fileName is NOT open. Error: ${it.message}") }
+            .getOrDefault(-1L)
+    }
+
     var fps by remember { mutableFloatStateOf(0f) }
     var memMb by remember { mutableLongStateOf(0L) }
 
@@ -78,32 +85,42 @@ fun MetricsOverlay() {
     }
 
     MetricsOverlayContent(
-        fps = fps.toInt(), ram = memMb
+        imageFullSize = imageSize,
+        fps = fps.toInt(),
+        ram = memMb
     )
 }
 
 
 @Composable
 private fun MetricsOverlayContent(
+    imageFullSize: Long,
     fps: Int,
     ram: Long
 ) {
-    Box(Modifier.fillMaxSize()) {
-        Surface(
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .systemBarsPadding()
-                .padding(8.dp),
-            color = Color.Black.copy(alpha = 0.6f),
-            shape = RoundedCornerShape(4.dp),
-        ) {
-            Text(
-                text = "FPS: $fps  RAM: ${ram}MB",
-                color = Color.Green,
-                fontSize = 12.sp,
-                modifier = Modifier.padding(4.dp),
-            )
-        }
+    val imageSizeMb = imageFullSize / BYTES_PER_MB
+    val imageSizeKb = imageFullSize / BYTES_PER_KB
+
+    val imageSizeStr = when {
+        imageSizeMb > 0 -> "${imageSizeMb}Mb"
+        imageSizeKb > 0 -> "${imageSizeKb}Kb"
+        else -> "${imageFullSize}bytes"
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .systemBarsPadding()
+            .padding(8.dp)
+    ) {
+        MetricsOverlayItem(
+            text = "FPS: $fps  RAM: ${ram}MB",
+            modifier = Modifier.align(Alignment.TopEnd)
+        )
+        MetricsOverlayItem(
+            text = "Full Image: $imageSizeStr",
+            modifier = Modifier.align(Alignment.TopStart)
+        )
     }
 }
 
@@ -111,6 +128,10 @@ private fun MetricsOverlayContent(
 @Composable
 private fun MetricsOverlayContentPreview() {
     PanZoomDemoTheme {
-        MetricsOverlayContent(fps = 60, ram = 90)
+        MetricsOverlayContent(
+            imageFullSize = 8 * BYTES_PER_MB,
+            fps = 60,
+            ram = 90
+        )
     }
 }

@@ -15,7 +15,9 @@ import com.shevikina.panzoomdemo.demo.elements.DemoControlPanel
 import com.shevikina.panzoomdemo.demo.imageviewer.NaiveImageViewer
 import com.shevikina.panzoomdemo.demo.imageviewer.TiledImageViewer
 import com.shevikina.panzoomdemo.metrics.MetricsOverlay
-import com.shevikina.panzoomdemo.models.enums.TestImageAsset
+import com.shevikina.panzoomdemo.models.enums.TestImageAsset.LARGE
+import com.shevikina.panzoomdemo.models.enums.TestImageAsset.MEDIUM
+import com.shevikina.panzoomdemo.models.enums.TestImageAsset.SMALL
 import com.shevikina.panzoomdemo.models.states.DemoScreenState
 import com.shevikina.panzoomdemo.models.states.DemoToggleItemState
 import com.shevikina.panzoomdemo.models.states.ToggleState
@@ -37,7 +39,11 @@ private fun DemoScreenContent(
     state: DemoScreenState,
     toggleList: List<DemoToggleItemState>,
 ) {
-    val isPreview = LocalInspectionMode.current
+    val assetName = when {
+        LocalInspectionMode.current || (!state.naiveToggle.checked && !state.tilingToggle.checked) -> SMALL.fileName
+        state.tilingToggle.checked -> LARGE.fileName
+        else -> MEDIUM.fileName
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
         Box(
@@ -48,18 +54,18 @@ private fun DemoScreenContent(
         ) {
             if (state.tilingToggle.checked) {
                 TiledImageViewer(
-                    assetName = if (!isPreview) TestImageAsset.LARGE.fileName else TestImageAsset.SMALL.fileName,
+                    assetName = assetName,
                     checkedCulling = state.cullingToggle.checked,
                     checkedLod = state.lodToggle.checked,
                 )
             } else {
                 NaiveImageViewer(
-                    assetName = if (!isPreview && state.naiveToggle.checked) TestImageAsset.MEDIUM.fileName else TestImageAsset.SMALL.fileName,
+                    assetName = assetName,
                 )
             }
         }
 
-        MetricsOverlay()
+        MetricsOverlay(fileName = assetName)
 
         DemoControlPanel(
             toggleStateList = toggleList,
