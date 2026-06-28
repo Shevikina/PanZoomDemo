@@ -6,10 +6,13 @@ import android.graphics.BitmapRegionDecoder
 import android.graphics.Rect
 import android.graphics.RectF
 import android.os.Build
+import android.util.Log
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.io.Closeable
 import java.io.InputStream
+
+private const val TAG = "PanZoomDemo"
 
 /**
  * Обёртка над [BitmapRegionDecoder] с поддержкой culling и LOD.
@@ -94,6 +97,12 @@ class TiledImage(
         if (!usedPoolBitmap && poolBitmap != null) {
             pool.recycle(poolBitmap)
         }
+        Log.d(
+            TAG,
+            "LOD decodeTile: scale=%.2f inSampleSize=${opts.inSampleSize} → ${result?.width}×${result?.height}px (tile ${rect.width()}×${rect.height()}px)".format(
+                scale
+            )
+        )
         result
     }
 

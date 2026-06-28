@@ -3,6 +3,7 @@ package com.shevikina.panzoomdemo.demo.imageviewer
 import android.graphics.Bitmap
 import android.graphics.Rect
 import android.graphics.RectF
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.mutableStateMapOf
@@ -15,6 +16,8 @@ import com.shevikina.panzoomdemo.tiling.utils.screenRectToImageRect
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
+private const val TAG = "PanZoomDemo"
 
 class TiledImageViewerState(
     private val tiledImage: TiledImage,
@@ -41,14 +44,26 @@ class TiledImageViewerState(
         }
 
         val needed = tiledImage.visibleTileRects(viewportInImage).toSet()
+        val toUnload = activeTiles.keys - needed
+        val toLoad = needed - activeTiles.keys
+
+        if (toLoad.isNotEmpty() || toUnload.isNotEmpty()) {
+            val sampleSize = if (checkedLod) tiledImage.sampleSizeForScale(panZoom.scale) else 1
+            Log.d(
+                TAG,
+                "LOD tiles update: scale=%.2f inSampleSize=$sampleSize lodEnabled=$checkedLod needed=${needed.size} +${toLoad.size} -${toUnload.size}".format(
+                    panZoom.scale
+                )
+            )
+        }
 
         // Rendered bitmaps are GPU-pinned by HWUI — pooling them as inBitmap targets
         // causes "Reusing an immutable bitmap" corruption. Release directly instead.
-        (activeTiles.keys - needed).forEach { key ->
+        toUnload.forEach { key ->
             activeTiles.remove(key)?.recycle()
         }
 
-        (needed - activeTiles.keys).forEach { rect ->
+        toLoad.forEach { rect ->
             scope.launch(Dispatchers.IO) {
                 val bmp = tiledImage.decodeTile(
                     rect = rect,
