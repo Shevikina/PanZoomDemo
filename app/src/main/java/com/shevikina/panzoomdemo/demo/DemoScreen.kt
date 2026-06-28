@@ -45,8 +45,12 @@ private fun DemoScreenContent(
                 .fillMaxSize()
                 .systemBarsPadding()
         ) {
-                // TODO: добавить TiledImageViewer
             if (state.tilingToggle) {
+                TiledImageViewer(
+                    assetName = if (!isPreview) TestImageAsset.LARGE.fileName else TestImageAsset.SMALL.fileName,
+                    enableCulling = state.cullingToggle,
+                    enableLod = state.lodToggle,
+                )
             } else {
                 NaiveImageViewer(
                     assetName = if (!isPreview && state.naiveToggle) TestImageAsset.MEDIUM.fileName else TestImageAsset.SMALL.fileName,

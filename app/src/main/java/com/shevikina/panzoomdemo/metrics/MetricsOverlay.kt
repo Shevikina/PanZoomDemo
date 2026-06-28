@@ -25,6 +25,8 @@ import com.shevikina.panzoomdemo.ui.theme.PanZoomDemoTheme
 
 private const val NANOS_PER_SECOND = 1_000_000_000f
 private const val BYTES_PER_MB = 1_048_576L
+private const val FPS_LOG_DELTA = 5
+private const val RAM_LOG_DELTA_MB = 5L
 
 
 /**
@@ -45,17 +47,23 @@ fun MetricsOverlay() {
     LaunchedEffect(Unit) {
         var lastTime = System.nanoTime()
         var frames = 0
+        var lastLoggedFps = -1
+        var lastLoggedMem = -1L
         while (true) {
             withFrameNanos { now ->
                 frames++
                 val elapsed = (now - lastTime) / NANOS_PER_SECOND
                 if (elapsed >= 1f) {
-                    fps = frames / elapsed
-                    frames = 0
-                    lastTime = now
-                    memMb = Runtime.getRuntime().run {
+                    val newFps = (frames / elapsed).toInt()
+                    val newMem = Runtime.getRuntime().run {
                         (totalMemory() - freeMemory()) / BYTES_PER_MB
                     }
+                        lastLoggedFps = newFps
+                        lastLoggedMem = newMem
+                    fps = newFps.toFloat()
+                    frames = 0
+                    lastTime = now
+                    memMb = newMem
                 }
             }
         }
