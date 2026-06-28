@@ -1,6 +1,7 @@
 package com.shevikina.panzoomdemo.demo
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.shevikina.panzoomdemo.R
@@ -15,6 +16,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
+
+private const val TAG = "PanZoomDemo"
 
 class DemoScreenViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -74,23 +77,46 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
         )
 
     private fun onNaiveChange(enable: Boolean) {
-        _state.update { it.copy(naiveToggle = enable) }
+        Log.d(TAG, "Toggle Naive: $enable (остальные значения сброшены)")
+        _state.update { DemoScreenState(naiveToggle = enable) }
     }
 
     private fun onTilingChange(enable: Boolean) {
+        Log.d(TAG, "Toggle Tiling: $enable")
         _state.update { current ->
-            if (!enable) current.copy(tilingToggle = false, cullingToggle = false)
-            else current.copy(tilingToggle = true)
+            if (!enable) {
+                if (current.cullingToggle)
+                    Log.d(TAG, "Toggle Culling: false (сброшен вместе с Tiling)")
+                if (current.lodToggle)
+                    Log.d(TAG, "Toggle LOD: false (сброшен вместе с Tiling)")
+                current.copy(tilingToggle = false, cullingToggle = false, lodToggle = false)
+            } else {
+                current.copy(tilingToggle = true)
+            }
         }
     }
 
     private fun onCullingChange(enable: Boolean) {
         _state.update { current ->
-            if (current.tilingToggle) current.copy(cullingToggle = enable) else current
+            if (current.tilingToggle) {
+                Log.d(TAG, "Toggle Culling: $enable")
+                current.copy(cullingToggle = enable)
+            } else {
+                Log.d(TAG, "Toggle Culling: проигнорирован (Tiling выключен)")
+                current
+            }
         }
     }
 
     private fun onLodChange(enable: Boolean) {
-        _state.update { it.copy(lodToggle = enable) }
+        _state.update { current ->
+            if (current.tilingToggle) {
+                Log.d(TAG, "Toggle LOD: $enable")
+                current.copy(lodToggle = enable)
+            } else {
+                Log.d(TAG, "Toggle LOD: проигнорирован (Tiling выключен)")
+                current
+            }
+        }
     }
 }

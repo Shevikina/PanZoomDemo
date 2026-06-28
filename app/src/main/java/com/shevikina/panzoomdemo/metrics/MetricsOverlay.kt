@@ -1,5 +1,6 @@
 package com.shevikina.panzoomdemo.metrics
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -25,6 +26,7 @@ import com.shevikina.panzoomdemo.ui.theme.PanZoomDemoTheme
 
 private const val NANOS_PER_SECOND = 1_000_000_000f
 private const val BYTES_PER_MB = 1_048_576L
+private const val TAG = "PanZoomDemo"
 private const val FPS_LOG_DELTA = 5
 private const val RAM_LOG_DELTA_MB = 5L
 
@@ -58,8 +60,14 @@ fun MetricsOverlay() {
                     val newMem = Runtime.getRuntime().run {
                         (totalMemory() - freeMemory()) / BYTES_PER_MB
                     }
+                    if (kotlin.math.abs(newFps - lastLoggedFps) >= FPS_LOG_DELTA) {
+                        Log.d(TAG, "FPS: $newFps")
                         lastLoggedFps = newFps
+                    }
+                    if (kotlin.math.abs(newMem - lastLoggedMem) >= RAM_LOG_DELTA_MB) {
+                        Log.d(TAG, "RAM: ${newMem}MB")
                         lastLoggedMem = newMem
+                    }
                     fps = newFps.toFloat()
                     frames = 0
                     lastTime = now
