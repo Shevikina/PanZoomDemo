@@ -79,6 +79,7 @@ private fun TiledImageViewerContent(
                 event.changes.forEach { it.consume() }
             } while (event.changes.any { it.pressed })
 
+            panZoom.fling(scope)
         }
     }
 

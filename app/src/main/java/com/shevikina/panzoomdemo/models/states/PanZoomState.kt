@@ -9,6 +9,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.util.VelocityTracker
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 /**
  * Состояние жеста pan/zoom
@@ -41,5 +43,40 @@ class PanZoomState {
     ) {
         offset += pan
         velocityTracker.addPosition(uptimeMillis, position)
+    }
+
+    /**
+     * Запуск инерционного скольжение после отпускания пальца.
+     *
+     * Берёт скорость, накопленную [velocityTracker] за последние MOVE-события,
+     * и анимирует [offset] по экспоненциальному затуханию до полной остановки.
+     *
+     * X и Y анимируются независимо в двух параллельных корутинах.
+     *
+     * @param scope корутин-скоуп, в котором живут анимации; отмена скоупа
+     *              немедленно останавливает fling.
+     */
+    fun fling(scope: CoroutineScope) {
+        val velocity = velocityTracker.calculateVelocity()
+        velocityTracker.resetTracking()
+
+        val decay = exponentialDecay<Float>(frictionMultiplier = 2f)
+
+        scope.launch {
+            AnimationState(
+                initialValue = offset.x,
+                initialVelocity = velocity.x,
+            ).animateDecay(decay) {
+                offset = offset.copy(x = value)
+            }
+        }
+        scope.launch {
+            AnimationState(
+                initialValue = offset.y,
+                initialVelocity = velocity.y,
+            ).animateDecay(decay) {
+                offset = offset.copy(y = value)
+            }
+        }
     }
 }
