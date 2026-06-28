@@ -57,6 +57,7 @@ private fun DemoScreenContent(
                     assetName = assetName,
                     checkedCulling = state.cullingToggle.checked,
                     checkedLod = state.lodToggle.checked,
+                    useGraphicsLayer = state.graphicsLayerToggle.checked,
                 )
             } else {
                 NaiveImageViewer(

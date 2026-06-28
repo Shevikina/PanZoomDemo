@@ -33,6 +33,8 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
     private val cullingSubtitle = application.getString(R.string.demo_culling_subtitle)
     private val lodTitle = application.getString(R.string.demo_lod_title)
     private val lodSubtitle = application.getString(R.string.demo_lod_subtitle)
+    private val graphicsLayerTitle = application.getString(R.string.demo_graphics_layer_title)
+    private val graphicsLayerSubtitle = application.getString(R.string.demo_graphics_layer_subtitle)
 
     val toggleItemList: StateFlow<List<DemoToggleItemState>> = _state
         .map { state ->
@@ -72,6 +74,15 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
                     onChange = ::onLodChange,
                     enemy = Enemies.MEMORY,
                     weapon = Weapons.SUBSAMPLING
+                ),
+                DemoToggleItemState(
+                    enabled = state.graphicsLayerToggle.enabled,
+                    checked = state.graphicsLayerToggle.checked,
+                    title = graphicsLayerTitle,
+                    subtitle = graphicsLayerSubtitle,
+                    onChange = ::onGraphicsLayerChange,
+                    enemy = Enemies.COST_PER_FRAME,
+                    weapon = Weapons.LATE_TRANSFORMATION
                 )
             )
         }
@@ -94,14 +105,21 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
                     Log.d(TAG, "Toggle Culling: checked+enabled false (сброшен вместе с Tiling)")
                 if (current.lodToggle.checked)
                     Log.d(TAG, "Toggle LOD: checked+enabled false (сброшен вместе с Tiling)")
+                if (current.graphicsLayerToggle.checked)
+                    Log.d(
+                        TAG,
+                        "Toggle GraphicsLayer: checked+enabled false (сброшен вместе с Tiling)"
+                    )
                 current.copy(
                     tilingToggle = ToggleState(checked = false),
                     cullingToggle = ToggleState(checked = false, enabled = false),
-                    lodToggle = ToggleState(checked = false, enabled = false)
+                    lodToggle = ToggleState(checked = false, enabled = false),
+                    graphicsLayerToggle = ToggleState(checked = false, enabled = false)
                 )
             } else {
                 Log.d(TAG, "Toggle Culling: enabled true (доступен только вместе с Tiling)")
                 Log.d(TAG, "Toggle LOD: enabled true (доступен только вместе с Tiling)")
+                Log.d(TAG, "Toggle GraphicsLayer: enabled true (доступен только вместе с Tiling)")
                 current.copy(
                     tilingToggle = ToggleState(checked = true),
                     cullingToggle = ToggleState(
@@ -110,6 +128,10 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
                     ),
                     lodToggle = ToggleState(
                         checked = current.lodToggle.checked,
+                        enabled = true
+                    ),
+                    graphicsLayerToggle = ToggleState(
+                        checked = current.graphicsLayerToggle.checked,
                         enabled = true
                     )
                 )
@@ -125,5 +147,10 @@ class DemoScreenViewModel(application: Application) : AndroidViewModel(applicati
     private fun onLodChange(checked: Boolean) {
         Log.d(TAG, "Toggle LOD: $checked")
         _state.update { it.copy(lodToggle = ToggleState(checked = checked)) }
+    }
+
+    private fun onGraphicsLayerChange(checked: Boolean) {
+        Log.d(TAG, "Toggle GraphicsLayer: $checked")
+        _state.update { it.copy(graphicsLayerToggle = it.graphicsLayerToggle.copy(checked = checked)) }
     }
 }

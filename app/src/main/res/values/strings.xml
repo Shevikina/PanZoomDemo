@@ -9,4 +9,6 @@
     <string name="demo_culling_subtitle">(Не отрисовываем скрытые тайлы)</string>
     <string name="demo_lod_title">LOD + Subsampling</string>
     <string name="demo_lod_subtitle">(Управляем детализацией тайлов)</string>
+    <string name="demo_graphics_layer_title">GraphicsLayer</string>
+    <string name="demo_graphics_layer_subtitle">(Поздняя трансформация)</string>
 </resources>

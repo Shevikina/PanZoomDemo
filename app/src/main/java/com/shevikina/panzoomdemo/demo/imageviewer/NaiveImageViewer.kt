@@ -43,7 +43,7 @@ fun NaiveImageViewer(
         scale = state.scale,
         offset = state.offset,
         onGesture = { pan, zoom ->
-            state.onPan(pan)
+            state.onPan(pan, 0L, Offset.Zero)
             state.onZoom(zoom)
         },
         modifier = modifier

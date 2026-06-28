@@ -13,8 +13,10 @@ import com.shevikina.panzoomdemo.models.states.PanZoomState
 import com.shevikina.panzoomdemo.tiling.TilePool
 import com.shevikina.panzoomdemo.tiling.TiledImage
 import com.shevikina.panzoomdemo.tiling.utils.screenRectToImageRect
+import java.util.concurrent.ConcurrentHashMap
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 private const val TAG = "PanZoomDemo"
@@ -26,9 +28,14 @@ class TiledImageViewerState(
     val panZoom = PanZoomState()
     val activeTiles = mutableStateMapOf<Rect, Bitmap>()
 
+    // Per-tile loading jobs — отменяем конкретный тайл, а не весь scope.
+    // ConcurrentHashMap: main-поток читает/пишет из updateTiles, IO-поток удаляет после загрузки.
+    private val loadingJobs = ConcurrentHashMap<Rect, Job>()
+
     /**
-     * Пересчитывает нужные тайлы для текущего viewport и запускает их загрузку
-     * как дочерние корутины переданного [scope] - отменяются вместе с ним.
+     * Пересчитывает нужные тайлы для текущего viewport и запускает их загрузку.
+     * Использует [scope] привязанный к composable (rememberCoroutineScope),
+     * а не к LaunchedEffect — иначе каждое событие жеста отменяет все in-flight загрузки.
      */
     fun updateTiles(
         scope: CoroutineScope,
@@ -45,7 +52,8 @@ class TiledImageViewerState(
 
         val needed = tiledImage.visibleTileRects(viewportInImage).toSet()
         val toUnload = activeTiles.keys - needed
-        val toLoad = needed - activeTiles.keys
+        // Не запускаем тайлы, которые уже загружены или грузятся прямо сейчас
+        val toLoad = needed - activeTiles.keys - loadingJobs.keys
 
         if (toLoad.isNotEmpty() || toUnload.isNotEmpty()) {
             val sampleSize = if (checkedLod) tiledImage.sampleSizeForScale(panZoom.scale) else 1
@@ -60,21 +68,30 @@ class TiledImageViewerState(
         // Rendered bitmaps are GPU-pinned by HWUI — pooling them as inBitmap targets
         // causes "Reusing an immutable bitmap" corruption. Release directly instead.
         toUnload.forEach { key ->
+            loadingJobs.remove(key)?.cancel()
             activeTiles.remove(key)?.recycle()
         }
 
+        // Захватываем scale ДО запуска корутины — panZoom.scale может измениться
+        // к моменту выполнения IO-корутины (пользователь успел зумнуть),
+        // что приводило к декодированию inSampleSize=1 вместо нужного 4 → 16× лишней памяти
+        val scaleSnapshot = if (checkedLod) panZoom.scale else 1f
+
         toLoad.forEach { rect ->
-            scope.launch(Dispatchers.IO) {
+            loadingJobs[rect] = scope.launch(Dispatchers.IO) {
                 val bmp = tiledImage.decodeTile(
                     rect = rect,
-                    scale = if (checkedLod) panZoom.scale else 1f,
+                    scale = scaleSnapshot,
                 ) ?: return@launch
                 activeTiles[rect] = bmp
+                loadingJobs.remove(rect)
             }
         }
     }
 
     fun dispose() {
+        loadingJobs.values.forEach { it.cancel() }
+        loadingJobs.clear()
         activeTiles.values.forEach { it.recycle() }
         activeTiles.clear()
         tiledImage.close()
