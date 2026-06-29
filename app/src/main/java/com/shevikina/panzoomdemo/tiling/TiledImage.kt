@@ -84,18 +84,38 @@ class TiledImage(
     }
 
     /**
-     * LOD: выбирает [BitmapFactory.Options.inSampleSize] по текущему масштабу.
-     * Меньший масштаб → крупнее шаг субдискретизации → меньше памяти.
+     * LOD: выбирает [BitmapFactory.Options.inSampleSize] по текущему масштабу с **гистерезисом**.
+     * Пороги переключения вверх (zoom-in, ss уменьшается) и вниз (zoom-out, ss растёт)
+     * раздвинуты на ±10 % от центральной точки. Это исключает «дрожание» LOD у самой границы:
+     * при scale≈0.5 микро-флуктуации жеста раньше флипали ss=1↔2 каждый кадр.
+     *
+     * Полосы стабильности по [currentSampleSize]:
+     * - 1: scale ≥ 0.45 (зум вниз до 2 при scale < 0.45)
+     * - 2: 0.55 > scale ≥ 0.22  (вверх к 1 при > 0.55, вниз к 4 при < 0.22)
+     * - 4: 0.28 > scale ≥ 0.11
+     * - 8: scale < 0.14
+     *
+     * Если [currentSampleSize] не задан — поведение совпадает со старой пороговой функцией
+     * (выбор по верхним границам).
      */
-    fun sampleSizeForScale(scale: Float): Int = when {
-        scale >= 0.5f -> 1
-        scale >= 0.25f -> 2
-        scale >= 0.125f -> 4
-        else -> 8
+    fun sampleSizeForScale(scale: Float, currentSampleSize: Int = 1): Int = when (currentSampleSize) {
+        1 -> if (scale < THRESHOLD_DOWN_FROM_1) 2 else 1
+        2 -> when {
+            scale > THRESHOLD_UP_FROM_2 -> 1
+            scale < THRESHOLD_DOWN_FROM_2 -> 4
+            else -> 2
+        }
+        4 -> when {
+            scale > THRESHOLD_UP_FROM_4 -> 2
+            scale < THRESHOLD_DOWN_FROM_4 -> 8
+            else -> 4
+        }
+        else -> if (scale > THRESHOLD_UP_FROM_8) 4 else 8
     }
 
     /**
      * Декодирует один тайл. [rect] - в координатах оригинального изображения.
+     * [sampleSize] — выбранный вызывающим уровень LOD (с учётом гистерезиса/дебаунса).
      * Пытается переиспользовать буфер из [pool] через [BitmapFactory.Options.inBitmap].
      * Возвращает null если декодирование не удалось.
      *
@@ -103,7 +123,7 @@ class TiledImage(
      *   - [waitMs]   — ожидание свободного декодера; растёт при большой очереди тайлов
      *   - [decodeMs] — фактическое время BitmapRegionDecoder.decodeRegion
      */
-    suspend fun decodeTile(rect: Rect, scale: Float): Bitmap? {
+    suspend fun decodeTile(rect: Rect, sampleSize: Int): Bitmap? {
         // Если задача уже отменена (тайл ушёл из viewport), не занимаем декодер и не тратим decodeRegion.
         coroutineContext.ensureActive()
         val waitStart = SystemClock.elapsedRealtime()
@@ -120,12 +140,11 @@ class TiledImage(
             // запрашиваем точно подходящий буфер из пула — иначе для edge-тайлов мы получали
             // 512×512 буфер на 304×512 декод, result === poolBitmap, но валидные пиксели только
             // в 304×512 области → drawImage рисовал «растянутый» тайл.
-            val ss = sampleSizeForScale(scale)
-            val expectedW = (rect.width() + ss - 1) / ss
-            val expectedH = (rect.height() + ss - 1) / ss
+            val expectedW = (rect.width() + sampleSize - 1) / sampleSize
+            val expectedH = (rect.height() + sampleSize - 1) / sampleSize
             val poolBitmap = pool.acquire(expectedW, expectedH)
             val opts = BitmapFactory.Options().apply {
-                inSampleSize = ss
+                inSampleSize = sampleSize
                 inMutable = true
                 inBitmap = poolBitmap
             }
@@ -145,7 +164,7 @@ class TiledImage(
                 val decodeMs = SystemClock.elapsedRealtime() - decodeStart
                 Log.d(
                     TAG,
-                    "decodeTile: wait=${waitMs}ms decode=${decodeMs}ms [pool-miss] sampleSize=$ss → ${fallback?.width}×${fallback?.height}px [${Thread.currentThread().name}]"
+                    "decodeTile: wait=${waitMs}ms decode=${decodeMs}ms [pool-miss] sampleSize=$sampleSize → ${fallback?.width}×${fallback?.height}px [${Thread.currentThread().name}]"
                 )
                 return fallback
             }
@@ -160,7 +179,7 @@ class TiledImage(
             val poolHit = if (usedPoolBitmap) "pool-hit" else "pool-miss"
             Log.d(
                 TAG,
-                "decodeTile: wait=${waitMs}ms decode=${decodeMs}ms [$poolHit] sampleSize=$ss → ${result?.width}×${result?.height}px [${Thread.currentThread().name}]"
+                "decodeTile: wait=${waitMs}ms decode=${decodeMs}ms [$poolHit] sampleSize=$sampleSize → ${result?.width}×${result?.height}px [${Thread.currentThread().name}]"
             )
             return result
         } finally {
@@ -172,5 +191,17 @@ class TiledImage(
     override fun close() {
         freeDecoders.close()
         decoders.forEach { it.recycle() }
+    }
+
+    private companion object {
+        // Гистерезис LOD: пороги up/down раздвинуты на ±10 % от центральной точки.
+        // up — при zoom-in уменьшаем sampleSize; down — при zoom-out увеличиваем.
+        // Центры: 0.5, 0.25, 0.125.
+        const val THRESHOLD_DOWN_FROM_1 = 0.45f    // ss=1 → 2
+        const val THRESHOLD_UP_FROM_2 = 0.55f      // ss=2 → 1
+        const val THRESHOLD_DOWN_FROM_2 = 0.22f    // ss=2 → 4
+        const val THRESHOLD_UP_FROM_4 = 0.28f      // ss=4 → 2
+        const val THRESHOLD_DOWN_FROM_4 = 0.11f    // ss=4 → 8
+        const val THRESHOLD_UP_FROM_8 = 0.14f      // ss=8 → 4
     }
 }

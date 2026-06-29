@@ -20,6 +20,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.withFrameMillis
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
@@ -55,6 +56,14 @@ fun TiledImageViewer(
         val screenW = constraints.maxWidth.toFloat()
         val screenH = constraints.maxHeight.toFloat()
 
+        // Регистрируем границы viewport/изображения в PanZoomState, чтобы offset не уезжал
+        // за пределы видимости. Без этого жест/fling могли увести картинку полностью за экран —
+        // visibleTileRects возвращал пустой список (needed=0), и activeTiles оказывался пуст
+        // ещё ДО смены LOD, обнуляя смысл fallback-слоя из шага 4.
+        LaunchedEffect(state, screenW, screenH) {
+            state.panZoom.setBounds(screenW, screenH, state.imageWidth, state.imageHeight)
+        }
+
         // snapshotFlow считывает panZoom.scale/offset внутри корутины, а не в Composition-фазе.
         // При жесте LaunchedEffect НЕ рестартуется и рекомпозиция НЕ происходит.
         // Прежний вариант LaunchedEffect(panZoom.scale, panZoom.offset, ...) вызывал
@@ -85,6 +94,7 @@ fun TiledImageViewer(
             var frameCount = 0
             var totalFlushed = 0
             var totalRecycled = 0
+            var totalPumped = 0
             var lastReportMs = -1L
 
             while (true) {
@@ -98,20 +108,27 @@ fun TiledImageViewer(
                     // Этим закрывается гонка с render-thread Skia (artifacts от перезаписи inBitmap).
                     val recycled = state.drainRecyclable()
 
+                    // Батчирование toLoad: updateTiles запускает максимум MAX_LAUNCHES_PER_TICK
+                    // корутин за раз. Остальное добираем здесь по 64 в кадр, чтобы не получить
+                    // jank на extreme zoom-out, где в очереди может оказаться 1000+ rect'ов.
+                    val pumped = state.pumpToLoadQueue(tileScope)
+
                     frameCount++
                     totalFlushed += flushed
                     totalRecycled += recycled
+                    totalPumped += pumped
 
                     if (lastReportMs < 0L) lastReportMs = frameMs
                     val elapsed = frameMs - lastReportMs
                     if (elapsed >= 1000L) {
                         Log.d(
                             TAG,
-                            "frameLoop: ${frameCount}fps | flushed=$totalFlushed/s recycled=$totalRecycled/s active=${state.activeTiles.size} pending=${state.pendingTilesCount} loading=${state.loadingTilesCount} recyclePending=${state.recyclePendingCount}"
+                            "frameLoop: ${frameCount}fps | flushed=$totalFlushed/s recycled=$totalRecycled/s pumped=$totalPumped/s active=${state.activeTiles.size} pending=${state.pendingTilesCount} loading=${state.loadingTilesCount} recyclePending=${state.recyclePendingCount} toLoadQueue=${state.toLoadQueueCount}"
                         )
                         frameCount = 0
                         totalFlushed = 0
                         totalRecycled = 0
+                        totalPumped = 0
                         lastReportMs = frameMs
                     }
                 }
@@ -120,6 +137,7 @@ fun TiledImageViewer(
 
         TiledImageViewerContent(
             activeTiles = state.activeTiles,
+            fallbackTiles = state.fallbackTiles,
             panZoom = state.panZoom,
             useGraphicsLayer = useGraphicsLayer,
         )
@@ -129,6 +147,7 @@ fun TiledImageViewer(
 @Composable
 private fun TiledImageViewerContent(
     activeTiles: Map<Rect, Bitmap>,
+    fallbackTiles: Map<Rect, Bitmap>,
     panZoom: PanZoomState,
     useGraphicsLayer: Boolean,
     modifier: Modifier = Modifier,
@@ -177,19 +196,11 @@ private fun TiledImageViewerContent(
         ) {
             val scale = panZoom.scale
             val offset = panZoom.offset
-            activeTiles.forEach { (rect, bmp) ->
-                drawImage(
-                    image = bmp.asImageBitmap(),
-                    dstOffset = IntOffset(
-                        x = (rect.left * scale + offset.x).toInt(),
-                        y = (rect.top * scale + offset.y).toInt(),
-                    ),
-                    dstSize = IntSize(
-                        width = (rect.width() * scale).toInt(),
-                        height = (rect.height() * scale).toInt(),
-                    )
-                )
-            }
+            // Сначала fallback (тайлы предыдущего LOD), сверху — current. На границах LOD
+            // подложка маскирует blank-зоны, пока новый LOD догружается; когда current
+            // полностью покрыл viewport, состояние сбрасывает fallback в drainRecyclable.
+            drawTiles(fallbackTiles, scale, offset)
+            drawTiles(activeTiles, scale, offset)
         }
     } else {
         // ❌ Плохо: читаем State в теле composable (Composition-фаза)
@@ -201,19 +212,28 @@ private fun TiledImageViewerContent(
                 .fillMaxSize()
                 .then(gestureModifier)
         ) {
-            activeTiles.forEach { (rect, bmp) ->
-                drawImage(
-                    image = bmp.asImageBitmap(),
-                    dstOffset = IntOffset(
-                        x = (rect.left * scale + offset.x).toInt(),
-                        y = (rect.top * scale + offset.y).toInt(),
-                    ),
-                    dstSize = IntSize(
-                        width = (rect.width() * scale).toInt(),
-                        height = (rect.height() * scale).toInt(),
-                    )
-                )
-            }
+            drawTiles(fallbackTiles, scale, offset)
+            drawTiles(activeTiles, scale, offset)
         }
+    }
+}
+
+private fun DrawScope.drawTiles(
+    tiles: Map<Rect, Bitmap>,
+    scale: Float,
+    offset: androidx.compose.ui.geometry.Offset,
+) {
+    tiles.forEach { (rect, bmp) ->
+        drawImage(
+            image = bmp.asImageBitmap(),
+            dstOffset = IntOffset(
+                x = (rect.left * scale + offset.x).toInt(),
+                y = (rect.top * scale + offset.y).toInt(),
+            ),
+            dstSize = IntSize(
+                width = (rect.width() * scale).toInt(),
+                height = (rect.height() * scale).toInt(),
+            )
+        )
     }
 }
