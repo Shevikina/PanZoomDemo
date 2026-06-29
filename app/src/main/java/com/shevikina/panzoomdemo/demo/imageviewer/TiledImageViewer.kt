@@ -84,6 +84,7 @@ fun TiledImageViewer(
         LaunchedEffect(state) {
             var frameCount = 0
             var totalFlushed = 0
+            var totalRecycled = 0
             var lastReportMs = -1L
 
             while (true) {
@@ -92,18 +93,25 @@ fun TiledImageViewer(
                     state.flushPendingTiles()
                     val flushed = pendingBefore - state.pendingTilesCount
 
+                    // Отложенный возврат битмапов в пул: тайлы, удалённые из activeTiles
+                    // в предыдущих кадрах, отдаём в TilePool только после GRACE_FRAMES.
+                    // Этим закрывается гонка с render-thread Skia (artifacts от перезаписи inBitmap).
+                    val recycled = state.drainRecyclable()
+
                     frameCount++
                     totalFlushed += flushed
+                    totalRecycled += recycled
 
                     if (lastReportMs < 0L) lastReportMs = frameMs
                     val elapsed = frameMs - lastReportMs
                     if (elapsed >= 1000L) {
                         Log.d(
                             TAG,
-                            "frameLoop: ${frameCount}fps | flushed=$totalFlushed/s active=${state.activeTiles.size} pending=${state.pendingTilesCount} loading=${state.loadingTilesCount}"
+                            "frameLoop: ${frameCount}fps | flushed=$totalFlushed/s recycled=$totalRecycled/s active=${state.activeTiles.size} pending=${state.pendingTilesCount} loading=${state.loadingTilesCount} recyclePending=${state.recyclePendingCount}"
                         )
                         frameCount = 0
                         totalFlushed = 0
+                        totalRecycled = 0
                         lastReportMs = frameMs
                     }
                 }
