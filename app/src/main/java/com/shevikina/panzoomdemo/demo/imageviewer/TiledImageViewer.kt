@@ -2,6 +2,7 @@ package com.shevikina.panzoomdemo.demo.imageviewer
 
 import android.graphics.Bitmap
 import android.graphics.Rect
+import android.util.Log
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
@@ -12,6 +13,8 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.withFrameMillis
@@ -21,6 +24,9 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import com.shevikina.panzoomdemo.models.states.PanZoomState
+import kotlinx.coroutines.flow.conflate
+
+private const val TAG = "PanZoomDemo"
 
 @Composable
 fun TiledImageViewer(
@@ -34,6 +40,17 @@ fun TiledImageViewer(
     // Стабильный scope: не отменяется при рестарте LaunchedEffect на каждом событии жеста
     val tileScope = rememberCoroutineScope()
 
+    // Счётчик рекомпозиций TiledImageViewer.
+    // SideEffect запускается после каждой успешной рекомпозиции (не является её причиной).
+    val recomposeCount = remember { intArrayOf(0) }
+    SideEffect {
+        recomposeCount[0]++
+        Log.d(
+            TAG,
+            "recompose[TiledImageViewer] #${recomposeCount[0]} | activeTiles=${state.activeTiles.size}"
+        )
+    }
+
     BoxWithConstraints(modifier.fillMaxSize()) {
         val screenW = constraints.maxWidth.toFloat()
         val screenH = constraints.maxHeight.toFloat()
@@ -42,8 +59,13 @@ fun TiledImageViewer(
         // При жесте LaunchedEffect НЕ рестартуется и рекомпозиция НЕ происходит.
         // Прежний вариант LaunchedEffect(panZoom.scale, panZoom.offset, ...) вызывал
         // рекомпозицию ~60 раз/сек на каждое движение пальца.
+        //
+        // conflate() пропускает все промежуточные значения, пока updateTiles ещё работает,
+        // оставляя только последнее. На быстром жесте это снижает запуск updateTiles
+        // с ~60/сек до ~1/кадр и снимает наслоение тяжёлой работы на жест.
         LaunchedEffect(state, checkedCulling, checkedLod) {
             snapshotFlow { state.panZoom.scale to state.panZoom.offset }
+                .conflate()
                 .collect {
                     state.updateTiles(
                         scope = tileScope,
@@ -58,9 +80,33 @@ fun TiledImageViewer(
         // Сбрасывает pendingEntries → activeTiles максимум раз в кадр.
         // Нужен когда жест завершён (snapshotFlow не эмитит), но тайлы ещё догружаются.
         // Гарантирует: не более одной рекомпозиции на Choreographer-кадр.
+        // Дополнительно логирует: FPS цикла, кол-во сброшенных тайлов, состояние очередей.
         LaunchedEffect(state) {
+            var frameCount = 0
+            var totalFlushed = 0
+            var lastReportMs = -1L
+
             while (true) {
-                withFrameMillis { state.flushPendingTiles() }
+                withFrameMillis { frameMs ->
+                    val pendingBefore = state.pendingTilesCount
+                    state.flushPendingTiles()
+                    val flushed = pendingBefore - state.pendingTilesCount
+
+                    frameCount++
+                    totalFlushed += flushed
+
+                    if (lastReportMs < 0L) lastReportMs = frameMs
+                    val elapsed = frameMs - lastReportMs
+                    if (elapsed >= 1000L) {
+                        Log.d(
+                            TAG,
+                            "frameLoop: ${frameCount}fps | flushed=$totalFlushed/s active=${state.activeTiles.size} pending=${state.pendingTilesCount} loading=${state.loadingTilesCount}"
+                        )
+                        frameCount = 0
+                        totalFlushed = 0
+                        lastReportMs = frameMs
+                    }
+                }
             }
         }
 
@@ -80,6 +126,18 @@ private fun TiledImageViewerContent(
     modifier: Modifier = Modifier,
 ) {
     val scope = rememberCoroutineScope()
+
+    // Счётчик рекомпозиций TiledImageViewerContent.
+    // Должен расти ТОЛЬКО когда меняется activeTiles или переключается useGraphicsLayer.
+    // Если растёт синхронно с жестом — значит State читается в Composition-фазе.
+    val recomposeCount = remember { intArrayOf(0) }
+    SideEffect {
+        recomposeCount[0]++
+        Log.d(
+            TAG,
+            "recompose[Content] #${recomposeCount[0]} | tiles=${activeTiles.size} graphicsLayer=$useGraphicsLayer"
+        )
+    }
 
     val gestureModifier = Modifier.pointerInput(panZoom) {
         awaitEachGesture {

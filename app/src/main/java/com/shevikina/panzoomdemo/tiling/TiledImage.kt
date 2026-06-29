@@ -6,11 +6,15 @@ import android.graphics.BitmapRegionDecoder
 import android.graphics.Rect
 import android.graphics.RectF
 import android.os.Build
+import android.os.SystemClock
+import android.os.Trace
 import android.util.Log
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.io.Closeable
 import java.io.InputStream
+import kotlin.coroutines.coroutineContext
 
 private const val TAG = "PanZoomDemo"
 
@@ -37,8 +41,10 @@ class TiledImage(
 
     private val lock = Mutex()
 
-    val fullWidth: Int get() = decoder.width
-    val fullHeight: Int get() = decoder.height
+    // Кешируем до начала декодирования: BitmapRegionDecoder.getWidth() — synchronized-метод,
+    // при вызове с main thread во время decodeRegion() на IO-потоке блокирует Choreographer → ANR.
+    val fullWidth: Int = decoder.width
+    val fullHeight: Int = decoder.height
 
     /**
      * Возвращает [Rect]-ы тайлов в координатах изображения, пересекающих [viewportInImage].
@@ -75,35 +81,64 @@ class TiledImage(
      * Декодирует один тайл. [rect] - в координатах оригинального изображения.
      * Пытается переиспользовать буфер из [pool] через [BitmapFactory.Options.inBitmap].
      * Возвращает null если декодирование не удалось.
+     *
+     * Логирует отдельно:
+     *   - [waitMs]   — ожидание [lock] (Mutex); растёт при большой очереди тайлов
+     *   - [decodeMs] — фактическое время BitmapRegionDecoder.decodeRegion
      */
-    suspend fun decodeTile(rect: Rect, scale: Float): Bitmap? = lock.withLock {
-        val poolBitmap = pool.acquire()
-        val opts = BitmapFactory.Options().apply {
-            inSampleSize = sampleSizeForScale(scale)
-            inMutable = true
-            inBitmap = poolBitmap
-        }
-        val result: Bitmap?
-        val usedPoolBitmap: Boolean
-        try {
-            result = decoder.decodeRegion(rect, opts)
-            usedPoolBitmap = result === poolBitmap
-        } catch (e: IllegalArgumentException) {
-            // inBitmap не подошёл по размеру — возвращаем в пул и декодируем заново без него
-            poolBitmap?.let { pool.recycle(it) }
-            return@withLock decoder.decodeRegion(rect, opts.apply { inBitmap = null })
-        }
-        // decodeRegion выделил новый буфер вместо poolBitmap — возвращаем poolBitmap в пул
-        if (!usedPoolBitmap && poolBitmap != null) {
-            pool.recycle(poolBitmap)
-        }
-        Log.d(
-            TAG,
-            "LOD decodeTile: scale=%.2f inSampleSize=${opts.inSampleSize} → ${result?.width}×${result?.height}px (tile ${rect.width()}×${rect.height()}px)".format(
-                scale
+    suspend fun decodeTile(rect: Rect, scale: Float): Bitmap? {
+        // Если задача уже отменена (тайл ушёл из viewport), не занимаем Mutex и не тратим decodeRegion.
+        coroutineContext.ensureActive()
+        val waitStart = SystemClock.elapsedRealtime()
+        Trace.beginSection("decodeTile.wait")
+        return lock.withLock {
+            Trace.endSection()
+            // Повторная проверка: пока ждали Mutex (могли простоять секунды), задачу могли отменить.
+            coroutineContext.ensureActive()
+            val decodeStart = SystemClock.elapsedRealtime()
+            val waitMs = decodeStart - waitStart
+
+            val poolBitmap = pool.acquire()
+            val opts = BitmapFactory.Options().apply {
+                inSampleSize = sampleSizeForScale(scale)
+                inMutable = true
+                inBitmap = poolBitmap
+            }
+
+            val result: Bitmap?
+            val usedPoolBitmap: Boolean
+
+            Trace.beginSection("decodeTile.decode")
+            try {
+                result = decoder.decodeRegion(rect, opts)
+                usedPoolBitmap = result === poolBitmap
+            } catch (e: IllegalArgumentException) {
+                // inBitmap не подошёл по размеру — возвращаем в пул и декодируем заново без него
+                poolBitmap?.let { pool.recycle(it) }
+                val fallback = decoder.decodeRegion(rect, opts.apply { inBitmap = null })
+                Trace.endSection()
+                val decodeMs = SystemClock.elapsedRealtime() - decodeStart
+                Log.d(
+                    TAG,
+                    "decodeTile: wait=${waitMs}ms decode=${decodeMs}ms [pool-miss] sampleSize=${opts.inSampleSize} → ${fallback?.width}×${fallback?.height}px [${Thread.currentThread().name}]"
+                )
+                return@withLock fallback
+            }
+            Trace.endSection()
+
+            // decodeRegion выделил новый буфер вместо poolBitmap — возвращаем poolBitmap в пул
+            if (!usedPoolBitmap && poolBitmap != null) {
+                pool.recycle(poolBitmap)
+            }
+
+            val decodeMs = SystemClock.elapsedRealtime() - decodeStart
+            val poolHit = if (usedPoolBitmap) "pool-hit" else "pool-miss"
+            Log.d(
+                TAG,
+                "decodeTile: wait=${waitMs}ms decode=${decodeMs}ms [$poolHit] sampleSize=${opts.inSampleSize} → ${result?.width}×${result?.height}px [${Thread.currentThread().name}]"
             )
-        )
-        result
+            result
+        }
     }
 
     override fun close() {

@@ -3,6 +3,8 @@ package com.shevikina.panzoomdemo.demo.imageviewer
 import android.graphics.Bitmap
 import android.graphics.Rect
 import android.graphics.RectF
+import android.os.SystemClock
+import android.os.Trace
 import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -13,11 +15,11 @@ import com.shevikina.panzoomdemo.models.states.PanZoomState
 import com.shevikina.panzoomdemo.tiling.TilePool
 import com.shevikina.panzoomdemo.tiling.TiledImage
 import com.shevikina.panzoomdemo.tiling.utils.screenRectToImageRect
-import java.util.concurrent.ConcurrentHashMap
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.util.concurrent.ConcurrentHashMap
 
 private const val TAG = "PanZoomDemo"
 
@@ -45,6 +47,10 @@ class TiledImageViewerState(
 
     private var lastSampleSize = 1
 
+    // Счётчики для периодического логирования из frame-loop
+    val pendingTilesCount: Int get() = pendingEntries.size
+    val loadingTilesCount: Int get() = loadingJobs.size
+
     /**
      * Пересчитывает нужные тайлы для текущего viewport и запускает их загрузку.
      *
@@ -58,9 +64,14 @@ class TiledImageViewerState(
         checkedCulling: Boolean,
         checkedLod: Boolean,
     ) {
-        // Сбрасываем готовые тайлы до вычисления needed/toLoad, чтобы они попали в activeTiles
-        // и не были ошибочно добавлены в toLoad повторно.
-        flushPendingTiles()
+        val methodStart = SystemClock.elapsedRealtime()
+        Trace.beginSection("updateTiles")
+
+        // flushPendingTiles() здесь больше НЕ вызываем — единственный источник истины
+        // для переноса pending→active это frame-loop (withFrameMillis в TiledImageViewer).
+        // Двойной flush приводил к лишним мутациям SnapshotStateMap и расширял время updateTiles.
+        // Готовые тайлы, ещё не попавшие в activeTiles, исключаются из toLoad через
+        // `- pendingEntries.keys` ниже, так что повторного декодирования не возникает.
 
         val viewportInImage = if (checkedCulling) {
             screenRectToImageRect(screenW, screenH, panZoom.offset, panZoom.scale)
@@ -76,11 +87,24 @@ class TiledImageViewerState(
             loadingJobs.values.forEach { it.cancel() }
             loadingJobs.clear()
             // Тайлы в pendingEntries декодированы со старым inSampleSize — выбрасываем
+            val staleCount = pendingEntries.size
             pendingEntries.values.forEach { it.bitmap.recycle() }
             pendingEntries.clear()
+            Log.d(
+                TAG,
+                "updateTiles: LOD changed → sampleSize=$newSampleSize | discarded $staleCount pending tiles"
+            )
         }
 
         val needed = tiledImage.visibleTileRects(viewportInImage).toSet()
+
+        // Culling для in-flight задач и pending-тайлов: всё, что ушло за пределы viewport,
+        // отменяем/recycle-им. Без этого loadingJobs распухает до тысяч задач при панорамировании,
+        // а decodeTile (сериализован Mutex'ом) ждёт десятки секунд в очереди.
+        val toCancelJobs = loadingJobs.keys - needed
+        toCancelJobs.forEach { key -> loadingJobs.remove(key)?.cancel() }
+        val stalePending = pendingEntries.keys - needed
+        stalePending.forEach { key -> pendingEntries.remove(key)?.bitmap?.recycle() }
 
         val staleByScale = if (sampleSizeChanged) {
             activeTileEntries.entries
@@ -94,10 +118,10 @@ class TiledImageViewerState(
         // Исключаем тайлы уже в pendingEntries: они будут перенесены в activeTiles при flush
         val toLoad = needed - activeTiles.keys - loadingJobs.keys - pendingEntries.keys
 
-        if (toLoad.isNotEmpty() || toUnload.isNotEmpty()) {
+        if (toLoad.isNotEmpty() || toUnload.isNotEmpty() || toCancelJobs.isNotEmpty() || stalePending.isNotEmpty()) {
             Log.d(
                 TAG,
-                "LOD tiles update: scale=%.2f inSampleSize=$newSampleSize lodEnabled=$checkedLod needed=${needed.size} +${toLoad.size} -${toUnload.size}".format(
+                "updateTiles: scale=%.2f sampleSize=$newSampleSize needed=${needed.size} +${toLoad.size} -${toUnload.size} cancel=${toCancelJobs.size} stalePending=${stalePending.size} | active=${activeTiles.size} pending=${pendingEntries.size} loading=${loadingJobs.size}".format(
                     panZoom.scale
                 )
             )
@@ -126,6 +150,15 @@ class TiledImageViewerState(
                 loadingJobs.remove(rect)
             }
         }
+
+        Trace.endSection()
+        val elapsed = SystemClock.elapsedRealtime() - methodStart
+        if (elapsed >= 2L || toLoad.isNotEmpty() || toUnload.isNotEmpty()) {
+            Log.d(
+                TAG,
+                "updateTiles: done in ${elapsed}ms | active=${activeTiles.size} pending=${pendingEntries.size} loading=${loadingJobs.size}"
+            )
+        }
     }
 
     /**
@@ -137,13 +170,23 @@ class TiledImageViewerState(
      */
     fun flushPendingTiles() {
         if (pendingEntries.isEmpty()) return
+        val flushStart = SystemClock.elapsedRealtime()
+        Trace.beginSection("flushPendingTiles")
+        var flushed = 0
         val iterator = pendingEntries.entries.iterator()
         while (iterator.hasNext()) {
             val (rect, entry) = iterator.next()
             iterator.remove()
             activeTileEntries[rect] = entry
             activeTiles[rect] = entry.bitmap
+            flushed++
         }
+        Trace.endSection()
+        val elapsed = SystemClock.elapsedRealtime() - flushStart
+        Log.d(
+            TAG,
+            "flush: +$flushed tiles in ${elapsed}ms | active=${activeTiles.size} pending=${pendingEntries.size} loading=${loadingJobs.size}"
+        )
     }
 
     fun dispose() {
