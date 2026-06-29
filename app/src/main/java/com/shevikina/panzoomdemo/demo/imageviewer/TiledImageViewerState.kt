@@ -21,21 +21,35 @@ import kotlinx.coroutines.launch
 
 private const val TAG = "PanZoomDemo"
 
+private data class TileEntry(val bitmap: Bitmap, val sampleSize: Int)
+
 class TiledImageViewerState(
     private val tiledImage: TiledImage,
     private val pool: TilePool,
 ) {
     val panZoom = PanZoomState()
+
+    // Внешний map содержит только Bitmap для отрисовки
     val activeTiles = mutableStateMapOf<Rect, Bitmap>()
 
-    // Per-tile loading jobs — отменяем конкретный тайл, а не весь scope.
-    // ConcurrentHashMap: main-поток читает/пишет из updateTiles, IO-поток удаляет после загрузки.
+    // Внутренний map хранит дополнительно sampleSize, с которым декодирован тайл
+    private val activeTileEntries = ConcurrentHashMap<Rect, TileEntry>()
+
+    // Per-tile loading jobs
     private val loadingJobs = ConcurrentHashMap<Rect, Job>()
+
+    // Тайлы, декодированные на IO-потоке, ещё не внесённые в State.
+    // IO-потоки только пишут сюда; main thread читает и сбрасывает в activeTiles.
+    // ConcurrentHashMap — без State-нотификаций, не вызывает рекомпозицию.
+    private val pendingEntries = ConcurrentHashMap<Rect, TileEntry>()
+
+    private var lastSampleSize = 1
 
     /**
      * Пересчитывает нужные тайлы для текущего viewport и запускает их загрузку.
-     * Использует [scope] привязанный к composable (rememberCoroutineScope),
-     * а не к LaunchedEffect — иначе каждое событие жеста отменяет все in-flight загрузки.
+     *
+     * При изменении inSampleSize все in-flight задачи и pending-очередь отменяются,
+     * а тайлы с устаревшим разрешением выгружаются и перезапрашиваются.
      */
     fun updateTiles(
         scope: CoroutineScope,
@@ -44,37 +58,58 @@ class TiledImageViewerState(
         checkedCulling: Boolean,
         checkedLod: Boolean,
     ) {
+        // Сбрасываем готовые тайлы до вычисления needed/toLoad, чтобы они попали в activeTiles
+        // и не были ошибочно добавлены в toLoad повторно.
+        flushPendingTiles()
+
         val viewportInImage = if (checkedCulling) {
             screenRectToImageRect(screenW, screenH, panZoom.offset, panZoom.scale)
         } else {
             RectF(0f, 0f, tiledImage.fullWidth.toFloat(), tiledImage.fullHeight.toFloat())
         }
 
+        val newSampleSize = if (checkedLod) tiledImage.sampleSizeForScale(panZoom.scale) else 1
+
+        val sampleSizeChanged = newSampleSize != lastSampleSize
+        if (sampleSizeChanged) {
+            lastSampleSize = newSampleSize
+            loadingJobs.values.forEach { it.cancel() }
+            loadingJobs.clear()
+            // Тайлы в pendingEntries декодированы со старым inSampleSize — выбрасываем
+            pendingEntries.values.forEach { it.bitmap.recycle() }
+            pendingEntries.clear()
+        }
+
         val needed = tiledImage.visibleTileRects(viewportInImage).toSet()
-        val toUnload = activeTiles.keys - needed
-        // Не запускаем тайлы, которые уже загружены или грузятся прямо сейчас
-        val toLoad = needed - activeTiles.keys - loadingJobs.keys
+
+        val staleByScale = if (sampleSizeChanged) {
+            activeTileEntries.entries
+                .filter { it.value.sampleSize != newSampleSize }
+                .map { it.key }
+                .toSet()
+        } else {
+            emptySet()
+        }
+        val toUnload = (activeTiles.keys - needed) + staleByScale
+        // Исключаем тайлы уже в pendingEntries: они будут перенесены в activeTiles при flush
+        val toLoad = needed - activeTiles.keys - loadingJobs.keys - pendingEntries.keys
 
         if (toLoad.isNotEmpty() || toUnload.isNotEmpty()) {
-            val sampleSize = if (checkedLod) tiledImage.sampleSizeForScale(panZoom.scale) else 1
             Log.d(
                 TAG,
-                "LOD tiles update: scale=%.2f inSampleSize=$sampleSize lodEnabled=$checkedLod needed=${needed.size} +${toLoad.size} -${toUnload.size}".format(
+                "LOD tiles update: scale=%.2f inSampleSize=$newSampleSize lodEnabled=$checkedLod needed=${needed.size} +${toLoad.size} -${toUnload.size}".format(
                     panZoom.scale
                 )
             )
         }
 
-        // Rendered bitmaps are GPU-pinned by HWUI — pooling them as inBitmap targets
-        // causes "Reusing an immutable bitmap" corruption. Release directly instead.
         toUnload.forEach { key ->
             loadingJobs.remove(key)?.cancel()
+            pendingEntries.remove(key)?.bitmap?.recycle()
+            activeTileEntries.remove(key)
             activeTiles.remove(key)?.recycle()
         }
 
-        // Захватываем scale ДО запуска корутины — panZoom.scale может измениться
-        // к моменту выполнения IO-корутины (пользователь успел зумнуть),
-        // что приводило к декодированию inSampleSize=1 вместо нужного 4 → 16× лишней памяти
         val scaleSnapshot = if (checkedLod) panZoom.scale else 1f
 
         toLoad.forEach { rect ->
@@ -83,15 +118,40 @@ class TiledImageViewerState(
                     rect = rect,
                     scale = scaleSnapshot,
                 ) ?: return@launch
-                activeTiles[rect] = bmp
+                val sampleSize = tiledImage.sampleSizeForScale(scaleSnapshot)
+                // Не пишем в activeTiles (State) с IO-потока — кладём в pendingEntries.
+                // flushPendingTiles() перенесёт все готовые тайлы за один проход на main thread,
+                // что даёт максимум одну рекомпозицию на кадр вместо одной на тайл.
+                pendingEntries[rect] = TileEntry(bmp, sampleSize)
                 loadingJobs.remove(rect)
             }
+        }
+    }
+
+    /**
+     * Переносит все готовые тайлы из [pendingEntries] в [activeTiles] за одно обновление State.
+     *
+     * Вызывается с main thread: из [updateTiles] (на каждое изменение жеста)
+     * и из frame-sync цикла в composable (когда жест завершён, но тайлы ещё грузятся).
+     * Итого: максимум одна рекомпозиция на Choreographer-кадр.
+     */
+    fun flushPendingTiles() {
+        if (pendingEntries.isEmpty()) return
+        val iterator = pendingEntries.entries.iterator()
+        while (iterator.hasNext()) {
+            val (rect, entry) = iterator.next()
+            iterator.remove()
+            activeTileEntries[rect] = entry
+            activeTiles[rect] = entry.bitmap
         }
     }
 
     fun dispose() {
         loadingJobs.values.forEach { it.cancel() }
         loadingJobs.clear()
+        pendingEntries.values.forEach { it.bitmap.recycle() }
+        pendingEntries.clear()
+        activeTileEntries.clear()
         activeTiles.values.forEach { it.recycle() }
         activeTiles.clear()
         tiledImage.close()

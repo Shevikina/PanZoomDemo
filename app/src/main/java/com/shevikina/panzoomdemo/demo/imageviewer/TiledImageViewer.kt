@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.runtime.withFrameMillis
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.input.pointer.pointerInput
@@ -36,14 +38,30 @@ fun TiledImageViewer(
         val screenW = constraints.maxWidth.toFloat()
         val screenH = constraints.maxHeight.toFloat()
 
-        LaunchedEffect(state.panZoom.scale, state.panZoom.offset, checkedCulling, checkedLod) {
-            state.updateTiles(
-                scope = tileScope,
-                screenW = screenW,
-                screenH = screenH,
-                checkedCulling = checkedCulling,
-                checkedLod = checkedLod
-            )
+        // snapshotFlow считывает panZoom.scale/offset внутри корутины, а не в Composition-фазе.
+        // При жесте LaunchedEffect НЕ рестартуется и рекомпозиция НЕ происходит.
+        // Прежний вариант LaunchedEffect(panZoom.scale, panZoom.offset, ...) вызывал
+        // рекомпозицию ~60 раз/сек на каждое движение пальца.
+        LaunchedEffect(state, checkedCulling, checkedLod) {
+            snapshotFlow { state.panZoom.scale to state.panZoom.offset }
+                .collect {
+                    state.updateTiles(
+                        scope = tileScope,
+                        screenW = screenW,
+                        screenH = screenH,
+                        checkedCulling = checkedCulling,
+                        checkedLod = checkedLod,
+                    )
+                }
+        }
+
+        // Сбрасывает pendingEntries → activeTiles максимум раз в кадр.
+        // Нужен когда жест завершён (snapshotFlow не эмитит), но тайлы ещё догружаются.
+        // Гарантирует: не более одной рекомпозиции на Choreographer-кадр.
+        LaunchedEffect(state) {
+            while (true) {
+                withFrameMillis { state.flushPendingTiles() }
+            }
         }
 
         TiledImageViewerContent(
