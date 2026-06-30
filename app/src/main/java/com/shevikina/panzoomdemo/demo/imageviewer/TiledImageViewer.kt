@@ -12,6 +12,7 @@ import androidx.compose.foundation.gestures.calculateZoom
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.IntState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.remember
@@ -19,8 +20,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.withFrameMillis
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
@@ -121,10 +124,18 @@ fun TiledImageViewer(
                     if (lastReportMs < 0L) lastReportMs = frameMs
                     val elapsed = frameMs - lastReportMs
                     if (elapsed >= 1000L) {
-                        Log.d(
-                            TAG,
-                            "frameLoop: ${frameCount}fps | flushed=$totalFlushed/s recycled=$totalRecycled/s pumped=$totalPumped/s active=${state.activeTiles.size} pending=${state.pendingTilesCount} loading=${state.loadingTilesCount} recyclePending=${state.recyclePendingCount} toLoadQueue=${state.toLoadQueueCount}"
-                        )
+                        // Шаг 7: пропускаем лог, если в окне 1 сек НИЧЕГО не происходило.
+                        // Иначе на чистом idle (после fling, тайлы загружены) сыплется по 1
+                        // Log.d/сек впустую → лишний main-thread tick раз в сек.
+                        val idle = totalFlushed == 0 && totalRecycled == 0 && totalPumped == 0 &&
+                            state.loadingTilesCount == 0 && state.pendingTilesCount == 0 &&
+                            state.recyclePendingCount == 0 && state.toLoadQueueCount == 0
+                        if (!idle) {
+                            Log.d(
+                                TAG,
+                                "frameLoop: ${frameCount}fps | flushed=$totalFlushed/s recycled=$totalRecycled/s pumped=$totalPumped/s active=${state.activeTiles.size} pending=${state.pendingTilesCount} loading=${state.loadingTilesCount} recyclePending=${state.recyclePendingCount} toLoadQueue=${state.toLoadQueueCount}"
+                            )
+                        }
                         frameCount = 0
                         totalFlushed = 0
                         totalRecycled = 0
@@ -138,6 +149,7 @@ fun TiledImageViewer(
         TiledImageViewerContent(
             activeTiles = state.activeTiles,
             fallbackTiles = state.fallbackTiles,
+            revisionState = state.revisionState,
             panZoom = state.panZoom,
             useGraphicsLayer = useGraphicsLayer,
         )
@@ -148,6 +160,7 @@ fun TiledImageViewer(
 private fun TiledImageViewerContent(
     activeTiles: Map<Rect, Bitmap>,
     fallbackTiles: Map<Rect, Bitmap>,
+    revisionState: IntState,
     panZoom: PanZoomState,
     useGraphicsLayer: Boolean,
     modifier: Modifier = Modifier,
@@ -166,7 +179,11 @@ private fun TiledImageViewerContent(
         )
     }
 
-    val gestureModifier = Modifier.pointerInput(panZoom) {
+    // Шаг 7: ключ Unit вместо panZoom. panZoom — стабильная ссылка (создаётся внутри remember-state'а),
+    // никогда не меняется в lifetime composable. С ключом panZoom Compose обязан сверять reference на
+    // каждой рекомпозиции и держать pipe-restart на случай смены — на практике это никогда не
+    // срабатывает, но ест чуть-чуть бюджета. С Unit pointer-pipe настраивается один раз.
+    val gestureModifier = Modifier.pointerInput(Unit) {
         awaitEachGesture {
             awaitFirstDown(requireUnconsumed = false)
             do {
@@ -187,20 +204,42 @@ private fun TiledImageViewerContent(
     }
 
     if (useGraphicsLayer) {
-        // ✅ Хорошо: читаем State в DrawScope (Drawing-фаза) — тот же принцип, что graphicsLayer { }
-        //    Рекомпозиции = 0 под жестом, Canvas перерисовывается без Composition
+        // ✅ Настоящая late transformation: pan/zoom применяет GPU через матрицу graphicsLayer.
+        //    Canvas рисует тайлы один раз в image-coords (rect.left, rect.top, без scale/offset);
+        //    при жесте Compose обновляет только translation/scale в графическом слое — Canvas
+        //    draw-list НЕ перезаписывается, RenderNode переиспользуется. Это даёт:
+        //      - 0 рекомпозиций под жестом (state читается в Layer-phase, не в Composition);
+        //      - 0 перерисовок Canvas от fling-затухания (state читается на render thread);
+        //      - O(GPU матрица) vs O(N tiles) на CPU при панорамировании.
+        //    transformOrigin(0,0) — pivot в image (0,0): `screen = image * scale + translation`.
+        //
+        //    ВАЖНО: gestureModifier стоит В ЧЕЙНЕ ПЕРЕД graphicsLayer.
+        //    `graphicsLayer` при hit-test делает inverse-transform координат для inner-модификаторов:
+        //    при scale=0.4 точка касания (500,1000) становится (1250,2500) — за пределами
+        //    layout-bounds, hit-test проваливается, событие теряется. Если pointerInput стоит
+        //    ВНЕ слоя — он принимает события в screen-coords и работает корректно.
         Canvas(
             modifier = modifier
                 .fillMaxSize()
                 .then(gestureModifier)
+                .graphicsLayer {
+                    translationX = panZoom.offset.x
+                    translationY = panZoom.offset.y
+                    scaleX = panZoom.scale
+                    scaleY = panZoom.scale
+                    transformOrigin = TransformOrigin(0f, 0f)
+                }
         ) {
-            val scale = panZoom.scale
-            val offset = panZoom.offset
-            // Сначала fallback (тайлы предыдущего LOD), сверху — current. На границах LOD
-            // подложка маскирует blank-зоны, пока новый LOD догружается; когда current
-            // полностью покрыл viewport, состояние сбрасывает fallback в drainRecyclable.
-            drawTiles(fallbackTiles, scale, offset)
-            drawTiles(activeTiles, scale, offset)
+            // Чтение revisionState.intValue ВНУТРИ DrawScope подписывает только drawing-phase.
+            // Когда revision bump-нут (один раз на batched flush/LOD/cull), Canvas инвалидирует
+            // ТОЛЬКО draw-list, без recompose. activeTiles/fallbackTiles теперь обычные LinkedHashMap'ы —
+            // их прямые мутации не дёргают observer'а.
+            @Suppress("UNUSED_VARIABLE")
+            val rev = revisionState.intValue
+            // Тайлы рисуются в image-coords. Никаких scale/offset/умножений per-tile.
+            // Сначала fallback (тайлы предыдущего LOD), сверху — current.
+            drawTilesAtImageCoords(fallbackTiles)
+            drawTilesAtImageCoords(activeTiles)
         }
     } else {
         // ❌ Плохо: читаем State в теле composable (Composition-фаза)
@@ -212,12 +251,20 @@ private fun TiledImageViewerContent(
                 .fillMaxSize()
                 .then(gestureModifier)
         ) {
+            // Та же подписка на revision: с LinkedHashMap'ами никто иначе не обновит Canvas.
+            @Suppress("UNUSED_VARIABLE")
+            val rev = revisionState.intValue
             drawTiles(fallbackTiles, scale, offset)
             drawTiles(activeTiles, scale, offset)
         }
     }
 }
 
+/**
+ * Старая «плохая» отрисовка — для ветки [useGraphicsLayer]=false. Каждый тайл
+ * сам вычисляет screen-coords через scale/offset на CPU. Skia пересобирает draw-list
+ * на каждый кадр жеста, потому что DrawScope наблюдает за State.
+ */
 private fun DrawScope.drawTiles(
     tiles: Map<Rect, Bitmap>,
     scale: Float,
@@ -234,6 +281,20 @@ private fun DrawScope.drawTiles(
                 width = (rect.width() * scale).toInt(),
                 height = (rect.height() * scale).toInt(),
             )
+        )
+    }
+}
+
+/**
+ * Отрисовка в image-coords для ветки [useGraphicsLayer]=true. scale/offset применяются
+ * GPU через [Modifier.graphicsLayer] — RenderNode не пересобирается, draw-list стабилен.
+ */
+private fun DrawScope.drawTilesAtImageCoords(tiles: Map<Rect, Bitmap>) {
+    tiles.forEach { (rect, bmp) ->
+        drawImage(
+            image = bmp.asImageBitmap(),
+            dstOffset = IntOffset(rect.left, rect.top),
+            dstSize = IntSize(rect.width(), rect.height()),
         )
     }
 }

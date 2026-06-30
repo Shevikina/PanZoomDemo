@@ -8,7 +8,8 @@ import android.os.Trace
 import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.IntState
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import com.shevikina.panzoomdemo.demo.imageviewer.TiledImageViewerState.Companion.GRACE_FRAMES
@@ -41,18 +42,34 @@ class TiledImageViewerState(
 ) {
     val panZoom = PanZoomState()
 
-    // Внешний map содержит только Bitmap для отрисовки
-    val activeTiles = mutableStateMapOf<Rect, Bitmap>()
+    // Шаг 7: обычные LinkedHashMap вместо SnapshotStateMap.
+    // SnapshotStateMap дёргает observer на каждый put (`activeTiles[rect] = bmp`), а
+    // flushPendingTiles переносит 1-20 тайлов за тик — это даёт 1-20 Canvas-инвалидаций/кадр.
+    // Сейчас Canvas подписывается через [revisionState] один раз, мутации map'ов не
+    // дёргают наблюдателя; bumpRevision() вызывается ОДИН РАЗ в конце batched operation.
+    //
+    // ВАЖНО: эти map'ы изменяются СТРОГО с main-thread (методы класса). Внешний код
+    // читает только. Никаких write-операций снаружи.
+    val activeTiles: LinkedHashMap<Rect, Bitmap> = LinkedHashMap()
 
     // Подложка из тайлов ПРЕДЫДУЩЕГО LOD. На смене sampleSize текущие activeTiles переезжают
     // сюда и продолжают рисоваться ПОД новыми тайлами, пока новый LOD не покроет viewport.
     // Без подложки на каждой границе LOD пользователь видит мгновенный «blank flash».
     // Бутыль с одним горлышком: одновременно живёт только один уровень fallback.
-    val fallbackTiles = mutableStateMapOf<Rect, Bitmap>()
+    val fallbackTiles: LinkedHashMap<Rect, Bitmap> = LinkedHashMap()
 
     // Внутренний map хранит дополнительно sampleSize, с которым декодирован тайл
     private val activeTileEntries = ConcurrentHashMap<Rect, TileEntry>()
     private val fallbackTileEntries = ConcurrentHashMap<Rect, TileEntry>()
+
+    // Подписка для Canvas: bumpRevision() вызывается один раз в конце batched-mutation.
+    // Canvas читает .intValue ВНУТРИ DrawScope — это вызовет invalidate-draw без recompose.
+    private val _revision = mutableIntStateOf(0)
+    val revisionState: IntState = _revision
+
+    private fun bumpRevision() {
+        _revision.intValue = _revision.intValue + 1
+    }
 
     // Per-tile loading jobs
     private val loadingJobs = ConcurrentHashMap<Rect, Job>()
@@ -310,6 +327,14 @@ class TiledImageViewerState(
         toLoadQueue.addAll(toLoad)
         val launchedNow = launchQueuedTilesUpToLimit(scope, scheduledSampleSize)
 
+        // Шаг 7: одна инвалидация Canvas на весь updateTiles вместо ~20 (по числу мутаций).
+        // Условие совпадает с условием "что-то поменялось в activeTiles/fallbackTiles":
+        // sampleSizeChanged всегда трогает оба map'а; staleFallback и toUnload могут трогать
+        // отдельно. Пропускаем bump если updateTiles был чисто read-only (рекомпозиций нет).
+        if (sampleSizeChanged || staleFallback.isNotEmpty() || toUnload.isNotEmpty()) {
+            bumpRevision()
+        }
+
         Trace.endSection()
         val elapsed = SystemClock.elapsedRealtime() - methodStart
         if (elapsed >= 2L || toLoad.isNotEmpty() || toUnload.isNotEmpty()) {
@@ -427,7 +452,10 @@ class TiledImageViewerState(
         Trace.endSection()
         // После долива новых тайлов в активный слой — пробуем отпустить fallback.
         // Когда current LOD покрывает viewport, подложка под ним становится лишней.
+        // maybeReleaseFallback сам bump-нет revision, если что-то отпустил.
         maybeReleaseFallback()
+        // Один bump на весь batch перенесённых тайлов (вместо `flushed` инвалидаций).
+        if (flushed > 0) bumpRevision()
         val elapsed = SystemClock.elapsedRealtime() - flushStart
         Log.d(
             TAG,
@@ -450,6 +478,7 @@ class TiledImageViewerState(
         }
         fallbackTiles.clear()
         fallbackTileEntries.clear()
+        bumpRevision()
         Log.d(TAG, "fallback released: $released tiles (current LOD covers viewport)")
     }
 
