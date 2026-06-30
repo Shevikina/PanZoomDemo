@@ -25,6 +25,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import java.io.File
 import java.util.concurrent.ConcurrentHashMap
 
 private const val TAG = "PanZoomDemo"
@@ -527,7 +528,17 @@ fun rememberTiledImageViewerState(assetName: String): TiledImageViewerState {
     val pool = remember { TilePool() }
 
     val tiledImage = remember(assetName) {
-        TiledImage(context.assets.open(assetName), pool)
+        // BitmapRegionDecoder требует seekable-источник. InputStream из assets'а такой
+        // создать невозможно без полной загрузки в JVM heap (это и было +35 МБ в overlay).
+        // Копируем asset в cacheDir один раз — дальше декодеры открывают файл через mmap.
+        val cacheFile = File(context.cacheDir, "tiled_$assetName")
+        if (!cacheFile.exists() || cacheFile.length() == 0L) {
+            cacheFile.parentFile?.mkdirs()
+            context.assets.open(assetName).use { input ->
+                cacheFile.outputStream().use { output -> input.copyTo(output) }
+            }
+        }
+        TiledImage(cacheFile, pool)
     }
     val state = remember(tiledImage) {
         TiledImageViewerState(tiledImage, pool)

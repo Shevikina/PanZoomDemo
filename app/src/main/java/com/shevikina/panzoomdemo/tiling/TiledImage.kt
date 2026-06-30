@@ -12,7 +12,7 @@ import android.util.Log
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.ensureActive
 import java.io.Closeable
-import java.io.InputStream
+import java.io.File
 import kotlin.coroutines.coroutineContext
 
 private const val TAG = "PanZoomDemo"
@@ -29,22 +29,32 @@ private const val TAG = "PanZoomDemo"
  * декодировать параллельно вместо одной за раз, как было с глобальным `Mutex`.
  */
 class TiledImage(
-    inputStream: InputStream,
+    private val sourceFile: File,
     private val pool: TilePool,
     val tileSize: Int = 512,
     decoderPoolSize: Int = 3,
 ) : Closeable {
 
-    // BitmapRegionDecoder.newInstance(InputStream) потребляет поток целиком при создании,
-    // поэтому второй экземпляр из того же InputStream не сделать. Читаем байты один раз
-    // и создаём декодеры из ByteArray.
-    private val sourceBytes: ByteArray = inputStream.use { it.readBytes() }
-
+    // BitmapRegionDecoder, созданный из пути к файлу, под капотом использует mmap —
+    // страницы подтягиваются по требованию и освобождаются под давлением, не занимая JVM heap.
     private val decoders: List<BitmapRegionDecoder> = List(decoderPoolSize) { createDecoder() }
 
     // Канал работает как пул свободных декодеров: receive() — суспендит, если все заняты;
     // send() — возвращает декодер обратно. Capacity = decoderPoolSize, чтобы send никогда не суспендил.
-    private val freeDecoders: Channel<BitmapRegionDecoder> = Channel(decoderPoolSize)
+    //
+    // onUndeliveredElement обязателен: при `lodScope.cancel()` десятки корутин одновременно
+    // отменяются в receive(). Если в этот момент другая корутина делает send(), элемент может
+    // «зарендезвузиться» с уже отменённым waiter'ом и потеряться. Без callback'а канал безмолвно
+    // пустеет, и весь пул декодеров уходит в /dev/null после первой же смены LOD. Здесь
+    // возвращаем декодер обратно через trySend (capacity == decoderPoolSize → всегда влезет).
+    private val freeDecoders: Channel<BitmapRegionDecoder> = Channel(
+        capacity = decoderPoolSize,
+        onUndeliveredElement = ::returnDecoder,
+    )
+
+    private fun returnDecoder(decoder: BitmapRegionDecoder) {
+        freeDecoders.trySend(decoder)
+    }
 
     // Кешируем до начала декодирования: BitmapRegionDecoder.getWidth() — synchronized-метод,
     // при вызове с main thread во время decodeRegion() на IO-потоке блокирует Choreographer → ANR.
@@ -57,10 +67,10 @@ class TiledImage(
 
     private fun createDecoder(): BitmapRegionDecoder =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            BitmapRegionDecoder.newInstance(sourceBytes, 0, sourceBytes.size)
+            BitmapRegionDecoder.newInstance(sourceFile.path)
         } else {
             @Suppress("DEPRECATION")
-            BitmapRegionDecoder.newInstance(sourceBytes, 0, sourceBytes.size, false)
+            BitmapRegionDecoder.newInstance(sourceFile.path, false)
         } ?: error("Failed to create BitmapRegionDecoder")
 
     /**
