@@ -377,6 +377,15 @@ class TiledImageViewerState(
             if (loadingJobs.containsKey(rect)) continue
             if (pendingEntries.containsKey(rect)) continue
             if (activeTiles.containsKey(rect)) continue
+            // Cap in-flight jobs: на extreme zoom-out needed может вырасти до 3500+ rect'ов,
+            // и без потолка loadingJobs распухает до тысяч записей (~1.5 МБ JVM heap + ~10 мс
+            // на cancel-этапе в updateTiles). 256 — запас 2× для viewport 1080×2160 при ss=1
+            // (50-150 одновременных тайлов). Возвращаем rect в голову очереди — frame-loop
+            // pump'нет его на следующем кадре, когда какой-нибудь out-of-viewport отменится.
+            if (loadingJobs.size >= MAX_INFLIGHT_JOBS) {
+                toLoadQueue.addFirst(rect)
+                break
+            }
             loadingJobs[rect] = targetScope.launch(Dispatchers.IO) {
                 // Re-check ДО захвата декодера: пока задача ждала своей очереди (или в pumpQueue
                 // полежала кадры), главный поток мог принять смену LOD и сдвинуть lastSampleSize.
@@ -519,6 +528,13 @@ class TiledImageViewerState(
         // запуск всех сразу даёт jank 80-450 мс. 64 launch'а ≈ 6 мс main-thread за тик
         // и 64×16 мс = 1 секунда wall-time для полного дрена 3500-тайловой очереди.
         const val MAX_LAUNCHES_PER_TICK = 64
+
+        // Потолок одновременно in-flight декод-задач. На extreme zoom-out needed может
+        // вырасти до 3500+, и без потолка loadingJobs распухает до тысяч записей. Декодеров
+        // всё равно 3 (см. TiledImage.decoderPoolSize), так что любое значение выше ~32
+        // не даёт прироста throughput — упирается в decode latency, а не в в очередь.
+        // 256 = разумный буфер «следующих в декодере» с запасом 2× от типичного viewport.
+        const val MAX_INFLIGHT_JOBS = 256
     }
 }
 
