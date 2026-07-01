@@ -20,6 +20,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.withFrameMillis
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.drawscope.DrawScope
@@ -280,7 +281,8 @@ private fun DrawScope.drawTiles(
             dstSize = IntSize(
                 width = (rect.width() * scale).toInt(),
                 height = (rect.height() * scale).toInt(),
-            )
+            ),
+            filterQuality = FilterQuality.Medium,
         )
     }
 }
@@ -295,6 +297,7 @@ private fun DrawScope.drawTilesAtImageCoords(tiles: Map<Rect, Bitmap>) {
             image = bmp.asImageBitmap(),
             dstOffset = IntOffset(rect.left, rect.top),
             dstSize = IntSize(rect.width(), rect.height()),
+            filterQuality = FilterQuality.Medium,
         )
     }
 }
