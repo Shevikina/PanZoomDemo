@@ -61,6 +61,21 @@ class TiledImage(
     val fullWidth: Int = decoders.first().width
     val fullHeight: Int = decoders.first().height
 
+    /**
+     * Низкоразрешённая версия всей картинки (~1024 px по большей стороне). Рисуется под тайлами
+     * как «мутная подложка», покрывая белые дыры при холодном старте и в незагруженных участках
+     * viewport. Декодируется один раз здесь же в init.
+     * ~2.4 МБ ARGB_8888 при 50k×50k исходнике (sampleSize=64 → 781×781).
+     */
+    val overviewBitmap: Bitmap? = run {
+        var ss = 1
+        while (fullWidth / ss > OVERVIEW_MAX_SIDE || fullHeight / ss > OVERVIEW_MAX_SIDE) ss *= 2
+        val opts = BitmapFactory.Options().apply { inSampleSize = ss }
+        BitmapFactory.decodeFile(sourceFile.path, opts).also {
+            Log.d(TAG, "overview: ss=$ss size=${it?.width}×${it?.height}px")
+        }
+    }
+
     init {
         decoders.forEach { freeDecoders.trySend(it) }
     }
@@ -201,6 +216,7 @@ class TiledImage(
     override fun close() {
         freeDecoders.close()
         decoders.forEach { it.recycle() }
+        overviewBitmap?.takeIf { !it.isRecycled }?.recycle()
     }
 
     private companion object {
@@ -213,5 +229,9 @@ class TiledImage(
         const val THRESHOLD_UP_FROM_4 = 0.28f      // ss=4 → 2
         const val THRESHOLD_DOWN_FROM_4 = 0.11f    // ss=4 → 8
         const val THRESHOLD_UP_FROM_8 = 0.14f      // ss=8 → 4
+
+        // Целевая большая сторона overview-битмапа. 1024 px даёт ~2.4 МБ ARGB_8888,
+        // визуально достаточно, чтобы читалась общая композиция картинки.
+        const val OVERVIEW_MAX_SIDE = 1024
     }
 }

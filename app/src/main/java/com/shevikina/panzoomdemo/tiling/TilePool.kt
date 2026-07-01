@@ -81,6 +81,18 @@ class TilePool(private val maxTotalCount: Int = DEFAULT_MAX_TOTAL_COUNT) {
         totalCount++
     }
 
+    /**
+     * Прогревает пул: аллоцирует [count] буферов размера [width]×[height] и кладёт в соответствующую
+     * корзину. Нужен, чтобы первые decodeTile на холодном старте не били pool-miss и не платили
+     * ~35-50 мс за аллокацию под каждый первый тайл. Вызывать до первого acquire.
+     */
+    @Synchronized
+    fun prewarm(width: Int, height: Int, count: Int) {
+        repeat(count) {
+            recycle(Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888))
+        }
+    }
+
     @Synchronized
     fun clear() {
         buckets.values.forEach { bucket ->

@@ -150,6 +150,9 @@ fun TiledImageViewer(
         TiledImageViewerContent(
             activeTiles = state.activeTiles,
             fallbackTiles = state.fallbackTiles,
+            overviewBitmap = state.overviewBitmap,
+            imageWidth = state.imageWidth.toInt(),
+            imageHeight = state.imageHeight.toInt(),
             revisionState = state.revisionState,
             panZoom = state.panZoom,
             useGraphicsLayer = useGraphicsLayer,
@@ -161,11 +164,16 @@ fun TiledImageViewer(
 private fun TiledImageViewerContent(
     activeTiles: Map<Rect, Bitmap>,
     fallbackTiles: Map<Rect, Bitmap>,
+    overviewBitmap: Bitmap?,
+    imageWidth: Int,
+    imageHeight: Int,
     revisionState: IntState,
     panZoom: PanZoomState,
     useGraphicsLayer: Boolean,
     modifier: Modifier = Modifier,
 ) {
+    // asImageBitmap() каждый кадр создаёт wrapper — кешируем на время жизни composable.
+    val overviewImage = remember(overviewBitmap) { overviewBitmap?.asImageBitmap() }
     val scope = rememberCoroutineScope()
 
     // Счётчик рекомпозиций TiledImageViewerContent.
@@ -237,8 +245,17 @@ private fun TiledImageViewerContent(
             // их прямые мутации не дёргают observer'а.
             @Suppress("UNUSED_VARIABLE")
             val rev = revisionState.intValue
-            // Тайлы рисуются в image-coords. Никаких scale/offset/умножений per-tile.
-            // Сначала fallback (тайлы предыдущего LOD), сверху — current.
+            // Порядок слоёв (снизу вверх): overview → fallback → active.
+            // Overview — низкоразрешённая подложка на всю картинку в image-coords,
+            // закрывает белые дыры на холодном старте и в незагруженных участках.
+            if (overviewImage != null) {
+                drawImage(
+                    image = overviewImage,
+                    dstOffset = IntOffset.Zero,
+                    dstSize = IntSize(imageWidth, imageHeight),
+                    filterQuality = FilterQuality.Medium,
+                )
+            }
             drawTilesAtImageCoords(fallbackTiles)
             drawTilesAtImageCoords(activeTiles)
         }
@@ -255,6 +272,19 @@ private fun TiledImageViewerContent(
             // Та же подписка на revision: с LinkedHashMap'ами никто иначе не обновит Canvas.
             @Suppress("UNUSED_VARIABLE")
             val rev = revisionState.intValue
+            // Overview — самая нижняя подложка. Здесь scale/offset применяются вручную,
+            // как и для тайлов (см. drawTiles) — graphicsLayer в этой ветке не используется.
+            if (overviewImage != null) {
+                drawImage(
+                    image = overviewImage,
+                    dstOffset = IntOffset(offset.x.toInt(), offset.y.toInt()),
+                    dstSize = IntSize(
+                        width = (imageWidth * scale).toInt(),
+                        height = (imageHeight * scale).toInt(),
+                    ),
+                    filterQuality = FilterQuality.Medium,
+                )
+            }
             drawTiles(fallbackTiles, scale, offset)
             drawTiles(activeTiles, scale, offset)
         }

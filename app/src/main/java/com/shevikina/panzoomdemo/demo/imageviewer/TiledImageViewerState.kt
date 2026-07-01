@@ -129,6 +129,10 @@ class TiledImageViewerState(
     val imageWidth: Float get() = tiledImage.fullWidth.toFloat()
     val imageHeight: Float get() = tiledImage.fullHeight.toFloat()
 
+    // Overview-подложка: рисуется под тайлами. Убирает белую вспышку на холодном старте
+    // и мутной заливкой закрывает нерасшифрованные области при быстром пане.
+    val overviewBitmap: Bitmap? get() = tiledImage.overviewBitmap
+
     // Счётчики для периодического логирования из frame-loop
     val pendingTilesCount: Int get() = pendingEntries.size
     val loadingTilesCount: Int get() = loadingJobs.size
@@ -566,7 +570,18 @@ class TiledImageViewerState(
 @Composable
 fun rememberTiledImageViewerState(assetName: String): TiledImageViewerState {
     val context = LocalContext.current
-    val pool = remember { TilePool() }
+    val pool = remember {
+        TilePool().apply {
+            // Прогреваем пул до первого decodeTile — по одному классу на каждый LOD, чтобы первый
+            // переход между уровнями не сжёг всё через evict (в логе _105912 первый снапшот показал
+            // evict=64 сразу после включения LOD, потому что прогрет был только 512×512).
+            // Первые декодирования получают pool-hit и не тратят ~35-50 мс на аллокацию.
+            prewarm(width = 512, height = 512, count = 16) // ss=1
+            prewarm(width = 256, height = 256, count = 8)  // ss=2
+            prewarm(width = 128, height = 128, count = 4)  // ss=4
+            prewarm(width = 64, height = 64, count = 8)    // ss=8 (крупных тайлов при zoom-out много)
+        }
+    }
 
     val tiledImage = remember(assetName) {
         // BitmapRegionDecoder требует seekable-источник. InputStream из assets'а такой
