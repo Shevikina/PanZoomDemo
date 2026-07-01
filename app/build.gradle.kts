@@ -26,6 +26,10 @@ android {
             optimization {
                 enable = false
             }
+            // Debug-подпись для локальных замеров: без signingConfig assembleRelease
+            // даёт -unsigned.apk, который adb install откажется ставить.
+            // Для публикации это не годится, для замеров — достаточно.
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
