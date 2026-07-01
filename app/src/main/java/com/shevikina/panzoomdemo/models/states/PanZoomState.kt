@@ -70,17 +70,30 @@ class PanZoomState {
 
     /**
      * @param zoom множитель масштаба за один кадр жеста (1.0 = без изменений).
-     * Итоговый [scale] ограничен диапазоном [0.1, 10].
+     * @param centroid точка сведения пальцев в координатах viewport (screen-coords).
+     *                 Сохраняется неподвижной под пальцами при масштабировании.
      *
-     * Нижняя граница 0.1 позволяет LOD сработать:
+     * Итоговый [scale] ограничен диапазоном [MIN_SCALE, MAX_SCALE].
+     *
+     * Нижняя граница позволяет LOD сработать:
      * - inSampleSize=2 при scale<0.5
      * - inSampleSize=4 при scale<0.25
      * - inSampleSize=8 при scale<0.125
+     *
+     * Формула «pivot вокруг centroid»: `offset_new = centroid - (centroid - offset_old) * k`,
+     * где `k = scale_new / scale_old`. Это сохраняет image-coords проекцию centroid
+     * `(centroid - offset) / scale` неизменной — точка под пальцами не уезжает.
      */
-    fun onZoom(zoom: Float) {
-        scale = (scale * zoom).coerceIn(0.1f, 10f)
-        // На изменении масштаба границы пересчитываются — текущий offset мог стать невалидным.
-        offset = clampOffset(offset, scale)
+    fun onZoom(zoom: Float, centroid: Offset) {
+        val newScale = (scale * zoom).coerceIn(MIN_SCALE, MAX_SCALE)
+        if (newScale == scale) return
+        val k = newScale / scale
+        val newOffset = Offset(
+            x = centroid.x - (centroid.x - offset.x) * k,
+            y = centroid.y - (centroid.y - offset.y) * k,
+        )
+        scale = newScale
+        offset = clampOffset(newOffset, newScale)
     }
 
     fun onPan(
@@ -131,5 +144,10 @@ class PanZoomState {
                 if (clamped.y != value) cancelAnimation()
             }
         }
+    }
+
+    private companion object {
+        const val MIN_SCALE = 0.1f
+        const val MAX_SCALE = 10f
     }
 }

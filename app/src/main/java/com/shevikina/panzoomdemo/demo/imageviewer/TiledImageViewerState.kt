@@ -87,6 +87,13 @@ class TiledImageViewerState(
     // тратит 80-450 ms главного потока за один updateTiles → жирный jank.
     // Дренируется по [MAX_LAUNCHES_PER_TICK] за вызов из updateTiles И frame-loop'а.
     private val toLoadQueue = ArrayDeque<Rect>()
+
+    // Зеркало содержимого [toLoadQueue] для O(1) contains: без него `toLoad` не вычитал
+    // уже поставленное в очередь, и на каждый updateTiles (за жест — сотни вызовов) в очередь
+    // сыпались дубликаты одних и тех же rect'ов. При extreme zoom-out с последовательными
+    // LOD-свитчами queue разгонялась до 16k+ элементов и держала ~2 МБ + вытесняла пул.
+    // ArrayDeque.contains — O(n), так что параллельный HashSet дешевле, чем сканы очереди.
+    private val toLoadQueued = HashSet<Rect>()
     val toLoadQueueCount: Int get() = toLoadQueue.size
 
     // Тайлы, декодированные на IO-потоке, ещё не внесённые в State.
@@ -219,6 +226,7 @@ class TiledImageViewerState(
             // запустить устаревшие задачи следующим pump'ом. Актуальный toLoad перевычислится
             // ниже с новым sampleSize.
             toLoadQueue.clear()
+            toLoadQueued.clear()
 
             if (activeTiles.isNotEmpty()) {
                 // Базовый кейс: есть что положить в подложку. Старый fallback (если был)
@@ -287,8 +295,21 @@ class TiledImageViewerState(
         // staleByScale больше не нужен: на смене LOD весь activeTiles уезжает в fallbackTiles,
         // так что в activeTiles всегда тайлы только текущего sampleSize.
         val toUnload = activeTiles.keys - needed
-        // Исключаем тайлы уже в pendingEntries: они будут перенесены в activeTiles при flush
-        val toLoad = needed - activeTiles.keys - loadingJobs.keys - pendingEntries.keys
+
+        // Отсекаем от очереди rect'ы, которые уже вне viewport (pan сдвинул needed). Без
+        // этого при активном pan/zoom очередь копит stale-элементы, фильтруются они лениво
+        // только на dequeue → в момент пика памяти держим тысячи ненужных TileKey'ев.
+        if (toLoadQueued.isNotEmpty()) {
+            val staleQueued = toLoadQueued - needed
+            if (staleQueued.isNotEmpty()) {
+                toLoadQueued.removeAll(staleQueued)
+                toLoadQueue.removeAll(staleQueued)
+            }
+        }
+        // Исключаем тайлы уже в pendingEntries: они будут перенесены в activeTiles при flush.
+        // Исключаем toLoadQueued: без этого каждый updateTiles сыпал дубликаты одних и тех же
+        // rect'ов в очередь → она разгонялась до 16k+ и вытесняла пул на смене LOD.
+        val toLoad = needed - activeTiles.keys - loadingJobs.keys - pendingEntries.keys - toLoadQueued
 
         if (toLoad.isNotEmpty() || toUnload.isNotEmpty() || toCancelJobs.isNotEmpty() || stalePending.isNotEmpty()) {
             Log.d(
@@ -326,6 +347,7 @@ class TiledImageViewerState(
         // а на extreme zoom-out (needed=1000+) это даёт jank 80-450 ms за один updateTiles.
         // Кладём в [toLoadQueue], дренируем первый батч сейчас; frame-loop добирёт остальное.
         toLoadQueue.addAll(toLoad)
+        toLoadQueued.addAll(toLoad)
         val launchedNow = launchQueuedTilesUpToLimit(scope, scheduledSampleSize)
 
         // Шаг 7: одна инвалидация Canvas на весь updateTiles вместо ~20 (по числу мутаций).
@@ -372,6 +394,7 @@ class TiledImageViewerState(
         val targetScope = obtainLodScope(scope)
         while (launched < MAX_LAUNCHES_PER_TICK && toLoadQueue.isNotEmpty()) {
             val rect = toLoadQueue.removeFirst()
+            toLoadQueued.remove(rect)
             // Защита от race: между постановкой в очередь и запуском rect мог стать неактуальным.
             if (rect !in needed) continue
             if (loadingJobs.containsKey(rect)) continue
@@ -384,6 +407,7 @@ class TiledImageViewerState(
             // pump'нет его на следующем кадре, когда какой-нибудь out-of-viewport отменится.
             if (loadingJobs.size >= MAX_INFLIGHT_JOBS) {
                 toLoadQueue.addFirst(rect)
+                toLoadQueued.add(rect)
                 break
             }
             loadingJobs[rect] = targetScope.launch(Dispatchers.IO) {
@@ -494,6 +518,7 @@ class TiledImageViewerState(
 
     fun dispose() {
         toLoadQueue.clear()
+        toLoadQueued.clear()
         // Один cancel вместо forEach — заодно отменяет всё, что в полёте.
         lodScope?.cancel()
         lodScope = null

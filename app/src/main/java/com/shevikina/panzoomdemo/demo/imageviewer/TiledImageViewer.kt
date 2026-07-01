@@ -193,7 +193,7 @@ private fun TiledImageViewerContent(
                 val centroid = event.calculateCentroid(useCurrent = false)
                 val uptimeMillis = event.changes.first().uptimeMillis
 
-                panZoom.onZoom(zoom)
+                panZoom.onZoom(zoom, centroid)
                 panZoom.onPan(pan, uptimeMillis, centroid)
 
                 event.changes.forEach { it.consume() }

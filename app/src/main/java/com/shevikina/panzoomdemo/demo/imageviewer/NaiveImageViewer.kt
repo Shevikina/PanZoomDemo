@@ -42,9 +42,9 @@ fun NaiveImageViewer(
         bitmap = bitmap.asImageBitmap(),
         scale = state.scale,
         offset = state.offset,
-        onGesture = { pan, zoom ->
-            state.onPan(pan, 0L, Offset.Zero)
-            state.onZoom(zoom)
+        onGesture = { centroid, pan, zoom ->
+            state.onPan(pan, 0L, centroid)
+            state.onZoom(zoom, centroid)
         },
         modifier = modifier
     )
@@ -55,14 +55,14 @@ private fun NaiveImageViewerContent(
     bitmap: ImageBitmap,
     scale: Float,
     offset: Offset,
-    onGesture: (pan: Offset, zoom: Float) -> Unit,
+    onGesture: (centroid: Offset, pan: Offset, zoom: Float) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
         modifier
             .fillMaxSize()
             .pointerInput(Unit) {
-                detectTransformGestures { _, pan, zoom, _ -> onGesture(pan, zoom) }
+                detectTransformGestures { centroid, pan, zoom, _ -> onGesture(centroid, pan, zoom) }
             }
     ) {
         // Параметрическая форма graphicsLayer читает state в Composition → каждый MOVE вызывает рекомпозицию.
@@ -88,7 +88,7 @@ private fun NaiveImageViewerContentPreview() {
             bitmap = bitmapForPreview,
             scale = 1.4f,
             offset = Offset(5f, 3f),
-            onGesture = { _, _ -> }
+            onGesture = { _, _, _ -> }
         )
     }
 }
