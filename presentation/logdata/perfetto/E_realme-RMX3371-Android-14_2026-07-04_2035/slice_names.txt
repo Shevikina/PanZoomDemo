@@ -1,0 +1,53 @@
+# Все слайсы в процессе com.shevikina.panzoomdemo (топ-50 по кол-ву)
+# name                                                    thread                     count
+# ────────────────────────────────────────────────────────────────────────────────────────
+  Recomposer:recompose                                    ina.panzoomdemo              903
+  Choreographer#scheduleVsyncLocked                       ina.panzoomdemo              896
+  Recomposer:animation                                    ina.panzoomdemo              896
+  animation                                               ina.panzoomdemo              896
+  processInputEventForCompatibility                       ina.panzoomdemo              448
+  AndroidOwner:onTouch                                    ina.panzoomdemo              429
+  input                                                   ina.panzoomdemo              427
+  Drawing  0.00  0.00 1080.00 2400.00                     RenderThread                 411
+  DumpHWUIMEM                                             RenderThread                 411
+  HWUI:android.widget.FrameLayout                         ina.panzoomdemo              411
+  HWUI:android.widget.LinearLayout                        ina.panzoomdemo              411
+  HWUI:androidx.compose.ui.platform.AndroidComposeView    ina.panzoomdemo              411
+  HWUI:androidx.compose.ui.platform.ComposeView           ina.panzoomdemo              411
+  HWUI:com.android.internal.policy.DecorView              ina.panzoomdemo              411
+  Record View#draw()                                      ina.panzoomdemo              411
+  draw                                                    ina.panzoomdemo              411
+  eglMQuerySurface                                        RenderThread                 411
+  flush commands                                          RenderThread                 411
+  notifyFramePending                                      RenderThread                 411
+  postAndWait                                             ina.panzoomdemo              411
+  prepareTree                                             RenderThread                 411
+  renderFrameImpl                                         RenderThread                 411
+  reportMetricsWithPresentTime                            RenderThread                 411
+  scheduleTraversals                                      ina.panzoomdemo              411
+  syncFrameState                                          RenderThread                 411
+  traversal                                               ina.panzoomdemo              411
+  Compose:applyChanges                                    ina.panzoomdemo              406
+  Compose:recompose                                       ina.panzoomdemo              406
+  updateTiles                                             ina.panzoomdemo              380
+  Compose:sideeffects                                     ina.panzoomdemo              379
+  decodeTile.wait                                         DefaultDispatch              209
+  decodeTile.decode                                       DefaultDispatch              176
+  computePalette                                          ina.panzoomdemo              167
+  flushPendingTiles                                       ina.panzoomdemo              103
+  checkForSemanticsChanges                                ina.panzoomdemo               31
+  measureAndLayout                                        ina.panzoomdemo               31
+  sendAccessibilitySemanticsStructureChangeEvents         ina.panzoomdemo               31
+  sendSemanticsPropertyChangeEvents                       ina.panzoomdemo               31
+  updateSemanticsNodesCopyAndPanes                        ina.panzoomdemo               31
+  AndroidOwner:measureAndLayout                           ina.panzoomdemo               27
+  TextLayout:initLayout                                   ina.panzoomdemo               27
+  TextStringSimpleNode::measure                           ina.panzoomdemo               27
+  getAllUncoveredSemanticsNodesToIntObjectMap             ina.panzoomdemo               27
+  processGestureEvent coord:x=921.375 y=1207.5 rawX=921.375 rawY=1207.5 ina.panzoomdemo                5
+  processGestureEvent coord:x=686.125 y=1210.75 rawX=686.125 rawY=1210.75 ina.panzoomdemo                3
+  processGestureEvent coord:x=815.75 y=583.125 rawX=815.75 rawY=583.125 ina.panzoomdemo                3
+  processGestureEvent coord:x=917.5 y=1117.75 rawX=917.5 rawY=1117.75 ina.panzoomdemo                3
+  Texture upload(19197) 512x512                           RenderThread                   2
+  Texture upload(19229) 512x512                           RenderThread                   2
+  Texture upload(19239) 512x512                           RenderThread                   2
