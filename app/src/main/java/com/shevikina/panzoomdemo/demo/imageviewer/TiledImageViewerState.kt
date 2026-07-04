@@ -7,9 +7,9 @@ import android.os.SystemClock
 import android.os.Trace
 import android.util.Log
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.IntState
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import com.shevikina.panzoomdemo.demo.imageviewer.TiledImageViewerState.Companion.GRACE_FRAMES
@@ -25,6 +25,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.util.concurrent.ConcurrentHashMap
 
@@ -568,7 +569,7 @@ class TiledImageViewerState(
 }
 
 @Composable
-fun rememberTiledImageViewerState(assetName: String): TiledImageViewerState {
+fun rememberTiledImageViewerState(assetName: String): TiledImageViewerState? {
     val context = LocalContext.current
     val pool = remember {
         TilePool().apply {
@@ -583,26 +584,28 @@ fun rememberTiledImageViewerState(assetName: String): TiledImageViewerState {
         }
     }
 
-    val tiledImage = remember(assetName) {
-        // BitmapRegionDecoder требует seekable-источник. InputStream из assets'а такой
-        // создать невозможно без полной загрузки в JVM heap (это и было +35 МБ в overlay).
-        // Копируем asset в cacheDir один раз — дальше декодеры открывают файл через mmap.
-        val cacheFile = File(context.cacheDir, "tiled_$assetName")
-        if (!cacheFile.exists() || cacheFile.length() == 0L) {
-            cacheFile.parentFile?.mkdirs()
-            context.assets.open(assetName).use { input ->
-                cacheFile.outputStream().use { output -> input.copyTo(output) }
+    // BitmapRegionDecoder требует seekable-источник. InputStream из assets'а такой
+    // создать невозможно без полной загрузки в JVM heap (это и было +35 МБ в overlay).
+    // Копируем asset в cacheDir один раз — дальше декодеры открывают файл через mmap.
+    //
+    // Вся инициализация (file copy + BitmapRegionDecoder.newInstance × 3 + overview decode)
+    // вынесена в withContext(IO): BitmapFactory.decodeFile для overview на main thread
+    // блокировал Choreographer на ~900 мс и регистрировался как jank в JankStats.
+    val state = produceState<TiledImageViewerState?>(initialValue = null, key1 = assetName) {
+        val tiledImage = withContext(Dispatchers.IO) {
+            val cacheFile = File(context.cacheDir, "tiled_$assetName")
+            if (!cacheFile.exists() || cacheFile.length() == 0L) {
+                cacheFile.parentFile?.mkdirs()
+                context.assets.open(assetName).use { input ->
+                    cacheFile.outputStream().use { output -> input.copyTo(output) }
+                }
             }
+            TiledImage(cacheFile, pool)
         }
-        TiledImage(cacheFile, pool)
-    }
-    val state = remember(tiledImage) {
-        TiledImageViewerState(tiledImage, pool)
-    }
-
-    DisposableEffect(tiledImage) {
-        onDispose { state.dispose() }
+        val newState = TiledImageViewerState(tiledImage, pool)
+        value = newState
+        awaitDispose { newState.dispose() }
     }
 
-    return state
+    return state.value
 }

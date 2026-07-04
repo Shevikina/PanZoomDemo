@@ -41,7 +41,7 @@ fun TiledImageViewer(
     useGraphicsLayer: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val state = rememberTiledImageViewerState(assetName)
+    val state = rememberTiledImageViewerState(assetName) ?: return
     // Стабильный scope: не отменяется при рестарте LaunchedEffect на каждом событии жеста
     val tileScope = rememberCoroutineScope()
 
