@@ -1,0 +1,63 @@
+Applications Graphics Acceleration Info:
+Uptime: 7054425575 Realtime: 8148752130
+
+** Graphics info for pid 14857 [com.shevikina.panzoomdemo] **
+
+Stats since: 7054370809284423ns
+Total frames rendered: 1252
+Janky frames: 48 (3.83%)
+Janky frames (legacy): 43 (3.43%)
+50th percentile: 7ms
+90th percentile: 10ms
+95th percentile: 14ms
+99th percentile: 29ms
+Number Missed Vsync: 0
+Number High input latency: 1583
+Number Slow UI thread: 48
+Number Slow bitmap uploads: 0
+Number Slow issue draw commands: 13
+Number Frame deadline missed: 48
+Number Frame deadline missed (legacy): 39
+HISTOGRAM: 5ms=272 6ms=319 7ms=287 8ms=189 9ms=59 10ms=28 11ms=14 12ms=10 13ms=8 14ms=7 15ms=2 16ms=4 17ms=1 18ms=4 19ms=1 20ms=4 21ms=6 22ms=6 23ms=7 24ms=5 25ms=1 26ms=2 27ms=1 28ms=2 29ms=2 30ms=0 31ms=5 32ms=1 34ms=2 36ms=0 38ms=3 40ms=0 42ms=0 44ms=0 46ms=0 48ms=0 53ms=0 57ms=0 61ms=0 65ms=0 69ms=0 73ms=0 77ms=0 81ms=0 85ms=0 89ms=0 93ms=0 97ms=0 101ms=0 105ms=0 109ms=0 113ms=0 117ms=0 121ms=0 125ms=0 129ms=0 133ms=0 150ms=0 200ms=0 250ms=0 300ms=0 350ms=0 400ms=0 450ms=0 500ms=0 550ms=0 600ms=0 650ms=0 700ms=0 750ms=0 800ms=0 850ms=0 900ms=0 950ms=0 1000ms=0 1050ms=0 1100ms=0 1150ms=0 1200ms=0 1250ms=0 1300ms=0 1350ms=0 1400ms=0 1450ms=0 1500ms=0 1550ms=0 1600ms=0 1650ms=0 1700ms=0 1750ms=0 1800ms=0 1850ms=0 1900ms=0 1950ms=0 2000ms=0 2050ms=0 2100ms=0 2150ms=0 2200ms=0 2250ms=0 2300ms=0 2350ms=0 2400ms=0 2450ms=0 2500ms=0 2550ms=0 2600ms=0 2650ms=0 2700ms=0 2750ms=0 2800ms=0 2850ms=0 2900ms=0 2950ms=0 3000ms=0 3050ms=0 3100ms=0 3150ms=0 3200ms=0 3250ms=0 3300ms=0 3350ms=0 3400ms=0 3450ms=0 3500ms=0 3550ms=0 3600ms=0 3650ms=0 3700ms=0 3750ms=0 3800ms=0 3850ms=0 3900ms=0 3950ms=0 4000ms=0 4050ms=0 4100ms=0 4150ms=0 4200ms=0 4250ms=0 4300ms=0 4350ms=0 4400ms=0 4450ms=0 4500ms=0 4550ms=0 4600ms=0 4650ms=0 4700ms=0 4750ms=0 4800ms=0 4850ms=0 4900ms=0 4950ms=0
+50th gpu percentile: 3ms
+90th gpu percentile: 3ms
+95th gpu percentile: 4ms
+99th gpu percentile: 9ms
+GPU HISTOGRAM: 1ms=0 2ms=64 3ms=1094 4ms=51 5ms=3 6ms=5 7ms=4 8ms=6 9ms=17 10ms=7 11ms=0 12ms=1 13ms=0 14ms=0 15ms=0 16ms=0 17ms=0 18ms=0 19ms=0 20ms=0 21ms=0 22ms=0 23ms=0 24ms=0 25ms=0 4950ms=0
+
+Pipeline=Skia (OpenGL)
+Memory policy:
+  Max surface area: 2592000
+  Max resource usage: 373.25MB (x144)
+  Background retention: 50% (altUiHidden = true)
+  GPU Context timeout: 10
+Contexts: 1 (stopped = 0)
+CPU Caches:
+  Glyph Cache: 64.65 KB (1 entry)
+  Glyph Count: 8 
+Total CPU memory usage:
+  66198 bytes, 64.65 KB (0.00 bytes is purgeable)
+GPU Caches:
+  Other:
+    Other: 9.44 KB (1 entry)
+  Image:
+    Texture: 27.35 MB (25 entries)
+  Scratch:
+    Buffer Object: 78.00 KB (2 entries)
+    Texture: 5.81 MB (2 entries)
+Total GPU memory usage:
+  34864388 bytes, 33.25 MB (20.16 MB is purgeable)
+
+Profile data in ms:
+
+	com.shevikina.panzoomdemo/com.shevikina.panzoomdemo.MainActivity/android.view.ViewRootImpl@36896f4 (visibility=0)
+View hierarchy:
+
+  com.shevikina.panzoomdemo/com.shevikina.panzoomdemo.MainActivity/android.view.ViewRootImpl@36896f4
+  12 views, 24,02 kB of render nodes
+
+
+Total ViewRootImpl   : 1
+Total attached Views : 12
+Total RenderNode     : 24,02 kB (used) / 63,81 kB (capacity)
+
