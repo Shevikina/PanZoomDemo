@@ -85,63 +85,63 @@ animation-recompose на каждый кадр на протяжении все�
 
 ### Frames (SurfaceFlinger)
 
-| Метрика | Значение |
-|---------|----------|
-| Всего фреймов | 411 |
-| smooth | 364 (88.6%) |
-| Buffer Stuffing | 41 (10.0%) — on_time=1, не дроп |
-| **App Deadline Missed** | **4 (1.0%)** |
-| Display HAL, App Deadline Missed | 2 (0.5%) |
-| late (on_time=0) | 10 (2.4%) |
-| avg frame dur | 7.75 ms |
-| max frame dur | 28.98 ms |
+| Метрика                          | Значение                        |
+|----------------------------------|---------------------------------|
+| Всего фреймов                    | 411                             |
+| smooth                           | 364 (88.6%)                     |
+| Buffer Stuffing                  | 41 (10.0%) — on_time=1, не дроп |
+| **App Deadline Missed**          | **4 (1.0%)**                    |
+| Display HAL, App Deadline Missed | 2 (0.5%)                        |
+| late (on_time=0)                 | 10 (2.4%)                       |
+| avg frame dur                    | 7.75 ms                         |
+| max frame dur                    | 28.98 ms                        |
 
 ### Custom slices (Trace.beginSection)
 
-| Секция | count | avg | max | total |
-|--------|------:|----:|----:|------:|
-| `updateTiles` | 380 | 0.21 ms | 3.87 ms | 81 ms |
-| `flushPendingTiles` | 103 | 0.01 ms | 0.04 ms | 1 ms |
-| `decodeTile.decode` | 176 | 38.77 ms | 88.78 ms | 6.8 s |
-| `decodeTile.wait` | 209 | ~~167 ms~~ | ~~5166 ms~~ | — (недостоверно) |
+| Секция              | count |        avg |         max |            total |
+|---------------------|------:|-----------:|------------:|-----------------:|
+| `updateTiles`       |   380 |    0.21 ms |     3.87 ms |            81 ms |
+| `flushPendingTiles` |   103 |    0.01 ms |     0.04 ms |             1 ms |
+| `decodeTile.decode` |   176 |   38.77 ms |    88.78 ms |            6.8 s |
+| `decodeTile.wait`   |   209 | ~~167 ms~~ | ~~5166 ms~~ | — (недостоверно) |
 
 ### Recompositions
 
-| Имя | count |
-|-----|------:|
-| `Recomposer:recompose` | 903 |
-| `Recomposer:animation` | 896 |
-| `Compose:recompose` | 406 |
-| **Итого** | **2205** |
+| Имя                    |    count |
+|------------------------|---------:|
+| `Recomposer:recompose` |      903 |
+| `Recomposer:animation` |      896 |
+| `Compose:recompose`    |      406 |
+| **Итого**              | **2205** |
 
 Rate: **147.8/sec** | avg: **0.28ms** | total CPU: **621.6ms**
 
 ### Main thread top
 
-| Слайс | count | avg | max | total |
-|-------|------:|----:|----:|------:|
-| `Choreographer#doFrame` | 896 | 1.98 ms | 14.04 ms | 1776 ms |
-| `deliverInputEvent` | 44 | 1.47 ms | 3.89 ms | 65 ms |
-| `checkForSemanticsChanges` | 31 | 1.37 ms | 4.39 ms | 42 ms |
-| `Choreographer#onVsync` | 896 | 0.04 ms | 0.27 ms | 39 ms |
+| Слайс                      | count |     avg |      max |   total |
+|----------------------------|------:|--------:|---------:|--------:|
+| `Choreographer#doFrame`    |   896 | 1.98 ms | 14.04 ms | 1776 ms |
+| `deliverInputEvent`        |    44 | 1.47 ms |  3.89 ms |   65 ms |
+| `checkForSemanticsChanges` |    31 | 1.37 ms |  4.39 ms |   42 ms |
+| `Choreographer#onVsync`    |   896 | 0.04 ms |  0.27 ms |   39 ms |
 
 ---
 
 ## A vs E — сравнение (graphicsLayer ON vs OFF)
 
-| Метрика | A — GL=ON | E — GL=OFF | Δ |
-|---------|:---------:|:----------:|:--|
-| smooth | 434 (91.6%) | 364 (88.6%) | −3 п.п. |
-| App Deadline Missed | 4 | 4 + 2 HAL | +2 ⚠️ |
-| late frames | 6 (1.3%) | 10 (2.4%) | +67% |
-| doFrame avg | 1.71 ms | 1.98 ms | **+16%** |
-| doFrame max | 12.17 ms | 14.04 ms | +15% |
-| doFrame total | 1472 ms | 1776 ms | **+21%** |
-| `Recomposer:recompose` | 904 | 903 | ≈ одинаково |
-| `Recomposer:animation` | 896 | 896 | = одинаково |
-| **`Compose:recompose`** | **30** | **406** | **×13.5 ❌** |
-| recompose avg duration | 0.14 ms | 0.28 ms | **×2** |
-| **recompose total CPU** | **250 ms** | **621 ms** | **×2.5 ❌** |
+| Метрика                 |  A — GL=ON  | E — GL=OFF  | Δ           |
+|-------------------------|:-----------:|:-----------:|:------------|
+| smooth                  | 434 (91.6%) | 364 (88.6%) | −3 п.п.     |
+| App Deadline Missed     |      4      |  4 + 2 HAL  | +2 ⚠️       |
+| late frames             |  6 (1.3%)   |  10 (2.4%)  | +67%        |
+| doFrame avg             |   1.71 ms   |   1.98 ms   | **+16%**    |
+| doFrame max             |  12.17 ms   |  14.04 ms   | +15%        |
+| doFrame total           |   1472 ms   |   1776 ms   | **+21%**    |
+| `Recomposer:recompose`  |     904     |     903     | ≈ одинаково |
+| `Recomposer:animation`  |     896     |     896     | = одинаково |
+| **`Compose:recompose`** |   **30**    |   **406**   | **×13.5 ❌** |
+| recompose avg duration  |   0.14 ms   |   0.28 ms   | **×2**      |
+| **recompose total CPU** | **250 ms**  | **621 ms**  | **×2.5 ❌**  |
 
 ### Выводы
 
@@ -188,3 +188,25 @@ Perfetto-значения wait — артефакт, не реальность.
 - `Recomposer:recompose` — фактический recompose-цикл Compose Runtime
 - `Recomposer:animation` — кадр анимации (AnimationState/Animatable/animate*)
 - `Compose:recompose` — точечный recompose малого scope (InvalidationResult)
+
+# Perfetto UI/Profiller
+
+Через web-версию вьювера Perfetto не удалось качественно оценить треки в разных сценариях и
+подтвердить корректность скриптов-парсеров.
+
+Для подтверждения использовался Profiler - при открытии
+`E_realme-RMX3371-Android-14_2026-07-04_2035.perfetto-trace` и
+`A3_realme-RMX3371-Android-14_2026-07-04_2013.perfetto-trace` через профайлер мы видим явное
+подтверждение сказанных ранее в презентации утверждений и корректности парсинг-скриптов:
+
+- в панеле `Analytics->All Frames->All Frames` видно, что данные идентичны данным, полученным через
+  парсер и находящихся в `frames.csv`
+- В расшифровке главного треда `ina.panzoomdemo` явно видна работа поздней трансформации:
+    - Для каждого кадра в кейсе с включенными всеми оптимизациями(Сценарий А) отсутствует слой
+      рекомпозиции Recomposer:recompose->Compose:recompose (
+      см ![А3_perfetto.png](logdata/perfetto/A3_realme-RMX3371-Android-14_2026-07-04_2013/%D0%903_perfetto.png))
+      который явно присутствует в кейсе вылюченного тумблера GL (
+      см ![E_perfetto.png](logdata/perfetto/E_realme-RMX3371-Android-14_2026-07-04_2035/E_perfetto.png))
+
+Увидеть оптимизацию не через цифры на моем устройстве, к сожалению, нельзя. В большей степени как
+проблема, так и решение относится к слабеньким старым устройствам.
