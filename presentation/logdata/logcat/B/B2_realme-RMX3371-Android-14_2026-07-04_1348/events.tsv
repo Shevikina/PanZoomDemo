@@ -1,0 +1,1844 @@
+rel_sec	level	tag	message
+0.0	D	PanZoomDemo	Image test_image_small.jpg is open. Size: 242905 bytes
+1.774	D	PanZoomDemo	Toggle Tiling: true
+1.774	D	PanZoomDemo	Toggle Culling: enabled true (доступен только вместе с Tiling)
+1.774	D	PanZoomDemo	Toggle LOD: enabled true (доступен только вместе с Tiling)
+1.774	D	PanZoomDemo	Toggle GraphicsLayer: enabled true (доступен только вместе с Tiling)
+1.783	D	PanZoomDemo	Image test_image_large.jpg is open. Size: 36868477 bytes
+2.176	D	PanZoomDemo	Toggle Culling: true
+2.607	D	PanZoomDemo	Toggle LOD: true
+2.809	D	PanZoomDemo	overview: ss=32 size=937×937px
+2.825	D	PanZoomDemo	recompose[TiledImageViewer] #1 | activeTiles=0
+2.828	D	PanZoomDemo	recompose[Content] #1 | tiles=0 graphicsLayer=false
+2.832	D	PanZoomDemo	updateTiles: scale=1,00 sampleSize=1 needed=15 +15 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=0
+2.843	D	PanZoomDemo	updateTiles: done in 12ms | active=0 pending=0 loading=15 launched=15 toLoadQueue=0
+2.847	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=0 pending=0 loading=14
+2.859	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=0 pending=0 loading=12
+2.872	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=11
+2.888	D	PanZoomDemo	flush: +3 tiles in 0ms | active=7 fallback=0 pending=0 loading=8
+2.922	D	PanZoomDemo	flush: +3 tiles in 0ms | active=10 fallback=0 pending=0 loading=5
+2.93	D	PanZoomDemo	Toggle GraphicsLayer: true
+2.937	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=0 pending=0 loading=4
+2.941	D	PanZoomDemo	recompose[TiledImageViewer] #2 | activeTiles=11
+2.942	D	PanZoomDemo	recompose[Content] #2 | tiles=11 graphicsLayer=true
+2.954	D	PanZoomDemo	flush: +2 tiles in 1ms | active=13 fallback=0 pending=0 loading=2
+2.971	D	PanZoomDemo	flush: +1 tiles in 0ms | active=14 fallback=0 pending=0 loading=1
+2.988	D	PanZoomDemo	flush: +1 tiles in 0ms | active=15 fallback=0 pending=0 loading=0
+3.855	D	PanZoomDemo	frameLoop: 62fps | flushed=15/s recycled=0/s pumped=0/s active=15 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+6.156	D	PanZoomDemo	updateTiles: scale=0,87 sampleSize=1 needed=18 +3 -0 cancel=0 stalePending=0 | active=15 fallback=0 pending=0 loading=0
+6.156	D	PanZoomDemo	updateTiles: done in 1ms | active=15 pending=0 loading=3 launched=3 toLoadQueue=0
+6.204	D	PanZoomDemo	updateTiles: scale=0,71 sampleSize=1 needed=21 +3 -0 cancel=0 stalePending=0 | active=15 fallback=0 pending=1 loading=2
+6.205	D	PanZoomDemo	updateTiles: done in 2ms | active=15 pending=1 loading=5 launched=3 toLoadQueue=0
+6.206	D	PanZoomDemo	flush: +1 tiles in 0ms | active=16 fallback=0 pending=0 loading=5
+6.22	D	PanZoomDemo	updateTiles: scale=0,62 sampleSize=1 needed=32 +11 -0 cancel=0 stalePending=0 | active=16 fallback=0 pending=2 loading=3
+6.221	D	PanZoomDemo	updateTiles: done in 2ms | active=16 pending=2 loading=14 launched=11 toLoadQueue=0
+6.222	D	PanZoomDemo	flush: +2 tiles in 0ms | active=18 fallback=0 pending=0 loading=14
+6.238	D	PanZoomDemo	updateTiles: scale=0,53 sampleSize=1 needed=36 +4 -0 cancel=0 stalePending=0 | active=18 fallback=0 pending=0 loading=14
+6.238	D	PanZoomDemo	updateTiles: done in 1ms | active=18 pending=0 loading=18 launched=4 toLoadQueue=0
+6.254	D	PanZoomDemo	updateTiles: scale=0,46 sampleSize=1 needed=50 +14 -0 cancel=0 stalePending=0 | active=18 fallback=0 pending=0 loading=18
+6.257	D	PanZoomDemo	updateTiles: done in 3ms | active=18 pending=0 loading=32 launched=14 toLoadQueue=0
+6.27	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+6.27	D	PanZoomDemo	updateTiles: scale=0,36 sampleSize=1 needed=78 +28 -0 cancel=0 stalePending=0 | active=18 fallback=0 pending=1 loading=31
+6.273	D	PanZoomDemo	updateTiles: done in 3ms | active=18 pending=1 loading=59 launched=28 toLoadQueue=0
+6.273	D	PanZoomDemo	flush: +1 tiles in 0ms | active=19 fallback=0 pending=0 loading=59
+6.288	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+6.289	D	PanZoomDemo	updateTiles: scale=0,21 sampleSize=1 needed=220 +142 -0 cancel=0 stalePending=0 | active=19 fallback=0 pending=2 loading=57
+6.293	D	PanZoomDemo	updateTiles: done in 5ms | active=19 pending=4 loading=119 launched=64 toLoadQueue=78
+6.294	D	PanZoomDemo	flush: +4 tiles in 0ms | active=23 fallback=0 pending=0 loading=119
+6.314	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 23 active→fallback, dropped 0 old-fallback
+6.314	D	PanZoomDemo	updateTiles: scale=0,20 sampleSize=2 needed=253 +253 -0 cancel=0 stalePending=0 | active=0 fallback=23 pending=0 loading=0
+6.317	D	PanZoomDemo	updateTiles: done in 12ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=189
+6.325	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+6.325	D	PanZoomDemo	updateTiles: scale=0,18 sampleSize=2 needed=312 +59 -0 cancel=0 stalePending=0 | active=0 fallback=23 pending=0 loading=128
+6.327	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=120
+6.334	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+6.335	D	PanZoomDemo	updateTiles: scale=0,17 sampleSize=2 needed=351 +39 -0 cancel=0 stalePending=0 | active=0 fallback=23 pending=0 loading=256
+6.335	D	PanZoomDemo	updateTiles: done in 0ms | active=0 pending=0 loading=256 launched=0 toLoadQueue=95
+6.352	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=23
+6.352	D	PanZoomDemo	updateTiles: scale=0,17 sampleSize=4 needed=351 +351 -0 cancel=0 stalePending=0 | active=0 fallback=23 pending=0 loading=0
+6.354	D	PanZoomDemo	updateTiles: done in 16ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=287
+6.363	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=159
+6.385	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=23 pending=0 loading=255
+6.401	D	PanZoomDemo	flush: +6 tiles in 0ms | active=7 fallback=23 pending=0 loading=251
+6.418	D	PanZoomDemo	flush: +6 tiles in 0ms | active=13 fallback=23 pending=0 loading=250
+6.435	D	PanZoomDemo	flush: +3 tiles in 0ms | active=16 fallback=23 pending=0 loading=253
+6.452	D	PanZoomDemo	flush: +3 tiles in 0ms | active=19 fallback=23 pending=0 loading=253
+6.468	D	PanZoomDemo	flush: +2 tiles in 0ms | active=21 fallback=23 pending=0 loading=254
+6.485	D	PanZoomDemo	flush: +2 tiles in 0ms | active=23 fallback=23 pending=0 loading=254
+6.501	D	PanZoomDemo	flush: +2 tiles in 0ms | active=25 fallback=23 pending=0 loading=254
+6.518	D	PanZoomDemo	flush: +2 tiles in 0ms | active=27 fallback=23 pending=0 loading=254
+6.535	D	PanZoomDemo	flush: +3 tiles in 0ms | active=30 fallback=23 pending=0 loading=253
+6.551	D	PanZoomDemo	flush: +1 tiles in 1ms | active=31 fallback=23 pending=0 loading=255
+6.568	D	PanZoomDemo	flush: +2 tiles in 0ms | active=33 fallback=23 pending=0 loading=254
+6.585	D	PanZoomDemo	flush: +3 tiles in 0ms | active=36 fallback=23 pending=0 loading=253
+6.602	D	PanZoomDemo	flush: +1 tiles in 0ms | active=37 fallback=23 pending=0 loading=255
+6.618	D	PanZoomDemo	flush: +2 tiles in 1ms | active=39 fallback=23 pending=0 loading=255
+6.635	D	PanZoomDemo	flush: +2 tiles in 0ms | active=41 fallback=23 pending=0 loading=254
+6.652	D	PanZoomDemo	flush: +2 tiles in 0ms | active=43 fallback=23 pending=0 loading=254
+6.668	D	PanZoomDemo	flush: +2 tiles in 1ms | active=45 fallback=23 pending=0 loading=254
+6.685	D	PanZoomDemo	flush: +1 tiles in 0ms | active=46 fallback=23 pending=0 loading=255
+6.702	D	PanZoomDemo	flush: +2 tiles in 0ms | active=48 fallback=23 pending=0 loading=254
+6.718	D	PanZoomDemo	flush: +2 tiles in 1ms | active=50 fallback=23 pending=0 loading=254
+6.752	D	PanZoomDemo	flush: +3 tiles in 0ms | active=53 fallback=23 pending=0 loading=253
+6.784	D	PanZoomDemo	flush: +3 tiles in 0ms | active=56 fallback=23 pending=0 loading=253
+6.818	D	PanZoomDemo	flush: +2 tiles in 0ms | active=58 fallback=23 pending=0 loading=254
+6.835	D	PanZoomDemo	flush: +2 tiles in 0ms | active=60 fallback=23 pending=0 loading=254
+6.868	D	PanZoomDemo	flush: +3 tiles in 0ms | active=63 fallback=23 pending=0 loading=253
+6.885	D	PanZoomDemo	flush: +1 tiles in 0ms | active=64 fallback=23 pending=0 loading=255
+6.901	D	PanZoomDemo	flush: +1 tiles in 1ms | active=65 fallback=23 pending=0 loading=255
+6.902	D	PanZoomDemo	frameLoop: 61fps | flushed=72/s recycled=0/s pumped=385/s active=65 pending=0 loading=256 recyclePending=0 toLoadQueue=30
+6.919	D	PanZoomDemo	flush: +1 tiles in 0ms | active=66 fallback=23 pending=0 loading=255
+6.935	D	PanZoomDemo	flush: +2 tiles in 0ms | active=68 fallback=23 pending=0 loading=254
+6.968	D	PanZoomDemo	flush: +2 tiles in 1ms | active=70 fallback=23 pending=0 loading=254
+6.985	D	PanZoomDemo	flush: +1 tiles in 0ms | active=71 fallback=23 pending=0 loading=255
+7.003	D	PanZoomDemo	flush: +2 tiles in 1ms | active=73 fallback=23 pending=0 loading=254
+7.05	D	PanZoomDemo	updateTiles: done in 4ms | active=73 pending=2 loading=256 launched=2 toLoadQueue=20
+7.051	D	PanZoomDemo	flush: +2 tiles in 0ms | active=75 fallback=23 pending=0 loading=256
+7.059	D	PanZoomDemo	flush: +1 tiles in 0ms | active=76 fallback=23 pending=0 loading=256
+7.088	D	PanZoomDemo	flush: +2 tiles in 0ms | active=78 fallback=23 pending=0 loading=256
+7.119	D	PanZoomDemo	flush: +1 tiles in 0ms | active=79 fallback=23 pending=0 loading=256
+7.153	D	PanZoomDemo	flush: +2 tiles in 0ms | active=81 fallback=23 pending=0 loading=256
+7.175	D	PanZoomDemo	fallback culled: 18 rects out of viewport (remain=5)
+7.175	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=4 needed=210 +0 -38 cancel=89 stalePending=0 | active=81 fallback=5 pending=1 loading=166
+7.175	D	PanZoomDemo	updateTiles: done in 7ms | active=43 pending=1 loading=166 launched=0 toLoadQueue=0
+7.176	D	PanZoomDemo	flush: +1 tiles in 0ms | active=44 fallback=5 pending=0 loading=166
+7.187	D	PanZoomDemo	updateTiles: scale=0,24 sampleSize=4 needed=200 +0 -0 cancel=10 stalePending=0 | active=44 fallback=5 pending=0 loading=156
+7.187	D	PanZoomDemo	updateTiles: done in 2ms | active=44 pending=0 loading=156 launched=0 toLoadQueue=0
+7.205	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=4)
+7.206	D	PanZoomDemo	updateTiles: scale=0,25 sampleSize=4 needed=162 +0 -13 cancel=24 stalePending=1 | active=44 fallback=4 pending=1 loading=130
+7.206	D	PanZoomDemo	updateTiles: done in 3ms | active=31 pending=1 loading=130 launched=0 toLoadQueue=0
+7.206	D	PanZoomDemo	flush: +1 tiles in 0ms | active=32 fallback=4 pending=0 loading=130
+7.252	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+7.254	D	PanZoomDemo	fallback culled: 4 rects out of viewport (remain=0)
+7.254	D	PanZoomDemo	updateTiles: scale=0,28 sampleSize=4 needed=136 +0 -4 cancel=21 stalePending=1 | active=32 fallback=0 pending=0 loading=108
+7.254	D	PanZoomDemo	updateTiles: done in 2ms | active=28 pending=0 loading=108 launched=0 toLoadQueue=0
+7.254	D	PanZoomDemo	flush: +1 tiles in 1ms | active=29 fallback=0 pending=0 loading=107
+7.269	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+7.269	D	PanZoomDemo	updateTiles: scale=0,31 sampleSize=4 needed=128 +0 -8 cancel=0 stalePending=0 | active=29 fallback=0 pending=0 loading=107
+7.269	D	PanZoomDemo	updateTiles: done in 0ms | active=21 pending=0 loading=107 launched=0 toLoadQueue=0
+7.294	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 1 pending, promoted 21 active→fallback, dropped 0 old-fallback
+7.295	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=18)
+7.295	D	PanZoomDemo	updateTiles: scale=0,33 sampleSize=2 needed=105 +105 -0 cancel=0 stalePending=0 | active=0 fallback=18 pending=0 loading=0
+7.299	D	PanZoomDemo	updateTiles: done in 14ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=41
+7.307	D	PanZoomDemo	fallback culled: 7 rects out of viewport (remain=11)
+7.307	D	PanZoomDemo	updateTiles: scale=0,35 sampleSize=2 needed=98 +0 -0 cancel=7 stalePending=0 | active=0 fallback=11 pending=0 loading=98
+7.319	D	PanZoomDemo	updateTiles: scale=0,37 sampleSize=2 needed=91 +0 -0 cancel=7 stalePending=0 | active=0 fallback=11 pending=0 loading=91
+7.336	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=10)
+7.336	D	PanZoomDemo	updateTiles: scale=0,39 sampleSize=2 needed=78 +0 -0 cancel=13 stalePending=0 | active=0 fallback=10 pending=0 loading=78
+7.354	D	PanZoomDemo	fallback culled: 4 rects out of viewport (remain=6)
+7.354	D	PanZoomDemo	updateTiles: scale=0,41 sampleSize=2 needed=72 +0 -0 cancel=6 stalePending=0 | active=0 fallback=6 pending=0 loading=72
+7.371	D	PanZoomDemo	updateTiles: scale=0,41 sampleSize=2 needed=66 +0 -0 cancel=6 stalePending=0 | active=0 fallback=6 pending=0 loading=66
+7.371	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=66 launched=0 toLoadQueue=0
+7.419	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=6 pending=0 loading=65
+7.453	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=6 pending=0 loading=63
+7.469	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=6 pending=0 loading=62
+7.502	D	PanZoomDemo	flush: +2 tiles in 0ms | active=6 fallback=6 pending=0 loading=60
+7.535	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=6 pending=0 loading=59
+7.552	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=6 pending=0 loading=58
+7.569	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=6 pending=0 loading=57
+7.603	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=5)
+7.603	D	PanZoomDemo	updateTiles: scale=0,49 sampleSize=2 needed=55 +0 -1 cancel=9 stalePending=1 | active=9 fallback=5 pending=1 loading=46
+7.603	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=1 loading=46 launched=0 toLoadQueue=0
+7.603	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=5 pending=0 loading=46
+7.619	D	PanZoomDemo	fallback culled: 5 rects out of viewport (remain=0)
+7.62	D	PanZoomDemo	updateTiles: scale=0,51 sampleSize=2 needed=45 +0 -5 cancel=5 stalePending=0 | active=9 fallback=0 pending=0 loading=41
+7.62	D	PanZoomDemo	updateTiles: done in 1ms | active=4 pending=0 loading=41 launched=0 toLoadQueue=0
+7.651	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+7.652	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=0 pending=0 loading=40
+7.669	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+7.67	D	PanZoomDemo	updateTiles: scale=0,59 sampleSize=2 needed=36 +0 -2 cancel=7 stalePending=0 | active=5 fallback=0 pending=2 loading=31
+7.67	D	PanZoomDemo	updateTiles: done in 1ms | active=3 pending=2 loading=31 launched=0 toLoadQueue=0
+7.67	D	PanZoomDemo	flush: +2 tiles in 0ms | active=5 fallback=0 pending=0 loading=31
+7.688	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, promoted 5 active→fallback, dropped 0 old-fallback
+7.689	D	PanZoomDemo	updateTiles: scale=0,61 sampleSize=1 needed=32 +32 -0 cancel=0 stalePending=0 | active=0 fallback=5 pending=0 loading=0
+7.693	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=32 launched=32 toLoadQueue=0
+7.752	D	PanZoomDemo	fallback culled: 4 rects out of viewport (remain=1)
+7.752	D	PanZoomDemo	updateTiles: scale=0,70 sampleSize=1 needed=28 +0 -0 cancel=4 stalePending=0 | active=0 fallback=1 pending=0 loading=28
+7.835	D	PanZoomDemo	updateTiles: scale=0,79 sampleSize=1 needed=24 +0 -0 cancel=4 stalePending=0 | active=0 fallback=1 pending=1 loading=23
+7.835	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=1 pending=0 loading=23
+7.885	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=1 pending=0 loading=21
+7.918	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=1 pending=0 loading=20
+7.918	D	PanZoomDemo	frameLoop: 61fps | flushed=36/s recycled=119/s pumped=49/s active=4 pending=0 loading=20 recyclePending=0 toLoadQueue=0
+7.953	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=1 pending=0 loading=19
+7.968	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=1 pending=0 loading=18
+7.985	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=1 pending=0 loading=17
+8.019	D	PanZoomDemo	updateTiles: scale=1,03 sampleSize=1 needed=18 +0 -2 cancel=4 stalePending=0 | active=7 fallback=1 pending=0 loading=13
+8.019	D	PanZoomDemo	updateTiles: done in 1ms | active=5 pending=0 loading=13 launched=0 toLoadQueue=0
+8.051	D	PanZoomDemo	flush: +2 tiles in 0ms | active=7 fallback=1 pending=0 loading=11
+8.069	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=0)
+8.069	D	PanZoomDemo	updateTiles: scale=1,09 sampleSize=1 needed=15 +0 -2 cancel=1 stalePending=0 | active=7 fallback=0 pending=0 loading=10
+8.069	D	PanZoomDemo	updateTiles: done in 0ms | active=5 pending=0 loading=10 launched=0 toLoadQueue=0
+8.085	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=0 pending=0 loading=9
+8.102	D	PanZoomDemo	updateTiles: scale=1,13 sampleSize=1 needed=10 +0 -2 cancel=3 stalePending=0 | active=6 fallback=0 pending=0 loading=6
+8.102	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=0 loading=6 launched=0 toLoadQueue=0
+8.119	D	PanZoomDemo	updateTiles: scale=1,15 sampleSize=1 needed=8 +0 -0 cancel=2 stalePending=0 | active=4 fallback=0 pending=0 loading=4
+8.219	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=0 pending=0 loading=3
+8.252	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=0 pending=0 loading=2
+8.285	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=0 pending=0 loading=1
+8.301	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=0 pending=0 loading=0
+8.635	D	PanZoomDemo	updateTiles: scale=2,15 sampleSize=1 needed=6 +0 -2 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=0
+8.635	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=0 launched=0 toLoadQueue=0
+8.92	D	PanZoomDemo	frameLoop: 60fps | flushed=10/s recycled=9/s pumped=0/s active=6 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+9.019	D	PanZoomDemo	updateTiles: scale=2,50 sampleSize=1 needed=4 +0 -2 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+9.019	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=0 loading=0 launched=0 toLoadQueue=0
+9.933	D	PanZoomDemo	frameLoop: 61fps | flushed=0/s recycled=2/s pumped=0/s active=4 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+10.135	D	PanZoomDemo	updateTiles: scale=2,42 sampleSize=1 needed=6 +2 -0 cancel=0 stalePending=0 | active=4 fallback=0 pending=0 loading=0
+10.135	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=0 loading=2 launched=2 toLoadQueue=0
+10.166	D	PanZoomDemo	updateTiles: scale=1,95 sampleSize=1 needed=8 +2 -0 cancel=0 stalePending=0 | active=4 fallback=0 pending=0 loading=2
+10.167	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=0 loading=4 launched=2 toLoadQueue=0
+10.217	D	PanZoomDemo	updateTiles: scale=1,00 sampleSize=1 needed=24 +16 -0 cancel=0 stalePending=0 | active=4 fallback=0 pending=2 loading=2
+10.219	D	PanZoomDemo	updateTiles: done in 2ms | active=4 pending=2 loading=18 launched=16 toLoadQueue=0
+10.219	D	PanZoomDemo	flush: +2 tiles in 0ms | active=6 fallback=0 pending=0 loading=18
+10.233	D	PanZoomDemo	updateTiles: scale=0,53 sampleSize=1 needed=45 +21 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=18
+10.235	D	PanZoomDemo	updateTiles: done in 3ms | active=6 pending=0 loading=39 launched=21 toLoadQueue=0
+10.25	D	PanZoomDemo	updateTiles: scale=0,48 sampleSize=1 needed=50 +5 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=39
+10.25	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=0 loading=44 launched=5 toLoadQueue=0
+10.267	D	PanZoomDemo	updateTiles: scale=0,47 sampleSize=1 needed=66 +16 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=44
+10.27	D	PanZoomDemo	updateTiles: done in 4ms | active=6 pending=0 loading=60 launched=16 toLoadQueue=0
+10.283	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=0 pending=0 loading=59
+10.3	D	PanZoomDemo	flush: +2 tiles in 0ms | active=9 fallback=0 pending=0 loading=57
+10.351	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=0 pending=0 loading=56
+10.4	D	PanZoomDemo	flush: +2 tiles in 0ms | active=12 fallback=0 pending=0 loading=54
+10.433	D	PanZoomDemo	flush: +1 tiles in 0ms | active=13 fallback=0 pending=0 loading=53
+10.468	D	PanZoomDemo	flush: +1 tiles in 0ms | active=14 fallback=0 pending=0 loading=52
+10.484	D	PanZoomDemo	flush: +1 tiles in 1ms | active=15 fallback=0 pending=0 loading=51
+10.518	D	PanZoomDemo	flush: +1 tiles in 0ms | active=16 fallback=0 pending=0 loading=50
+10.582	D	PanZoomDemo	flush: +1 tiles in 0ms | active=17 fallback=0 pending=0 loading=49
+10.599	D	PanZoomDemo	flush: +1 tiles in 0ms | active=18 fallback=0 pending=0 loading=48
+10.615	D	PanZoomDemo	flush: +1 tiles in 1ms | active=19 fallback=0 pending=0 loading=47
+10.682	D	PanZoomDemo	flush: +2 tiles in 0ms | active=21 fallback=0 pending=0 loading=45
+10.699	D	PanZoomDemo	flush: +1 tiles in 0ms | active=22 fallback=0 pending=0 loading=44
+10.749	D	PanZoomDemo	flush: +1 tiles in 0ms | active=23 fallback=0 pending=2 loading=41
+10.766	D	PanZoomDemo	flush: +2 tiles in 0ms | active=25 fallback=0 pending=0 loading=41
+10.815	D	PanZoomDemo	flush: +2 tiles in 0ms | active=27 fallback=0 pending=0 loading=39
+10.849	D	PanZoomDemo	flush: +1 tiles in 1ms | active=28 fallback=0 pending=0 loading=38
+10.898	D	PanZoomDemo	flush: +1 tiles in 1ms | active=29 fallback=0 pending=0 loading=37
+10.915	D	PanZoomDemo	flush: +2 tiles in 0ms | active=31 fallback=0 pending=0 loading=35
+10.948	D	PanZoomDemo	flush: +1 tiles in 1ms | active=32 fallback=0 pending=0 loading=34
+10.949	D	PanZoomDemo	frameLoop: 61fps | flushed=26/s recycled=0/s pumped=0/s active=32 pending=0 loading=34 recyclePending=0 toLoadQueue=0
+11.031	D	PanZoomDemo	flush: +3 tiles in 0ms | active=35 fallback=0 pending=0 loading=31
+11.132	D	PanZoomDemo	flush: +1 tiles in 0ms | active=36 fallback=0 pending=0 loading=30
+11.149	D	PanZoomDemo	flush: +2 tiles in 0ms | active=38 fallback=0 pending=0 loading=28
+11.224	D	PanZoomDemo	flush: +1 tiles in 0ms | active=39 fallback=0 pending=0 loading=27
+11.232	D	PanZoomDemo	flush: +1 tiles in 0ms | active=40 fallback=0 pending=0 loading=26
+11.264	D	PanZoomDemo	flush: +1 tiles in 0ms | active=41 fallback=0 pending=0 loading=25
+11.287	D	PanZoomDemo	updateTiles: scale=0,54 sampleSize=1 needed=45 +0 -0 cancel=21 stalePending=0 | active=41 fallback=0 pending=0 loading=4
+11.287	D	PanZoomDemo	updateTiles: done in 5ms | active=41 pending=0 loading=4 launched=0 toLoadQueue=0
+11.3	D	PanZoomDemo	updateTiles: scale=0,57 sampleSize=1 needed=36 +0 -8 cancel=1 stalePending=0 | active=41 fallback=0 pending=0 loading=3
+11.3	D	PanZoomDemo	updateTiles: done in 1ms | active=33 pending=0 loading=3 launched=0 toLoadQueue=0
+11.316	D	PanZoomDemo	flush: +1 tiles in 0ms | active=34 fallback=0 pending=0 loading=2
+11.332	D	PanZoomDemo	updateTiles: scale=0,62 sampleSize=1 needed=32 +0 -4 cancel=0 stalePending=0 | active=34 fallback=0 pending=1 loading=1
+11.332	D	PanZoomDemo	updateTiles: done in 1ms | active=30 pending=1 loading=1 launched=0 toLoadQueue=0
+11.332	D	PanZoomDemo	flush: +1 tiles in 0ms | active=31 fallback=0 pending=0 loading=1
+11.367	D	PanZoomDemo	flush: +1 tiles in 0ms | active=32 fallback=0 pending=0 loading=0
+11.417	D	PanZoomDemo	updateTiles: scale=0,72 sampleSize=1 needed=28 +0 -4 cancel=0 stalePending=0 | active=32 fallback=0 pending=0 loading=0
+11.417	D	PanZoomDemo	updateTiles: done in 0ms | active=28 pending=0 loading=0 launched=0 toLoadQueue=0
+11.433	D	PanZoomDemo	updateTiles: scale=0,79 sampleSize=1 needed=24 +0 -4 cancel=0 stalePending=0 | active=28 fallback=0 pending=0 loading=0
+11.433	D	PanZoomDemo	updateTiles: done in 0ms | active=24 pending=0 loading=0 launched=0 toLoadQueue=0
+11.533	D	PanZoomDemo	updateTiles: scale=0,99 sampleSize=1 needed=18 +0 -6 cancel=0 stalePending=0 | active=24 fallback=0 pending=0 loading=0
+11.533	D	PanZoomDemo	updateTiles: done in 0ms | active=18 pending=0 loading=0 launched=0 toLoadQueue=0
+11.599	D	PanZoomDemo	updateTiles: scale=1,09 sampleSize=1 needed=15 +0 -3 cancel=0 stalePending=0 | active=18 fallback=0 pending=0 loading=0
+11.599	D	PanZoomDemo	updateTiles: done in 0ms | active=15 pending=0 loading=0 launched=0 toLoadQueue=0
+11.65	D	PanZoomDemo	updateTiles: scale=1,18 sampleSize=1 needed=8 +0 -7 cancel=0 stalePending=0 | active=15 fallback=0 pending=0 loading=0
+11.65	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=0 launched=0 toLoadQueue=0
+11.949	D	PanZoomDemo	updateTiles: scale=1,89 sampleSize=1 needed=6 +0 -2 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=0
+11.949	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=0 loading=0 launched=0 toLoadQueue=0
+11.966	D	PanZoomDemo	frameLoop: 61fps | flushed=12/s recycled=36/s pumped=0/s active=6 pending=0 loading=0 recyclePending=2 toLoadQueue=0
+12.383	D	PanZoomDemo	updateTiles: scale=3,34 sampleSize=1 needed=4 +0 -2 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+12.383	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=0 loading=0 launched=0 toLoadQueue=0
+12.982	D	PanZoomDemo	updateTiles: scale=4,96 sampleSize=1 needed=2 +0 -2 cancel=0 stalePending=0 | active=4 fallback=0 pending=0 loading=0
+12.982	D	PanZoomDemo	updateTiles: done in 1ms | active=2 pending=0 loading=0 launched=0 toLoadQueue=0
+12.983	D	PanZoomDemo	frameLoop: 61fps | flushed=0/s recycled=4/s pumped=0/s active=2 pending=0 loading=0 recyclePending=2 toLoadQueue=0
+13.715	D	PanZoomDemo	updateTiles: scale=5,17 sampleSize=1 needed=1 +0 -1 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=0
+13.715	D	PanZoomDemo	updateTiles: done in 0ms | active=1 pending=0 loading=0 launched=0 toLoadQueue=0
+13.799	D	PanZoomDemo	updateTiles: scale=5,17 sampleSize=1 needed=2 +1 -0 cancel=0 stalePending=0 | active=1 fallback=0 pending=0 loading=0
+13.799	D	PanZoomDemo	updateTiles: done in 0ms | active=1 pending=0 loading=1 launched=1 toLoadQueue=0
+13.897	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=0 pending=0 loading=0
+13.996	D	PanZoomDemo	frameLoop: 61fps | flushed=1/s recycled=3/s pumped=0/s active=2 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+14.414	D	PanZoomDemo	updateTiles: scale=2,95 sampleSize=1 needed=6 +4 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=0
+14.415	D	PanZoomDemo	updateTiles: done in 1ms | active=2 pending=0 loading=4 launched=4 toLoadQueue=0
+14.446	D	PanZoomDemo	updateTiles: scale=1,55 sampleSize=1 needed=8 +2 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=4
+14.447	D	PanZoomDemo	updateTiles: done in 1ms | active=2 pending=0 loading=6 launched=2 toLoadQueue=0
+14.48	D	PanZoomDemo	updateTiles: scale=1,32 sampleSize=1 needed=10 +2 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=6
+14.481	D	PanZoomDemo	updateTiles: done in 1ms | active=2 pending=0 loading=8 launched=2 toLoadQueue=0
+14.492	D	PanZoomDemo	updateTiles: scale=1,30 sampleSize=1 needed=15 +5 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=8
+14.493	D	PanZoomDemo	updateTiles: done in 1ms | active=2 pending=0 loading=13 launched=5 toLoadQueue=0
+14.496	D	PanZoomDemo	updateTiles: scale=1,30 sampleSize=1 needed=10 +0 -0 cancel=5 stalePending=0 | active=2 fallback=0 pending=1 loading=7
+14.496	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=0 pending=0 loading=7
+14.513	D	PanZoomDemo	updateTiles: scale=1,30 sampleSize=1 needed=8 +0 -0 cancel=2 stalePending=0 | active=3 fallback=0 pending=0 loading=5
+14.548	D	PanZoomDemo	flush: +2 tiles in 0ms | active=5 fallback=0 pending=0 loading=3
+14.563	D	PanZoomDemo	updateTiles: scale=1,30 sampleSize=1 needed=12 +4 -0 cancel=0 stalePending=0 | active=5 fallback=0 pending=0 loading=3
+14.563	D	PanZoomDemo	updateTiles: done in 0ms | active=5 pending=0 loading=7 launched=4 toLoadQueue=0
+14.579	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=0 pending=0 loading=6
+14.646	D	PanZoomDemo	flush: +2 tiles in 0ms | active=8 fallback=0 pending=0 loading=4
+14.662	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=0 pending=0 loading=3
+14.73	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=0 pending=0 loading=2
+14.746	D	PanZoomDemo	flush: +2 tiles in 0ms | active=12 fallback=0 pending=0 loading=0
+15.013	D	PanZoomDemo	frameLoop: 61fps | flushed=10/s recycled=0/s pumped=0/s active=12 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+15.352	D	PanZoomDemo	updateTiles: scale=1,71 sampleSize=1 needed=6 +0 -6 cancel=0 stalePending=0 | active=12 fallback=0 pending=0 loading=0
+15.352	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=0 loading=0 launched=0 toLoadQueue=0
+15.431	D	PanZoomDemo	updateTiles: scale=3,85 sampleSize=1 needed=3 +0 -3 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+15.431	D	PanZoomDemo	updateTiles: done in 0ms | active=3 pending=0 loading=0 launched=0 toLoadQueue=0
+15.448	D	PanZoomDemo	updateTiles: scale=4,21 sampleSize=1 needed=2 +0 -1 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=0
+15.448	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=0 loading=0 launched=0 toLoadQueue=0
+15.514	D	PanZoomDemo	updateTiles: scale=5,37 sampleSize=1 needed=1 +0 -1 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=0
+15.514	D	PanZoomDemo	updateTiles: done in 0ms | active=1 pending=0 loading=0 launched=0 toLoadQueue=0
+16.029	D	PanZoomDemo	frameLoop: 61fps | flushed=0/s recycled=11/s pumped=0/s active=1 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+17.262	D	PanZoomDemo	updateTiles: scale=4,85 sampleSize=1 needed=2 +1 -0 cancel=0 stalePending=0 | active=1 fallback=0 pending=0 loading=0
+17.263	D	PanZoomDemo	updateTiles: done in 1ms | active=1 pending=0 loading=1 launched=1 toLoadQueue=0
+17.278	D	PanZoomDemo	updateTiles: scale=3,64 sampleSize=1 needed=3 +1 -0 cancel=0 stalePending=0 | active=1 fallback=0 pending=0 loading=1
+17.278	D	PanZoomDemo	updateTiles: done in 1ms | active=1 pending=0 loading=2 launched=1 toLoadQueue=0
+17.294	D	PanZoomDemo	updateTiles: scale=1,99 sampleSize=1 needed=6 +3 -0 cancel=0 stalePending=0 | active=1 fallback=0 pending=0 loading=2
+17.294	D	PanZoomDemo	updateTiles: done in 0ms | active=1 pending=0 loading=5 launched=3 toLoadQueue=0
+17.311	D	PanZoomDemo	updateTiles: scale=1,50 sampleSize=1 needed=8 +2 -0 cancel=0 stalePending=0 | active=1 fallback=0 pending=0 loading=5
+17.311	D	PanZoomDemo	updateTiles: done in 0ms | active=1 pending=0 loading=7 launched=2 toLoadQueue=0
+17.361	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=0 pending=0 loading=6
+17.393	D	PanZoomDemo	flush: +2 tiles in 0ms | active=4 fallback=0 pending=0 loading=4
+17.426	D	PanZoomDemo	flush: +1 tiles in 1ms | active=5 fallback=0 pending=0 loading=3
+17.476	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=0 pending=0 loading=2
+17.493	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=0 pending=0 loading=1
+17.51	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=0 pending=0 loading=0
+17.997	D	PanZoomDemo	updateTiles: scale=2,18 sampleSize=1 needed=6 +0 -2 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=0
+17.997	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=0 loading=0 launched=0 toLoadQueue=0
+18.044	D	PanZoomDemo	frameLoop: 60fps | flushed=7/s recycled=2/s pumped=0/s active=6 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+18.177	D	PanZoomDemo	updateTiles: scale=4,25 sampleSize=1 needed=4 +0 -2 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+18.177	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=0 loading=0 launched=0 toLoadQueue=0
+18.244	D	PanZoomDemo	updateTiles: scale=4,75 sampleSize=1 needed=2 +0 -2 cancel=0 stalePending=0 | active=4 fallback=0 pending=0 loading=0
+18.245	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=0 loading=0 launched=0 toLoadQueue=0
+19.059	D	PanZoomDemo	frameLoop: 61fps | flushed=0/s recycled=4/s pumped=0/s active=2 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+22.14	D	PanZoomDemo	updateTiles: scale=4,39 sampleSize=1 needed=4 +2 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=0
+22.141	D	PanZoomDemo	updateTiles: done in 1ms | active=2 pending=0 loading=2 launched=2 toLoadQueue=0
+22.156	D	PanZoomDemo	updateTiles: scale=2,42 sampleSize=1 needed=6 +2 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=2
+22.157	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=0 loading=4 launched=2 toLoadQueue=0
+22.238	D	PanZoomDemo	flush: +1 tiles in 1ms | active=3 fallback=0 pending=0 loading=3
+22.255	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=2
+22.272	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=0 pending=0 loading=1
+22.305	D	PanZoomDemo	flush: +1 tiles in 1ms | active=6 fallback=0 pending=0 loading=0
+23.122	D	PanZoomDemo	frameLoop: 61fps | flushed=4/s recycled=0/s pumped=0/s active=6 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+27.437	D	PanZoomDemo	updateTiles: scale=4,83 sampleSize=1 needed=4 +0 -2 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+27.437	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=0 loading=0 launched=0 toLoadQueue=0
+27.451	D	PanZoomDemo	updateTiles: scale=6,73 sampleSize=1 needed=2 +0 -2 cancel=0 stalePending=0 | active=4 fallback=0 pending=0 loading=0
+27.451	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=0 loading=0 launched=0 toLoadQueue=0
+28.183	D	PanZoomDemo	frameLoop: 61fps | flushed=0/s recycled=4/s pumped=0/s active=2 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+28.866	D	PanZoomDemo	updateTiles: scale=5,25 sampleSize=1 needed=4 +2 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=0
+28.867	D	PanZoomDemo	updateTiles: done in 1ms | active=2 pending=0 loading=2 launched=2 toLoadQueue=0
+28.949	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=0 pending=0 loading=1
+28.966	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=0
+29.033	D	PanZoomDemo	updateTiles: scale=4,09 sampleSize=1 needed=6 +2 -0 cancel=0 stalePending=0 | active=4 fallback=0 pending=0 loading=0
+29.034	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=0 loading=2 launched=2 toLoadQueue=0
+29.132	D	PanZoomDemo	flush: +2 tiles in 0ms | active=6 fallback=0 pending=0 loading=0
+29.199	D	PanZoomDemo	frameLoop: 61fps | flushed=4/s recycled=0/s pumped=0/s active=6 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+29.516	D	PanZoomDemo	updateTiles: scale=1,74 sampleSize=1 needed=8 +2 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+29.516	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=0 loading=2 launched=2 toLoadQueue=0
+29.615	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=0 pending=0 loading=1
+29.632	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=0 pending=0 loading=0
+29.649	D	PanZoomDemo	updateTiles: scale=1,12 sampleSize=1 needed=10 +2 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=0
+29.649	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=2 launched=2 toLoadQueue=0
+29.763	D	PanZoomDemo	flush: +2 tiles in 0ms | active=10 fallback=0 pending=0 loading=0
+30.213	D	PanZoomDemo	frameLoop: 61fps | flushed=4/s recycled=0/s pumped=0/s active=10 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+30.348	D	PanZoomDemo	updateTiles: scale=1,89 sampleSize=1 needed=6 +0 -4 cancel=0 stalePending=0 | active=10 fallback=0 pending=0 loading=0
+30.349	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=0 loading=0 launched=0 toLoadQueue=0
+30.398	D	PanZoomDemo	updateTiles: scale=5,52 sampleSize=1 needed=2 +0 -4 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+30.398	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=0 loading=0 launched=0 toLoadQueue=0
+30.431	D	PanZoomDemo	updateTiles: scale=8,41 sampleSize=1 needed=1 +0 -1 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=0
+30.431	D	PanZoomDemo	updateTiles: done in 0ms | active=1 pending=0 loading=0 launched=0 toLoadQueue=0
+31.231	D	PanZoomDemo	frameLoop: 61fps | flushed=0/s recycled=9/s pumped=0/s active=1 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+31.431	D	PanZoomDemo	updateTiles: scale=7,86 sampleSize=1 needed=2 +1 -0 cancel=0 stalePending=0 | active=1 fallback=0 pending=0 loading=0
+31.431	D	PanZoomDemo	updateTiles: done in 0ms | active=1 pending=0 loading=1 launched=1 toLoadQueue=0
+31.53	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=0 pending=0 loading=0
+31.896	D	PanZoomDemo	updateTiles: scale=4,65 sampleSize=1 needed=4 +2 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=0
+31.896	D	PanZoomDemo	updateTiles: done in 1ms | active=2 pending=0 loading=2 launched=2 toLoadQueue=0
+31.929	D	PanZoomDemo	updateTiles: scale=4,35 sampleSize=1 needed=6 +2 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=2
+31.929	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=0 loading=4 launched=2 toLoadQueue=0
+31.962	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=0 pending=0 loading=3
+31.995	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=2
+32.045	D	PanZoomDemo	flush: +2 tiles in 0ms | active=6 fallback=0 pending=0 loading=0
+32.247	D	PanZoomDemo	frameLoop: 61fps | flushed=5/s recycled=0/s pumped=0/s active=6 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+32.629	D	PanZoomDemo	updateTiles: scale=1,54 sampleSize=1 needed=8 +2 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+32.629	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=2 launched=2 toLoadQueue=0
+32.729	D	PanZoomDemo	flush: +2 tiles in 0ms | active=8 fallback=0 pending=0 loading=0
+32.778	D	PanZoomDemo	updateTiles: scale=1,17 sampleSize=1 needed=12 +4 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=0
+32.778	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=4 launched=4 toLoadQueue=0
+32.811	D	PanZoomDemo	updateTiles: scale=1,13 sampleSize=1 needed=15 +3 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=4
+32.812	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=7 launched=3 toLoadQueue=0
+32.862	D	PanZoomDemo	updateTiles: scale=1,06 sampleSize=1 needed=18 +3 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=7
+32.862	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=10 launched=3 toLoadQueue=0
+32.878	D	PanZoomDemo	flush: +2 tiles in 0ms | active=10 fallback=0 pending=0 loading=8
+32.895	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=0 pending=0 loading=7
+32.961	D	PanZoomDemo	flush: +1 tiles in 1ms | active=12 fallback=0 pending=0 loading=6
+32.979	D	PanZoomDemo	updateTiles: scale=0,87 sampleSize=1 needed=24 +6 -0 cancel=0 stalePending=0 | active=12 fallback=0 pending=0 loading=6
+32.98	D	PanZoomDemo	updateTiles: done in 1ms | active=12 pending=0 loading=12 launched=6 toLoadQueue=0
+32.994	D	PanZoomDemo	updateTiles: scale=0,77 sampleSize=1 needed=28 +4 -0 cancel=0 stalePending=0 | active=12 fallback=0 pending=1 loading=11
+32.994	D	PanZoomDemo	updateTiles: done in 1ms | active=12 pending=1 loading=15 launched=4 toLoadQueue=0
+32.995	D	PanZoomDemo	flush: +1 tiles in 0ms | active=13 fallback=0 pending=0 loading=15
+33.011	D	PanZoomDemo	flush: +1 tiles in 0ms | active=14 fallback=0 pending=0 loading=14
+33.061	D	PanZoomDemo	flush: +1 tiles in 0ms | active=15 fallback=0 pending=0 loading=13
+33.079	D	PanZoomDemo	flush: +2 tiles in 0ms | active=17 fallback=0 pending=0 loading=11
+33.128	D	PanZoomDemo	flush: +1 tiles in 0ms | active=18 fallback=0 pending=0 loading=10
+33.144	D	PanZoomDemo	flush: +1 tiles in 0ms | active=19 fallback=0 pending=0 loading=9
+33.161	D	PanZoomDemo	flush: +1 tiles in 0ms | active=20 fallback=0 pending=0 loading=8
+33.228	D	PanZoomDemo	flush: +1 tiles in 0ms | active=21 fallback=0 pending=0 loading=7
+33.244	D	PanZoomDemo	flush: +1 tiles in 0ms | active=22 fallback=0 pending=0 loading=6
+33.261	D	PanZoomDemo	frameLoop: 61fps | flushed=16/s recycled=0/s pumped=0/s active=22 pending=0 loading=6 recyclePending=0 toLoadQueue=0
+33.277	D	PanZoomDemo	flush: +1 tiles in 0ms | active=23 fallback=0 pending=0 loading=5
+33.345	D	PanZoomDemo	flush: +1 tiles in 0ms | active=24 fallback=0 pending=0 loading=4
+33.361	D	PanZoomDemo	flush: +1 tiles in 0ms | active=25 fallback=0 pending=0 loading=3
+33.377	D	PanZoomDemo	flush: +1 tiles in 0ms | active=26 fallback=0 pending=0 loading=2
+33.443	D	PanZoomDemo	flush: +1 tiles in 0ms | active=27 fallback=0 pending=0 loading=1
+33.46	D	PanZoomDemo	flush: +1 tiles in 0ms | active=28 fallback=0 pending=0 loading=0
+33.928	D	PanZoomDemo	updateTiles: scale=0,77 sampleSize=1 needed=18 +0 -10 cancel=0 stalePending=0 | active=28 fallback=0 pending=0 loading=0
+33.928	D	PanZoomDemo	updateTiles: done in 0ms | active=18 pending=0 loading=0 launched=0 toLoadQueue=0
+33.944	D	PanZoomDemo	updateTiles: scale=1,19 sampleSize=1 needed=15 +0 -3 cancel=0 stalePending=0 | active=18 fallback=0 pending=0 loading=0
+33.944	D	PanZoomDemo	updateTiles: done in 0ms | active=15 pending=0 loading=0 launched=0 toLoadQueue=0
+33.961	D	PanZoomDemo	updateTiles: scale=1,75 sampleSize=1 needed=6 +0 -9 cancel=0 stalePending=0 | active=15 fallback=0 pending=0 loading=0
+33.961	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=0 launched=0 toLoadQueue=0
+34.062	D	PanZoomDemo	updateTiles: scale=3,67 sampleSize=1 needed=4 +0 -2 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+34.062	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=0 loading=0 launched=0 toLoadQueue=0
+34.128	D	PanZoomDemo	updateTiles: scale=4,10 sampleSize=1 needed=2 +0 -2 cancel=0 stalePending=0 | active=4 fallback=0 pending=0 loading=0
+34.128	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=0 loading=0 launched=0 toLoadQueue=0
+34.261	D	PanZoomDemo	frameLoop: 60fps | flushed=6/s recycled=26/s pumped=0/s active=2 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+34.644	D	PanZoomDemo	updateTiles: scale=4,06 sampleSize=1 needed=4 +2 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=0
+34.644	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=0 loading=2 launched=2 toLoadQueue=0
+34.676	D	PanZoomDemo	updateTiles: scale=3,42 sampleSize=1 needed=6 +2 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=2
+34.677	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=0 loading=4 launched=2 toLoadQueue=0
+34.726	D	PanZoomDemo	flush: +2 tiles in 0ms | active=4 fallback=0 pending=0 loading=2
+34.776	D	PanZoomDemo	flush: +1 tiles in 1ms | active=5 fallback=0 pending=0 loading=1
+34.793	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=0 pending=0 loading=0
+34.893	D	PanZoomDemo	updateTiles: scale=1,56 sampleSize=1 needed=8 +2 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+34.894	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=0 loading=2 launched=2 toLoadQueue=0
+34.91	D	PanZoomDemo	updateTiles: scale=1,39 sampleSize=1 needed=12 +4 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=2
+34.91	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=6 launched=4 toLoadQueue=0
+34.926	D	PanZoomDemo	updateTiles: scale=1,23 sampleSize=1 needed=15 +3 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=6
+34.927	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=9 launched=3 toLoadQueue=0
+34.959	D	PanZoomDemo	updateTiles: scale=0,93 sampleSize=1 needed=18 +3 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=9
+34.96	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=12 launched=3 toLoadQueue=0
+34.993	D	PanZoomDemo	updateTiles: scale=0,70 sampleSize=1 needed=32 +14 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=12
+34.993	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=26 launched=14 toLoadQueue=0
+35.01	D	PanZoomDemo	updateTiles: scale=0,60 sampleSize=1 needed=40 +8 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=2 loading=24
+35.01	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=2 loading=32 launched=8 toLoadQueue=0
+35.01	D	PanZoomDemo	flush: +2 tiles in 0ms | active=8 fallback=0 pending=0 loading=32
+35.026	D	PanZoomDemo	updateTiles: scale=0,55 sampleSize=1 needed=45 +5 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=1 loading=31
+35.026	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=1 loading=36 launched=5 toLoadQueue=0
+35.026	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=0 pending=0 loading=36
+35.043	D	PanZoomDemo	updateTiles: scale=0,50 sampleSize=1 needed=50 +5 -0 cancel=0 stalePending=0 | active=9 fallback=0 pending=0 loading=36
+35.043	D	PanZoomDemo	updateTiles: done in 0ms | active=9 pending=0 loading=41 launched=5 toLoadQueue=0
+35.059	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+35.06	D	PanZoomDemo	updateTiles: scale=0,45 sampleSize=1 needed=55 +5 -0 cancel=0 stalePending=0 | active=9 fallback=0 pending=0 loading=41
+35.06	D	PanZoomDemo	updateTiles: done in 1ms | active=9 pending=0 loading=46 launched=5 toLoadQueue=0
+35.076	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+35.076	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=1 needed=84 +29 -0 cancel=0 stalePending=0 | active=9 fallback=0 pending=0 loading=46
+35.078	D	PanZoomDemo	updateTiles: done in 3ms | active=9 pending=0 loading=75 launched=29 toLoadQueue=0
+35.088	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 9 active→fallback, dropped 0 old-fallback
+35.088	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=2 needed=91 +91 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=0
+35.089	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=27
+35.093	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=2 needed=78 +0 -0 cancel=9 stalePending=0 | active=0 fallback=9 pending=0 loading=55
+35.097	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=78 launched=23 toLoadQueue=0
+35.145	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=9 pending=0 loading=77
+35.159	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=9 pending=0 loading=75
+35.208	D	PanZoomDemo	flush: +2 tiles in 1ms | active=5 fallback=9 pending=0 loading=73
+35.226	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=9 pending=0 loading=72
+35.243	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=9 pending=0 loading=71
+35.259	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=9 pending=0 loading=70
+35.276	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=9 pending=0 loading=69
+35.276	D	PanZoomDemo	frameLoop: 61fps | flushed=16/s recycled=0/s pumped=0/s active=9 pending=0 loading=69 recyclePending=0 toLoadQueue=0
+35.309	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=9 pending=0 loading=68
+35.326	D	PanZoomDemo	flush: +2 tiles in 0ms | active=12 fallback=9 pending=0 loading=66
+35.375	D	PanZoomDemo	flush: +2 tiles in 0ms | active=14 fallback=9 pending=0 loading=64
+35.392	D	PanZoomDemo	flush: +1 tiles in 0ms | active=15 fallback=9 pending=0 loading=63
+35.425	D	PanZoomDemo	flush: +1 tiles in 1ms | active=16 fallback=9 pending=0 loading=62
+35.442	D	PanZoomDemo	flush: +1 tiles in 0ms | active=17 fallback=9 pending=0 loading=61
+35.458	D	PanZoomDemo	flush: +1 tiles in 0ms | active=18 fallback=9 pending=0 loading=60
+35.475	D	PanZoomDemo	flush: +1 tiles in 0ms | active=19 fallback=9 pending=0 loading=59
+35.508	D	PanZoomDemo	flush: +1 tiles in 1ms | active=20 fallback=9 pending=0 loading=58
+35.525	D	PanZoomDemo	flush: +2 tiles in 1ms | active=22 fallback=9 pending=0 loading=56
+35.592	D	PanZoomDemo	flush: +2 tiles in 0ms | active=24 fallback=9 pending=0 loading=54
+35.608	D	PanZoomDemo	flush: +1 tiles in 1ms | active=25 fallback=9 pending=0 loading=53
+35.641	D	PanZoomDemo	flush: +1 tiles in 1ms | active=26 fallback=9 pending=0 loading=52
+35.675	D	PanZoomDemo	flush: +1 tiles in 0ms | active=27 fallback=9 pending=0 loading=51
+35.691	D	PanZoomDemo	flush: +1 tiles in 0ms | active=28 fallback=9 pending=0 loading=50
+35.708	D	PanZoomDemo	flush: +1 tiles in 0ms | active=29 fallback=9 pending=0 loading=49
+35.758	D	PanZoomDemo	flush: +2 tiles in 0ms | active=31 fallback=9 pending=0 loading=47
+35.775	D	PanZoomDemo	flush: +1 tiles in 0ms | active=32 fallback=9 pending=0 loading=46
+35.824	D	PanZoomDemo	flush: +1 tiles in 0ms | active=33 fallback=9 pending=0 loading=45
+35.841	D	PanZoomDemo	flush: +1 tiles in 0ms | active=34 fallback=9 pending=0 loading=44
+35.858	D	PanZoomDemo	flush: +1 tiles in 0ms | active=35 fallback=9 pending=0 loading=43
+35.891	D	PanZoomDemo	flush: +1 tiles in 1ms | active=36 fallback=9 pending=0 loading=42
+35.941	D	PanZoomDemo	flush: +2 tiles in 0ms | active=38 fallback=9 pending=0 loading=40
+35.958	D	PanZoomDemo	flush: +1 tiles in 0ms | active=39 fallback=9 pending=0 loading=39
+36.02	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=2 needed=72 +0 -0 cancel=6 stalePending=0 | active=39 fallback=9 pending=1 loading=32
+36.025	D	PanZoomDemo	flush: +1 tiles in 0ms | active=40 fallback=9 pending=0 loading=32
+36.043	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+36.047	D	PanZoomDemo	updateTiles: scale=0,62 sampleSize=2 needed=32 +0 -21 cancel=19 stalePending=0 | active=40 fallback=9 pending=2 loading=11
+36.047	D	PanZoomDemo	updateTiles: done in 3ms | active=19 pending=2 loading=11 launched=0 toLoadQueue=0
+36.047	D	PanZoomDemo	flush: +2 tiles in 0ms | active=21 fallback=9 pending=0 loading=11
+36.058	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+36.059	D	PanZoomDemo	updateTiles: scale=0,91 sampleSize=2 needed=18 +0 -9 cancel=5 stalePending=0 | active=21 fallback=9 pending=0 loading=6
+36.059	D	PanZoomDemo	updateTiles: done in 0ms | active=12 pending=0 loading=6 launched=0 toLoadQueue=0
+36.075	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, promoted 12 active→fallback, dropped 9 old-fallback
+36.075	D	PanZoomDemo	updateTiles: scale=1,17 sampleSize=1 needed=15 +15 -0 cancel=0 stalePending=0 | active=0 fallback=12 pending=0 loading=0
+36.078	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=15 launched=15 toLoadQueue=0
+36.092	D	PanZoomDemo	fallback culled: 4 rects out of viewport (remain=8)
+36.092	D	PanZoomDemo	updateTiles: scale=1,44 sampleSize=1 needed=10 +0 -0 cancel=5 stalePending=0 | active=0 fallback=8 pending=0 loading=10
+36.109	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=6)
+36.109	D	PanZoomDemo	updateTiles: scale=1,72 sampleSize=1 needed=6 +0 -0 cancel=4 stalePending=0 | active=0 fallback=6 pending=0 loading=6
+36.209	D	PanZoomDemo	flush: +2 tiles in 0ms | active=2 fallback=6 pending=0 loading=4
+36.225	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=6 pending=0 loading=3
+36.292	D	PanZoomDemo	frameLoop: 61fps | flushed=36/s recycled=45/s pumped=0/s active=3 pending=0 loading=3 recyclePending=0 toLoadQueue=0
+36.31	D	PanZoomDemo	fallback released: 6 tiles (current LOD covers viewport)
+36.31	D	PanZoomDemo	flush: +3 tiles in 1ms | active=6 fallback=0 pending=0 loading=0
+37.309	D	PanZoomDemo	frameLoop: 61fps | flushed=3/s recycled=6/s pumped=0/s active=6 pending=0 loading=0 recyclePending=0 toLoadQueue=0
+37.659	D	PanZoomDemo	updateTiles: scale=1,70 sampleSize=1 needed=8 +2 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=0
+37.659	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=2 launched=2 toLoadQueue=0
+37.758	D	PanZoomDemo	updateTiles: scale=1,33 sampleSize=1 needed=12 +4 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=1 loading=1
+37.758	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=1 loading=5 launched=4 toLoadQueue=0
+37.759	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=0 pending=0 loading=5
+37.775	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=0 pending=0 loading=4
+37.807	D	PanZoomDemo	updateTiles: scale=1,15 sampleSize=1 needed=15 +3 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=4
+37.807	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=7 launched=3 toLoadQueue=0
+37.841	D	PanZoomDemo	updateTiles: scale=1,07 sampleSize=1 needed=18 +3 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=2 loading=5
+37.841	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=2 loading=8 launched=3 toLoadQueue=0
+37.841	D	PanZoomDemo	flush: +2 tiles in 0ms | active=10 fallback=0 pending=0 loading=8
+37.857	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=0 pending=0 loading=7
+37.89	D	PanZoomDemo	updateTiles: scale=0,84 sampleSize=1 needed=24 +6 -0 cancel=0 stalePending=0 | active=11 fallback=0 pending=0 loading=7
+37.891	D	PanZoomDemo	updateTiles: done in 0ms | active=11 pending=0 loading=13 launched=6 toLoadQueue=0
+37.908	D	PanZoomDemo	updateTiles: scale=0,77 sampleSize=1 needed=28 +4 -0 cancel=0 stalePending=0 | active=11 fallback=0 pending=0 loading=13
+37.909	D	PanZoomDemo	updateTiles: done in 1ms | active=11 pending=0 loading=17 launched=4 toLoadQueue=0
+37.909	D	PanZoomDemo	flush: +1 tiles in 0ms | active=12 fallback=0 pending=0 loading=16
+37.94	D	PanZoomDemo	updateTiles: scale=0,63 sampleSize=1 needed=32 +4 -0 cancel=0 stalePending=0 | active=12 fallback=0 pending=2 loading=14
+37.941	D	PanZoomDemo	updateTiles: done in 0ms | active=12 pending=2 loading=18 launched=4 toLoadQueue=0
+37.941	D	PanZoomDemo	flush: +2 tiles in 0ms | active=14 fallback=0 pending=0 loading=18
+37.957	D	PanZoomDemo	updateTiles: scale=0,55 sampleSize=1 needed=45 +13 -0 cancel=0 stalePending=0 | active=14 fallback=0 pending=0 loading=18
+37.958	D	PanZoomDemo	updateTiles: done in 1ms | active=14 pending=0 loading=31 launched=13 toLoadQueue=0
+37.974	D	PanZoomDemo	flush: +1 tiles in 0ms | active=15 fallback=0 pending=0 loading=30
+37.992	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+37.992	D	PanZoomDemo	updateTiles: scale=0,44 sampleSize=1 needed=66 +21 -0 cancel=0 stalePending=0 | active=15 fallback=0 pending=0 loading=30
+37.995	D	PanZoomDemo	updateTiles: done in 3ms | active=15 pending=0 loading=51 launched=21 toLoadQueue=0
+38.008	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+38.008	D	PanZoomDemo	updateTiles: scale=0,35 sampleSize=1 needed=98 +32 -0 cancel=0 stalePending=0 | active=15 fallback=0 pending=0 loading=51
+38.014	D	PanZoomDemo	updateTiles: done in 6ms | active=15 pending=0 loading=83 launched=32 toLoadQueue=0
+38.029	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 15 active→fallback, dropped 0 old-fallback
+38.029	D	PanZoomDemo	updateTiles: scale=0,32 sampleSize=2 needed=105 +105 -0 cancel=0 stalePending=0 | active=0 fallback=15 pending=0 loading=0
+38.032	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=41
+38.042	D	PanZoomDemo	updateTiles: scale=0,35 sampleSize=2 needed=98 +0 -0 cancel=7 stalePending=0 | active=0 fallback=15 pending=0 loading=98
+38.058	D	PanZoomDemo	updateTiles: scale=0,36 sampleSize=2 needed=91 +0 -0 cancel=7 stalePending=0 | active=0 fallback=15 pending=0 loading=91
+38.124	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=15 pending=0 loading=90
+38.14	D	PanZoomDemo	flush: +2 tiles in 1ms | active=3 fallback=15 pending=0 loading=88
+38.174	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=15 pending=0 loading=87
+38.207	D	PanZoomDemo	flush: +2 tiles in 0ms | active=6 fallback=15 pending=0 loading=85
+38.24	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=15 pending=0 loading=84
+38.257	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=15 pending=0 loading=83
+38.274	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=15 pending=0 loading=82
+38.29	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=15 pending=0 loading=81
+38.307	D	PanZoomDemo	frameLoop: 60fps | flushed=19/s recycled=0/s pumped=41/s active=10 pending=0 loading=81 recyclePending=0 toLoadQueue=0
+38.323	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=15 pending=0 loading=80
+38.34	D	PanZoomDemo	flush: +1 tiles in 0ms | active=12 fallback=15 pending=0 loading=79
+38.373	D	PanZoomDemo	flush: +1 tiles in 0ms | active=13 fallback=15 pending=0 loading=78
+38.39	D	PanZoomDemo	flush: +2 tiles in 0ms | active=15 fallback=15 pending=0 loading=76
+38.44	D	PanZoomDemo	flush: +2 tiles in 0ms | active=17 fallback=15 pending=0 loading=74
+38.473	D	PanZoomDemo	flush: +1 tiles in 0ms | active=18 fallback=15 pending=0 loading=73
+38.506	D	PanZoomDemo	flush: +1 tiles in 1ms | active=19 fallback=15 pending=0 loading=72
+38.523	D	PanZoomDemo	flush: +1 tiles in 0ms | active=20 fallback=15 pending=0 loading=71
+38.54	D	PanZoomDemo	flush: +1 tiles in 0ms | active=21 fallback=15 pending=0 loading=70
+38.556	D	PanZoomDemo	flush: +1 tiles in 0ms | active=22 fallback=15 pending=0 loading=69
+38.589	D	PanZoomDemo	flush: +1 tiles in 0ms | active=23 fallback=15 pending=0 loading=68
+38.622	D	PanZoomDemo	flush: +2 tiles in 0ms | active=25 fallback=15 pending=0 loading=66
+38.673	D	PanZoomDemo	flush: +1 tiles in 0ms | active=26 fallback=15 pending=0 loading=65
+38.689	D	PanZoomDemo	flush: +1 tiles in 0ms | active=27 fallback=15 pending=0 loading=64
+38.706	D	PanZoomDemo	flush: +1 tiles in 0ms | active=28 fallback=15 pending=0 loading=63
+38.756	D	PanZoomDemo	flush: +1 tiles in 0ms | active=29 fallback=15 pending=0 loading=62
+38.773	D	PanZoomDemo	flush: +1 tiles in 0ms | active=30 fallback=15 pending=0 loading=61
+38.79	D	PanZoomDemo	flush: +1 tiles in 0ms | active=31 fallback=15 pending=0 loading=60
+38.822	D	PanZoomDemo	flush: +1 tiles in 0ms | active=32 fallback=15 pending=0 loading=59
+38.856	D	PanZoomDemo	flush: +1 tiles in 0ms | active=33 fallback=15 pending=0 loading=58
+38.889	D	PanZoomDemo	flush: +2 tiles in 0ms | active=35 fallback=15 pending=0 loading=56
+38.955	D	PanZoomDemo	flush: +1 tiles in 0ms | active=36 fallback=15 pending=0 loading=55
+38.972	D	PanZoomDemo	flush: +2 tiles in 0ms | active=38 fallback=15 pending=0 loading=53
+39.039	D	PanZoomDemo	flush: +1 tiles in 0ms | active=39 fallback=15 pending=0 loading=52
+39.056	D	PanZoomDemo	flush: +1 tiles in 0ms | active=40 fallback=15 pending=0 loading=51
+39.073	D	PanZoomDemo	flush: +1 tiles in 0ms | active=41 fallback=15 pending=0 loading=50
+39.105	D	PanZoomDemo	flush: +1 tiles in 1ms | active=42 fallback=15 pending=0 loading=49
+39.156	D	PanZoomDemo	flush: +1 tiles in 0ms | active=43 fallback=15 pending=0 loading=48
+39.172	D	PanZoomDemo	flush: +1 tiles in 1ms | active=44 fallback=15 pending=0 loading=47
+39.189	D	PanZoomDemo	flush: +1 tiles in 0ms | active=45 fallback=15 pending=0 loading=46
+39.272	D	PanZoomDemo	flush: +2 tiles in 0ms | active=47 fallback=15 pending=0 loading=44
+39.295	D	PanZoomDemo	flush: +1 tiles in 0ms | active=48 fallback=15 pending=0 loading=43
+39.322	D	PanZoomDemo	frameLoop: 61fps | flushed=38/s recycled=0/s pumped=0/s active=48 pending=0 loading=43 recyclePending=0 toLoadQueue=0
+39.343	D	PanZoomDemo	updateTiles: scale=0,50 sampleSize=2 needed=60 +0 -12 cancel=19 stalePending=0 | active=48 fallback=15 pending=0 loading=24
+39.343	D	PanZoomDemo	updateTiles: done in 3ms | active=36 pending=0 loading=24 launched=0 toLoadQueue=0
+39.356	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+39.357	D	PanZoomDemo	updateTiles: scale=0,67 sampleSize=2 needed=32 +0 -14 cancel=14 stalePending=0 | active=36 fallback=15 pending=1 loading=9
+39.357	D	PanZoomDemo	updateTiles: done in 1ms | active=22 pending=1 loading=9 launched=0 toLoadQueue=0
+39.357	D	PanZoomDemo	flush: +1 tiles in 0ms | active=23 fallback=15 pending=0 loading=9
+39.375	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+39.377	D	PanZoomDemo	updateTiles: scale=0,81 sampleSize=2 needed=28 +0 -0 cancel=4 stalePending=0 | active=23 fallback=15 pending=0 loading=5
+39.39	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, promoted 23 active→fallback, dropped 15 old-fallback
+39.39	D	PanZoomDemo	fallback culled: 9 rects out of viewport (remain=14)
+39.39	D	PanZoomDemo	updateTiles: scale=0,95 sampleSize=1 needed=15 +15 -0 cancel=0 stalePending=0 | active=0 fallback=14 pending=0 loading=0
+39.392	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=15 launched=15 toLoadQueue=0
+39.439	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=12)
+39.439	D	PanZoomDemo	updateTiles: scale=1,50 sampleSize=1 needed=12 +0 -0 cancel=3 stalePending=0 | active=0 fallback=12 pending=0 loading=12
+39.456	D	PanZoomDemo	fallback culled: 6 rects out of viewport (remain=6)
+39.456	D	PanZoomDemo	updateTiles: scale=1,70 sampleSize=1 needed=6 +0 -0 cancel=6 stalePending=0 | active=0 fallback=6 pending=0 loading=6
+39.539	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=6 pending=0 loading=5
+39.572	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=3)
+39.573	D	PanZoomDemo	updateTiles: scale=2,34 sampleSize=1 needed=3 +0 -0 cancel=3 stalePending=0 | active=1 fallback=3 pending=1 loading=1
+39.573	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=3 pending=0 loading=1
+39.639	D	PanZoomDemo	fallback released: 3 tiles (current LOD covers viewport)
+39.639	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=0 pending=0 loading=0
+40.09	D	PanZoomDemo	updateTiles: scale=1,90 sampleSize=1 needed=9 +6 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=0
+40.091	D	PanZoomDemo	updateTiles: done in 2ms | active=3 pending=0 loading=6 launched=6 toLoadQueue=0
+40.106	D	PanZoomDemo	updateTiles: scale=1,40 sampleSize=1 needed=12 +3 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=6
+40.106	D	PanZoomDemo	updateTiles: done in 1ms | active=3 pending=0 loading=9 launched=3 toLoadQueue=0
+40.123	D	PanZoomDemo	updateTiles: scale=1,15 sampleSize=1 needed=15 +3 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=9
+40.123	D	PanZoomDemo	updateTiles: done in 0ms | active=3 pending=0 loading=12 launched=3 toLoadQueue=0
+40.139	D	PanZoomDemo	updateTiles: scale=0,83 sampleSize=1 needed=18 +3 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=12
+40.139	D	PanZoomDemo	updateTiles: done in 1ms | active=3 pending=0 loading=15 launched=3 toLoadQueue=0
+40.157	D	PanZoomDemo	updateTiles: scale=0,63 sampleSize=1 needed=40 +22 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=15
+40.161	D	PanZoomDemo	updateTiles: done in 4ms | active=3 pending=0 loading=37 launched=22 toLoadQueue=0
+40.172	D	PanZoomDemo	updateTiles: scale=0,57 sampleSize=1 needed=45 +5 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=37
+40.172	D	PanZoomDemo	updateTiles: done in 0ms | active=3 pending=0 loading=42 launched=5 toLoadQueue=0
+40.189	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=41
+40.206	D	PanZoomDemo	flush: +2 tiles in 0ms | active=6 fallback=0 pending=0 loading=39
+40.222	D	PanZoomDemo	updateTiles: scale=0,48 sampleSize=1 needed=55 +10 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=39
+40.222	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=0 loading=49 launched=10 toLoadQueue=0
+40.288	D	PanZoomDemo	flush: +2 tiles in 0ms | active=8 fallback=0 pending=0 loading=47
+40.305	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=0 pending=0 loading=46
+40.338	D	PanZoomDemo	frameLoop: 61fps | flushed=10/s recycled=64/s pumped=0/s active=9 pending=0 loading=46 recyclePending=0 toLoadQueue=0
+40.388	D	PanZoomDemo	flush: +2 tiles in 0ms | active=11 fallback=0 pending=0 loading=44
+40.421	D	PanZoomDemo	flush: +1 tiles in 0ms | active=12 fallback=0 pending=0 loading=43
+40.454	D	PanZoomDemo	flush: +1 tiles in 0ms | active=13 fallback=0 pending=0 loading=42
+40.471	D	PanZoomDemo	flush: +1 tiles in 0ms | active=14 fallback=0 pending=0 loading=41
+40.505	D	PanZoomDemo	flush: +1 tiles in 0ms | active=15 fallback=0 pending=0 loading=40
+40.538	D	PanZoomDemo	flush: +1 tiles in 0ms | active=16 fallback=0 pending=0 loading=39
+40.587	D	PanZoomDemo	flush: +2 tiles in 1ms | active=18 fallback=0 pending=0 loading=37
+40.621	D	PanZoomDemo	flush: +1 tiles in 0ms | active=19 fallback=0 pending=0 loading=36
+40.654	D	PanZoomDemo	flush: +2 tiles in 0ms | active=21 fallback=0 pending=0 loading=34
+40.737	D	PanZoomDemo	flush: +3 tiles in 1ms | active=24 fallback=0 pending=0 loading=31
+40.821	D	PanZoomDemo	flush: +1 tiles in 0ms | active=25 fallback=0 pending=0 loading=30
+40.838	D	PanZoomDemo	flush: +1 tiles in 0ms | active=26 fallback=0 pending=0 loading=29
+40.854	D	PanZoomDemo	flush: +1 tiles in 1ms | active=27 fallback=0 pending=0 loading=28
+40.92	D	PanZoomDemo	flush: +1 tiles in 0ms | active=28 fallback=0 pending=0 loading=27
+40.938	D	PanZoomDemo	flush: +1 tiles in 0ms | active=29 fallback=0 pending=0 loading=26
+40.954	D	PanZoomDemo	flush: +1 tiles in 0ms | active=30 fallback=0 pending=0 loading=25
+41.004	D	PanZoomDemo	flush: +2 tiles in 0ms | active=32 fallback=0 pending=0 loading=23
+41.021	D	PanZoomDemo	flush: +1 tiles in 0ms | active=33 fallback=0 pending=0 loading=22
+41.07	D	PanZoomDemo	flush: +1 tiles in 0ms | active=34 fallback=0 pending=0 loading=21
+41.088	D	PanZoomDemo	flush: +1 tiles in 0ms | active=35 fallback=0 pending=0 loading=20
+41.104	D	PanZoomDemo	flush: +1 tiles in 0ms | active=36 fallback=0 pending=0 loading=19
+41.162	D	PanZoomDemo	updateTiles: scale=0,45 sampleSize=1 needed=66 +11 -0 cancel=0 stalePending=0 | active=36 fallback=0 pending=1 loading=18
+41.164	D	PanZoomDemo	updateTiles: done in 3ms | active=36 pending=1 loading=29 launched=11 toLoadQueue=0
+41.164	D	PanZoomDemo	flush: +2 tiles in 0ms | active=38 fallback=0 pending=0 loading=28
+41.172	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+41.173	D	PanZoomDemo	updateTiles: scale=0,39 sampleSize=1 needed=72 +6 -0 cancel=0 stalePending=0 | active=38 fallback=0 pending=0 loading=28
+41.173	D	PanZoomDemo	updateTiles: done in 2ms | active=38 pending=0 loading=34 launched=6 toLoadQueue=0
+41.188	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+41.188	D	PanZoomDemo	updateTiles: scale=0,34 sampleSize=1 needed=98 +26 -0 cancel=0 stalePending=0 | active=38 fallback=0 pending=1 loading=33
+41.19	D	PanZoomDemo	updateTiles: done in 2ms | active=38 pending=1 loading=59 launched=26 toLoadQueue=0
+41.19	D	PanZoomDemo	flush: +1 tiles in 0ms | active=39 fallback=0 pending=0 loading=59
+41.21	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 39 active→fallback, dropped 0 old-fallback
+41.211	D	PanZoomDemo	updateTiles: scale=0,30 sampleSize=2 needed=128 +128 -0 cancel=0 stalePending=0 | active=0 fallback=39 pending=0 loading=0
+41.213	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=64
+41.222	D	PanZoomDemo	updateTiles: scale=0,27 sampleSize=2 needed=153 +25 -0 cancel=0 stalePending=0 | active=0 fallback=39 pending=0 loading=128
+41.226	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=153 launched=25 toLoadQueue=0
+41.238	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+41.238	D	PanZoomDemo	updateTiles: scale=0,22 sampleSize=2 needed=242 +89 -0 cancel=0 stalePending=0 | active=0 fallback=39 pending=0 loading=153
+41.243	D	PanZoomDemo	updateTiles: done in 6ms | active=0 pending=0 loading=217 launched=64 toLoadQueue=25
+41.254	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+41.255	D	PanZoomDemo	updateTiles: scale=0,15 sampleSize=2 needed=465 +223 -0 cancel=0 stalePending=0 | active=0 fallback=39 pending=0 loading=242
+41.256	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=256 launched=14 toLoadQueue=209
+41.296	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=39
+41.296	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=4 needed=924 +924 -0 cancel=0 stalePending=0 | active=0 fallback=39 pending=0 loading=0
+41.302	D	PanZoomDemo	updateTiles: done in 30ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=860
+41.309	D	PanZoomDemo	LOD debounce: reset, desired=8 (was pending=4 streak=0)
+41.31	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=4 needed=990 +66 -0 cancel=0 stalePending=0 | active=0 fallback=39 pending=0 loading=128
+41.316	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=798
+41.327	D	PanZoomDemo	LOD debounce: hold ss=4, desired=8 streak=2/3
+41.361	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=8 | discarded 1 pending, active empty, fallback kept=39
+41.361	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=8 needed=990 +990 -0 cancel=0 stalePending=0 | active=0 fallback=39 pending=0 loading=0
+41.366	D	PanZoomDemo	updateTiles: done in 28ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=926
+41.378	D	PanZoomDemo	frameLoop: 60fps | flushed=30/s recycled=0/s pumped=345/s active=0 pending=0 loading=192 recyclePending=0 toLoadQueue=798
+41.455	D	PanZoomDemo	flush: +4 tiles in 0ms | active=4 fallback=39 pending=0 loading=256
+41.47	D	PanZoomDemo	flush: +4 tiles in 0ms | active=8 fallback=39 pending=0 loading=252
+41.487	D	PanZoomDemo	flush: +4 tiles in 0ms | active=12 fallback=39 pending=0 loading=252
+41.503	D	PanZoomDemo	flush: +5 tiles in 0ms | active=17 fallback=39 pending=0 loading=251
+41.521	D	PanZoomDemo	flush: +4 tiles in 0ms | active=21 fallback=39 pending=0 loading=252
+41.537	D	PanZoomDemo	flush: +3 tiles in 0ms | active=24 fallback=39 pending=0 loading=253
+41.554	D	PanZoomDemo	flush: +4 tiles in 0ms | active=28 fallback=39 pending=0 loading=252
+41.57	D	PanZoomDemo	flush: +4 tiles in 1ms | active=32 fallback=39 pending=0 loading=253
+41.587	D	PanZoomDemo	flush: +3 tiles in 0ms | active=35 fallback=39 pending=1 loading=252
+41.603	D	PanZoomDemo	flush: +4 tiles in 0ms | active=39 fallback=39 pending=0 loading=253
+41.62	D	PanZoomDemo	flush: +2 tiles in 0ms | active=41 fallback=39 pending=0 loading=254
+41.637	D	PanZoomDemo	flush: +3 tiles in 0ms | active=44 fallback=39 pending=0 loading=253
+41.653	D	PanZoomDemo	flush: +2 tiles in 1ms | active=46 fallback=39 pending=0 loading=254
+41.67	D	PanZoomDemo	flush: +2 tiles in 0ms | active=48 fallback=39 pending=0 loading=254
+41.687	D	PanZoomDemo	flush: +3 tiles in 0ms | active=51 fallback=39 pending=0 loading=253
+41.703	D	PanZoomDemo	flush: +3 tiles in 0ms | active=54 fallback=39 pending=0 loading=253
+41.72	D	PanZoomDemo	flush: +1 tiles in 0ms | active=55 fallback=39 pending=0 loading=255
+41.736	D	PanZoomDemo	flush: +3 tiles in 0ms | active=58 fallback=39 pending=0 loading=253
+41.753	D	PanZoomDemo	flush: +3 tiles in 0ms | active=61 fallback=39 pending=0 loading=253
+41.77	D	PanZoomDemo	flush: +1 tiles in 0ms | active=62 fallback=39 pending=0 loading=255
+41.787	D	PanZoomDemo	flush: +3 tiles in 0ms | active=65 fallback=39 pending=0 loading=253
+41.803	D	PanZoomDemo	flush: +2 tiles in 0ms | active=67 fallback=39 pending=0 loading=254
+41.82	D	PanZoomDemo	flush: +1 tiles in 0ms | active=68 fallback=39 pending=0 loading=255
+41.836	D	PanZoomDemo	flush: +2 tiles in 0ms | active=70 fallback=39 pending=0 loading=254
+41.853	D	PanZoomDemo	flush: +2 tiles in 0ms | active=72 fallback=39 pending=0 loading=254
+41.87	D	PanZoomDemo	flush: +1 tiles in 0ms | active=73 fallback=39 pending=0 loading=255
+41.896	D	PanZoomDemo	updateTiles: scale=0,14 sampleSize=8 needed=561 +0 -73 cancel=84 stalePending=2 | active=73 fallback=39 pending=0 loading=170
+41.902	D	PanZoomDemo	updateTiles: done in 14ms | active=0 pending=0 loading=234 launched=64 toLoadQueue=327
+41.907	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=8 streak=0)
+41.915	D	PanZoomDemo	fallback culled: 10 rects out of viewport (remain=29)
+41.915	D	PanZoomDemo	updateTiles: scale=0,22 sampleSize=8 needed=231 +0 -0 cancel=146 stalePending=0 | active=0 fallback=29 pending=0 loading=110
+41.918	D	PanZoomDemo	updateTiles: done in 11ms | active=0 pending=0 loading=174 launched=64 toLoadQueue=57
+41.923	D	PanZoomDemo	LOD debounce: hold ss=8, desired=4 streak=2/3
+41.929	D	PanZoomDemo	fallback culled: 14 rects out of viewport (remain=15)
+41.93	D	PanZoomDemo	updateTiles: scale=0,28 sampleSize=8 needed=153 +0 -0 cancel=78 stalePending=0 | active=0 fallback=15 pending=0 loading=153
+41.93	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=153 launched=0 toLoadQueue=0
+41.947	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=15
+41.947	D	PanZoomDemo	fallback culled: 4 rects out of viewport (remain=11)
+41.947	D	PanZoomDemo	updateTiles: scale=0,33 sampleSize=4 needed=112 +112 -0 cancel=0 stalePending=0 | active=0 fallback=11 pending=0 loading=0
+41.951	D	PanZoomDemo	updateTiles: done in 14ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=48
+41.957	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+41.96	D	PanZoomDemo	fallback culled: 6 rects out of viewport (remain=5)
+41.961	D	PanZoomDemo	updateTiles: scale=0,38 sampleSize=4 needed=78 +0 -0 cancel=34 stalePending=0 | active=0 fallback=5 pending=0 loading=78
+41.961	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=78 launched=0 toLoadQueue=0
+41.97	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+41.971	D	PanZoomDemo	updateTiles: scale=0,41 sampleSize=4 needed=72 +0 -0 cancel=6 stalePending=0 | active=0 fallback=5 pending=0 loading=72
+41.996	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, active empty, fallback kept=5
+41.996	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=2)
+41.996	D	PanZoomDemo	updateTiles: scale=0,46 sampleSize=2 needed=60 +60 -0 cancel=0 stalePending=0 | active=0 fallback=2 pending=0 loading=0
+42.002	D	PanZoomDemo	updateTiles: done in 15ms | active=0 pending=0 loading=60 launched=60 toLoadQueue=0
+42.006	D	PanZoomDemo	updateTiles: scale=0,51 sampleSize=2 needed=50 +0 -0 cancel=10 stalePending=0 | active=0 fallback=2 pending=0 loading=50
+42.006	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=50 launched=0 toLoadQueue=0
+42.021	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+42.022	D	PanZoomDemo	updateTiles: scale=0,56 sampleSize=2 needed=45 +0 -0 cancel=5 stalePending=0 | active=0 fallback=2 pending=0 loading=45
+42.037	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+42.038	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=0)
+42.038	D	PanZoomDemo	updateTiles: scale=0,61 sampleSize=2 needed=40 +0 -0 cancel=5 stalePending=0 | active=0 fallback=0 pending=0 loading=40
+42.059	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback dropped
+42.059	D	PanZoomDemo	updateTiles: scale=0,64 sampleSize=1 needed=40 +40 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=0
+42.062	D	PanZoomDemo	updateTiles: done in 9ms | active=0 pending=0 loading=40 launched=40 toLoadQueue=0
+42.071	D	PanZoomDemo	updateTiles: scale=0,68 sampleSize=1 needed=35 +0 -0 cancel=5 stalePending=0 | active=0 fallback=0 pending=0 loading=35
+42.088	D	PanZoomDemo	updateTiles: scale=0,73 sampleSize=1 needed=21 +0 -0 cancel=14 stalePending=0 | active=0 fallback=0 pending=0 loading=21
+42.089	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=21 launched=0 toLoadQueue=0
+42.154	D	PanZoomDemo	updateTiles: scale=0,85 sampleSize=1 needed=18 +0 -0 cancel=3 stalePending=0 | active=0 fallback=0 pending=0 loading=18
+42.32	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=0 pending=0 loading=17
+42.337	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=0 pending=0 loading=16
+42.386	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=0 pending=0 loading=15
+42.387	D	PanZoomDemo	frameLoop: 61fps | flushed=75/s recycled=112/s pumped=260/s active=3 pending=0 loading=15 recyclePending=0 toLoadQueue=0
+42.419	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=14
+42.486	D	PanZoomDemo	flush: +1 tiles in 1ms | active=5 fallback=0 pending=0 loading=13
+42.536	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=0 pending=1 loading=11
+42.553	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=0 pending=0 loading=11
+42.621	D	PanZoomDemo	updateTiles: scale=0,70 sampleSize=1 needed=32 +14 -0 cancel=0 stalePending=0 | active=7 fallback=0 pending=0 loading=11
+42.623	D	PanZoomDemo	updateTiles: done in 2ms | active=7 pending=0 loading=25 launched=14 toLoadQueue=0
+42.639	D	PanZoomDemo	updateTiles: scale=0,56 sampleSize=1 needed=40 +8 -0 cancel=0 stalePending=0 | active=7 fallback=0 pending=0 loading=25
+42.641	D	PanZoomDemo	updateTiles: done in 2ms | active=7 pending=0 loading=33 launched=8 toLoadQueue=0
+42.653	D	PanZoomDemo	updateTiles: scale=0,51 sampleSize=1 needed=50 +10 -0 cancel=0 stalePending=0 | active=7 fallback=0 pending=1 loading=32
+42.654	D	PanZoomDemo	updateTiles: done in 1ms | active=7 pending=1 loading=42 launched=10 toLoadQueue=0
+42.654	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=0 pending=0 loading=42
+42.67	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=0 pending=0 loading=41
+42.687	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+42.687	D	PanZoomDemo	updateTiles: scale=0,43 sampleSize=1 needed=66 +16 -0 cancel=0 stalePending=0 | active=9 fallback=0 pending=0 loading=41
+42.688	D	PanZoomDemo	updateTiles: done in 2ms | active=9 pending=0 loading=57 launched=16 toLoadQueue=0
+42.703	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+42.703	D	PanZoomDemo	updateTiles: scale=0,38 sampleSize=1 needed=91 +25 -0 cancel=0 stalePending=0 | active=9 fallback=0 pending=1 loading=56
+42.708	D	PanZoomDemo	updateTiles: done in 5ms | active=9 pending=1 loading=81 launched=25 toLoadQueue=0
+42.708	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=0 pending=0 loading=81
+42.728	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 10 active→fallback, dropped 0 old-fallback
+42.728	D	PanZoomDemo	updateTiles: scale=0,28 sampleSize=2 needed=153 +153 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=0
+42.734	D	PanZoomDemo	updateTiles: done in 14ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=89
+42.744	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+42.744	D	PanZoomDemo	updateTiles: scale=0,21 sampleSize=2 needed=242 +89 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=128
+42.751	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=50
+42.763	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+42.764	D	PanZoomDemo	updateTiles: scale=0,21 sampleSize=2 needed=253 +11 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=242
+42.764	D	PanZoomDemo	updateTiles: done in 1ms | active=0 pending=0 loading=253 launched=11 toLoadQueue=0
+42.793	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=10
+42.793	D	PanZoomDemo	updateTiles: scale=0,20 sampleSize=4 needed=253 +253 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=0
+42.797	D	PanZoomDemo	updateTiles: done in 27ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=189
+42.804	D	PanZoomDemo	updateTiles: scale=0,16 sampleSize=4 needed=364 +111 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=128
+42.805	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=172
+42.919	D	PanZoomDemo	flush: +2 tiles in 0ms | active=2 fallback=10 pending=0 loading=254
+42.986	D	PanZoomDemo	flush: +2 tiles in 0ms | active=4 fallback=10 pending=0 loading=254
+43.002	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=10 pending=0 loading=255
+43.052	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=10 pending=0 loading=255
+43.069	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=10 pending=0 loading=255
+43.102	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=10 pending=0 loading=255
+43.119	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=10 pending=0 loading=255
+43.155	D	PanZoomDemo	updateTiles: scale=0,16 sampleSize=4 needed=392 +28 -0 cancel=0 stalePending=0 | active=9 fallback=10 pending=0 loading=256
+43.155	D	PanZoomDemo	updateTiles: done in 1ms | active=9 pending=0 loading=256 launched=0 toLoadQueue=127
+43.173	D	PanZoomDemo	updateTiles: scale=0,16 sampleSize=4 needed=406 +14 -0 cancel=0 stalePending=0 | active=9 fallback=10 pending=1 loading=255
+43.174	D	PanZoomDemo	updateTiles: done in 2ms | active=9 pending=1 loading=256 launched=1 toLoadQueue=140
+43.174	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=10 pending=0 loading=256
+43.192	D	PanZoomDemo	updateTiles: scale=0,25 sampleSize=4 needed=180 +0 -10 cancel=94 stalePending=1 | active=10 fallback=10 pending=0 loading=162
+43.194	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=180 launched=18 toLoadQueue=0
+43.203	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+43.212	D	PanZoomDemo	updateTiles: scale=0,36 sampleSize=4 needed=98 +0 -0 cancel=82 stalePending=0 | active=0 fallback=10 pending=0 loading=98
+43.212	D	PanZoomDemo	updateTiles: done in 9ms | active=0 pending=0 loading=98 launched=0 toLoadQueue=0
+43.22	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+43.227	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=7)
+43.227	D	PanZoomDemo	updateTiles: scale=0,53 sampleSize=4 needed=45 +0 -0 cancel=53 stalePending=0 | active=0 fallback=7 pending=0 loading=45
+43.227	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=45 launched=0 toLoadQueue=0
+43.241	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, active empty, fallback kept=7
+43.241	D	PanZoomDemo	updateTiles: scale=0,63 sampleSize=2 needed=32 +32 -0 cancel=0 stalePending=0 | active=0 fallback=7 pending=0 loading=0
+43.246	D	PanZoomDemo	updateTiles: done in 9ms | active=0 pending=0 loading=32 launched=32 toLoadQueue=0
+43.253	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+43.253	D	PanZoomDemo	updateTiles: scale=0,69 sampleSize=2 needed=28 +0 -0 cancel=4 stalePending=0 | active=0 fallback=7 pending=0 loading=28
+43.269	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+43.291	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback kept=7
+43.291	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=4)
+43.291	D	PanZoomDemo	updateTiles: scale=0,83 sampleSize=1 needed=21 +21 -0 cancel=0 stalePending=0 | active=0 fallback=4 pending=0 loading=0
+43.294	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=21 launched=21 toLoadQueue=0
+43.304	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=3)
+43.304	D	PanZoomDemo	updateTiles: scale=0,92 sampleSize=1 needed=15 +0 -0 cancel=6 stalePending=0 | active=0 fallback=3 pending=0 loading=15
+43.404	D	PanZoomDemo	frameLoop: 60fps | flushed=16/s recycled=17/s pumped=251/s active=0 pending=0 loading=15 recyclePending=0 toLoadQueue=0
+43.471	D	PanZoomDemo	updateTiles: scale=1,40 sampleSize=1 needed=12 +0 -0 cancel=3 stalePending=0 | active=0 fallback=3 pending=0 loading=12
+43.503	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=3 pending=0 loading=11
+43.553	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=3 pending=0 loading=9
+43.652	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=3 pending=0 loading=8
+43.702	D	PanZoomDemo	flush: +2 tiles in 0ms | active=6 fallback=3 pending=0 loading=6
+43.755	D	PanZoomDemo	updateTiles: scale=1,29 sampleSize=1 needed=15 +3 -0 cancel=0 stalePending=0 | active=6 fallback=3 pending=0 loading=6
+43.755	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=9 launched=3 toLoadQueue=0
+43.803	D	PanZoomDemo	updateTiles: scale=0,68 sampleSize=1 needed=28 +13 -0 cancel=0 stalePending=0 | active=6 fallback=3 pending=0 loading=9
+43.806	D	PanZoomDemo	updateTiles: done in 3ms | active=6 pending=0 loading=22 launched=13 toLoadQueue=0
+43.819	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+43.819	D	PanZoomDemo	updateTiles: scale=0,44 sampleSize=1 needed=66 +38 -0 cancel=0 stalePending=0 | active=6 fallback=3 pending=1 loading=21
+43.825	D	PanZoomDemo	updateTiles: done in 6ms | active=6 pending=1 loading=59 launched=38 toLoadQueue=0
+43.825	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=3 pending=0 loading=59
+43.836	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+43.836	D	PanZoomDemo	updateTiles: scale=0,41 sampleSize=1 needed=72 +6 -0 cancel=0 stalePending=0 | active=7 fallback=3 pending=0 loading=59
+43.836	D	PanZoomDemo	updateTiles: done in 0ms | active=7 pending=0 loading=65 launched=6 toLoadQueue=0
+43.855	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 1 pending, promoted 7 active→fallback, dropped 3 old-fallback
+43.855	D	PanZoomDemo	updateTiles: scale=0,38 sampleSize=2 needed=72 +72 -0 cancel=0 stalePending=0 | active=0 fallback=7 pending=0 loading=0
+43.86	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=8
+43.869	D	PanZoomDemo	updateTiles: scale=0,36 sampleSize=2 needed=84 +12 -0 cancel=0 stalePending=0 | active=0 fallback=7 pending=0 loading=72
+43.871	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=84 launched=12 toLoadQueue=0
+43.887	D	PanZoomDemo	updateTiles: scale=0,35 sampleSize=2 needed=98 +14 -0 cancel=0 stalePending=0 | active=0 fallback=7 pending=0 loading=84
+43.889	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=98 launched=14 toLoadQueue=0
+43.903	D	PanZoomDemo	updateTiles: scale=0,31 sampleSize=2 needed=120 +22 -0 cancel=0 stalePending=0 | active=0 fallback=7 pending=0 loading=98
+43.904	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=120 launched=22 toLoadQueue=0
+43.92	D	PanZoomDemo	updateTiles: scale=0,28 sampleSize=2 needed=136 +16 -0 cancel=0 stalePending=0 | active=0 fallback=7 pending=0 loading=120
+43.921	D	PanZoomDemo	updateTiles: done in 1ms | active=0 pending=0 loading=136 launched=16 toLoadQueue=0
+44.001	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=7 pending=0 loading=135
+44.119	D	PanZoomDemo	flush: +3 tiles in 0ms | active=4 fallback=7 pending=0 loading=132
+44.202	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=7 pending=0 loading=131
+44.285	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=7 pending=0 loading=130
+44.302	D	PanZoomDemo	flush: +2 tiles in 0ms | active=8 fallback=7 pending=0 loading=128
+44.402	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=7 pending=0 loading=127
+44.419	D	PanZoomDemo	frameLoop: 61fps | flushed=16/s recycled=3/s pumped=8/s active=9 pending=0 loading=127 recyclePending=0 toLoadQueue=0
+44.461	D	PanZoomDemo	updateTiles: scale=0,33 sampleSize=2 needed=105 +0 -0 cancel=31 stalePending=0 | active=9 fallback=7 pending=0 loading=96
+44.461	D	PanZoomDemo	updateTiles: done in 5ms | active=9 pending=0 loading=96 launched=0 toLoadQueue=0
+44.474	D	PanZoomDemo	updateTiles: scale=0,45 sampleSize=2 needed=66 +0 -6 cancel=33 stalePending=0 | active=9 fallback=7 pending=0 loading=63
+44.474	D	PanZoomDemo	updateTiles: done in 5ms | active=3 pending=0 loading=63 launched=0 toLoadQueue=0
+44.486	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+44.489	D	PanZoomDemo	updateTiles: scale=0,56 sampleSize=2 needed=36 +0 -3 cancel=26 stalePending=1 | active=3 fallback=7 pending=0 loading=36
+44.489	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=36 launched=0 toLoadQueue=0
+44.502	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+44.502	D	PanZoomDemo	updateTiles: scale=0,66 sampleSize=2 needed=32 +0 -0 cancel=4 stalePending=0 | active=0 fallback=7 pending=0 loading=32
+44.522	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback kept=7
+44.522	D	PanZoomDemo	updateTiles: scale=0,74 sampleSize=1 needed=28 +28 -0 cancel=0 stalePending=0 | active=0 fallback=7 pending=0 loading=0
+44.526	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=28 launched=28 toLoadQueue=0
+44.536	D	PanZoomDemo	updateTiles: scale=0,82 sampleSize=1 needed=24 +0 -0 cancel=4 stalePending=0 | active=0 fallback=7 pending=0 loading=24
+44.587	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=4)
+44.587	D	PanZoomDemo	updateTiles: scale=1,03 sampleSize=1 needed=18 +0 -0 cancel=6 stalePending=0 | active=0 fallback=4 pending=0 loading=18
+44.602	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=3)
+44.602	D	PanZoomDemo	updateTiles: scale=1,08 sampleSize=1 needed=15 +0 -0 cancel=3 stalePending=0 | active=0 fallback=3 pending=0 loading=15
+44.635	D	PanZoomDemo	updateTiles: scale=1,18 sampleSize=1 needed=12 +0 -0 cancel=3 stalePending=0 | active=0 fallback=3 pending=0 loading=12
+44.703	D	PanZoomDemo	updateTiles: scale=1,31 sampleSize=1 needed=8 +0 -0 cancel=4 stalePending=0 | active=0 fallback=3 pending=0 loading=8
+44.802	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=3 pending=0 loading=7
+44.835	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=3 pending=0 loading=6
+44.951	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=3 pending=0 loading=5
+44.968	D	PanZoomDemo	flush: +2 tiles in 0ms | active=5 fallback=3 pending=0 loading=3
+45.107	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=3 pending=0 loading=2
+45.135	D	PanZoomDemo	updateTiles: scale=1,47 sampleSize=1 needed=12 +4 -0 cancel=0 stalePending=0 | active=6 fallback=3 pending=0 loading=2
+45.136	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=1 loading=5 launched=4 toLoadQueue=0
+45.136	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=3 pending=0 loading=5
+45.152	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=3 pending=0 loading=4
+45.169	D	PanZoomDemo	updateTiles: scale=1,47 sampleSize=1 needed=15 +3 -0 cancel=0 stalePending=0 | active=8 fallback=3 pending=0 loading=4
+45.17	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=7 launched=3 toLoadQueue=0
+45.186	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=1)
+45.186	D	PanZoomDemo	updateTiles: scale=1,47 sampleSize=1 needed=12 +0 -2 cancel=1 stalePending=0 | active=8 fallback=1 pending=0 loading=6
+45.186	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=6 launched=0 toLoadQueue=0
+45.268	D	PanZoomDemo	updateTiles: scale=1,47 sampleSize=1 needed=8 +0 -3 cancel=1 stalePending=0 | active=6 fallback=1 pending=0 loading=5
+45.269	D	PanZoomDemo	updateTiles: done in 0ms | active=3 pending=0 loading=5 launched=0 toLoadQueue=0
+45.317	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=1 pending=0 loading=4
+45.334	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=1 pending=0 loading=3
+45.434	D	PanZoomDemo	frameLoop: 61fps | flushed=10/s recycled=20/s pumped=0/s active=5 pending=0 loading=3 recyclePending=0 toLoadQueue=0
+45.468	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=1 pending=0 loading=2
+45.484	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=1 pending=0 loading=1
+45.502	D	PanZoomDemo	fallback released: 1 tiles (current LOD covers viewport)
+45.502	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=0 pending=0 loading=0
+45.636	D	PanZoomDemo	updateTiles: scale=1,27 sampleSize=1 needed=12 +4 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=0
+45.637	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=4 launched=4 toLoadQueue=0
+45.652	D	PanZoomDemo	updateTiles: scale=1,13 sampleSize=1 needed=15 +3 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=4
+45.652	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=7 launched=3 toLoadQueue=0
+45.669	D	PanZoomDemo	updateTiles: scale=0,96 sampleSize=1 needed=18 +3 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=7
+45.669	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=10 launched=3 toLoadQueue=0
+45.685	D	PanZoomDemo	updateTiles: scale=0,77 sampleSize=1 needed=28 +10 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=10
+45.687	D	PanZoomDemo	updateTiles: done in 2ms | active=8 pending=0 loading=20 launched=10 toLoadQueue=0
+45.703	D	PanZoomDemo	updateTiles: scale=0,55 sampleSize=1 needed=45 +17 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=20
+45.705	D	PanZoomDemo	updateTiles: done in 2ms | active=8 pending=0 loading=37 launched=17 toLoadQueue=0
+45.718	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+45.718	D	PanZoomDemo	updateTiles: scale=0,44 sampleSize=1 needed=66 +21 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=37
+45.72	D	PanZoomDemo	updateTiles: done in 2ms | active=8 pending=0 loading=58 launched=21 toLoadQueue=0
+45.735	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+45.735	D	PanZoomDemo	updateTiles: scale=0,37 sampleSize=1 needed=84 +18 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=58
+45.736	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=76 launched=18 toLoadQueue=0
+45.76	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 8 active→fallback, dropped 0 old-fallback
+45.761	D	PanZoomDemo	updateTiles: scale=0,31 sampleSize=2 needed=128 +128 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=0
+45.77	D	PanZoomDemo	updateTiles: done in 18ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=64
+45.803	D	PanZoomDemo	updateTiles: scale=0,30 sampleSize=2 needed=128 +16 -0 cancel=16 stalePending=0 | active=0 fallback=8 pending=0 loading=112
+45.804	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=128 launched=16 toLoadQueue=0
+45.934	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=8 pending=0 loading=127
+45.951	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=8 pending=0 loading=126
+45.967	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=8 pending=0 loading=125
+46.035	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=8 pending=0 loading=124
+46.068	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=8 pending=0 loading=123
+46.101	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=8 pending=0 loading=122
+46.117	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=8 pending=0 loading=121
+46.217	D	PanZoomDemo	flush: +2 tiles in 0ms | active=9 fallback=8 pending=0 loading=119
+46.234	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=8 pending=0 loading=118
+46.317	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=8 pending=0 loading=117
+46.367	D	PanZoomDemo	flush: +1 tiles in 0ms | active=12 fallback=8 pending=0 loading=116
+46.39	D	PanZoomDemo	flush: +1 tiles in 0ms | active=13 fallback=8 pending=0 loading=115
+46.41	D	PanZoomDemo	updateTiles: scale=0,29 sampleSize=2 needed=136 +8 -0 cancel=0 stalePending=0 | active=13 fallback=8 pending=0 loading=115
+46.412	D	PanZoomDemo	updateTiles: done in 2ms | active=13 pending=0 loading=123 launched=8 toLoadQueue=0
+46.419	D	PanZoomDemo	flush: +1 tiles in 0ms | active=14 fallback=8 pending=0 loading=122
+46.435	D	PanZoomDemo	updateTiles: scale=0,27 sampleSize=2 needed=162 +26 -0 cancel=0 stalePending=0 | active=14 fallback=8 pending=0 loading=122
+46.438	D	PanZoomDemo	updateTiles: done in 3ms | active=14 pending=0 loading=148 launched=26 toLoadQueue=0
+46.453	D	PanZoomDemo	updateTiles: scale=0,24 sampleSize=2 needed=200 +38 -0 cancel=0 stalePending=0 | active=14 fallback=8 pending=0 loading=148
+46.457	D	PanZoomDemo	updateTiles: done in 5ms | active=14 pending=0 loading=186 launched=38 toLoadQueue=0
+46.457	D	PanZoomDemo	frameLoop: 61fps | flushed=17/s recycled=1/s pumped=64/s active=14 pending=0 loading=186 recyclePending=0 toLoadQueue=0
+46.469	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+46.47	D	PanZoomDemo	updateTiles: scale=0,20 sampleSize=2 needed=264 +64 -0 cancel=0 stalePending=0 | active=14 fallback=8 pending=0 loading=186
+46.476	D	PanZoomDemo	updateTiles: done in 8ms | active=14 pending=0 loading=250 launched=64 toLoadQueue=0
+46.484	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+46.485	D	PanZoomDemo	updateTiles: scale=0,18 sampleSize=2 needed=351 +87 -0 cancel=0 stalePending=0 | active=14 fallback=8 pending=0 loading=250
+46.485	D	PanZoomDemo	updateTiles: done in 0ms | active=14 pending=0 loading=256 launched=6 toLoadQueue=81
+46.526	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, promoted 14 active→fallback, dropped 8 old-fallback
+46.526	D	PanZoomDemo	updateTiles: scale=0,16 sampleSize=4 needed=377 +377 -0 cancel=0 stalePending=0 | active=0 fallback=14 pending=0 loading=0
+46.53	D	PanZoomDemo	updateTiles: done in 29ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=313
+46.538	D	PanZoomDemo	updateTiles: scale=0,14 sampleSize=4 needed=480 +103 -0 cancel=0 stalePending=0 | active=0 fallback=14 pending=0 loading=128
+46.543	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=288
+46.551	D	PanZoomDemo	updateTiles: scale=0,11 sampleSize=4 needed=820 +340 -0 cancel=0 stalePending=0 | active=0 fallback=14 pending=0 loading=256
+46.551	D	PanZoomDemo	updateTiles: done in 1ms | active=0 pending=0 loading=256 launched=0 toLoadQueue=564
+46.568	D	PanZoomDemo	LOD debounce: reset, desired=8 (was pending=4 streak=0)
+46.569	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=4 needed=1012 +192 -0 cancel=0 stalePending=0 | active=0 fallback=14 pending=0 loading=256
+46.569	D	PanZoomDemo	updateTiles: done in 1ms | active=0 pending=0 loading=256 launched=0 toLoadQueue=756
+46.584	D	PanZoomDemo	LOD debounce: hold ss=4, desired=8 streak=2/3
+46.624	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=8 | discarded 0 pending, active empty, fallback kept=14
+46.625	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=8 needed=1012 +1012 -0 cancel=0 stalePending=0 | active=0 fallback=14 pending=0 loading=0
+46.627	D	PanZoomDemo	updateTiles: done in 27ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=948
+46.636	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=8 needed=990 +0 -0 cancel=22 stalePending=0 | active=0 fallback=14 pending=0 loading=106
+46.64	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=170 launched=64 toLoadQueue=820
+46.646	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=8 needed=1012 +22 -0 cancel=0 stalePending=0 | active=0 fallback=14 pending=0 loading=234
+46.647	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=256 launched=22 toLoadQueue=756
+46.653	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=256 launched=0 toLoadQueue=756
+46.718	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=14 pending=0 loading=256
+46.735	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=14 pending=0 loading=256
+46.767	D	PanZoomDemo	flush: +3 tiles in 0ms | active=6 fallback=14 pending=0 loading=253
+46.8	D	PanZoomDemo	flush: +2 tiles in 1ms | active=8 fallback=14 pending=0 loading=254
+46.817	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=14 pending=0 loading=255
+46.833	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=14 pending=0 loading=255
+46.85	D	PanZoomDemo	flush: +3 tiles in 0ms | active=13 fallback=14 pending=0 loading=253
+46.884	D	PanZoomDemo	flush: +1 tiles in 0ms | active=14 fallback=14 pending=0 loading=255
+46.9	D	PanZoomDemo	flush: +2 tiles in 0ms | active=16 fallback=14 pending=0 loading=254
+46.917	D	PanZoomDemo	flush: +1 tiles in 0ms | active=17 fallback=14 pending=0 loading=255
+46.95	D	PanZoomDemo	flush: +1 tiles in 0ms | active=18 fallback=14 pending=0 loading=255
+46.966	D	PanZoomDemo	flush: +3 tiles in 0ms | active=21 fallback=14 pending=0 loading=253
+47.017	D	PanZoomDemo	flush: +1 tiles in 0ms | active=22 fallback=14 pending=0 loading=255
+47.033	D	PanZoomDemo	flush: +2 tiles in 1ms | active=24 fallback=14 pending=0 loading=254
+47.063	D	PanZoomDemo	updateTiles: scale=0,12 sampleSize=8 needed=760 +0 -24 cancel=69 stalePending=1 | active=24 fallback=14 pending=0 loading=186
+47.073	D	PanZoomDemo	updateTiles: done in 19ms | active=0 pending=0 loading=250 launched=64 toLoadQueue=510
+47.076	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=8 streak=0)
+47.095	D	PanZoomDemo	fallback culled: 6 rects out of viewport (remain=8)
+47.096	D	PanZoomDemo	updateTiles: scale=0,17 sampleSize=8 needed=351 +0 -0 cancel=159 stalePending=0 | active=0 fallback=8 pending=0 loading=97
+47.103	D	PanZoomDemo	updateTiles: done in 27ms | active=0 pending=0 loading=161 launched=64 toLoadQueue=190
+47.115	D	PanZoomDemo	LOD debounce: hold ss=8, desired=4 streak=2/3
+47.136	D	PanZoomDemo	fallback culled: 8 rects out of viewport (remain=0)
+47.136	D	PanZoomDemo	updateTiles: scale=0,32 sampleSize=8 needed=105 +0 -0 cancel=140 stalePending=0 | active=0 fallback=0 pending=0 loading=85
+47.137	D	PanZoomDemo	updateTiles: done in 23ms | active=0 pending=0 loading=105 launched=20 toLoadQueue=0
+47.153	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback dropped
+47.154	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=4 needed=72 +72 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=0
+47.161	D	PanZoomDemo	updateTiles: done in 21ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=8
+47.163	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+47.163	D	PanZoomDemo	updateTiles: scale=0,44 sampleSize=4 needed=66 +0 -0 cancel=6 stalePending=0 | active=0 fallback=0 pending=0 loading=66
+47.168	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+47.17	D	PanZoomDemo	updateTiles: scale=0,49 sampleSize=4 needed=60 +0 -0 cancel=6 stalePending=0 | active=0 fallback=0 pending=0 loading=60
+47.189	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, active empty, fallback dropped
+47.189	D	PanZoomDemo	updateTiles: scale=0,54 sampleSize=2 needed=36 +36 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=0
+47.195	D	PanZoomDemo	updateTiles: done in 11ms | active=0 pending=0 loading=36 launched=36 toLoadQueue=0
+47.201	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+47.201	D	PanZoomDemo	updateTiles: scale=0,59 sampleSize=2 needed=32 +0 -0 cancel=4 stalePending=0 | active=0 fallback=0 pending=0 loading=32
+47.217	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+47.238	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback dropped
+47.238	D	PanZoomDemo	updateTiles: scale=0,66 sampleSize=1 needed=32 +32 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=0
+47.241	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=32 launched=32 toLoadQueue=0
+47.288	D	PanZoomDemo	updateTiles: scale=0,73 sampleSize=1 needed=28 +0 -0 cancel=4 stalePending=0 | active=0 fallback=0 pending=0 loading=28
+47.334	D	PanZoomDemo	updateTiles: scale=0,78 sampleSize=1 needed=24 +0 -0 cancel=4 stalePending=0 | active=0 fallback=0 pending=0 loading=24
+47.467	D	PanZoomDemo	frameLoop: 57fps | flushed=24/s recycled=46/s pumped=355/s active=0 pending=0 loading=24 recyclePending=0 toLoadQueue=0
+47.517	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=0 pending=0 loading=23
+47.623	D	PanZoomDemo	updateTiles: scale=0,76 sampleSize=1 needed=28 +4 -0 cancel=0 stalePending=0 | active=1 fallback=0 pending=0 loading=23
+47.624	D	PanZoomDemo	updateTiles: done in 2ms | active=1 pending=0 loading=27 launched=4 toLoadQueue=0
+47.636	D	PanZoomDemo	updateTiles: scale=0,71 sampleSize=1 needed=32 +4 -0 cancel=0 stalePending=0 | active=1 fallback=0 pending=0 loading=27
+47.637	D	PanZoomDemo	updateTiles: done in 1ms | active=1 pending=0 loading=31 launched=4 toLoadQueue=0
+47.652	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=0 pending=0 loading=29
+47.684	D	PanZoomDemo	updateTiles: scale=0,54 sampleSize=1 needed=50 +18 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=29
+47.686	D	PanZoomDemo	updateTiles: done in 2ms | active=3 pending=0 loading=47 launched=18 toLoadQueue=0
+47.701	D	PanZoomDemo	updateTiles: scale=0,46 sampleSize=1 needed=60 +10 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=47
+47.702	D	PanZoomDemo	updateTiles: done in 1ms | active=3 pending=0 loading=57 launched=10 toLoadQueue=0
+47.717	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+47.717	D	PanZoomDemo	updateTiles: scale=0,38 sampleSize=1 needed=78 +18 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=1 loading=56
+47.719	D	PanZoomDemo	updateTiles: done in 2ms | active=3 pending=1 loading=74 launched=18 toLoadQueue=0
+47.719	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=74
+47.734	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+47.734	D	PanZoomDemo	updateTiles: scale=0,33 sampleSize=1 needed=120 +42 -0 cancel=0 stalePending=0 | active=4 fallback=0 pending=0 loading=74
+47.739	D	PanZoomDemo	updateTiles: done in 6ms | active=4 pending=0 loading=116 launched=42 toLoadQueue=0
+47.759	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 4 active→fallback, dropped 0 old-fallback
+47.759	D	PanZoomDemo	updateTiles: scale=0,29 sampleSize=2 needed=136 +136 -0 cancel=0 stalePending=0 | active=0 fallback=4 pending=0 loading=0
+47.764	D	PanZoomDemo	updateTiles: done in 13ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=72
+47.771	D	PanZoomDemo	updateTiles: scale=0,25 sampleSize=2 needed=190 +54 -0 cancel=0 stalePending=0 | active=0 fallback=4 pending=0 loading=128
+47.776	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=190 launched=62 toLoadQueue=0
+47.783	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+47.784	D	PanZoomDemo	updateTiles: scale=0,22 sampleSize=2 needed=220 +30 -0 cancel=0 stalePending=0 | active=0 fallback=4 pending=0 loading=190
+47.787	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=220 launched=30 toLoadQueue=0
+47.8	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+47.8	D	PanZoomDemo	updateTiles: scale=0,20 sampleSize=2 needed=288 +68 -0 cancel=0 stalePending=0 | active=0 fallback=4 pending=0 loading=220
+47.805	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=256 launched=36 toLoadQueue=32
+47.841	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=4
+47.842	D	PanZoomDemo	updateTiles: scale=0,18 sampleSize=4 needed=338 +338 -0 cancel=0 stalePending=0 | active=0 fallback=4 pending=0 loading=0
+47.848	D	PanZoomDemo	updateTiles: done in 31ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=274
+47.861	D	PanZoomDemo	updateTiles: scale=0,16 sampleSize=4 needed=435 +97 -0 cancel=0 stalePending=0 | active=0 fallback=4 pending=0 loading=128
+47.867	D	PanZoomDemo	updateTiles: done in 6ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=243
+47.983	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=4 pending=0 loading=255
+48.0	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=4 pending=0 loading=255
+48.033	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=4 pending=0 loading=255
+48.083	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=4 pending=0 loading=255
+48.116	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=4 pending=0 loading=255
+48.133	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=4 pending=0 loading=255
+48.166	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=4 pending=0 loading=255
+48.233	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=4 pending=0 loading=255
+48.257	D	PanZoomDemo	updateTiles: done in 2ms | active=8 pending=2 loading=256 launched=2 toLoadQueue=126
+48.257	D	PanZoomDemo	flush: +2 tiles in 1ms | active=10 fallback=4 pending=0 loading=256
+48.275	D	PanZoomDemo	updateTiles: scale=0,19 sampleSize=4 needed=288 +0 -10 cancel=43 stalePending=0 | active=10 fallback=4 pending=0 loading=213
+48.28	D	PanZoomDemo	updateTiles: done in 12ms | active=0 pending=0 loading=256 launched=43 toLoadQueue=32
+48.291	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=4 needed=200 +0 -0 cancel=56 stalePending=0 | active=0 fallback=4 pending=0 loading=200
+48.291	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=200 launched=0 toLoadQueue=0
+48.305	D	PanZoomDemo	updateTiles: scale=0,26 sampleSize=4 needed=162 +0 -0 cancel=38 stalePending=0 | active=0 fallback=4 pending=0 loading=162
+48.305	D	PanZoomDemo	updateTiles: done in 6ms | active=0 pending=0 loading=162 launched=0 toLoadQueue=0
+48.316	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+48.32	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=3)
+48.321	D	PanZoomDemo	updateTiles: scale=0,30 sampleSize=4 needed=128 +0 -0 cancel=34 stalePending=0 | active=0 fallback=3 pending=0 loading=128
+48.321	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=128 launched=0 toLoadQueue=0
+48.333	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+48.334	D	PanZoomDemo	updateTiles: scale=0,33 sampleSize=4 needed=120 +0 -0 cancel=8 stalePending=0 | active=0 fallback=3 pending=0 loading=120
+48.362	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, active empty, fallback kept=3
+48.362	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=2)
+48.362	D	PanZoomDemo	updateTiles: scale=0,36 sampleSize=2 needed=91 +91 -0 cancel=0 stalePending=0 | active=0 fallback=2 pending=0 loading=0
+48.367	D	PanZoomDemo	updateTiles: done in 17ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=27
+48.386	D	PanZoomDemo	updateTiles: scale=0,41 sampleSize=2 needed=66 +0 -0 cancel=25 stalePending=0 | active=0 fallback=2 pending=0 loading=66
+48.386	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=66 launched=0 toLoadQueue=0
+48.401	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=1)
+48.401	D	PanZoomDemo	updateTiles: scale=0,44 sampleSize=2 needed=55 +0 -0 cancel=11 stalePending=0 | active=0 fallback=1 pending=0 loading=55
+48.401	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=55 launched=0 toLoadQueue=0
+48.435	D	PanZoomDemo	updateTiles: scale=0,50 sampleSize=2 needed=50 +0 -0 cancel=5 stalePending=0 | active=0 fallback=1 pending=0 loading=50
+48.45	D	PanZoomDemo	updateTiles: scale=0,52 sampleSize=2 needed=45 +0 -0 cancel=5 stalePending=0 | active=0 fallback=1 pending=0 loading=45
+48.483	D	PanZoomDemo	frameLoop: 60fps | flushed=14/s recycled=13/s pumped=227/s active=0 pending=0 loading=45 recyclePending=0 toLoadQueue=0
+48.5	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+48.517	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+48.538	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback kept=1
+48.538	D	PanZoomDemo	updateTiles: scale=0,57 sampleSize=1 needed=45 +45 -0 cancel=0 stalePending=0 | active=0 fallback=1 pending=0 loading=0
+48.543	D	PanZoomDemo	updateTiles: done in 10ms | active=0 pending=0 loading=45 launched=45 toLoadQueue=0
+48.567	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=0)
+48.567	D	PanZoomDemo	updateTiles: scale=0,59 sampleSize=1 needed=36 +0 -0 cancel=9 stalePending=0 | active=0 fallback=0 pending=0 loading=36
+48.716	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=0 pending=0 loading=35
+48.799	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=0 pending=0 loading=34
+48.885	D	PanZoomDemo	updateTiles: scale=0,54 sampleSize=1 needed=45 +9 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=34
+48.887	D	PanZoomDemo	updateTiles: done in 2ms | active=2 pending=0 loading=43 launched=9 toLoadQueue=0
+48.902	D	PanZoomDemo	updateTiles: scale=0,47 sampleSize=1 needed=55 +10 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=0 loading=43
+48.903	D	PanZoomDemo	updateTiles: done in 3ms | active=2 pending=0 loading=53 launched=10 toLoadQueue=0
+48.916	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+48.917	D	PanZoomDemo	updateTiles: scale=0,42 sampleSize=1 needed=66 +11 -0 cancel=0 stalePending=0 | active=2 fallback=0 pending=1 loading=52
+48.917	D	PanZoomDemo	updateTiles: done in 0ms | active=2 pending=1 loading=63 launched=11 toLoadQueue=0
+48.917	D	PanZoomDemo	flush: +1 tiles in 1ms | active=3 fallback=0 pending=0 loading=63
+48.933	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+48.933	D	PanZoomDemo	updateTiles: scale=0,38 sampleSize=1 needed=91 +25 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=2 loading=61
+48.936	D	PanZoomDemo	updateTiles: done in 3ms | active=3 pending=2 loading=86 launched=25 toLoadQueue=0
+48.936	D	PanZoomDemo	flush: +2 tiles in 0ms | active=5 fallback=0 pending=0 loading=86
+48.957	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 5 active→fallback, dropped 0 old-fallback
+48.957	D	PanZoomDemo	updateTiles: scale=0,33 sampleSize=2 needed=98 +98 -0 cancel=0 stalePending=0 | active=0 fallback=5 pending=0 loading=0
+48.962	D	PanZoomDemo	updateTiles: done in 12ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=34
+48.967	D	PanZoomDemo	updateTiles: scale=0,24 sampleSize=2 needed=200 +102 -0 cancel=0 stalePending=0 | active=0 fallback=5 pending=0 loading=98
+48.973	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=162 launched=64 toLoadQueue=38
+48.983	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+48.983	D	PanZoomDemo	updateTiles: scale=0,13 sampleSize=2 needed=595 +395 -0 cancel=0 stalePending=0 | active=0 fallback=5 pending=0 loading=200
+48.989	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=256 launched=56 toLoadQueue=339
+49.0	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+49.0	D	PanZoomDemo	updateTiles: scale=0,11 sampleSize=2 needed=760 +165 -0 cancel=0 stalePending=0 | active=0 fallback=5 pending=0 loading=256
+49.0	D	PanZoomDemo	updateTiles: done in 1ms | active=0 pending=0 loading=256 launched=0 toLoadQueue=504
+49.024	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=5
+49.024	D	PanZoomDemo	updateTiles: scale=0,11 sampleSize=4 needed=800 +800 -0 cancel=0 stalePending=0 | active=0 fallback=5 pending=0 loading=0
+49.03	D	PanZoomDemo	updateTiles: done in 26ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=736
+49.031	D	PanZoomDemo	updateTiles: scale=0,11 sampleSize=4 needed=820 +20 -0 cancel=0 stalePending=0 | active=0 fallback=5 pending=0 loading=64
+49.035	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=128 launched=64 toLoadQueue=692
+49.046	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=256 launched=64 toLoadQueue=564
+49.051	D	PanZoomDemo	updateTiles: scale=0,11 sampleSize=4 needed=760 +0 -0 cancel=13 stalePending=0 | active=0 fallback=5 pending=0 loading=243
+49.053	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=256 launched=13 toLoadQueue=504
+49.199	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=5 pending=0 loading=255
+49.216	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=5 pending=0 loading=254
+49.249	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=5 pending=0 loading=255
+49.298	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=5 pending=0 loading=255
+49.315	D	PanZoomDemo	flush: +2 tiles in 0ms | active=7 fallback=5 pending=0 loading=254
+49.349	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=5 pending=0 loading=255
+49.398	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=5 pending=0 loading=255
+49.415	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=5 pending=0 loading=255
+49.432	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=5 pending=0 loading=255
+49.449	D	PanZoomDemo	flush: +1 tiles in 1ms | active=12 fallback=5 pending=0 loading=255
+49.499	D	PanZoomDemo	updateTiles: scale=0,12 sampleSize=4 needed=684 +0 -12 cancel=21 stalePending=0 | active=12 fallback=5 pending=0 loading=235
+49.503	D	PanZoomDemo	updateTiles: done in 14ms | active=0 pending=0 loading=256 launched=21 toLoadQueue=428
+49.518	D	PanZoomDemo	updateTiles: scale=0,15 sampleSize=4 needed=450 +0 -0 cancel=75 stalePending=0 | active=0 fallback=5 pending=0 loading=181
+49.526	D	PanZoomDemo	updateTiles: done in 18ms | active=0 pending=0 loading=245 launched=64 toLoadQueue=205
+49.527	D	PanZoomDemo	frameLoop: 61fps | flushed=17/s recycled=1/s pumped=159/s active=0 pending=0 loading=256 recyclePending=12 toLoadQueue=194
+49.539	D	PanZoomDemo	updateTiles: scale=0,19 sampleSize=4 needed=288 +0 -0 cancel=76 stalePending=0 | active=0 fallback=5 pending=0 loading=180
+49.546	D	PanZoomDemo	updateTiles: done in 17ms | active=0 pending=0 loading=244 launched=64 toLoadQueue=44
+49.556	D	PanZoomDemo	updateTiles: scale=0,22 sampleSize=4 needed=210 +0 -0 cancel=54 stalePending=0 | active=0 fallback=5 pending=0 loading=202
+49.557	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=210 launched=8 toLoadQueue=0
+49.571	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=4)
+49.571	D	PanZoomDemo	updateTiles: scale=0,27 sampleSize=4 needed=162 +0 -0 cancel=48 stalePending=0 | active=0 fallback=4 pending=0 loading=162
+49.571	D	PanZoomDemo	updateTiles: done in 6ms | active=0 pending=0 loading=162 launched=0 toLoadQueue=0
+49.582	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+49.586	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=2)
+49.586	D	PanZoomDemo	updateTiles: scale=0,29 sampleSize=4 needed=128 +0 -0 cancel=34 stalePending=0 | active=0 fallback=2 pending=0 loading=128
+49.586	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=128 launched=0 toLoadQueue=0
+49.599	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+49.599	D	PanZoomDemo	updateTiles: scale=0,31 sampleSize=4 needed=120 +0 -0 cancel=8 stalePending=0 | active=0 fallback=2 pending=0 loading=120
+49.631	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, active empty, fallback kept=2
+49.631	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=1)
+49.632	D	PanZoomDemo	updateTiles: scale=0,34 sampleSize=2 needed=98 +98 -0 cancel=0 stalePending=0 | active=0 fallback=1 pending=0 loading=0
+49.639	D	PanZoomDemo	updateTiles: done in 22ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=34
+49.653	D	PanZoomDemo	updateTiles: scale=0,38 sampleSize=2 needed=84 +0 -0 cancel=14 stalePending=0 | active=0 fallback=1 pending=0 loading=84
+49.653	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=84 launched=0 toLoadQueue=0
+49.667	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=0)
+49.667	D	PanZoomDemo	updateTiles: scale=0,39 sampleSize=2 needed=72 +0 -0 cancel=12 stalePending=0 | active=0 fallback=0 pending=0 loading=72
+49.667	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=72 launched=0 toLoadQueue=0
+49.716	D	PanZoomDemo	updateTiles: scale=0,44 sampleSize=2 needed=66 +0 -0 cancel=6 stalePending=0 | active=0 fallback=0 pending=0 loading=66
+49.783	D	PanZoomDemo	updateTiles: scale=0,46 sampleSize=2 needed=60 +0 -0 cancel=6 stalePending=0 | active=0 fallback=0 pending=0 loading=60
+49.949	D	PanZoomDemo	updateTiles: scale=0,45 sampleSize=2 needed=66 +6 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=60
+49.949	D	PanZoomDemo	updateTiles: done in 1ms | active=0 pending=0 loading=66 launched=6 toLoadQueue=0
+49.966	D	PanZoomDemo	updateTiles: scale=0,41 sampleSize=2 needed=72 +6 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=66
+49.966	D	PanZoomDemo	updateTiles: done in 0ms | active=0 pending=0 loading=72 launched=6 toLoadQueue=0
+49.984	D	PanZoomDemo	updateTiles: scale=0,36 sampleSize=2 needed=91 +19 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=1 loading=71
+49.987	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=1 loading=90 launched=19 toLoadQueue=0
+49.987	D	PanZoomDemo	flush: +1 tiles in 1ms | active=1 fallback=0 pending=0 loading=90
+49.999	D	PanZoomDemo	updateTiles: scale=0,32 sampleSize=2 needed=120 +29 -0 cancel=0 stalePending=0 | active=1 fallback=0 pending=1 loading=89
+50.004	D	PanZoomDemo	updateTiles: done in 5ms | active=1 pending=2 loading=117 launched=29 toLoadQueue=0
+50.004	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=0 pending=0 loading=117
+50.016	D	PanZoomDemo	updateTiles: scale=0,27 sampleSize=2 needed=162 +42 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=117
+50.02	D	PanZoomDemo	updateTiles: done in 4ms | active=3 pending=0 loading=159 launched=42 toLoadQueue=0
+50.032	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=2 needed=210 +48 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=159
+50.038	D	PanZoomDemo	updateTiles: done in 7ms | active=3 pending=0 loading=207 launched=48 toLoadQueue=0
+50.049	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+50.049	D	PanZoomDemo	updateTiles: scale=0,18 sampleSize=2 needed=300 +90 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=207
+50.054	D	PanZoomDemo	updateTiles: done in 5ms | active=3 pending=0 loading=256 launched=49 toLoadQueue=41
+50.065	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+50.066	D	PanZoomDemo	updateTiles: scale=0,14 sampleSize=2 needed=528 +228 -0 cancel=0 stalePending=0 | active=3 fallback=0 pending=0 loading=256
+50.066	D	PanZoomDemo	updateTiles: done in 0ms | active=3 pending=0 loading=256 launched=0 toLoadQueue=269
+50.108	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, promoted 3 active→fallback, dropped 0 old-fallback
+50.108	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=4 needed=1058 +1058 -0 cancel=0 stalePending=0 | active=0 fallback=3 pending=0 loading=0
+50.117	D	PanZoomDemo	updateTiles: done in 35ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=994
+50.124	D	PanZoomDemo	LOD debounce: reset, desired=8 (was pending=4 streak=0)
+50.128	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=866
+50.136	D	PanZoomDemo	LOD debounce: hold ss=4, desired=8 streak=2/3
+50.138	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=4 needed=1012 +0 -0 cancel=12 stalePending=0 | active=0 fallback=3 pending=0 loading=244
+50.139	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=256 launched=12 toLoadQueue=756
+50.177	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=8 | discarded 0 pending, active empty, fallback kept=3
+50.178	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=8 needed=1012 +1012 -0 cancel=0 stalePending=0 | active=0 fallback=3 pending=0 loading=0
+50.184	D	PanZoomDemo	updateTiles: done in 35ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=948
+50.204	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=820
+50.265	D	PanZoomDemo	flush: +2 tiles in 0ms | active=2 fallback=3 pending=0 loading=254
+50.282	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=3 pending=0 loading=255
+50.298	D	PanZoomDemo	flush: +1 tiles in 1ms | active=4 fallback=3 pending=0 loading=255
+50.315	D	PanZoomDemo	flush: +2 tiles in 0ms | active=6 fallback=3 pending=0 loading=254
+50.331	D	PanZoomDemo	flush: +1 tiles in 1ms | active=7 fallback=3 pending=0 loading=255
+50.348	D	PanZoomDemo	flush: +2 tiles in 0ms | active=9 fallback=3 pending=0 loading=254
+50.365	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=3 pending=0 loading=255
+50.382	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=3 pending=0 loading=255
+50.398	D	PanZoomDemo	flush: +2 tiles in 0ms | active=13 fallback=3 pending=0 loading=254
+50.431	D	PanZoomDemo	flush: +2 tiles in 0ms | active=15 fallback=3 pending=0 loading=254
+50.448	D	PanZoomDemo	flush: +1 tiles in 0ms | active=16 fallback=3 pending=0 loading=255
+50.465	D	PanZoomDemo	flush: +1 tiles in 0ms | active=17 fallback=3 pending=0 loading=255
+50.482	D	PanZoomDemo	flush: +3 tiles in 0ms | active=20 fallback=3 pending=0 loading=253
+50.498	D	PanZoomDemo	frameLoop: 57fps | flushed=23/s recycled=17/s pumped=322/s active=20 pending=0 loading=256 recyclePending=0 toLoadQueue=736
+50.515	D	PanZoomDemo	flush: +1 tiles in 0ms | active=21 fallback=3 pending=0 loading=255
+50.533	D	PanZoomDemo	flush: +2 tiles in 0ms | active=23 fallback=3 pending=0 loading=254
+50.565	D	PanZoomDemo	flush: +1 tiles in 0ms | active=24 fallback=3 pending=0 loading=255
+50.598	D	PanZoomDemo	flush: +2 tiles in 0ms | active=26 fallback=3 pending=0 loading=254
+50.628	D	PanZoomDemo	updateTiles: scale=0,11 sampleSize=8 needed=820 +0 -23 cancel=23 stalePending=0 | active=26 fallback=3 pending=2 loading=231
+50.632	D	PanZoomDemo	updateTiles: done in 10ms | active=3 pending=2 loading=256 launched=25 toLoadQueue=559
+50.632	D	PanZoomDemo	flush: +2 tiles in 0ms | active=5 fallback=3 pending=0 loading=256
+50.645	D	PanZoomDemo	updateTiles: scale=0,13 sampleSize=8 needed=630 +0 -5 cancel=58 stalePending=0 | active=5 fallback=3 pending=0 loading=198
+50.655	D	PanZoomDemo	updateTiles: done in 21ms | active=0 pending=0 loading=256 launched=58 toLoadQueue=374
+50.657	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=8 streak=0)
+50.663	D	PanZoomDemo	updateTiles: scale=0,14 sampleSize=8 needed=495 +0 -0 cancel=44 stalePending=0 | active=0 fallback=3 pending=0 loading=212
+50.668	D	PanZoomDemo	updateTiles: done in 11ms | active=0 pending=0 loading=256 launched=44 toLoadQueue=239
+50.67	D	PanZoomDemo	LOD debounce: hold ss=8, desired=4 streak=2/3
+50.673	D	PanZoomDemo	updateTiles: scale=0,16 sampleSize=8 needed=420 +0 -0 cancel=32 stalePending=0 | active=0 fallback=3 pending=0 loading=224
+50.678	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=256 launched=32 toLoadQueue=164
+50.71	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=3
+50.71	D	PanZoomDemo	updateTiles: scale=0,17 sampleSize=4 needed=364 +364 -0 cancel=0 stalePending=0 | active=0 fallback=3 pending=0 loading=0
+50.716	D	PanZoomDemo	updateTiles: done in 34ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=300
+50.723	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=1)
+50.723	D	PanZoomDemo	updateTiles: scale=0,21 sampleSize=4 needed=242 +0 -0 cancel=42 stalePending=0 | active=0 fallback=1 pending=0 loading=86
+50.73	D	PanZoomDemo	updateTiles: done in 11ms | active=0 pending=0 loading=150 launched=64 toLoadQueue=92
+50.753	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=0)
+50.753	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=4 needed=200 +0 -0 cancel=31 stalePending=0 | active=0 fallback=0 pending=0 loading=200
+50.753	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=200 launched=0 toLoadQueue=0
+50.77	D	PanZoomDemo	updateTiles: scale=0,25 sampleSize=4 needed=171 +0 -0 cancel=29 stalePending=0 | active=0 fallback=0 pending=0 loading=171
+50.77	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=171 launched=0 toLoadQueue=0
+50.782	D	PanZoomDemo	updateTiles: scale=0,26 sampleSize=4 needed=162 +0 -0 cancel=9 stalePending=0 | active=0 fallback=0 pending=0 loading=162
+50.837	D	PanZoomDemo	updateTiles: scale=0,27 sampleSize=4 needed=144 +0 -0 cancel=18 stalePending=0 | active=0 fallback=0 pending=0 loading=144
+50.837	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=144 launched=0 toLoadQueue=0
+50.85	D	PanZoomDemo	updateTiles: scale=0,28 sampleSize=4 needed=136 +0 -0 cancel=8 stalePending=0 | active=0 fallback=0 pending=0 loading=136
+50.866	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=0 pending=0 loading=135
+50.882	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+50.882	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=0 pending=0 loading=134
+50.898	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+50.898	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=0 pending=0 loading=133
+50.925	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 3 active→fallback, dropped 0 old-fallback
+50.925	D	PanZoomDemo	updateTiles: scale=0,28 sampleSize=2 needed=136 +136 -0 cancel=0 stalePending=0 | active=0 fallback=3 pending=0 loading=0
+50.93	D	PanZoomDemo	updateTiles: done in 15ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=72
+51.066	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=3 pending=0 loading=135
+51.082	D	PanZoomDemo	updateTiles: scale=0,27 sampleSize=2 needed=162 +26 -0 cancel=0 stalePending=0 | active=1 fallback=3 pending=2 loading=133
+51.085	D	PanZoomDemo	updateTiles: done in 4ms | active=1 pending=2 loading=159 launched=26 toLoadQueue=0
+51.085	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=3 pending=0 loading=159
+51.099	D	PanZoomDemo	updateTiles: scale=0,25 sampleSize=2 needed=190 +28 -0 cancel=0 stalePending=0 | active=3 fallback=3 pending=0 loading=159
+51.103	D	PanZoomDemo	updateTiles: done in 4ms | active=3 pending=0 loading=187 launched=28 toLoadQueue=0
+51.115	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+51.115	D	PanZoomDemo	updateTiles: scale=0,22 sampleSize=2 needed=220 +30 -0 cancel=0 stalePending=0 | active=3 fallback=3 pending=0 loading=187
+51.119	D	PanZoomDemo	updateTiles: done in 5ms | active=3 pending=0 loading=217 launched=30 toLoadQueue=0
+51.131	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+51.132	D	PanZoomDemo	updateTiles: scale=0,18 sampleSize=2 needed=338 +118 -0 cancel=0 stalePending=0 | active=3 fallback=3 pending=0 loading=217
+51.137	D	PanZoomDemo	updateTiles: done in 5ms | active=3 pending=0 loading=256 launched=39 toLoadQueue=79
+51.173	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, promoted 3 active→fallback, dropped 3 old-fallback
+51.173	D	PanZoomDemo	updateTiles: scale=0,14 sampleSize=4 needed=480 +480 -0 cancel=0 stalePending=0 | active=0 fallback=3 pending=0 loading=0
+51.177	D	PanZoomDemo	updateTiles: done in 29ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=416
+51.182	D	PanZoomDemo	LOD debounce: reset, desired=8 (was pending=4 streak=0)
+51.182	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=4 needed=990 +510 -0 cancel=0 stalePending=0 | active=0 fallback=3 pending=0 loading=128
+51.188	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=798
+51.198	D	PanZoomDemo	LOD debounce: hold ss=4, desired=8 streak=2/3
+51.239	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=8 | discarded 0 pending, active empty, fallback kept=3
+51.24	D	PanZoomDemo	updateTiles: scale=0,10 sampleSize=8 needed=1012 +1012 -0 cancel=0 stalePending=0 | active=0 fallback=3 pending=0 loading=0
+51.245	D	PanZoomDemo	updateTiles: done in 31ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=948
+51.258	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=820
+51.266	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=3 pending=0 loading=256
+51.299	D	PanZoomDemo	flush: +2 tiles in 0ms | active=3 fallback=3 pending=0 loading=256
+51.314	D	PanZoomDemo	flush: +2 tiles in 0ms | active=5 fallback=3 pending=0 loading=254
+51.331	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=3 pending=0 loading=255
+51.348	D	PanZoomDemo	flush: +4 tiles in 0ms | active=10 fallback=3 pending=0 loading=252
+51.365	D	PanZoomDemo	flush: +4 tiles in 0ms | active=14 fallback=3 pending=0 loading=252
+51.381	D	PanZoomDemo	flush: +6 tiles in 0ms | active=20 fallback=3 pending=0 loading=250
+51.398	D	PanZoomDemo	flush: +3 tiles in 0ms | active=23 fallback=3 pending=0 loading=253
+51.414	D	PanZoomDemo	flush: +3 tiles in 1ms | active=26 fallback=3 pending=0 loading=253
+51.431	D	PanZoomDemo	flush: +3 tiles in 0ms | active=29 fallback=3 pending=0 loading=253
+51.447	D	PanZoomDemo	flush: +3 tiles in 0ms | active=32 fallback=3 pending=0 loading=253
+51.464	D	PanZoomDemo	flush: +3 tiles in 1ms | active=35 fallback=3 pending=0 loading=253
+51.481	D	PanZoomDemo	flush: +3 tiles in 0ms | active=38 fallback=3 pending=0 loading=253
+51.498	D	PanZoomDemo	flush: +4 tiles in 1ms | active=42 fallback=3 pending=0 loading=252
+51.515	D	PanZoomDemo	flush: +1 tiles in 0ms | active=43 fallback=3 pending=0 loading=255
+51.515	D	PanZoomDemo	frameLoop: 58fps | flushed=57/s recycled=34/s pumped=494/s active=43 pending=0 loading=256 recyclePending=0 toLoadQueue=713
+51.531	D	PanZoomDemo	flush: +3 tiles in 1ms | active=46 fallback=3 pending=0 loading=253
+51.548	D	PanZoomDemo	flush: +1 tiles in 0ms | active=47 fallback=3 pending=0 loading=255
+51.565	D	PanZoomDemo	flush: +2 tiles in 0ms | active=49 fallback=3 pending=0 loading=254
+51.581	D	PanZoomDemo	flush: +2 tiles in 1ms | active=51 fallback=3 pending=0 loading=254
+51.598	D	PanZoomDemo	flush: +2 tiles in 0ms | active=53 fallback=3 pending=0 loading=254
+51.615	D	PanZoomDemo	flush: +2 tiles in 0ms | active=55 fallback=3 pending=0 loading=254
+51.632	D	PanZoomDemo	flush: +1 tiles in 0ms | active=56 fallback=3 pending=0 loading=255
+51.648	D	PanZoomDemo	flush: +2 tiles in 1ms | active=58 fallback=3 pending=0 loading=254
+51.665	D	PanZoomDemo	flush: +1 tiles in 0ms | active=59 fallback=3 pending=0 loading=255
+51.681	D	PanZoomDemo	flush: +3 tiles in 0ms | active=62 fallback=3 pending=0 loading=253
+51.701	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=8 streak=0)
+51.715	D	PanZoomDemo	updateTiles: scale=0,16 sampleSize=8 needed=406 +0 -62 cancel=126 stalePending=1 | active=62 fallback=3 pending=0 loading=129
+51.721	D	PanZoomDemo	updateTiles: done in 20ms | active=0 pending=0 loading=193 launched=64 toLoadQueue=213
+51.736	D	PanZoomDemo	LOD debounce: hold ss=8, desired=4 streak=2/3
+51.749	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=0)
+51.75	D	PanZoomDemo	updateTiles: scale=0,34 sampleSize=8 needed=112 +0 -0 cancel=152 stalePending=0 | active=0 fallback=0 pending=0 loading=104
+51.75	D	PanZoomDemo	updateTiles: done in 14ms | active=0 pending=0 loading=112 launched=8 toLoadQueue=0
+51.763	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback dropped
+51.763	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=4 needed=72 +72 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=0
+51.772	D	PanZoomDemo	updateTiles: done in 20ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=8
+51.774	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+51.776	D	PanZoomDemo	updateTiles: scale=0,45 sampleSize=4 needed=50 +0 -0 cancel=22 stalePending=0 | active=0 fallback=0 pending=0 loading=50
+51.776	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=50 launched=0 toLoadQueue=0
+51.781	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+51.805	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, active empty, fallback dropped
+51.805	D	PanZoomDemo	updateTiles: scale=0,57 sampleSize=2 needed=45 +45 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=0
+51.81	D	PanZoomDemo	updateTiles: done in 12ms | active=0 pending=0 loading=45 launched=45 toLoadQueue=0
+51.815	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+51.816	D	PanZoomDemo	updateTiles: scale=0,64 sampleSize=2 needed=32 +0 -0 cancel=13 stalePending=0 | active=0 fallback=0 pending=0 loading=32
+51.817	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=32 launched=0 toLoadQueue=0
+51.832	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+51.832	D	PanZoomDemo	updateTiles: scale=0,73 sampleSize=2 needed=28 +0 -0 cancel=4 stalePending=0 | active=0 fallback=0 pending=0 loading=28
+51.853	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback dropped
+51.853	D	PanZoomDemo	updateTiles: scale=0,80 sampleSize=1 needed=24 +24 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=0
+51.855	D	PanZoomDemo	updateTiles: done in 6ms | active=0 pending=0 loading=24 launched=24 toLoadQueue=0
+51.965	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=0 pending=0 loading=23
+52.031	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=0 pending=0 loading=22
+52.098	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=0 pending=0 loading=21
+52.115	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=20
+52.131	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=0 pending=0 loading=19
+52.198	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=0 pending=0 loading=18
+52.249	D	PanZoomDemo	flush: +1 tiles in 1ms | active=7 fallback=0 pending=0 loading=17
+52.281	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=0 pending=0 loading=16
+52.314	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=0 pending=0 loading=15
+52.381	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=0 pending=0 loading=14
+52.434	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=0 pending=0 loading=13
+52.448	D	PanZoomDemo	updateTiles: scale=0,69 sampleSize=1 needed=32 +8 -0 cancel=0 stalePending=0 | active=11 fallback=0 pending=0 loading=13
+52.45	D	PanZoomDemo	updateTiles: done in 2ms | active=11 pending=0 loading=21 launched=8 toLoadQueue=0
+52.465	D	PanZoomDemo	updateTiles: scale=0,59 sampleSize=1 needed=36 +4 -0 cancel=0 stalePending=0 | active=11 fallback=0 pending=0 loading=21
+52.466	D	PanZoomDemo	updateTiles: done in 0ms | active=11 pending=0 loading=25 launched=4 toLoadQueue=0
+52.482	D	PanZoomDemo	updateTiles: scale=0,49 sampleSize=1 needed=50 +14 -0 cancel=0 stalePending=0 | active=11 fallback=0 pending=0 loading=25
+52.484	D	PanZoomDemo	updateTiles: done in 2ms | active=11 pending=0 loading=39 launched=14 toLoadQueue=0
+52.498	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+52.498	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=1 needed=72 +22 -0 cancel=0 stalePending=0 | active=11 fallback=0 pending=2 loading=37
+52.5	D	PanZoomDemo	updateTiles: done in 2ms | active=11 pending=2 loading=59 launched=22 toLoadQueue=0
+52.5	D	PanZoomDemo	flush: +2 tiles in 0ms | active=13 fallback=0 pending=0 loading=59
+52.515	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+52.515	D	PanZoomDemo	updateTiles: scale=0,34 sampleSize=1 needed=98 +26 -0 cancel=0 stalePending=0 | active=13 fallback=0 pending=0 loading=59
+52.519	D	PanZoomDemo	updateTiles: done in 4ms | active=13 pending=0 loading=85 launched=26 toLoadQueue=0
+52.519	D	PanZoomDemo	frameLoop: 59fps | flushed=32/s recycled=65/s pumped=90/s active=13 pending=0 loading=85 recyclePending=0 toLoadQueue=0
+52.538	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 13 active→fallback, dropped 0 old-fallback
+52.538	D	PanZoomDemo	updateTiles: scale=0,29 sampleSize=2 needed=153 +153 -0 cancel=0 stalePending=0 | active=0 fallback=13 pending=0 loading=0
+52.542	D	PanZoomDemo	updateTiles: done in 11ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=89
+52.549	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+52.549	D	PanZoomDemo	updateTiles: scale=0,21 sampleSize=2 needed=242 +89 -0 cancel=0 stalePending=0 | active=0 fallback=13 pending=0 loading=128
+52.556	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=50
+52.565	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+52.566	D	PanZoomDemo	updateTiles: scale=0,20 sampleSize=2 needed=253 +11 -0 cancel=0 stalePending=0 | active=0 fallback=13 pending=0 loading=242
+52.567	D	PanZoomDemo	updateTiles: done in 1ms | active=0 pending=0 loading=253 launched=11 toLoadQueue=0
+52.59	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=13
+52.591	D	PanZoomDemo	updateTiles: scale=0,20 sampleSize=4 needed=253 +253 -0 cancel=0 stalePending=0 | active=0 fallback=13 pending=0 loading=0
+52.596	D	PanZoomDemo	updateTiles: done in 28ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=189
+52.609	D	PanZoomDemo	updateTiles: scale=0,20 sampleSize=4 needed=264 +11 -0 cancel=0 stalePending=0 | active=0 fallback=13 pending=0 loading=128
+52.615	D	PanZoomDemo	updateTiles: done in 6ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=72
+52.714	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=13 pending=0 loading=255
+52.747	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=13 pending=0 loading=255
+52.765	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=13 pending=0 loading=255
+52.797	D	PanZoomDemo	flush: +1 tiles in 1ms | active=4 fallback=13 pending=0 loading=255
+52.814	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=13 pending=0 loading=255
+52.831	D	PanZoomDemo	flush: +2 tiles in 0ms | active=7 fallback=13 pending=0 loading=254
+52.88	D	PanZoomDemo	flush: +2 tiles in 0ms | active=9 fallback=13 pending=0 loading=254
+52.915	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=13 pending=0 loading=254
+52.93	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=13 pending=0 loading=253
+52.947	D	PanZoomDemo	flush: +1 tiles in 1ms | active=12 fallback=13 pending=0 loading=252
+52.981	D	PanZoomDemo	flush: +1 tiles in 0ms | active=13 fallback=13 pending=0 loading=251
+52.997	D	PanZoomDemo	flush: +1 tiles in 1ms | active=14 fallback=13 pending=0 loading=250
+53.014	D	PanZoomDemo	flush: +1 tiles in 0ms | active=15 fallback=13 pending=0 loading=249
+53.061	D	PanZoomDemo	updateTiles: scale=0,24 sampleSize=4 needed=180 +0 -15 cancel=68 stalePending=1 | active=15 fallback=13 pending=0 loading=180
+53.061	D	PanZoomDemo	updateTiles: done in 11ms | active=0 pending=0 loading=180 launched=0 toLoadQueue=0
+53.066	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+53.073	D	PanZoomDemo	updateTiles: scale=0,31 sampleSize=4 needed=120 +0 -0 cancel=60 stalePending=0 | active=0 fallback=13 pending=0 loading=120
+53.073	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=120 launched=0 toLoadQueue=0
+53.081	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+53.085	D	PanZoomDemo	updateTiles: scale=0,38 sampleSize=4 needed=91 +0 -0 cancel=29 stalePending=0 | active=0 fallback=13 pending=0 loading=91
+53.085	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=91 launched=0 toLoadQueue=0
+53.11	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, active empty, fallback kept=13
+53.11	D	PanZoomDemo	updateTiles: scale=0,45 sampleSize=2 needed=55 +55 -0 cancel=0 stalePending=0 | active=0 fallback=13 pending=0 loading=0
+53.121	D	PanZoomDemo	updateTiles: done in 23ms | active=0 pending=0 loading=55 launched=55 toLoadQueue=0
+53.123	D	PanZoomDemo	updateTiles: scale=0,53 sampleSize=2 needed=50 +0 -0 cancel=5 stalePending=0 | active=0 fallback=13 pending=0 loading=50
+53.131	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+53.132	D	PanZoomDemo	fallback culled: 4 rects out of viewport (remain=9)
+53.132	D	PanZoomDemo	updateTiles: scale=0,58 sampleSize=2 needed=40 +0 -0 cancel=10 stalePending=0 | active=0 fallback=9 pending=0 loading=40
+53.147	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+53.17	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback kept=9
+53.17	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=8)
+53.17	D	PanZoomDemo	updateTiles: scale=0,73 sampleSize=1 needed=28 +28 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=0
+53.173	D	PanZoomDemo	updateTiles: done in 9ms | active=0 pending=0 loading=28 launched=28 toLoadQueue=0
+53.181	D	PanZoomDemo	updateTiles: scale=0,81 sampleSize=1 needed=21 +0 -0 cancel=7 stalePending=0 | active=0 fallback=8 pending=0 loading=21
+53.198	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=5)
+53.198	D	PanZoomDemo	updateTiles: scale=0,88 sampleSize=1 needed=18 +0 -0 cancel=3 stalePending=0 | active=0 fallback=5 pending=0 loading=18
+53.231	D	PanZoomDemo	updateTiles: scale=0,99 sampleSize=1 needed=15 +0 -0 cancel=3 stalePending=0 | active=0 fallback=5 pending=0 loading=15
+53.364	D	PanZoomDemo	flush: +2 tiles in 0ms | active=2 fallback=5 pending=0 loading=13
+53.381	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=5 pending=0 loading=12
+53.464	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=5 pending=0 loading=11
+53.514	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=5 pending=0 loading=10
+53.53	D	PanZoomDemo	frameLoop: 60fps | flushed=20/s recycled=23/s pumped=250/s active=5 pending=0 loading=10 recyclePending=0 toLoadQueue=0
+53.547	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=5 pending=0 loading=9
+53.564	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=5 pending=0 loading=8
+53.666	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=5 pending=0 loading=7
+53.683	D	PanZoomDemo	updateTiles: scale=0,84 sampleSize=1 needed=21 +6 -0 cancel=0 stalePending=0 | active=8 fallback=5 pending=0 loading=7
+53.684	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=13 launched=6 toLoadQueue=0
+53.697	D	PanZoomDemo	updateTiles: scale=0,74 sampleSize=1 needed=28 +7 -0 cancel=0 stalePending=0 | active=8 fallback=5 pending=0 loading=13
+53.698	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=20 launched=7 toLoadQueue=0
+53.714	D	PanZoomDemo	updateTiles: scale=0,64 sampleSize=1 needed=32 +4 -0 cancel=0 stalePending=0 | active=8 fallback=5 pending=1 loading=19
+53.714	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=1 loading=23 launched=4 toLoadQueue=0
+53.714	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=5 pending=0 loading=23
+53.731	D	PanZoomDemo	updateTiles: scale=0,56 sampleSize=1 needed=45 +13 -0 cancel=0 stalePending=0 | active=9 fallback=5 pending=1 loading=22
+53.733	D	PanZoomDemo	updateTiles: done in 2ms | active=9 pending=1 loading=35 launched=13 toLoadQueue=0
+53.733	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=5 pending=0 loading=35
+53.748	D	PanZoomDemo	updateTiles: scale=0,50 sampleSize=1 needed=50 +5 -0 cancel=0 stalePending=0 | active=10 fallback=5 pending=0 loading=35
+53.748	D	PanZoomDemo	updateTiles: done in 1ms | active=10 pending=0 loading=40 launched=5 toLoadQueue=0
+53.764	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+53.764	D	PanZoomDemo	updateTiles: scale=0,43 sampleSize=1 needed=72 +22 -0 cancel=0 stalePending=0 | active=10 fallback=5 pending=0 loading=40
+53.768	D	PanZoomDemo	updateTiles: done in 4ms | active=10 pending=0 loading=62 launched=22 toLoadQueue=0
+53.781	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+53.781	D	PanZoomDemo	updateTiles: scale=0,33 sampleSize=1 needed=120 +48 -0 cancel=0 stalePending=0 | active=10 fallback=5 pending=0 loading=62
+53.789	D	PanZoomDemo	updateTiles: done in 9ms | active=10 pending=0 loading=110 launched=48 toLoadQueue=0
+53.809	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 1 pending, promoted 10 active→fallback, dropped 5 old-fallback
+53.809	D	PanZoomDemo	updateTiles: scale=0,25 sampleSize=2 needed=190 +190 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=0
+53.817	D	PanZoomDemo	updateTiles: done in 19ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=126
+53.824	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=2 needed=200 +10 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=128
+53.831	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=8
+53.833	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+53.834	D	PanZoomDemo	updateTiles: scale=0,21 sampleSize=2 needed=264 +64 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=200
+53.838	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=256 launched=56 toLoadQueue=8
+53.847	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+53.848	D	PanZoomDemo	updateTiles: scale=0,18 sampleSize=2 needed=300 +36 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=256
+53.848	D	PanZoomDemo	updateTiles: done in 1ms | active=0 pending=0 loading=256 launched=0 toLoadQueue=44
+53.897	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=10
+53.898	D	PanZoomDemo	updateTiles: scale=0,17 sampleSize=4 needed=378 +378 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=0
+53.907	D	PanZoomDemo	updateTiles: done in 44ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=314
+53.92	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=186
+53.98	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=10 pending=0 loading=255
+54.013	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=10 pending=0 loading=255
+54.064	D	PanZoomDemo	flush: +2 tiles in 0ms | active=4 fallback=10 pending=0 loading=254
+54.097	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=10 pending=0 loading=255
+54.13	D	PanZoomDemo	flush: +2 tiles in 0ms | active=7 fallback=10 pending=0 loading=254
+54.147	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=10 pending=0 loading=255
+54.163	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=10 pending=0 loading=255
+54.196	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=10 pending=0 loading=255
+54.213	D	PanZoomDemo	flush: +2 tiles in 1ms | active=12 fallback=10 pending=0 loading=254
+54.247	D	PanZoomDemo	flush: +1 tiles in 0ms | active=13 fallback=10 pending=0 loading=255
+54.28	D	PanZoomDemo	flush: +2 tiles in 0ms | active=15 fallback=10 pending=0 loading=254
+54.297	D	PanZoomDemo	flush: +1 tiles in 0ms | active=16 fallback=10 pending=0 loading=255
+54.331	D	PanZoomDemo	flush: +1 tiles in 0ms | active=17 fallback=10 pending=0 loading=255
+54.377	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=4 needed=210 +0 -17 cancel=79 stalePending=3 | active=17 fallback=10 pending=0 loading=174
+54.382	D	PanZoomDemo	updateTiles: done in 15ms | active=0 pending=0 loading=210 launched=36 toLoadQueue=0
+54.385	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+54.398	D	PanZoomDemo	updateTiles: scale=0,37 sampleSize=4 needed=91 +0 -0 cancel=119 stalePending=0 | active=0 fallback=10 pending=0 loading=91
+54.398	D	PanZoomDemo	updateTiles: done in 12ms | active=0 pending=0 loading=91 launched=0 toLoadQueue=0
+54.4	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+54.403	D	PanZoomDemo	updateTiles: scale=0,50 sampleSize=4 needed=50 +0 -0 cancel=41 stalePending=0 | active=0 fallback=10 pending=0 loading=50
+54.403	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=50 launched=0 toLoadQueue=0
+54.42	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, active empty, fallback kept=10
+54.42	D	PanZoomDemo	updateTiles: scale=0,57 sampleSize=2 needed=40 +40 -0 cancel=0 stalePending=0 | active=0 fallback=10 pending=0 loading=0
+54.426	D	PanZoomDemo	updateTiles: done in 12ms | active=0 pending=0 loading=40 launched=40 toLoadQueue=0
+54.43	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+54.432	D	PanZoomDemo	fallback culled: 4 rects out of viewport (remain=6)
+54.432	D	PanZoomDemo	updateTiles: scale=0,64 sampleSize=2 needed=32 +0 -0 cancel=8 stalePending=0 | active=0 fallback=6 pending=0 loading=32
+54.447	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+54.447	D	PanZoomDemo	updateTiles: scale=0,71 sampleSize=2 needed=28 +0 -0 cancel=4 stalePending=0 | active=0 fallback=6 pending=0 loading=28
+54.466	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback kept=6
+54.466	D	PanZoomDemo	updateTiles: scale=0,82 sampleSize=1 needed=28 +28 -0 cancel=0 stalePending=0 | active=0 fallback=6 pending=0 loading=0
+54.468	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=28 launched=28 toLoadQueue=0
+54.482	D	PanZoomDemo	updateTiles: scale=0,96 sampleSize=1 needed=15 +0 -0 cancel=13 stalePending=0 | active=0 fallback=6 pending=0 loading=15
+54.514	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=3)
+54.515	D	PanZoomDemo	updateTiles: scale=1,19 sampleSize=1 needed=10 +0 -0 cancel=5 stalePending=0 | active=0 fallback=3 pending=0 loading=10
+54.547	D	PanZoomDemo	frameLoop: 59fps | flushed=22/s recycled=29/s pumped=217/s active=0 pending=0 loading=10 recyclePending=0 toLoadQueue=0
+54.58	D	PanZoomDemo	updateTiles: scale=1,38 sampleSize=1 needed=8 +0 -0 cancel=2 stalePending=0 | active=0 fallback=3 pending=0 loading=8
+54.679	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=3 pending=0 loading=7
+54.779	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=3 pending=0 loading=6
+54.796	D	PanZoomDemo	flush: +2 tiles in 0ms | active=4 fallback=3 pending=0 loading=4
+54.913	D	PanZoomDemo	flush: +1 tiles in 1ms | active=5 fallback=3 pending=1 loading=2
+54.93	D	PanZoomDemo	flush: +2 tiles in 0ms | active=7 fallback=3 pending=0 loading=1
+55.015	D	PanZoomDemo	fallback released: 3 tiles (current LOD covers viewport)
+55.015	D	PanZoomDemo	flush: +1 tiles in 1ms | active=8 fallback=0 pending=0 loading=0
+55.032	D	PanZoomDemo	updateTiles: scale=1,32 sampleSize=1 needed=10 +2 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=0
+55.032	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=2 launched=2 toLoadQueue=0
+55.063	D	PanZoomDemo	updateTiles: scale=1,12 sampleSize=1 needed=15 +5 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=2
+55.064	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=7 launched=5 toLoadQueue=0
+55.097	D	PanZoomDemo	updateTiles: scale=0,94 sampleSize=1 needed=18 +3 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=7
+55.097	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=10 launched=3 toLoadQueue=0
+55.113	D	PanZoomDemo	updateTiles: scale=0,80 sampleSize=1 needed=28 +10 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=10
+55.114	D	PanZoomDemo	updateTiles: done in 0ms | active=8 pending=0 loading=20 launched=10 toLoadQueue=0
+55.13	D	PanZoomDemo	updateTiles: scale=0,64 sampleSize=1 needed=32 +4 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=20
+55.13	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=24 launched=4 toLoadQueue=0
+55.148	D	PanZoomDemo	updateTiles: scale=0,52 sampleSize=1 needed=50 +18 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=24
+55.152	D	PanZoomDemo	updateTiles: done in 5ms | active=8 pending=1 loading=41 launched=18 toLoadQueue=0
+55.154	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=0 pending=0 loading=41
+55.163	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+55.163	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=1 needed=84 +34 -0 cancel=0 stalePending=0 | active=9 fallback=0 pending=0 loading=41
+55.168	D	PanZoomDemo	updateTiles: done in 4ms | active=9 pending=0 loading=75 launched=34 toLoadQueue=0
+55.18	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+55.18	D	PanZoomDemo	updateTiles: scale=0,32 sampleSize=1 needed=98 +14 -0 cancel=0 stalePending=0 | active=9 fallback=0 pending=0 loading=75
+55.183	D	PanZoomDemo	updateTiles: done in 4ms | active=9 pending=0 loading=89 launched=14 toLoadQueue=0
+55.204	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 1 pending, promoted 9 active→fallback, dropped 0 old-fallback
+55.204	D	PanZoomDemo	updateTiles: scale=0,28 sampleSize=2 needed=153 +153 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=0
+55.215	D	PanZoomDemo	updateTiles: done in 19ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=89
+55.223	D	PanZoomDemo	updateTiles: scale=0,25 sampleSize=2 needed=171 +18 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=128
+55.226	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=171 launched=43 toLoadQueue=0
+55.23	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=2 needed=220 +49 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=171
+55.235	D	PanZoomDemo	updateTiles: done in 6ms | active=0 pending=0 loading=220 launched=49 toLoadQueue=0
+55.238	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=2 needed=200 +0 -0 cancel=20 stalePending=0 | active=0 fallback=9 pending=0 loading=200
+55.248	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=2 needed=210 +30 -0 cancel=20 stalePending=0 | active=0 fallback=9 pending=0 loading=180
+55.249	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=210 launched=30 toLoadQueue=0
+55.329	D	PanZoomDemo	flush: +2 tiles in 0ms | active=2 fallback=9 pending=0 loading=208
+55.396	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=9 pending=0 loading=207
+55.412	D	PanZoomDemo	flush: +2 tiles in 0ms | active=5 fallback=9 pending=0 loading=205
+55.463	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=9 pending=0 loading=204
+55.513	D	PanZoomDemo	flush: +3 tiles in 0ms | active=9 fallback=9 pending=0 loading=201
+55.562	D	PanZoomDemo	frameLoop: 61fps | flushed=17/s recycled=3/s pumped=64/s active=9 pending=0 loading=201 recyclePending=0 toLoadQueue=0
+55.579	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=9 pending=0 loading=200
+55.646	D	PanZoomDemo	flush: +3 tiles in 0ms | active=13 fallback=9 pending=0 loading=197
+55.712	D	PanZoomDemo	flush: +1 tiles in 1ms | active=14 fallback=9 pending=0 loading=196
+55.763	D	PanZoomDemo	flush: +2 tiles in 0ms | active=16 fallback=9 pending=0 loading=194
+55.786	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=2 needed=200 +0 -0 cancel=10 stalePending=0 | active=16 fallback=9 pending=1 loading=183
+55.786	D	PanZoomDemo	updateTiles: done in 3ms | active=16 pending=1 loading=183 launched=0 toLoadQueue=0
+55.787	D	PanZoomDemo	flush: +1 tiles in 0ms | active=17 fallback=9 pending=0 loading=183
+55.798	D	PanZoomDemo	updateTiles: scale=0,23 sampleSize=2 needed=210 +10 -0 cancel=0 stalePending=0 | active=17 fallback=9 pending=0 loading=183
+55.801	D	PanZoomDemo	updateTiles: done in 3ms | active=17 pending=0 loading=193 launched=10 toLoadQueue=0
+55.837	D	PanZoomDemo	updateTiles: scale=0,26 sampleSize=2 needed=162 +0 -0 cancel=48 stalePending=0 | active=17 fallback=9 pending=0 loading=145
+55.837	D	PanZoomDemo	updateTiles: done in 7ms | active=17 pending=0 loading=145 launched=0 toLoadQueue=0
+55.847	D	PanZoomDemo	updateTiles: scale=0,28 sampleSize=2 needed=153 +0 -0 cancel=9 stalePending=0 | active=17 fallback=9 pending=0 loading=136
+55.871	D	PanZoomDemo	updateTiles: scale=0,35 sampleSize=2 needed=98 +0 -10 cancel=45 stalePending=0 | active=17 fallback=9 pending=1 loading=90
+55.871	D	PanZoomDemo	updateTiles: done in 9ms | active=7 pending=1 loading=90 launched=0 toLoadQueue=0
+55.872	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=9 pending=0 loading=90
+55.884	D	PanZoomDemo	updateTiles: scale=0,51 sampleSize=2 needed=50 +0 -8 cancel=39 stalePending=1 | active=8 fallback=9 pending=0 loading=50
+55.884	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=50 launched=0 toLoadQueue=0
+55.896	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+55.897	D	PanZoomDemo	updateTiles: scale=0,61 sampleSize=2 needed=40 +0 -0 cancel=10 stalePending=0 | active=0 fallback=9 pending=0 loading=40
+55.915	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+55.918	D	PanZoomDemo	updateTiles: scale=0,71 sampleSize=2 needed=28 +0 -0 cancel=12 stalePending=0 | active=0 fallback=9 pending=0 loading=28
+55.918	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=28 launched=0 toLoadQueue=0
+55.932	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback kept=9
+55.932	D	PanZoomDemo	updateTiles: scale=0,79 sampleSize=1 needed=21 +21 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=0
+55.935	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=21 launched=21 toLoadQueue=0
+55.946	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=7)
+55.946	D	PanZoomDemo	updateTiles: scale=0,88 sampleSize=1 needed=18 +0 -0 cancel=3 stalePending=0 | active=0 fallback=7 pending=0 loading=18
+55.963	D	PanZoomDemo	updateTiles: scale=0,97 sampleSize=1 needed=15 +0 -0 cancel=3 stalePending=0 | active=0 fallback=7 pending=0 loading=15
+56.047	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=4)
+56.047	D	PanZoomDemo	updateTiles: scale=1,36 sampleSize=1 needed=10 +0 -0 cancel=5 stalePending=0 | active=0 fallback=4 pending=0 loading=10
+56.079	D	PanZoomDemo	updateTiles: scale=1,44 sampleSize=1 needed=8 +0 -0 cancel=2 stalePending=0 | active=0 fallback=4 pending=0 loading=8
+56.13	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=4 pending=0 loading=7
+56.146	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=4 pending=0 loading=6
+56.213	D	PanZoomDemo	fallback culled: 1 rects out of viewport (remain=3)
+56.214	D	PanZoomDemo	updateTiles: scale=1,58 sampleSize=1 needed=6 +0 -1 cancel=1 stalePending=0 | active=2 fallback=3 pending=0 loading=5
+56.214	D	PanZoomDemo	updateTiles: done in 0ms | active=1 pending=0 loading=5 launched=0 toLoadQueue=0
+56.263	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=3 pending=0 loading=4
+56.313	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=3 pending=0 loading=3
+56.364	D	PanZoomDemo	updateTiles: scale=1,56 sampleSize=1 needed=8 +2 -0 cancel=0 stalePending=0 | active=3 fallback=3 pending=0 loading=3
+56.364	D	PanZoomDemo	updateTiles: done in 0ms | active=3 pending=0 loading=5 launched=2 toLoadQueue=0
+56.379	D	PanZoomDemo	updateTiles: scale=1,41 sampleSize=1 needed=10 +2 -0 cancel=0 stalePending=0 | active=3 fallback=3 pending=1 loading=4
+56.379	D	PanZoomDemo	updateTiles: done in 0ms | active=3 pending=1 loading=6 launched=2 toLoadQueue=0
+56.38	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=3 pending=0 loading=6
+56.396	D	PanZoomDemo	updateTiles: scale=1,23 sampleSize=1 needed=15 +5 -0 cancel=0 stalePending=0 | active=4 fallback=3 pending=1 loading=5
+56.396	D	PanZoomDemo	updateTiles: done in 0ms | active=4 pending=1 loading=10 launched=5 toLoadQueue=0
+56.396	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=3 pending=0 loading=10
+56.429	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=3 pending=0 loading=9
+56.446	D	PanZoomDemo	updateTiles: scale=0,83 sampleSize=1 needed=28 +13 -0 cancel=0 stalePending=0 | active=6 fallback=3 pending=0 loading=9
+56.448	D	PanZoomDemo	updateTiles: done in 2ms | active=6 pending=0 loading=22 launched=13 toLoadQueue=0
+56.463	D	PanZoomDemo	updateTiles: scale=0,68 sampleSize=1 needed=32 +4 -0 cancel=0 stalePending=0 | active=6 fallback=3 pending=0 loading=22
+56.463	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=26 launched=4 toLoadQueue=0
+56.48	D	PanZoomDemo	updateTiles: scale=0,56 sampleSize=1 needed=45 +13 -0 cancel=0 stalePending=0 | active=6 fallback=3 pending=0 loading=26
+56.483	D	PanZoomDemo	updateTiles: done in 3ms | active=6 pending=0 loading=39 launched=13 toLoadQueue=0
+56.496	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+56.496	D	PanZoomDemo	updateTiles: scale=0,39 sampleSize=1 needed=91 +46 -0 cancel=0 stalePending=0 | active=6 fallback=3 pending=1 loading=38
+56.499	D	PanZoomDemo	updateTiles: done in 3ms | active=6 pending=1 loading=84 launched=46 toLoadQueue=0
+56.499	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=3 pending=0 loading=84
+56.513	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+56.513	D	PanZoomDemo	updateTiles: scale=0,33 sampleSize=1 needed=105 +14 -0 cancel=0 stalePending=0 | active=7 fallback=3 pending=1 loading=83
+56.515	D	PanZoomDemo	updateTiles: done in 2ms | active=7 pending=1 loading=97 launched=14 toLoadQueue=0
+56.515	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=3 pending=0 loading=97
+56.541	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 8 active→fallback, dropped 3 old-fallback
+56.541	D	PanZoomDemo	updateTiles: scale=0,32 sampleSize=2 needed=105 +105 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=0
+56.546	D	PanZoomDemo	updateTiles: done in 16ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=41
+56.552	D	PanZoomDemo	updateTiles: scale=0,31 sampleSize=2 needed=120 +15 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=105
+56.554	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=120 launched=15 toLoadQueue=0
+56.563	D	PanZoomDemo	updateTiles: scale=0,29 sampleSize=2 needed=153 +33 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=120
+56.565	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=153 launched=33 toLoadQueue=0
+56.579	D	PanZoomDemo	updateTiles: scale=0,27 sampleSize=2 needed=162 +9 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=153
+56.58	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=162 launched=9 toLoadQueue=0
+56.58	D	PanZoomDemo	frameLoop: 61fps | flushed=18/s recycled=28/s pumped=41/s active=0 pending=0 loading=162 recyclePending=0 toLoadQueue=0
+56.614	D	PanZoomDemo	updateTiles: scale=0,27 sampleSize=2 needed=162 +18 -0 cancel=18 stalePending=0 | active=0 fallback=8 pending=0 loading=144
+56.615	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=162 launched=18 toLoadQueue=0
+56.678	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=8 pending=0 loading=161
+56.697	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=8 pending=0 loading=160
+56.745	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=8 pending=0 loading=159
+56.762	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=8 pending=0 loading=158
+56.796	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=8 pending=0 loading=157
+56.845	D	PanZoomDemo	flush: +2 tiles in 0ms | active=7 fallback=8 pending=0 loading=155
+56.911	D	PanZoomDemo	flush: +2 tiles in 0ms | active=9 fallback=8 pending=0 loading=153
+56.979	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=8 pending=0 loading=152
+56.995	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=8 pending=0 loading=151
+57.045	D	PanZoomDemo	flush: +1 tiles in 0ms | active=12 fallback=8 pending=0 loading=150
+57.078	D	PanZoomDemo	flush: +1 tiles in 1ms | active=13 fallback=8 pending=0 loading=149
+57.145	D	PanZoomDemo	flush: +2 tiles in 0ms | active=15 fallback=8 pending=0 loading=147
+57.212	D	PanZoomDemo	flush: +2 tiles in 0ms | active=17 fallback=8 pending=0 loading=145
+57.295	D	PanZoomDemo	flush: +2 tiles in 0ms | active=19 fallback=8 pending=0 loading=143
+57.362	D	PanZoomDemo	flush: +1 tiles in 0ms | active=20 fallback=8 pending=0 loading=142
+57.378	D	PanZoomDemo	flush: +1 tiles in 1ms | active=21 fallback=8 pending=0 loading=141
+57.462	D	PanZoomDemo	flush: +2 tiles in 0ms | active=23 fallback=8 pending=0 loading=139
+57.545	D	PanZoomDemo	flush: +2 tiles in 0ms | active=25 fallback=8 pending=0 loading=137
+57.578	D	PanZoomDemo	frameLoop: 60fps | flushed=25/s recycled=0/s pumped=0/s active=25 pending=0 loading=137 recyclePending=0 toLoadQueue=0
+57.628	D	PanZoomDemo	flush: +1 tiles in 0ms | active=26 fallback=8 pending=0 loading=136
+57.645	D	PanZoomDemo	flush: +1 tiles in 0ms | active=27 fallback=8 pending=0 loading=135
+57.711	D	PanZoomDemo	flush: +2 tiles in 1ms | active=29 fallback=8 pending=0 loading=133
+57.778	D	PanZoomDemo	flush: +1 tiles in 0ms | active=30 fallback=8 pending=0 loading=132
+57.795	D	PanZoomDemo	flush: +1 tiles in 0ms | active=31 fallback=8 pending=0 loading=131
+57.895	D	PanZoomDemo	flush: +2 tiles in 0ms | active=33 fallback=8 pending=0 loading=129
+57.911	D	PanZoomDemo	flush: +1 tiles in 0ms | active=34 fallback=8 pending=0 loading=128
+57.988	D	PanZoomDemo	updateTiles: scale=0,31 sampleSize=2 needed=105 +0 -5 cancel=52 stalePending=0 | active=34 fallback=8 pending=1 loading=75
+57.988	D	PanZoomDemo	updateTiles: done in 7ms | active=29 pending=1 loading=75 launched=0 toLoadQueue=0
+57.989	D	PanZoomDemo	flush: +1 tiles in 0ms | active=30 fallback=8 pending=0 loading=75
+58.003	D	PanZoomDemo	updateTiles: scale=0,39 sampleSize=2 needed=72 +0 -10 cancel=23 stalePending=0 | active=30 fallback=8 pending=0 loading=52
+58.004	D	PanZoomDemo	updateTiles: done in 3ms | active=20 pending=0 loading=52 launched=0 toLoadQueue=0
+58.014	D	PanZoomDemo	fallback culled: 4 rects out of viewport (remain=4)
+58.014	D	PanZoomDemo	updateTiles: scale=0,54 sampleSize=2 needed=50 +0 -8 cancel=14 stalePending=0 | active=20 fallback=4 pending=0 loading=38
+58.015	D	PanZoomDemo	updateTiles: done in 3ms | active=12 pending=0 loading=38 launched=0 toLoadQueue=0
+58.028	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+58.029	D	PanZoomDemo	updateTiles: scale=0,63 sampleSize=2 needed=40 +0 -4 cancel=6 stalePending=0 | active=12 fallback=4 pending=0 loading=32
+58.029	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=32 launched=0 toLoadQueue=0
+58.046	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+58.048	D	PanZoomDemo	fallback culled: 4 rects out of viewport (remain=0)
+58.048	D	PanZoomDemo	updateTiles: scale=0,69 sampleSize=2 needed=28 +0 -1 cancel=11 stalePending=0 | active=8 fallback=0 pending=0 loading=21
+58.048	D	PanZoomDemo	updateTiles: done in 2ms | active=7 pending=0 loading=21 launched=0 toLoadQueue=0
+58.064	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, promoted 7 active→fallback, dropped 0 old-fallback
+58.064	D	PanZoomDemo	updateTiles: scale=0,76 sampleSize=1 needed=28 +28 -0 cancel=0 stalePending=0 | active=0 fallback=7 pending=0 loading=0
+58.069	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=28 launched=28 toLoadQueue=0
+58.096	D	PanZoomDemo	updateTiles: scale=0,88 sampleSize=1 needed=18 +0 -0 cancel=10 stalePending=0 | active=0 fallback=7 pending=0 loading=18
+58.096	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=18 launched=0 toLoadQueue=0
+58.129	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=4)
+58.129	D	PanZoomDemo	updateTiles: scale=1,00 sampleSize=1 needed=15 +0 -0 cancel=3 stalePending=0 | active=0 fallback=4 pending=0 loading=15
+58.228	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=4 pending=0 loading=14
+58.278	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=4 pending=0 loading=13
+58.295	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=4 pending=0 loading=12
+58.378	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=4 pending=0 loading=11
+58.395	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=4 pending=0 loading=10
+58.461	D	PanZoomDemo	flush: +1 tiles in 1ms | active=6 fallback=4 pending=0 loading=9
+58.5	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=4 pending=0 loading=8
+58.528	D	PanZoomDemo	updateTiles: scale=0,82 sampleSize=1 needed=28 +13 -0 cancel=0 stalePending=0 | active=7 fallback=4 pending=0 loading=8
+58.53	D	PanZoomDemo	updateTiles: done in 2ms | active=7 pending=0 loading=21 launched=13 toLoadQueue=0
+58.562	D	PanZoomDemo	updateTiles: scale=0,65 sampleSize=1 needed=32 +4 -0 cancel=0 stalePending=0 | active=7 fallback=4 pending=0 loading=21
+58.562	D	PanZoomDemo	updateTiles: done in 0ms | active=7 pending=0 loading=25 launched=4 toLoadQueue=0
+58.578	D	PanZoomDemo	updateTiles: scale=0,60 sampleSize=1 needed=40 +8 -0 cancel=0 stalePending=0 | active=7 fallback=4 pending=1 loading=24
+58.579	D	PanZoomDemo	updateTiles: done in 1ms | active=7 pending=1 loading=32 launched=8 toLoadQueue=0
+58.579	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=4 pending=0 loading=32
+58.596	D	PanZoomDemo	updateTiles: scale=0,52 sampleSize=1 needed=50 +10 -0 cancel=0 stalePending=0 | active=8 fallback=4 pending=1 loading=31
+58.597	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=1 loading=41 launched=10 toLoadQueue=0
+58.597	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=4 pending=0 loading=41
+58.597	D	PanZoomDemo	frameLoop: 61fps | flushed=19/s recycled=39/s pumped=0/s active=9 pending=0 loading=41 recyclePending=0 toLoadQueue=0
+58.612	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+58.612	D	PanZoomDemo	updateTiles: scale=0,43 sampleSize=1 needed=66 +16 -0 cancel=0 stalePending=0 | active=9 fallback=4 pending=0 loading=41
+58.612	D	PanZoomDemo	updateTiles: done in 1ms | active=9 pending=0 loading=57 launched=16 toLoadQueue=0
+58.628	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+58.629	D	PanZoomDemo	updateTiles: scale=0,31 sampleSize=1 needed=128 +62 -0 cancel=0 stalePending=0 | active=9 fallback=4 pending=0 loading=57
+58.635	D	PanZoomDemo	updateTiles: done in 6ms | active=9 pending=0 loading=119 launched=62 toLoadQueue=0
+58.656	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 9 active→fallback, dropped 4 old-fallback
+58.657	D	PanZoomDemo	updateTiles: scale=0,26 sampleSize=2 needed=190 +190 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=0
+58.664	D	PanZoomDemo	updateTiles: done in 19ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=126
+58.678	D	PanZoomDemo	updateTiles: scale=0,24 sampleSize=2 needed=200 +10 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=128
+58.684	D	PanZoomDemo	updateTiles: done in 6ms | active=0 pending=0 loading=192 launched=64 toLoadQueue=8
+58.695	D	PanZoomDemo	LOD debounce: reset, desired=4 (was pending=2 streak=0)
+58.695	D	PanZoomDemo	updateTiles: scale=0,21 sampleSize=2 needed=242 +42 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=200
+58.701	D	PanZoomDemo	updateTiles: done in 6ms | active=0 pending=0 loading=242 launched=42 toLoadQueue=0
+58.711	D	PanZoomDemo	LOD debounce: hold ss=2, desired=4 streak=2/3
+58.712	D	PanZoomDemo	updateTiles: scale=0,18 sampleSize=2 needed=338 +96 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=242
+58.713	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=256 launched=14 toLoadQueue=82
+58.751	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=4 | discarded 0 pending, active empty, fallback kept=9
+58.751	D	PanZoomDemo	updateTiles: scale=0,17 sampleSize=4 needed=338 +338 -0 cancel=0 stalePending=0 | active=0 fallback=9 pending=0 loading=0
+58.757	D	PanZoomDemo	updateTiles: done in 34ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=274
+58.759	D	PanZoomDemo	updateTiles: scale=0,17 sampleSize=4 needed=351 +39 -0 cancel=5 stalePending=0 | active=0 fallback=9 pending=0 loading=59
+58.765	D	PanZoomDemo	updateTiles: done in 7ms | active=0 pending=0 loading=123 launched=64 toLoadQueue=228
+58.844	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=9 pending=0 loading=255
+58.894	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=9 pending=0 loading=255
+58.911	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=9 pending=0 loading=255
+58.927	D	PanZoomDemo	flush: +1 tiles in 1ms | active=4 fallback=9 pending=0 loading=255
+58.961	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=9 pending=0 loading=255
+58.978	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=9 pending=0 loading=255
+59.011	D	PanZoomDemo	flush: +2 tiles in 0ms | active=8 fallback=9 pending=0 loading=254
+59.044	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=9 pending=0 loading=255
+59.078	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=9 pending=0 loading=255
+59.111	D	PanZoomDemo	flush: +2 tiles in 0ms | active=12 fallback=9 pending=0 loading=254
+59.161	D	PanZoomDemo	flush: +1 tiles in 0ms | active=13 fallback=9 pending=0 loading=255
+59.179	D	PanZoomDemo	flush: +1 tiles in 1ms | active=14 fallback=9 pending=0 loading=255
+59.211	D	PanZoomDemo	flush: +2 tiles in 0ms | active=16 fallback=9 pending=0 loading=254
+59.261	D	PanZoomDemo	flush: +1 tiles in 0ms | active=17 fallback=9 pending=0 loading=255
+59.294	D	PanZoomDemo	flush: +1 tiles in 0ms | active=18 fallback=9 pending=0 loading=255
+59.311	D	PanZoomDemo	flush: +1 tiles in 0ms | active=19 fallback=9 pending=0 loading=255
+59.334	D	PanZoomDemo	updateTiles: done in 2ms | active=19 pending=1 loading=256 launched=0 toLoadQueue=62
+59.334	D	PanZoomDemo	flush: +1 tiles in 0ms | active=20 fallback=9 pending=0 loading=256
+59.347	D	PanZoomDemo	updateTiles: scale=0,19 sampleSize=4 needed=325 +0 -11 cancel=1 stalePending=0 | active=20 fallback=9 pending=0 loading=255
+59.347	D	PanZoomDemo	updateTiles: done in 1ms | active=9 pending=0 loading=256 launched=1 toLoadQueue=60
+59.366	D	PanZoomDemo	updateTiles: scale=0,20 sampleSize=4 needed=288 +0 -1 cancel=22 stalePending=0 | active=9 fallback=9 pending=1 loading=233
+59.369	D	PanZoomDemo	updateTiles: done in 7ms | active=8 pending=1 loading=256 launched=23 toLoadQueue=23
+59.369	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=9 pending=0 loading=256
+59.379	D	PanZoomDemo	updateTiles: scale=0,20 sampleSize=4 needed=276 +0 -0 cancel=11 stalePending=0 | active=9 fallback=9 pending=0 loading=245
+59.379	D	PanZoomDemo	updateTiles: done in 2ms | active=9 pending=0 loading=256 launched=11 toLoadQueue=11
+59.405	D	PanZoomDemo	updateTiles: scale=0,26 sampleSize=4 needed=162 +0 -9 cancel=94 stalePending=0 | active=9 fallback=9 pending=0 loading=162
+59.405	D	PanZoomDemo	updateTiles: done in 10ms | active=0 pending=0 loading=162 launched=0 toLoadQueue=0
+59.412	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=4 streak=0)
+59.42	D	PanZoomDemo	updateTiles: scale=0,34 sampleSize=4 needed=98 +0 -0 cancel=64 stalePending=0 | active=0 fallback=9 pending=0 loading=98
+59.42	D	PanZoomDemo	updateTiles: done in 8ms | active=0 pending=0 loading=98 launched=0 toLoadQueue=0
+59.428	D	PanZoomDemo	LOD debounce: hold ss=4, desired=2 streak=2/3
+59.43	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=4 needed=72 +0 -0 cancel=26 stalePending=0 | active=0 fallback=9 pending=0 loading=72
+59.43	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=72 launched=0 toLoadQueue=0
+59.452	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, active empty, fallback kept=9
+59.452	D	PanZoomDemo	fallback culled: 5 rects out of viewport (remain=4)
+59.452	D	PanZoomDemo	updateTiles: scale=0,44 sampleSize=2 needed=55 +55 -0 cancel=0 stalePending=0 | active=0 fallback=4 pending=0 loading=0
+59.461	D	PanZoomDemo	updateTiles: done in 17ms | active=0 pending=0 loading=55 launched=55 toLoadQueue=0
+59.465	D	PanZoomDemo	updateTiles: scale=0,49 sampleSize=2 needed=50 +0 -0 cancel=5 stalePending=0 | active=0 fallback=4 pending=0 loading=50
+59.495	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+59.495	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=2)
+59.496	D	PanZoomDemo	updateTiles: scale=0,60 sampleSize=2 needed=40 +0 -0 cancel=10 stalePending=0 | active=0 fallback=2 pending=0 loading=40
+59.511	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+59.512	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=0)
+59.512	D	PanZoomDemo	updateTiles: scale=0,66 sampleSize=2 needed=32 +0 -0 cancel=8 stalePending=0 | active=0 fallback=0 pending=0 loading=32
+59.512	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=32 launched=0 toLoadQueue=0
+59.536	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback dropped
+59.537	D	PanZoomDemo	updateTiles: scale=0,69 sampleSize=1 needed=32 +32 -0 cancel=0 stalePending=0 | active=0 fallback=0 pending=0 loading=0
+59.539	D	PanZoomDemo	updateTiles: done in 11ms | active=0 pending=0 loading=32 launched=32 toLoadQueue=0
+59.561	D	PanZoomDemo	updateTiles: scale=0,76 sampleSize=1 needed=28 +0 -0 cancel=4 stalePending=0 | active=0 fallback=0 pending=0 loading=28
+59.578	D	PanZoomDemo	updateTiles: scale=0,79 sampleSize=1 needed=24 +0 -0 cancel=4 stalePending=0 | active=0 fallback=0 pending=0 loading=24
+59.611	D	PanZoomDemo	frameLoop: 59fps | flushed=21/s recycled=34/s pumped=225/s active=0 pending=0 loading=24 recyclePending=0 toLoadQueue=0
+59.744	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=0 pending=0 loading=23
+59.81	D	PanZoomDemo	flush: +1 tiles in 1ms | active=2 fallback=0 pending=0 loading=22
+59.844	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=0 pending=0 loading=21
+59.861	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=20
+59.961	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=0 pending=0 loading=19
+59.997	D	PanZoomDemo	updateTiles: scale=0,80 sampleSize=1 needed=28 +4 -0 cancel=0 stalePending=0 | active=5 fallback=0 pending=0 loading=19
+59.998	D	PanZoomDemo	updateTiles: done in 1ms | active=5 pending=0 loading=23 launched=4 toLoadQueue=0
+60.012	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=0 pending=0 loading=22
+60.027	D	PanZoomDemo	updateTiles: scale=0,67 sampleSize=1 needed=32 +4 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=22
+60.028	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=26 launched=4 toLoadQueue=0
+60.045	D	PanZoomDemo	updateTiles: scale=0,60 sampleSize=1 needed=36 +4 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=26
+60.046	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=0 loading=30 launched=4 toLoadQueue=0
+60.061	D	PanZoomDemo	updateTiles: scale=0,54 sampleSize=1 needed=45 +9 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=1 loading=29
+60.061	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=1 loading=38 launched=9 toLoadQueue=0
+60.062	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=0 pending=0 loading=38
+60.078	D	PanZoomDemo	updateTiles: scale=0,45 sampleSize=1 needed=55 +10 -0 cancel=0 stalePending=0 | active=7 fallback=0 pending=0 loading=38
+60.079	D	PanZoomDemo	updateTiles: done in 1ms | active=7 pending=0 loading=48 launched=10 toLoadQueue=0
+60.094	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+60.094	D	PanZoomDemo	updateTiles: scale=0,37 sampleSize=1 needed=91 +36 -0 cancel=0 stalePending=0 | active=7 fallback=0 pending=0 loading=48
+60.098	D	PanZoomDemo	updateTiles: done in 4ms | active=7 pending=1 loading=83 launched=36 toLoadQueue=0
+60.098	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=0 pending=0 loading=83
+60.112	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+60.112	D	PanZoomDemo	updateTiles: scale=0,31 sampleSize=1 needed=120 +29 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=83
+60.115	D	PanZoomDemo	updateTiles: done in 3ms | active=8 pending=0 loading=112 launched=29 toLoadQueue=0
+60.137	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 0 pending, promoted 8 active→fallback, dropped 0 old-fallback
+60.137	D	PanZoomDemo	updateTiles: scale=0,29 sampleSize=2 needed=136 +136 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=0
+60.141	D	PanZoomDemo	updateTiles: done in 13ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=72
+60.151	D	PanZoomDemo	updateTiles: scale=0,26 sampleSize=2 needed=162 +26 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=128
+60.155	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=162 launched=34 toLoadQueue=0
+60.161	D	PanZoomDemo	updateTiles: scale=0,24 sampleSize=2 needed=190 +28 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=162
+60.164	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=190 launched=28 toLoadQueue=0
+60.195	D	PanZoomDemo	updateTiles: scale=0,24 sampleSize=2 needed=171 +0 -0 cancel=19 stalePending=0 | active=0 fallback=8 pending=0 loading=171
+60.343	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=8 pending=0 loading=170
+60.36	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=8 pending=0 loading=169
+60.393	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=8 pending=0 loading=168
+60.427	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=8 pending=0 loading=167
+60.51	D	PanZoomDemo	flush: +1 tiles in 1ms | active=5 fallback=8 pending=0 loading=166
+60.527	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=8 pending=0 loading=165
+60.56	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=8 pending=0 loading=164
+60.577	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=8 pending=0 loading=163
+60.627	D	PanZoomDemo	frameLoop: 61fps | flushed=16/s recycled=0/s pumped=64/s active=8 pending=0 loading=163 recyclePending=0 toLoadQueue=0
+60.66	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=8 pending=0 loading=162
+60.677	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=8 pending=0 loading=161
+60.716	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=8 pending=0 loading=160
+60.72	D	PanZoomDemo	updateTiles: scale=0,24 sampleSize=2 needed=190 +19 -0 cancel=0 stalePending=0 | active=11 fallback=8 pending=0 loading=160
+60.724	D	PanZoomDemo	updateTiles: done in 4ms | active=11 pending=0 loading=179 launched=19 toLoadQueue=0
+60.737	D	PanZoomDemo	updateTiles: scale=0,33 sampleSize=2 needed=105 +0 -9 cancel=76 stalePending=0 | active=11 fallback=8 pending=0 loading=103
+60.737	D	PanZoomDemo	updateTiles: done in 11ms | active=2 pending=1 loading=102 launched=0 toLoadQueue=0
+60.737	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=8 pending=0 loading=102
+60.748	D	PanZoomDemo	updateTiles: scale=0,45 sampleSize=2 needed=66 +0 -3 cancel=36 stalePending=0 | active=3 fallback=8 pending=0 loading=66
+60.748	D	PanZoomDemo	updateTiles: done in 4ms | active=0 pending=0 loading=66 launched=0 toLoadQueue=0
+60.764	D	PanZoomDemo	updateTiles: scale=0,54 sampleSize=2 needed=45 +0 -0 cancel=21 stalePending=0 | active=0 fallback=8 pending=0 loading=45
+60.764	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=45 launched=0 toLoadQueue=0
+60.778	D	PanZoomDemo	LOD debounce: reset, desired=1 (was pending=2 streak=0)
+60.794	D	PanZoomDemo	LOD debounce: hold ss=2, desired=1 streak=2/3
+60.795	D	PanZoomDemo	updateTiles: scale=0,67 sampleSize=2 needed=28 +0 -0 cancel=17 stalePending=0 | active=0 fallback=8 pending=0 loading=28
+60.813	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=1 | discarded 0 pending, active empty, fallback kept=8
+60.813	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=5)
+60.813	D	PanZoomDemo	updateTiles: scale=0,74 sampleSize=1 needed=21 +21 -0 cancel=0 stalePending=0 | active=0 fallback=5 pending=0 loading=0
+60.815	D	PanZoomDemo	updateTiles: done in 5ms | active=0 pending=0 loading=21 launched=21 toLoadQueue=0
+60.845	D	PanZoomDemo	fallback culled: 3 rects out of viewport (remain=2)
+60.845	D	PanZoomDemo	updateTiles: scale=0,92 sampleSize=1 needed=15 +0 -0 cancel=6 stalePending=0 | active=0 fallback=2 pending=0 loading=15
+61.011	D	PanZoomDemo	updateTiles: scale=1,33 sampleSize=1 needed=10 +0 -0 cancel=4 stalePending=1 | active=0 fallback=2 pending=0 loading=10
+61.044	D	PanZoomDemo	fallback culled: 2 rects out of viewport (remain=0)
+61.044	D	PanZoomDemo	updateTiles: scale=1,37 sampleSize=1 needed=8 +0 -0 cancel=2 stalePending=0 | active=0 fallback=0 pending=0 loading=8
+61.16	D	PanZoomDemo	flush: +2 tiles in 0ms | active=2 fallback=0 pending=0 loading=6
+61.293	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=0 pending=0 loading=5
+61.31	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=0 pending=0 loading=4
+61.376	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=0 pending=0 loading=3
+61.426	D	PanZoomDemo	flush: +1 tiles in 1ms | active=6 fallback=0 pending=0 loading=2
+61.495	D	PanZoomDemo	updateTiles: scale=1,27 sampleSize=1 needed=10 +2 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=0 loading=2
+61.495	D	PanZoomDemo	updateTiles: done in 0ms | active=6 pending=0 loading=4 launched=2 toLoadQueue=0
+61.51	D	PanZoomDemo	updateTiles: scale=1,19 sampleSize=1 needed=15 +5 -0 cancel=0 stalePending=0 | active=6 fallback=0 pending=1 loading=3
+61.51	D	PanZoomDemo	updateTiles: done in 1ms | active=6 pending=1 loading=8 launched=5 toLoadQueue=0
+61.51	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=0 pending=0 loading=8
+61.544	D	PanZoomDemo	updateTiles: scale=0,99 sampleSize=1 needed=18 +3 -0 cancel=0 stalePending=0 | active=7 fallback=0 pending=0 loading=8
+61.544	D	PanZoomDemo	updateTiles: done in 0ms | active=7 pending=0 loading=11 launched=3 toLoadQueue=0
+61.578	D	PanZoomDemo	updateTiles: scale=0,84 sampleSize=1 needed=24 +6 -0 cancel=0 stalePending=0 | active=7 fallback=0 pending=0 loading=11
+61.579	D	PanZoomDemo	updateTiles: done in 1ms | active=7 pending=0 loading=17 launched=6 toLoadQueue=0
+61.594	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=0 pending=0 loading=16
+61.61	D	PanZoomDemo	updateTiles: scale=0,68 sampleSize=1 needed=32 +8 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=16
+61.61	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=24 launched=8 toLoadQueue=0
+61.627	D	PanZoomDemo	updateTiles: scale=0,56 sampleSize=1 needed=45 +13 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=24
+61.628	D	PanZoomDemo	updateTiles: done in 2ms | active=8 pending=0 loading=37 launched=13 toLoadQueue=0
+61.628	D	PanZoomDemo	frameLoop: 60fps | flushed=12/s recycled=20/s pumped=0/s active=8 pending=0 loading=37 recyclePending=0 toLoadQueue=0
+61.643	D	PanZoomDemo	updateTiles: scale=0,47 sampleSize=1 needed=50 +5 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=37
+61.643	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=42 launched=5 toLoadQueue=0
+61.66	D	PanZoomDemo	LOD debounce: reset, desired=2 (was pending=1 streak=0)
+61.66	D	PanZoomDemo	updateTiles: scale=0,44 sampleSize=1 needed=66 +16 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=42
+61.661	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=58 launched=16 toLoadQueue=0
+61.679	D	PanZoomDemo	LOD debounce: hold ss=1, desired=2 streak=2/3
+61.679	D	PanZoomDemo	updateTiles: scale=0,41 sampleSize=1 needed=72 +6 -0 cancel=0 stalePending=0 | active=8 fallback=0 pending=0 loading=58
+61.68	D	PanZoomDemo	updateTiles: done in 1ms | active=8 pending=0 loading=64 launched=6 toLoadQueue=0
+61.7	D	PanZoomDemo	updateTiles: LOD changed → sampleSize=2 | discarded 2 pending, promoted 8 active→fallback, dropped 0 old-fallback
+61.7	D	PanZoomDemo	updateTiles: scale=0,40 sampleSize=2 needed=78 +78 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=0
+61.707	D	PanZoomDemo	updateTiles: done in 13ms | active=0 pending=0 loading=64 launched=64 toLoadQueue=14
+61.711	D	PanZoomDemo	updateTiles: scale=0,35 sampleSize=2 needed=91 +13 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=78
+61.714	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=91 launched=13 toLoadQueue=0
+61.727	D	PanZoomDemo	updateTiles: scale=0,30 sampleSize=2 needed=128 +37 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=91
+61.73	D	PanZoomDemo	updateTiles: done in 3ms | active=0 pending=0 loading=128 launched=37 toLoadQueue=0
+61.743	D	PanZoomDemo	updateTiles: scale=0,28 sampleSize=2 needed=153 +25 -0 cancel=0 stalePending=0 | active=0 fallback=8 pending=0 loading=128
+61.745	D	PanZoomDemo	updateTiles: done in 2ms | active=0 pending=0 loading=153 launched=25 toLoadQueue=0
+61.809	D	PanZoomDemo	flush: +1 tiles in 0ms | active=1 fallback=8 pending=0 loading=152
+61.909	D	PanZoomDemo	flush: +1 tiles in 0ms | active=2 fallback=8 pending=0 loading=151
+62.01	D	PanZoomDemo	flush: +1 tiles in 0ms | active=3 fallback=8 pending=0 loading=150
+62.109	D	PanZoomDemo	flush: +1 tiles in 0ms | active=4 fallback=8 pending=0 loading=149
+62.143	D	PanZoomDemo	flush: +1 tiles in 0ms | active=5 fallback=8 pending=0 loading=148
+62.16	D	PanZoomDemo	flush: +1 tiles in 0ms | active=6 fallback=8 pending=0 loading=147
+62.193	D	PanZoomDemo	flush: +1 tiles in 0ms | active=7 fallback=8 pending=0 loading=146
+62.293	D	PanZoomDemo	flush: +1 tiles in 0ms | active=8 fallback=8 pending=0 loading=145
+62.343	D	PanZoomDemo	flush: +1 tiles in 0ms | active=9 fallback=8 pending=0 loading=144
+62.376	D	PanZoomDemo	flush: +1 tiles in 0ms | active=10 fallback=8 pending=0 loading=143
+62.393	D	PanZoomDemo	flush: +1 tiles in 0ms | active=11 fallback=8 pending=0 loading=142
+62.492	D	PanZoomDemo	flush: +1 tiles in 0ms | active=12 fallback=8 pending=0 loading=141
+62.542	D	PanZoomDemo	flush: +1 tiles in 0ms | active=13 fallback=8 pending=0 loading=140
+62.576	D	PanZoomDemo	flush: +1 tiles in 0ms | active=14 fallback=8 pending=0 loading=139
+62.609	D	PanZoomDemo	flush: +1 tiles in 0ms | active=15 fallback=8 pending=0 loading=138
+62.642	D	PanZoomDemo	frameLoop: 61fps | flushed=15/s recycled=0/s pumped=14/s active=15 pending=0 loading=138 recyclePending=0 toLoadQueue=0
+62.709	D	PanZoomDemo	flush: +1 tiles in 0ms | active=16 fallback=8 pending=0 loading=137
+62.759	D	PanZoomDemo	flush: +1 tiles in 0ms | active=17 fallback=8 pending=0 loading=136
+62.81	D	PanZoomDemo	flush: +2 tiles in 0ms | active=19 fallback=8 pending=0 loading=134
+62.943	D	PanZoomDemo	flush: +1 tiles in 0ms | active=20 fallback=8 pending=0 loading=133
+62.993	D	PanZoomDemo	flush: +1 tiles in 0ms | active=21 fallback=8 pending=0 loading=132
+63.043	D	PanZoomDemo	flush: +1 tiles in 0ms | active=22 fallback=8 pending=0 loading=131
+63.059	D	PanZoomDemo	flush: +1 tiles in 0ms | active=23 fallback=8 pending=0 loading=130
+63.175	D	PanZoomDemo	flush: +1 tiles in 0ms | active=24 fallback=8 pending=0 loading=129
+63.226	D	PanZoomDemo	flush: +1 tiles in 0ms | active=25 fallback=8 pending=0 loading=128
+63.276	D	PanZoomDemo	flush: +1 tiles in 0ms | active=26 fallback=8 pending=0 loading=127
+63.292	D	PanZoomDemo	flush: +1 tiles in 0ms | active=27 fallback=8 pending=0 loading=126
+63.409	D	PanZoomDemo	flush: +1 tiles in 0ms | active=28 fallback=8 pending=0 loading=125
+63.459	D	PanZoomDemo	flush: +1 tiles in 0ms | active=29 fallback=8 pending=0 loading=124
+63.508	D	PanZoomDemo	flush: +1 tiles in 0ms | active=30 fallback=8 pending=0 loading=123
+63.542	D	PanZoomDemo	flush: +1 tiles in 0ms | active=31 fallback=8 pending=0 loading=122
+63.658	D	PanZoomDemo	frameLoop: 61fps | flushed=16/s recycled=0/s pumped=0/s active=31 pending=0 loading=122 recyclePending=0 toLoadQueue=0
+63.675	D	PanZoomDemo	flush: +1 tiles in 0ms | active=32 fallback=8 pending=0 loading=121
+63.741	D	PanZoomDemo	flush: +1 tiles in 0ms | active=33 fallback=8 pending=0 loading=120
+63.758	D	PanZoomDemo	flush: +1 tiles in 0ms | active=34 fallback=8 pending=0 loading=119
+63.792	D	PanZoomDemo	flush: +1 tiles in 0ms | active=35 fallback=8 pending=0 loading=118
+63.908	D	PanZoomDemo	flush: +1 tiles in 0ms | active=36 fallback=8 pending=0 loading=117
+63.992	D	PanZoomDemo	flush: +1 tiles in 0ms | active=37 fallback=8 pending=0 loading=116
+64.025	D	PanZoomDemo	flush: +1 tiles in 0ms | active=38 fallback=8 pending=0 loading=115
+64.041	D	PanZoomDemo	flush: +1 tiles in 0ms | active=39 fallback=8 pending=0 loading=114
+64.158	D	PanZoomDemo	flush: +1 tiles in 0ms | active=40 fallback=8 pending=0 loading=113
+64.225	D	PanZoomDemo	flush: +1 tiles in 0ms | active=41 fallback=8 pending=0 loading=112
+64.258	D	PanZoomDemo	flush: +1 tiles in 0ms | active=42 fallback=8 pending=0 loading=111
+64.275	D	PanZoomDemo	flush: +1 tiles in 0ms | active=43 fallback=8 pending=0 loading=110
+64.408	D	PanZoomDemo	flush: +1 tiles in 0ms | active=44 fallback=8 pending=0 loading=109
+64.491	D	PanZoomDemo	flush: +1 tiles in 1ms | active=45 fallback=8 pending=0 loading=108
+64.525	D	PanZoomDemo	flush: +2 tiles in 0ms | active=47 fallback=8 pending=0 loading=106
+64.658	D	PanZoomDemo	flush: +1 tiles in 0ms | active=48 fallback=8 pending=0 loading=105
+64.675	D	PanZoomDemo	frameLoop: 61fps | flushed=17/s recycled=0/s pumped=0/s active=48 pending=0 loading=105 recyclePending=0 toLoadQueue=0
+64.708	D	PanZoomDemo	flush: +1 tiles in 0ms | active=49 fallback=8 pending=0 loading=104
+64.791	D	PanZoomDemo	flush: +2 tiles in 0ms | active=51 fallback=8 pending=0 loading=102

@@ -1,0 +1,36 @@
+Session:  B3_realme-RMX3371-Android-14_2026-07-04_1357
+Duration: 67.9 s   App messages: 4661  (total in log: 15170)
+
+FPS:
+  samples=1  min=58  max=58  avg=58.0
+  distribution: {58:1}
+
+Jank:
+  events=2  min=37ms  max=38ms  avg=37.5ms
+  all values (ms): [37, 38]
+
+RAM PSS: samples=14  min=50MB  max=326MB  avg=265.5MB
+RAM J:   samples=5  min=5MB  max=21MB  avg=11.4MB
+RAM N:   samples=19  min=16MB  max=203MB  avg=169.4MB
+
+Pool hit-rate (raw tile ops): 952 hits / 1436 total = 66.3%
+Pool stats snapshots: 12
+  Final: hit-rate=68%  items=13/96  miss_missing=73  miss_empty=361  evict=88
+  Cold-start (2nd snapshot): miss_missing=0  evict=25
+
+Decode: samples=1436  min=6ms  max=262ms  avg=71.2ms
+Wait:   samples=1436  min=0ms  max=4100ms  avg=403.2ms
+Sample sizes used: {1:506, 2:275, 4:269, 8:386}
+Tile sizes used:   {'512x512': 506, '64x64': 386, '256x256': 275, '128x128': 269}
+
+Toggles (7):
+  +2.62s  Toggle Tiling: true
+  +2.62s  Toggle Culling: enabled true (доступен только вместе с Tiling)
+  +2.62s  Toggle LOD: enabled true (доступен только вместе с Tiling)
+  +2.62s  Toggle GraphicsLayer: enabled true (доступен только вместе с Tiling)
+  +2.93s  Toggle Culling: true
+  +3.26s  Toggle LOD: true
+  +3.61s  Toggle GraphicsLayer: true
+
+BitmapRegionDecoder warnings: 846
+Exceptions/crashes:           5
