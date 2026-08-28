@@ -188,3 +188,34 @@
 >   `BitmapFactory.decodeFile` успешно выделил 256 МБ ARGB_8888 bitmap в heap, но при попытке отрисовки `BitmapPainter.onDraw` → `RecordingCanvas.throwIfCannotDraw` отклонил его как слишком большой для Draw API.
 > Для доклада это сильнее чем OOM: «даже если RAM физически есть - Android Draw API не способен это отрисовать». `test_image_large.jpg` (50k×50k) при том же подходе потребовал бы ~10 ГБ - до Canvas-лимита дело бы не дошло, упало бы раньше на аллокации.
 > Прогон снимается **один раз** (крах детерминированный).
+
+---
+
+## Сценарий OOM-LARGE - NaiveImageViewer с test_image_large.jpg
+
+**Устройство:** realme RMX3371 (Snapdragon 695, Android 14)
+**Ветка:** `draft-app` (debug-сборка; метрика RAM/крашей не зависит от release)
+**Образ:** `test_image_large.jpg` (30 000×30 000 px, ~35 МБ сжатый → ~3.4 ГБ ARGB_8888)
+**Конфигурация:** Tiling ❌  (NaiveImageViewer, `test_image_large.jpg` подан временным патчем в DemoScreen)
+**Цель прогона:** проверить утверждение из доклада «для большого ассета OOM случился бы на аллокации»
+
+| Прогон    | Stem                                           | Exceptions | Bitmap size  | Время до краша | Тип краша                                                          |
+|-----------|------------------------------------------------|:----------:|:------------:|:--------------:|--------------------------------------------------------------------|
+| OOM-LARGE | `realme-RMX3371-Android-14_2026-07-08_170945` |    2 ❌     | **~3.4 ГБ**  |   **< 0.1 с**  | `IllegalStateException: Failed to decode test_image_large.jpg`     |
+
+> **Реальные размеры файла:** 30 000×30 000 px (не 50k×50k). Decoded ARGB_8888: 30 000 × 30 000 × 4 = 3 600 000 000 байт ≈ 3.4 ГБ.
+>
+> **Механизм краша — не OutOfMemoryError напрямую:**
+>   `BitmapFactory.decodeStream` внутри перехватывает OOM и возвращает `null` вместо броска исключения.
+>   Наш код `?: error("Failed to decode $assetName")` (NaiveImageViewer.kt:36) конвертирует `null` в `IllegalStateException`.
+>   Compose перехватил его в `ComposeInternal` (Error was captured in composition), затем `AndroidRuntime` выдал FATAL EXCEPTION и процесс убит SIGKILL (SIG: 9).
+>
+> **GC-давление:** два `NullPointerException` в теге `callGcSupression` до краша — Android пытался высвободить память через GC suppression во время аллокации, но не смог.
+>
+> **RAM до краша:** PSS 105–129 МБ (замеры до попытки аллокации, после краша данных нет).
+>
+> **Вывод для доклада:** утверждение «упало бы на аллокации» — **факт**, но тип исключения нужно уточнить.
+>   Говорить не «OutOfMemoryError», а: «`BitmapFactory` вернул null, потому что 3.4 ГБ выделить невозможно, и приложение немедленно упало».
+>   Числа в докладе скорректировать: 30k×30k → ~3.4 ГБ (не 50k×50k → ~10 ГБ).
+>
+> Прогон снимается **один раз** (крах детерминированный).
