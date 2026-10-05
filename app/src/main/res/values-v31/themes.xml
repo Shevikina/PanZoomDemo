@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        API 31+: системный Splash Screen API берёт иконку не из адаптивной ic_launcher
+        (там safe zone под круглую маску лаунчера - см. ic_launcher_foreground.xml),
+        а из отдельного ic_splash_icon без этого ограничения, поэтому можно крупнее.
+
+        Фон сплеша белый: основная фигура логотипа залита тёмно-синим #2A3848 и на тёмном
+        фоне пропадает. Заодно совпадает с белым холстом вьюера, так что старт идёт без вспышки.
+    -->
+    <style name="Theme.PanZoomDemo" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowSplashScreenBackground">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_icon</item>
+    </style>
+</resources>

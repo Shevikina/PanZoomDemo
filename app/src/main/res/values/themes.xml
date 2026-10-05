@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Светлый родитель под белый холст вьюера: этот стиль красит окно до первого кадра
+         Compose, и с тёмным родителем старт давал тёмную вспышку перед белым фоном.
+         К системной настройке это отношения не имеет, тема приложения всегда одна. -->
     <style name="Theme.PanZoomDemo" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
