@@ -1,4 +1,4 @@
-package com.shevikina.panzoomdemo.demo.elements
+package com.shevikina.panzoomdemo.presentation.demo.elements.controlpanel
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,8 +13,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.shevikina.panzoomdemo.ui.theme.PanZoomDemoTheme
+import com.shevikina.panzoomdemo.presentation.theme.PanZoomDemoTheme
 
+/** Строка переключателя с заголовком, описанием и Switch. */
 @Composable
 fun DemoToggleItem(
     label: String,
@@ -30,13 +31,21 @@ fun DemoToggleItem(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(modifier = Modifier.weight(1f)) {
-            Text(label, color = Color.White, overflow = TextOverflow.Ellipsis)
-            Text(description, color = Color.LightGray, overflow = TextOverflow.Ellipsis)
+            Text(
+                text = label,
+                color = Color.White,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                text = description,
+                color = Color.LightGray,
+                overflow = TextOverflow.Ellipsis,
+            )
         }
         Switch(
             enabled = enabled,
             checked = checked,
-            onCheckedChange = onCheckedChange
+            onCheckedChange = onCheckedChange,
         )
     }
 }
@@ -50,7 +59,7 @@ private fun DemoToggleItemPreview() {
             description = "Пояснение",
             enabled = true,
             checked = false,
-            onCheckedChange = {}
+            onCheckedChange = {},
         )
     }
 }
