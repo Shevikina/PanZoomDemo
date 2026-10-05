@@ -1,25 +1,38 @@
 package com.shevikina.panzoomdemo
 
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.metrics.performance.JankStats
-import com.shevikina.panzoomdemo.demo.DemoScreen
-import com.shevikina.panzoomdemo.metrics.JankTracker
-import com.shevikina.panzoomdemo.ui.theme.PanZoomDemoTheme
+import com.shevikina.panzoomdemo.core.log.DemoLog
+import com.shevikina.panzoomdemo.domain.usecase.IRecordJankUseCase
+import com.shevikina.panzoomdemo.presentation.demo.DemoScreen
+import com.shevikina.panzoomdemo.presentation.theme.PanZoomDemoTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-private const val TAG = "PanZoomDemo"
 private const val NANOS_PER_MS = 1_000_000
 
+/** Единственная Activity приложения. Поднимает JankStats и запускает DemoScreen. */
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var recordJank: IRecordJankUseCase
 
     private lateinit var jankStats: JankStats
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        // Стили баров заданы явно, чтобы цвет иконок зависел от того,
+        // что под ними нарисовано, а не от системной темы.
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
+        )
         setContent {
             PanZoomDemoTheme {
                 DemoScreen()
@@ -27,8 +40,8 @@ class MainActivity : ComponentActivity() {
         }
         jankStats = JankStats.createAndTrack(window) { frameData ->
             if (frameData.isJank) {
-                Log.w(TAG, "Jank: ${frameData.frameDurationUiNanos / NANOS_PER_MS}ms")
-                JankTracker.recordJank()
+                DemoLog.warn("Jank: ${frameData.frameDurationUiNanos / NANOS_PER_MS}ms")
+                recordJank()
             }
         }
     }
