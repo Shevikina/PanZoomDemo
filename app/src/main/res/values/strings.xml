@@ -1,14 +1,22 @@
 <resources>
     <string name="app_name">PanZoomDemo</string>
 
-    <string name="demo_naive_title">Загрузка изображения в лоб</string>
-    <string name="demo_naive_subtitle">(Мгновенное падение с OOM)</string>
-    <string name="demo_tiling_title">Tiling</string>
-    <string name="demo_tiling_subtitle">(Взять только видимый кусок)</string>
     <string name="demo_culling_title">Culling</string>
     <string name="demo_culling_subtitle">(Не отрисовываем скрытые тайлы)</string>
     <string name="demo_lod_title">LOD + Subsampling</string>
     <string name="demo_lod_subtitle">(Управляем детализацией тайлов)</string>
     <string name="demo_graphics_layer_title">GraphicsLayer</string>
     <string name="demo_graphics_layer_subtitle">(Поздняя трансформация)</string>
+
+    <string name="demo_mode_naive">Naive</string>
+    <string name="demo_mode_tiled">Tiled</string>
+    <string name="demo_asset_small">Small</string>
+    <string name="demo_asset_medium">Medium</string>
+    <string name="demo_asset_large">Large</string>
+
+    <string name="demo_panel_peek">%1$s | Вкл: %2$s</string>
+    <string name="demo_panel_peek_none">нет</string>
+
+    <string name="demo_error_prefix">Ошибка загрузки изображения</string>
+    <string name="demo_error_dismiss">Закрыть</string>
 </resources>
