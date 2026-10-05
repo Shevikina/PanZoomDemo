@@ -1,0 +1,32 @@
+# Надстройка над дефолтным конфигом detekt: правила, которые не подходят Compose-проекту.
+# Всё остальное берётся из defaults (buildUponDefaultConfig = true).
+
+complexity:
+  LongMethod:
+    # Composable-функция описывает дерево UI; дробить её ради длины только вредит читаемости.
+    ignoreAnnotated: ['Composable']
+  LongParameterList:
+    ignoreAnnotated: ['Composable', 'Preview']
+  TooManyFunctions:
+    # DI-модули состоят из одних @Binds.
+    ignoreAnnotated: ['Module']
+    # Считаем публичную поверхность класса; приватные помощники её не раздувают.
+    ignorePrivate: true
+
+naming:
+  FunctionNaming:
+    # Composable-функции по гайдлайнам Compose называются с большой буквы.
+    ignoreAnnotated: ['Composable']
+
+style:
+  MagicNumber:
+    ignoreAnnotated: ['Composable', 'Preview']
+    ignorePropertyDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+  ReturnCount:
+    # Ранние выходы-стражи читаются лучше вложенных if.
+    max: 3
+    excludeGuardClauses: true
+  UnusedPrivateMember:
+    # Preview-функции вызывает только tooling.
+    ignoreAnnotated: ['Preview']
