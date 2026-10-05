@@ -11,159 +11,157 @@
 
 ---
 
-## Сценарий A — Cold start + panic pan (GL=ON)
+## Прогон GL=ON — все оружия включены
 
-**Трейс:** `A3_realme-RMX3371-Android-14_2026-07-04_2013.pb`
+**Трейс:** `GL-on_realme-RMX3371-Android-14_2026-09-30_1121.pb`
 **Конфигурация:** Tiling ✅ Culling ✅ LOD ✅ GraphicsLayer ✅
+**Жест:** горизонтальный пан туда-обратно в ровном темпе, 14.9 с
+**Сырые данные:** `logdata/perfetto/GL-on_realme-RMX3371-Android-14_2026-09-30_1121/`
 
 ### Frames (SurfaceFlinger)
 
-| Метрика                 | Значение                       |
-|-------------------------|--------------------------------|
-| Всего фреймов           | 474                            |
-| smooth                  | 434 (91.6%)                    |
-| Buffer Stuffing         | 36 (7.6%) — on_time=1, не дроп |
-| **App Deadline Missed** | **4 (0.8%)**                   |
-| late (on_time=0)        | 6 (1.3%)                       |
-| avg frame dur           | 6.49 ms                        |
-| max frame dur           | 23.29 ms                       |
+| Метрика                 | Значение                          |
+|-------------------------|-----------------------------------|
+| Всего фреймов           | 502                               |
+| smooth                  | 279 (55.6%)                       |
+| Buffer Stuffing         | 214 (42.6%) — on_time=1, не дроп  |
+| **App Deadline Missed** | **9 (1.8%)**                      |
+| late (on_time=0)        | 12 (2.4%)                         |
+| avg frame dur           | 6.63 ms                           |
+| max frame dur           | 31.95 ms                          |
+
+Худшие поздние кадры, мс: 31.95, 30.13, 28.49, 27.98, 23.73.
 
 ### Custom slices (Trace.beginSection)
 
-| Секция              | count |        avg |         max |                      total |
-|---------------------|------:|-----------:|------------:|---------------------------:|
-| `updateTiles`       |   442 |    0.19 ms |     2.32 ms |                      82 ms |
-| `flushPendingTiles` |   104 |    0.01 ms |     0.11 ms |                       1 ms |
-| `decodeTile.decode` |   143 |   60.65 ms |   117.96 ms |                      8.6 s |
-| `decodeTile.wait`   |   140 | ~~348 ms~~ | ~~9050 ms~~ | — (недостоверно, см. выше) |
+| Секция              | count |      avg |       max |     total |
+|---------------------|------:|---------:|----------:|----------:|
+| `updateTiles`       |   495 |  0.15 ms |   1.41 ms |   72.7 ms |
+| `flushPendingTiles` |    56 |  0.02 ms |   0.13 ms |    1.3 ms |
+| `decodeTile.decode` |    69 | 93.72 ms | 131.88 ms | 6466.6 ms |
+| `decodeTile.wait`   |     0 |        — |         — |         — |
 
 ### Recompositions
 
 | Имя                    |    count |
 |------------------------|---------:|
-| `Recomposer:recompose` |      904 |
-| `Recomposer:animation` |      896 |
-| `Compose:recompose`    |       30 |
-| **Итого**              | **1830** |
+| `Recomposer:animation` |      898 |
+| `Recomposer:recompose` |      897 |
+| `Compose:recompose`    |   **14** |
+| **Итого**              | **1809** |
 
-Rate: **122.6/sec**
+Rate: **121.1/sec**, avg 0.15 ms, max 7.92 ms, total **277.4 ms**
 
-896 `Recomposer:animation` совпадают с числом кадров Choreographer (896) — одна
-animation-recompose на каждый кадр на протяжении всей сессии (tile fade-in или другой
-`animate*` в дереве).
+898 `Recomposer:animation` совпадают с числом кадров Choreographer — одна
+animation-рекомпозиция на кадр всю сессию, её держит инерция после свайпа.
 
-904 `Recomposer:recompose` ≈ 60/sec — **recompose-циклы синхронны с жестом.**
-С GL=ON ожидалось бы их отсутствие при пане, но они есть. Нужно сравнение с E (GL=OFF).
+`Compose:recompose` всего 14 за 15 секунд. Скоупы, читающие pan и zoom, при включённом
+тумблере не пересобираются: состояние читается в лямбде `graphicsLayer`, в фазе отрисовки.
 
 ### Main thread top
 
-| Слайс                                         | count |     avg |      max |   total |
-|-----------------------------------------------|------:|--------:|---------:|--------:|
-| `Choreographer#doFrame`                       |   896 | 1.71 ms | 12.17 ms | 1472 ms |
-| `checkForSemanticsChanges`                    |   134 | 0.60 ms |  2.70 ms |   80 ms |
-| `deliverInputEvent`                           |    50 | 1.25 ms |  3.52 ms |   62 ms |
-| `getAllUncoveredSemanticsNodesToIntObjectMap` |   127 | 0.32 ms |  1.24 ms |   40 ms |
-| `Choreographer#onVsync`                       |   896 | 0.04 ms |  0.34 ms |   36 ms |
-
-### Выводы
-
-- **Main thread очень чист:** avg doFrame = 1.71ms из 16.7ms бюджета (10%). ✅
-- **`updateTiles` не блокирует кадр:** 0.19ms avg — безопасно вызывать на main thread. ✅
-- **`decodeTile.decode` строго async:** 60ms avg на IO-потоке, главный поток не затронут. ✅
-- **4 App Deadline Missed** из 474 (0.8%) — приемлемо для panic-pan с первого холодного старта. ✅
-- **Semantics overhead:** `checkForSemanticsChanges` + `getAllUncoveredSemantics...` суммарно
-  ~120ms = 8% main-thread времени. Можно отключить accessibility semantics для prod (не цель демо).
-- **Recompose при GL=ON:** 904 recompose/сессию ≈ 60/sec — неожиданно. Требует сравнения
-  с E-трейсом (GL=OFF) чтобы понять, даёт ли graphicsLayer разницу.
+| Слайс                                         | count |     avg |     max |    total |
+|-----------------------------------------------|------:|--------:|--------:|---------:|
+| `Choreographer#doFrame`                       |   898 | 1.66 ms | 17.96 ms | 1493.4 ms |
+| `checkForSemanticsChanges`                    |   106 | 0.73 ms |  4.44 ms |   77.6 ms |
+| `getAllUncoveredSemanticsNodesToIntObjectMap` |   149 | 0.42 ms |  1.41 ms |   62.9 ms |
+| `Choreographer#onVsync`                       |   898 | 0.04 ms |  0.49 ms |   37.4 ms |
+| `deliverInputEvent`                           |    19 | 1.77 ms |  4.82 ms |   33.7 ms |
 
 ---
 
-## Сценарий E — GL=OFF
+## Прогон GL=OFF — выключен только graphicsLayer
 
-**Трейс:** `E_realme-RMX3371-Android-14_2026-07-04_2035.pb`
+**Трейс:** `GL-off_realme-RMX3371-Android-14_2026-09-30_1122.pb`
 **Конфигурация:** Tiling ✅ Culling ✅ LOD ✅ GraphicsLayer ❌
+**Жест:** тот же, горизонтальный пан туда-обратно, 14.9 с
+**Сырые данные:** `logdata/perfetto/GL-off_realme-RMX3371-Android-14_2026-09-30_1122/`
 
 ### Frames (SurfaceFlinger)
 
-| Метрика                          | Значение                        |
-|----------------------------------|---------------------------------|
-| Всего фреймов                    | 411                             |
-| smooth                           | 364 (88.6%)                     |
-| Buffer Stuffing                  | 41 (10.0%) — on_time=1, не дроп |
-| **App Deadline Missed**          | **4 (1.0%)**                    |
-| Display HAL, App Deadline Missed | 2 (0.5%)                        |
-| late (on_time=0)                 | 10 (2.4%)                       |
-| avg frame dur                    | 7.75 ms                         |
-| max frame dur                    | 28.98 ms                        |
+| Метрика                 | Значение                          |
+|-------------------------|-----------------------------------|
+| Всего фреймов           | 518                               |
+| smooth                  | 340 (65.6%)                       |
+| Buffer Stuffing         | 174 (33.6%) — on_time=1, не дроп  |
+| **App Deadline Missed** | **4 (0.8%)**                      |
+| late (on_time=0)        | 7 (1.4%)                          |
+| avg frame dur           | 7.04 ms                           |
+| max frame dur           | 27.08 ms                          |
+
+Худшие поздние кадры, мс: 27.08, 25.95, 23.38, 22.79.
 
 ### Custom slices (Trace.beginSection)
 
-| Секция              | count |        avg |         max |            total |
-|---------------------|------:|-----------:|------------:|-----------------:|
-| `updateTiles`       |   380 |    0.21 ms |     3.87 ms |            81 ms |
-| `flushPendingTiles` |   103 |    0.01 ms |     0.04 ms |             1 ms |
-| `decodeTile.decode` |   176 |   38.77 ms |    88.78 ms |            6.8 s |
-| `decodeTile.wait`   |   209 | ~~167 ms~~ | ~~5166 ms~~ | — (недостоверно) |
+| Секция              | count |      avg |       max |     total |
+|---------------------|------:|---------:|----------:|----------:|
+| `updateTiles`       |   513 |  0.14 ms |   1.78 ms |   71.2 ms |
+| `flushPendingTiles` |    63 |  0.03 ms |   0.05 ms |    1.6 ms |
+| `decodeTile.decode` |    75 | 94.28 ms | 148.55 ms | 7070.8 ms |
+| `decodeTile.wait`   |     0 |        — |         — |         — |
 
 ### Recompositions
 
 | Имя                    |    count |
 |------------------------|---------:|
-| `Recomposer:recompose` |      903 |
-| `Recomposer:animation` |      896 |
-| `Compose:recompose`    |      406 |
-| **Итого**              | **2205** |
+| `Recomposer:animation` |      897 |
+| `Recomposer:recompose` |      897 |
+| `Compose:recompose`    |  **526** |
+| **Итого**              | **2320** |
 
-Rate: **147.8/sec** | avg: **0.28ms** | total CPU: **621.6ms**
+Rate: **155.5/sec**, avg 0.28 ms, max 3.02 ms, total **656.2 ms**
+
+Циклы рекомпозиции те же 897, а точечных пересборок внутри них в 37 раз больше.
+Это и есть цена чтения pan и zoom в фазе Composition.
 
 ### Main thread top
 
-| Слайс                      | count |     avg |      max |   total |
-|----------------------------|------:|--------:|---------:|--------:|
-| `Choreographer#doFrame`    |   896 | 1.98 ms | 14.04 ms | 1776 ms |
-| `deliverInputEvent`        |    44 | 1.47 ms |  3.89 ms |   65 ms |
-| `checkForSemanticsChanges` |    31 | 1.37 ms |  4.39 ms |   42 ms |
-| `Choreographer#onVsync`    |   896 | 0.04 ms |  0.27 ms |   39 ms |
+| Слайс                                         | count |     avg |      max |    total |
+|-----------------------------------------------|------:|--------:|---------:|---------:|
+| `Choreographer#doFrame`                       |   897 | 1.99 ms | 11.35 ms | 1783.5 ms |
+| `Choreographer#onVsync`                       |   897 | 0.04 ms |  0.22 ms |   34.2 ms |
+| `deliverInputEvent`                           |    16 | 1.72 ms |  3.56 ms |   27.5 ms |
+| `checkForSemanticsChanges`                    |    17 | 0.76 ms |  1.83 ms |   12.9 ms |
 
 ---
 
-## A vs E — сравнение (graphicsLayer ON vs OFF)
+## GL=ON vs GL=OFF — сравнение
 
-| Метрика                 |  A — GL=ON  | E — GL=OFF  | Δ           |
-|-------------------------|:-----------:|:-----------:|:------------|
-| smooth                  | 434 (91.6%) | 364 (88.6%) | −3 п.п.     |
-| App Deadline Missed     |      4      |  4 + 2 HAL  | +2 ⚠️       |
-| late frames             |  6 (1.3%)   |  10 (2.4%)  | +67%        |
-| doFrame avg             |   1.71 ms   |   1.98 ms   | **+16%**    |
-| doFrame max             |  12.17 ms   |  14.04 ms   | +15%        |
-| doFrame total           |   1472 ms   |   1776 ms   | **+21%**    |
-| `Recomposer:recompose`  |     904     |     903     | ≈ одинаково |
-| `Recomposer:animation`  |     896     |     896     | = одинаково |
-| **`Compose:recompose`** |   **30**    |   **406**   | **×13.5 ❌** |
-| recompose avg duration  |   0.14 ms   |   0.28 ms   | **×2**      |
-| **recompose total CPU** | **250 ms**  | **621 ms**  | **×2.5 ❌**  |
+| Метрика                       | GL=ON      | GL=OFF     | Δ            |
+|-------------------------------|:----------:|:----------:|:-------------|
+| Всего фреймов                 | 502        | 518        | +3 %         |
+| avg frame dur                 | 6.63 ms    | 7.04 ms    | +6 %         |
+| App Deadline Missed           | 9          | 4          | −5 (разброс) |
+| Buffer Stuffing               | 214        | 174        | −40          |
+| `updateTiles` count           | 495        | 513        | +4 %         |
+| `updateTiles` avg             | 0.15 ms    | 0.14 ms    | ≈            |
+| `decodeTile.decode` avg       | 93.72 ms   | 94.28 ms   | ≈            |
+| `Recomposer:recompose`        | 897        | 897        | =            |
+| `Recomposer:animation`        | 898        | 897        | =            |
+| **`Compose:recompose`**       | **14**     | **526**    | **×37.6 ❌**  |
+| Recompose avg                 | 0.15 ms    | 0.28 ms    | ×1.9         |
+| **Recompose total CPU**       | **277 мс** | **656 мс** | **×2.4 ❌**   |
+| `Choreographer#doFrame` avg   | 1.66 ms    | 1.99 ms    | +20 %        |
+| `Choreographer#doFrame` total | 1493 мс    | 1784 мс    | +19 %        |
 
 ### Выводы
 
-- **`Compose:recompose` ×13.5:** с GL=OFF каждый жест тригерит recompose конкретных
-  Composable-скоупов (те, что читают pan/zoom state напрямую). С GL=ON state читается
-  только в graphicsLayer-лямбде (Draw phase) — Composition не затронута. ✅
-
-- **Recompose total CPU ×2.5 (250ms → 621ms):** graphicsLayer экономит 370ms CPU
-  на recompose за 15-секундную сессию. На Snapdragon 695 с простым composable это не
-  дропает кадры, но означает тепло + расход батареи + меньший запас до jank. ✅
-
-- **doFrame +16%** (1.71 → 1.98ms): main thread на каждом кадре тратит на 0.27ms больше.
-  Незаметно на этом железе, но на более слабом устройстве или с более тяжёлым composable
-  это часть бюджета 16.7ms. ✅
-
-- **App Deadline Missed одинаковый (4):** JankStats не покажет разницу между GL=ON и OFF —
-  Perfetto с `Compose:recompose` и total recompose CPU является единственным инструментом
-  доказательства для этого доклада.
-
-- **Для слайда:** «JankStats не видит разницы. Perfetto видит: recompose-работы в 2.5 раза
-  больше. На сложном composable, на слабом железе — это dropped frames. Здесь — CPU overhead
-  и тепло. graphicsLayer — universally correct паттерн.»
+- **`Compose:recompose` ×37.6.** Это и есть измеряемый эффект. С GL=OFF пересобираются
+  конкретные скоупы, читающие pan и zoom напрямую; с GL=ON состояние читается в лямбде
+  `graphicsLayer`, то есть в фазе отрисовки, и Composition к ним не обращается вовсе.
+- **`Recomposer:recompose` одинаков, 897 против 897.** Сам цикл рекомпозиции запускается
+  с той же частотой в обоих случаях, его будит анимация инерции. Тумблер на это не влияет
+  и не должен: мерить надо не циклы, а точечные пересборки внутри них.
+- **Recompose total CPU ×2.4**, 379 мс лишней работы за 15 секунд. Кадры не дропаются,
+  но это тепло, батарея и съеденный запас до джанка.
+- **`doFrame` +20 %.** Главный поток тратит на каждый кадр на 0.33 мс больше.
+- **По пропущенным дедлайнам GL=OFF обогнал GL=ON**, 4 против 9, хотя должно было быть
+  наоборот. Считать это эффектом тумблера нельзя: на девяти и четырёх событиях за сессию
+  разброс между прогонами больше самой разницы. Это же показывает, почему на таком железе
+  бесполезны JankStats и gfxinfo, которые кроме дедлайнов ничего и не считают.
+- **`checkForSemanticsChanges` в шесть раз чаще при GL=ON** (106 против 17). Это не эффект
+  тумблера, а побочный след другого маршрута пальца: семантика пересчитывается от касаний,
+  а не от рекомпозиций.
 
 ---
 
@@ -171,17 +169,19 @@ Rate: **147.8/sec** | avg: **0.28ms** | total CPU: **621.6ms**
 
 ### Buffer Stuffing
 
-`Buffer Stuffing` (36 фреймов, 7.6%) означает, что приложение отрендерило кадр, но
+`Buffer Stuffing` (214 фреймов при GL=ON, 174 при GL=OFF) означает, что приложение отрендерило кадр, но
 SurfaceFlinger обнаружил очередь буферов > 1. `on_time_finish=1` у всех — кадр зрителю
 доставлен вовремя. Не является dropped frame. Типично при burst-рендеринге в начале сессии.
 
 ### decodeTile.wait vs logcat
 
-Логкат (A2/A3): wait avg=10–11ms. Perfetto: ~~348ms~~.
+`decodeTile.wait` нулевой: жест простой, очередь декодера не забивалась.
+Но доверять этой секции в Perfetto нельзя в принципе.
+
 Причина: `Trace.beginSection("decodeTile.wait")` стартует на IO-потоке, затем корутина
 suspended (ждёт семафор или dispatcher). Thread освобождается, `endSection` приходит от
 другой корутины на том же треде — секция закрывается в произвольный момент.
-Perfetto-значения wait — артефакт, не реальность.
+Для wait-времени брать logcat, а не Perfetto.
 
 ### Recompose nomenclature
 
@@ -194,19 +194,28 @@ Perfetto-значения wait — артефакт, не реальность.
 Через web-версию вьювера Perfetto не удалось качественно оценить треки в разных сценариях и
 подтвердить корректность скриптов-парсеров.
 
-Для подтверждения использовался Profiler - при открытии
-`E_realme-RMX3371-Android-14_2026-07-04_2035.perfetto-trace` и
-`A3_realme-RMX3371-Android-14_2026-07-04_2013.perfetto-trace` через профайлер мы видим явное
-подтверждение сказанных ранее в презентации утверждений и корректности парсинг-скриптов:
+Для подтверждения использовался Profiler - при открытии трейсов GL=ON и GL=OFF через
+профайлер мы видим явное подтверждение сказанных ранее в презентации утверждений
+и корректности парсинг-скриптов:
 
 - в панеле `Analytics->All Frames->All Frames` видно, что данные идентичны данным, полученным через
   парсер и находящихся в `frames.csv`
 - В расшифровке главного треда `ina.panzoomdemo` явно видна работа поздней трансформации:
-    - Для каждого кадра в кейсе с включенными всеми оптимизациями(Сценарий А) отсутствует слой
-      рекомпозиции Recomposer:recompose->Compose:recompose (
-      см ![А3_perfetto.png](logdata/perfetto/A3_realme-RMX3371-Android-14_2026-07-04_2013/%D0%903_perfetto.png))
-      который явно присутствует в кейсе вылюченного тумблера GL (
-      см ![E_perfetto.png](logdata/perfetto/E_realme-RMX3371-Android-14_2026-07-04_2035/E_perfetto.png))
+    - Для каждого кадра в кейсе с включенными всеми оптимизациями отсутствует слой
+      рекомпозиции Recomposer:recompose->Compose:recompose, который явно присутствует
+      в кейсе выключенного тумблера GL.
+
+Кадры выбраны по одному признаку: в обоих присутствует `updateTiles`, то есть тайлы
+реально пересчитывались. Номер в названии кадра это vsync-токен, а не порядковый номер.
+
+**GL=ON**, кадр `Choreographer#doFrame 6262731`. Под `Recomposer:recompose` пусто.
+
+![GL-on_perfetto.png](logdata/perfetto/GL-on_realme-RMX3371-Android-14_2026-09-30_1121/GL-on_perfetto.png)
+
+**GL=OFF**, кадр `Choreographer#doFrame 6280134`. Под `Recomposer:recompose` развернулись
+`Compose:recompose` и `Compose:applyChanges`.
+
+![GL-off_perfetto.png](logdata/perfetto/GL-off_realme-RMX3371-Android-14_2026-09-30_1122/GL-off_perfetto.png)
 
 Увидеть оптимизацию не через цифры на моем устройстве, к сожалению, нельзя. В большей степени как
 проблема, так и решение относится к слабеньким старым устройствам.

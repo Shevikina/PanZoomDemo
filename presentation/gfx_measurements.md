@@ -2,7 +2,8 @@
 
 **Устройство:** realme RMX3371 (Snapdragon 695, Android 14)
 **Инструмент:** `adb shell dumpsys gfxinfo com.shevikina.panzoomdemo`
-**Скрипт:** `scripts/gfx.sh start` / `scripts/gfx.sh stop <case>`
+**Скрипт:** `scripts/gfx.sh start` / `scripts/gfx.sh stop <case>`; `scripts/baseline.sh run`
+снимает дамп сам
 **Сборка:** release (измерения на debug не репрезентативны)
 
 ---
@@ -13,49 +14,28 @@
 |-------------------------------------|----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | **Janky frames %**                  | Доля кадров, нарушивших дедлайн (>16.7ms на 60Hz)                                      | Оба врага - верхнеуровневый индикатор. Используй вместе с другими данными, т.к. зависит от длины сессии.                            |
 | **99th percentile**                 | Хвост распределения времени кадра (UI-тред). Показывает «worst case» опыт пользователя | Оба врага. Надёжный сравниваемый показатель - не зависит от длины сессии.                                                           |
-| **50th / 90th / 95th percentile**   | Типичное и почти-худшее время кадра                                                    | Baseline здоровья: на всех сценариях должен быть 6-9ms при бюджете 16.7ms.                                                          |
+| **50th / 90th / 95th percentile**   | Типичное и почти-худшее время кадра                                                    | Baseline здоровья: на рабочих сценариях 5-16ms при бюджете 16.7ms.                                                          |
 | **Number Slow UI thread**           | Кадры, где UI-тред занял > 2× бюджета (~33ms)                                          | Враг: стоимость кадра. **Важно:** сравнимо только между сессиями с похожим числом total frames.                                     |
-| **Number Slow bitmap uploads**      | Кадры, где GPU texture upload задержал кадр                                            | Враг: память → Culling=OFF → GPU вынужден аплодить все тайлы. Уникальный сигнал, которого нет в logcat.                             |
+| **Number Slow bitmap uploads**      | Кадры, где GPU texture upload задержал кадр                                            | Враг: память. Ненулевой только когда выключены все тумблеры сразу; отдельный Culling=OFF его не поднимает.                             |
 | **Number Slow issue draw commands** | Кадры, где запись GPU-команд заняла слишком долго                                      | Вспомогательный. Растёт при сложных Draw call списках.                                                                              |
 | **Number Missed Vsync**             | Кадры, опоздавшие на VSync планировщик                                                 | Любой враг. >0 - признак проблемы на уровне планировщика.                                                                           |
-| **99th gpu percentile**             | Хвост GPU-времени (рендер на GPU)                                                      | Диагностика узкого места: если GPU 99th << CPU 99th - GPU не в bottleneck. На всех наших сценариях 7-10ms → **GPU не узкое место**. |
-
-### Что gfxinfo доказывает в докладе
-
-| Сигнал                              | Прогоны            | Вывод                                                     |
-|-------------------------------------|--------------------|-----------------------------------------------------------|
-| `Slow bitmap uploads` F1=7 vs A2=0  | F1 vs A2           | Culling=OFF → давление на GPU texture upload              |
-| `Slow UI thread` F1=147 vs A2=31    | F1 vs A2           | Culling=OFF → UI-тред перегружен обработкой лишних тайлов |
-| Janky% F≈5-6% vs A≈4% / B≈3%        | F1/F2 vs A2, B1/B2 | Culling=OFF повышает jank                                 |
-| 99th GPU = 7-10ms во всех сценариях | Все                | GPU не узкое место - подтверждает CPU-природу проблем     |
-
-> **Ограничение:** сравнение A vs E через `Slow UI thread` не работает - у E в 2-4× больше total
-> frames (сценарий E включает zoom-циклы, генерирующие кадры непрерывно).
-> Для доказательства graphicsLayer используй Perfetto (`Compose:recompose` ×13.5, см.
-`perfetto_measurements.md`).
-
+| **99th gpu percentile**             | Хвост GPU-времени (рендер на GPU)                                                      | Диагностика узкого места: если GPU 99th << CPU 99th - GPU не в bottleneck. На рабочих сценариях 4-7ms → **GPU не узкое место**. |
 ---
 
 ## Сценарий A - Cold start + panic pan (GL=ON, все оружия)
 
 **Конфигурация:** Tiling ✅ Culling ✅ LOD ✅ GraphicsLayer ✅
 
-| Метрика                    | A1 (1749) | A2 (1721) |
-|----------------------------|-----------|-----------|
-| Total frames               | 1252      | 698       |
-| **Janky frames**           | **3.83%** | **4.87%** |
-| 50th percentile            | 7ms       | 7ms       |
-| 90th percentile            | 10ms      | 11ms      |
-| 95th percentile            | 14ms      | 16ms      |
-| **99th percentile**        | **29ms**  | **30ms**  |
-| Number Missed Vsync        | 0         | 0         |
-| Number Slow UI thread      | 48 (3.8%) | 31 (4.4%) |
-| Number Slow bitmap uploads | 0         | 0         |
-| Number Slow issue draw     | 13        | 13        |
-| 50th gpu                   | 3ms       | 3ms       |
-| 90th gpu                   | 3ms       | 4ms       |
-| 95th gpu                   | 4ms       | 4ms       |
-| **99th gpu**               | **9ms**   | **9ms**   |
+**Режим:** Tiled  **Тумблеры:** culling + LOD + GL  **Ассет:** LARGE
+
+Прогонов: 3.
+
+| Прогон | Кадров | Janky | 50th | 90th | 95th | 99th | Missed Vsync | Slow UI | Slow upload | Slow draw | 99th GPU |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0001 | 1970 | 24 (1.22%) | 7ms | 12ms | 13ms | 20ms | 0 | 19 | 0 | 5 | 5ms |
+| 0003 | 1979 | 15 (0.76%) | 6ms | 9ms | 12ms | 25ms | 0 | 10 | 0 | 1 | 5ms |
+| 0006 | 1990 | 23 (1.16%) | 8ms | 11ms | 12ms | 19ms | 0 | 16 | 0 | 5 | 5ms |
+| **медиана** | 1979 | 1.16% | 7ms | 11ms | 12ms | 20ms | 0 | 16 | 0 | 5 | 5ms |
 
 ---
 
@@ -63,22 +43,32 @@
 
 **Конфигурация:** Tiling ✅ Culling ✅ LOD ✅ GraphicsLayer ✅
 
-| Метрика                    | B1        | B2        |
-|----------------------------|-----------|-----------|
-| Total frames               | 1440      | 1471      |
-| **Janky frames**           | **3.19%** | **3.26%** |
-| 50th percentile            | 6ms       | 6ms       |
-| 90th percentile            | 11ms      | 12ms      |
-| 95th percentile            | 19ms      | 14ms      |
-| **99th percentile**        | **28ms**  | **26ms**  |
-| Number Missed Vsync        | 0         | 0         |
-| Number Slow UI thread      | 44 (3.1%) | 39 (2.7%) |
-| Number Slow bitmap uploads | 0         | 0         |
-| Number Slow issue draw     | 12        | 22        |
-| 50th gpu                   | 3ms       | 3ms       |
-| 90th gpu                   | 3ms       | 4ms       |
-| 95th gpu                   | 3ms       | 4ms       |
-| **99th gpu**               | **9ms**   | **9ms**   |
+**Режим:** Tiled  **Тумблеры:** culling + LOD + GL  **Ассет:** LARGE
+
+Прогонов: 3.
+
+| Прогон | Кадров | Janky | 50th | 90th | 95th | 99th | Missed Vsync | Slow UI | Slow upload | Slow draw | 99th GPU |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0007 | 1726 | 22 (1.27%) | 7ms | 10ms | 13ms | 20ms | 0 | 22 | 0 | 2 | 7ms |
+| 0010 | 2009 | 20 (1.00%) | 6ms | 10ms | 12ms | 17ms | 1 | 19 | 0 | 1 | 6ms |
+| 0012 | 2432 | 22 (0.90%) | 5ms | 10ms | 11ms | 16ms | 0 | 20 | 0 | 3 | 5ms |
+| **медиана** | 2009 | 1.00% | 6ms | 10ms | 12ms | 17ms | 0 | 20 | 0 | 2 | 6ms |
+
+## Сценарий C - Chaotic Pan + zoom sweep with all optimization (User behavior simulation)
+
+**Конфигурация:** Tiling ✅ Culling ✅ LOD ✅ GraphicsLayer ✅
+
+**Режим:** Tiled  **Тумблеры:** culling + LOD + GL  **Ассет:** LARGE
+
+Прогонов: 4.
+
+| Прогон | Кадров | Janky | 50th | 90th | 95th | 99th | Missed Vsync | Slow UI | Slow upload | Slow draw | 99th GPU |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0022 | 1700 | 13 (0.76%) | 5ms | 9ms | 11ms | 16ms | 0 | 9 | 0 | 3 | 7ms |
+| 0027 | 1682 | 47 (2.79%) | 7ms | 12ms | 14ms | 21ms | 0 | 33 | 1 | 22 | 8ms |
+| 0029 | 1742 | 21 (1.21%) | 5ms | 11ms | 12ms | 17ms | 0 | 16 | 0 | 6 | 7ms |
+| 0032 | 1585 | 20 (1.26%) | 5ms | 10ms | 12ms | 20ms | 0 | 19 | 0 | 1 | 7ms |
+| **медиана** | 1691 | 1.23% | 5ms | 10ms | 12ms | 18ms | 0 | 18 | 0 | 4 | 7ms |
 
 ---
 
@@ -86,98 +76,122 @@
 
 **Конфигурация:** Tiling ✅ Culling ✅ LOD ✅ GraphicsLayer ❌
 
-| Метрика                    | E1        | E2        |
-|----------------------------|-----------|-----------|
-| Total frames               | 2683      | 2367      |
-| **Janky frames**           | **2.27%** | **1.73%** |
-| 50th percentile            | 8ms       | 7ms       |
-| 90th percentile            | 11ms      | 10ms      |
-| 95th percentile            | 13ms      | 12ms      |
-| **99th percentile**        | **25ms**  | **21ms**  |
-| Number Missed Vsync        | 0         | 0         |
-| Number Slow UI thread      | 51 (1.9%) | 29 (1.2%) |
-| Number Slow bitmap uploads | 0         | 0         |
-| Number Slow issue draw     | 15        | 18        |
-| 50th gpu                   | 3ms       | 3ms       |
-| 90th gpu                   | 4ms       | 4ms       |
-| 95th gpu                   | 5ms       | 4ms       |
-| **99th gpu**               | **9ms**   | **8ms**   |
+**Режим:** Tiled  **Тумблеры:** culling + LOD  **Ассет:** LARGE
 
-> `Slow UI thread` как ставка (1.2-1.9%) ниже, чем у A (3.8-4.4%) - из-за того, что E-сессия
-> содержит zoom-циклы с высокой плотностью кадров, разбавляющие медленные.
-> Сравнивать E vs A через gfxinfo нельзя.
-> Используй Perfetto: `Compose:recompose` ×13.5 за аналогичный период.
+Прогонов: 2.
 
----
+| Прогон | Кадров | Janky | 50th | 90th | 95th | 99th | Missed Vsync | Slow UI | Slow upload | Slow draw | 99th GPU |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0037 | 1874 | 23 (1.23%) | 7ms | 11ms | 12ms | 18ms | 0 | 16 | 0 | 5 | 6ms |
+| 0040 | 2151 | 14 (0.65%) | 6ms | 9ms | 11ms | 16ms | 0 | 10 | 1 | 0 | 4ms |
+| **медиана** | 2012 | 0.94% | 6ms | 10ms | 12ms | 17ms | 0 | 13 | 0 | 2 | 5ms |
 
 ## Сценарий F - Pan edge-to-edge (Culling=OFF)
 
 **Конфигурация:** Tiling ✅ Culling ❌ LOD ✅ GraphicsLayer ✅
 
-| Метрика                        | F1 ★       | F2        |
-|--------------------------------|------------|-----------|
-| Total frames                   | 3453       | 2219      |
-| **Janky frames**               | **5.88%**  | **5.00%** |
-| 50th percentile                | 8ms        | 8ms       |
-| 90th percentile                | 16ms       | 19ms      |
-| 95th percentile                | 20ms       | 22ms      |
-| **99th percentile**            | **28ms**   | **28ms**  |
-| Number Missed Vsync            | 0          | **1** ⚠️  |
-| Number Slow UI thread          | 147 (4.3%) | 89 (4.0%) |
-| **Number Slow bitmap uploads** | **7** ⚠️   | **2**     |
-| Number Slow issue draw         | 16         | 4         |
-| 50th gpu                       | 3ms        | 3ms       |
-| 90th gpu                       | 3ms        | 3ms       |
-| 95th gpu                       | 3ms        | 3ms       |
-| **99th gpu**                   | **7ms**    | **7ms**   |
+**Режим:** Tiled  **Тумблеры:** LOD + GL  **Ассет:** LARGE
 
-> F1 - основной прогон.
-> F2 имеет Missed Vsync=1 и меньше total frames.
-> **Ключевой сигнал:** `Slow bitmap uploads` F1=7 vs A2=0 - Culling=OFF вынуждает GPU аплодить
-> все тайлы кадра, а не только видимые.
+Прогонов: 2.
 
----
+| Прогон | Кадров | Janky | 50th | 90th | 95th | 99th | Missed Vsync | Slow UI | Slow upload | Slow draw | 99th GPU |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0044 | 2702 | 75 (2.78%) | 8ms | 13ms | 16ms | 23ms | 0 | 61 | 0 | 6 | 6ms |
+| 0046 | 2631 | 43 (1.63%) | 7ms | 11ms | 13ms | 18ms | 1 | 30 | 1 | 6 | 4ms |
+| **медиана** | 2666 | 2.21% | 8ms | 12ms | 14ms | 20ms | 0 | 46 | 0 | 6 | 5ms |
 
 ## Сценарий G - Pan + zoom sweep (LOD=OFF)
 
 **Конфигурация:** Tiling ✅ Culling ✅ LOD ❌ GraphicsLayer ✅
 
-| Метрика                    | G1        | G2        |
-|----------------------------|-----------|-----------|
-| Total frames               | 1648      | 1542      |
-| **Janky frames**           | **2.61%** | **3.57%** |
-| 50th percentile            | 6ms       | 7ms       |
-| 90th percentile            | 11ms      | 13ms      |
-| 95th percentile            | 14ms      | 17ms      |
-| **99th percentile**        | **24ms**  | **24ms**  |
-| Number Missed Vsync        | 0         | 0         |
-| Number Slow UI thread      | 38 (2.3%) | 34 (2.2%) |
-| Number Slow bitmap uploads | 0         | 0         |
-| Number Slow issue draw     | 5         | 17        |
-| 50th gpu                   | 3ms       | 3ms       |
-| 90th gpu                   | 3ms       | 4ms       |
-| 95th gpu                   | 3ms       | 6ms       |
-| **99th gpu**               | **8ms**   | **8ms**   |
+**Режим:** Tiled  **Тумблеры:** culling + GL  **Ассет:** LARGE
 
-> gfxinfo не показывает LOD-эффект - `Slow bitmap uploads`=0 в обоих прогонах.
-> LOD-аргумент доказывай через logcat: decode avg, RAM usage (см. `logs_measurements.md`).
+Прогонов: 2.
+
+| Прогон | Кадров | Janky | 50th | 90th | 95th | 99th | Missed Vsync | Slow UI | Slow upload | Slow draw | 99th GPU |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0104 | 2952 | 30 (1.02%) | 7ms | 11ms | 13ms | 23ms | 0 | 29 | 0 | 0 | 4ms |
+| 0106 | 3041 | 43 (1.41%) | 7ms | 18ms | 20ms | 32ms | 2 | 41 | 0 | 2 | 5ms |
+| **медиана** | 2996 | 1.21% | 7ms | 14ms | 16ms | 28ms | 1 | 35 | 0 | 1 | 4ms |
+
+## Сценарий OFF - Chaotic Pan + zoom sweep with only Tiling (User behavior simulation) 
+
+**Конфигурация:** Tiling ✅ Culling ❌ LOD ❌ GraphicsLayer ❌
+
+**Режим:** Tiled  **Тумблеры:** все выключены  **Ассет:** LARGE
+
+Прогонов: 2.
+
+| Прогон | Кадров | Janky | 50th | 90th | 95th | 99th | Missed Vsync | Slow UI | Slow upload | Slow draw | 99th GPU |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0114 | 2302 | 55 (2.39%) | 8ms | 12ms | 14ms | 20ms | 0 | 49 | 0 | 3 | 7ms |
+| 0117 | 2117 | 144 (6.80%) | 8ms | 17ms | 25ms | 250ms | 53 | 127 | 4 | 71 | 25ms |
+| **медиана** | 2210 | 4.59% | 8ms | 14ms | 20ms | 135ms | 26 | 88 | 2 | 37 | 16ms |
+
+Тайловый режим без единой оптимизации, точка отсчёта для остальных сценариев.
+
+## Сценарий D-0 - Chaotic Pan + zoom sweep with Naive (User behavior simulation)
+
+**Конфигурация:** Tiling ❌ Culling ❌ LOD ❌ GraphicsLayer ❌
+
+**Режим:** Naive  **Тумблеры:** -  **Ассет:** SMALL
+
+Прогонов: 5.
+
+| Прогон | Кадров | Janky | 50th | 90th | 95th | 99th | Missed Vsync | Slow UI | Slow upload | Slow draw | 99th GPU |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2253 | 1315 | 20 (1.52%) | 6ms | 9ms | 11ms | 19ms | 0 | 14 | 0 | 8 | 8ms |
+| 2303 | 1368 | 18 (1.32%) | 6ms | 10ms | 11ms | 19ms | 0 | 11 | 0 | 3 | 8ms |
+| 2310 | 1357 | 32 (2.36%) | 6ms | 10ms | 12ms | 24ms | 0 | 24 | 0 | 12 | 8ms |
+| 2322 | 1278 | 24 (1.88%) | 6ms | 10ms | 13ms | 18ms | 0 | 17 | 0 | 3 | 7ms |
+| 2336 | 1269 | 20 (1.58%) | 6ms | 10ms | 12ms | 19ms | 0 | 15 | 0 | 2 | 7ms |
+| **медиана** | 1315 | 1.58% | 6ms | 10ms | 12ms | 19ms | 0 | 15 | 0 | 3 | 8ms |
+
+Наивный вьюер на изображении, которое он ещё способен открыть.
+
+## Сценарий OOM - наивный режим, ожидаемый отказ
+
+**Конфигурация:** Tiling ❌ Culling ❌ LOD ❌ GraphicsLayer ❌
+
+**Режим:** Naive  **Тумблеры:** -  **Ассеты:** MEDIUM, LARGE
+
+Прогонов: 2.
+
+| Прогон | Ассет | Кадров | Janky | 50th | 90th | 95th | 99th | Missed Vsync | Slow UI | Slow upload | Slow draw | 99th GPU |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 0129 | MEDIUM | 234 | 12 (5.13%) | 11ms | 14ms | 17ms | 24ms | 0 | 11 | 0 | 2 | 8ms |
+| 0131 | LARGE | 294 | 15 (5.10%) | 13ms | 15ms | 17ms | 24ms | 1 | 9 | 0 | 1 | 4ms |
+
+Переключение ассета и ожидание отказа. Наивный вьюер на изображении, которое платформа отрисовать не может.
 
 ---
 
 ## Сводка для слайдов
 
-| Сравнение | Метрика                 | Baseline (A2) | Culling=OFF (F1) | Δ        |
-|-----------|-------------------------|---------------|------------------|----------|
-| A vs F    | Janky %                 | 4.87%         | 5.88%            | +1 п.п.  |
-| A vs F    | 99th percentile         | 30ms          | 28ms             | ≈        |
-| A vs F    | Slow UI thread %        | 4.4%          | 4.3%             | ≈        |
-| A vs F    | **Slow bitmap uploads** | **0**         | **7**            | **+7 ❌** |
+| Сравнение | Метрика | Всё включено (A) | Culling выключен (F) | Δ |
+|-----------|---------|:----------------:|:--------------------:|:--|
+| A vs F | Janky % | 1.16 % | 2.21 % | ×1.9 |
+| A vs F | 99th percentile | 20 мс | 20 мс | ≈ |
+| A vs F | Slow UI thread | 16 | 46 | ×2.9 |
 
-| Сравнение | Метрика             | Baseline (B1/B2) | LOD=OFF (G1/G2) | Δ               |
-|-----------|---------------------|------------------|-----------------|-----------------|
-| B vs G    | Janky %             | 3.19-3.26%       | 2.61-3.57%      | ≈ (нет сигнала) |
-| B vs G    | 99th percentile     | 26-28ms          | 24ms            | ≈               |
-| B vs G    | Slow bitmap uploads | 0                | 0               | -               |
+| Сравнение | Метрика | Всё включено (B) | LOD выключен (G) | Δ |
+|-----------|---------|:----------------:|:----------------:|:--|
+| B vs G | Janky % | 1.00 % | 1.21 % | ≈ |
+| B vs G | **99th percentile** | **17 мс** | **28 мс** | **×1.6** |
+| B vs G | Slow UI thread | 20 | 35 | ×1.8 |
 
-> **Вывод:** gfxinfo подтверждает Culling-аргумент (`Slow bitmap uploads`).
-> LOD-эффект в gfxinfo не виден на этом железе - используй logcat/Perfetto.
+| Сравнение | Метрика | Всё включено (A) | Все выключены (OFF) | Δ |
+|-----------|---------|:----------------:|:-------------------:|:--|
+| A vs OFF | **Janky %** | **1.16 %** | **4.59 %** | **×4** |
+| A vs OFF | **99th percentile** | **20 мс** | **135 мс** | **×6.8** |
+| A vs OFF | **Missed Vsync** | **0** | **26** | **+26** |
+| A vs OFF | Slow bitmap uploads | 0 | 2 | +2 |
+| A vs OFF | 99th gpu | 5 мс | 16 мс | ×3.2 |
+
+**Выводы.**
+
+- Куллинг виден в кадрах по `Slow UI thread` и доле джанка.
+- LOD виден по хвосту распределения: 99th percentile 17 мс против 28.
+- Конфигурация «все выключены» единственная, где планировщик кадров не справляется:
+  135 мс в хвосте и 26 пропущенных Vsync.
+- GPU не узкое место, 4-7 мс в хвосте на рабочих конфигурациях.
