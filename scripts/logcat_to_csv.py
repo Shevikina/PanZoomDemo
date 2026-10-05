@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
 """
-Конвертер Android Studio Logcat JSON → структурированные CSV/TSV для анализа PanZoomDemo.
+Разбирает лог прогона в CSV и TSV для анализа.
 
-Использование:
-    python scripts/logcat_to_csv.py logs/<file>.logcat
-    python scripts/logcat_to_csv.py logs/<old>.logcat logs/<new>.logcat
-    python scripts/logcat_to_csv.py logs/<file>.logcat -o /tmp/out
+    python3 scripts/logcat_to_csv.py <прогон>.logcat
+    python3 scripts/logcat_to_csv.py <старый>.logcat <новый>.logcat
+    python3 scripts/logcat_to_csv.py <прогон>.logcat -o /tmp/out
+
+Понимает и текстовый logcat (`-v threadtime`), и JSON-выгрузку из Android Studio.
+Формат определяется по первому символу файла.
+
+На каждый прогон пишет каталог с metrics.csv, pool_stats.csv, tile_loads.csv,
+jank.csv, events.tsv и summary.txt. Два файла дают ещё и comparison.txt.
+
+Строки разбираются регексами по формату сообщений DemoLog.analytics, поэтому формат
+этих сообщений в приложении менять нельзя.
 """
 
 import argparse
@@ -112,15 +120,16 @@ class Session:
 
 # ── Парсинг ───────────────────────────────────────────────────────────────────
 
-# threadtime: "MM-DD HH:MM:SS.mmm  PID  TID LEVEL TAG: message"
+# Строка threadtime выглядит так.
+# MM-DD HH:MM:SS.mmm  PID  TID LEVEL TAG: message
 RE_TEXT_LINE = re.compile(
     r'^\d{2}-\d{2}\s+'
-    r'(\d{2}:\d{2}:\d{2}\.\d+)'   # группа 1: время HH:MM:SS.mmm
-    r'\s+(\d+)'                    # группа 2: PID
-    r'\s+\d+'                      # TID (не нужен)
-    r'\s+([VDIWEF])'               # группа 3: уровень
-    r'\s+([^:]+?)'                 # группа 4: тег (без двоеточия)
-    r':\s*(.*)'                    # группа 5: сообщение
+    r'(\d{2}:\d{2}:\d{2}\.\d+)'   # группа 1, время HH:MM:SS.mmm
+    r'\s+(\d+)'                    # группа 2, PID
+    r'\s+\d+'                      # TID, не нужен
+    r'\s+([VDIWEF])'               # группа 3, уровень
+    r'\s+([^:]+?)'                 # группа 4, тег без двоеточия
+    r':\s*(.*)'                    # группа 5, сообщение
 )
 
 def _parse_logcat_json(path: Path) -> tuple[list[LogMsg], int]:
@@ -163,7 +172,7 @@ def _parse_logcat_text(path: Path) -> tuple[list[LogMsg], int]:
             tag = tag.strip()
             pid = int(pid_str)
 
-            # Время → секунды внутри суток (extract() всё равно вычтет t0)
+            # Время переводим в секунды внутри суток. Начало отсчёта вычитает extract().
             h, rest = time_str.split(":", 1)
             mi, sec = rest.split(":", 1)
             t = int(h) * 3600 + int(mi) * 60 + float(sec)
@@ -195,6 +204,11 @@ def parse_logcat(path: Path) -> tuple[list[LogMsg], int]:
 # ── Извлечение метрик ─────────────────────────────────────────────────────────
 
 def extract(msgs: list[LogMsg], name: str, total: int) -> Session:
+    """Раскладывает сообщения прогона по видам метрик.
+
+    Отсчёт времени ведётся от первого сообщения приложения, поэтому смещения в таблицах
+    не зависят от того, сколько чужих строк попало в лог до старта.
+    """
     if not msgs:
         return Session(name=name, total_messages=total, app_messages=0, duration_sec=0)
 
@@ -209,7 +223,8 @@ def extract(msgs: list[LogMsg], name: str, total: int) -> Session:
         duration_sec=msgs[-1].rel_sec if msgs else 0,
     )
 
-    # Группировка метрик по «тику»: сообщения в пределах 200 мс объединяются в одну строку.
+    # FPS и три вида RAM пишутся в лог отдельными строками. Собираем их в одну строку
+    # таблицы по окну в 200 мс, иначе в каждой строке было бы по одному заполненному полю.
     metric_buckets: dict[int, MetricRow] = {}
 
     def metric_key(rel_sec: float) -> int:
@@ -293,7 +308,8 @@ def extract(msgs: list[LogMsg], name: str, total: int) -> Session:
 
     session.metrics = sorted(metric_buckets.values(), key=lambda r: r.rel_sec)
 
-    # BitmapRegionDecoder и exceptions считаем по всем app-сообщениям
+    # Предупреждения декодера приходят под своим тегом, а не под тегом приложения,
+    # поэтому их ищем по всем сообщениям процесса, а не только по строкам DemoLog.
     for m in msgs:
         if m.tag == brd_tag:
             session.brd_warnings += 1
@@ -308,6 +324,7 @@ def _fmt(val) -> str:
     return "" if val is None else str(val)
 
 def write_metrics(session: Session, out_dir: Path):
+    """Пишет FPS и три вида RAM по окнам времени."""
     path = out_dir / "metrics.csv"
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
@@ -317,6 +334,7 @@ def write_metrics(session: Session, out_dir: Path):
                 w.writerow([r.rel_sec, _fmt(r.fps), _fmt(r.ram_pss_mb), _fmt(r.ram_j_mb), _fmt(r.ram_n_mb)])
 
 def write_pool_stats(session: Session, out_dir: Path):
+    """Пишет снимки пула буферов, по строке на снимок."""
     path = out_dir / "pool_stats.csv"
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
@@ -327,6 +345,7 @@ def write_pool_stats(session: Session, out_dir: Path):
                         s.buckets, s.miss_missing, s.miss_empty, s.evict, s.sizes])
 
 def write_tile_loads(session: Session, out_dir: Path):
+    """Пишет загрузки тайлов, по строке на тайл."""
     path = out_dir / "tile_loads.csv"
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
@@ -337,6 +356,7 @@ def write_tile_loads(session: Session, out_dir: Path):
                         t.sample_size, t.tile_w, t.tile_h, t.worker])
 
 def write_jank(session: Session, out_dir: Path):
+    """Пишет события джанка от JankStats."""
     path = out_dir / "jank.csv"
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
@@ -345,6 +365,10 @@ def write_jank(session: Session, out_dir: Path):
             w.writerow([j.rel_sec, _fmt(j.jank_ms), _fmt(j.jank_fps)])
 
 def write_events(session: Session, out_dir: Path):
+    """Пишет остальные сообщения приложения, которые не разобрались в метрики.
+
+    TSV, а не CSV, потому что в сообщениях бывают запятые.
+    """
     path = out_dir / "events.tsv"
     with open(path, "w", encoding="utf-8") as f:
         f.write("rel_sec\tlevel\ttag\tmessage\n")
@@ -364,6 +388,11 @@ def _dist(vals: list) -> str:
     return "{" + ", ".join(f"{k}:{v}" for k, v in sorted(c.items())) + "}"
 
 def write_summary(session: Session, out_dir: Path):
+    """Пишет сводку прогона одним читаемым текстом.
+
+    Строка «Toggles» остаётся пустой, пока приложение не пишет в лог переключение
+    тумблеров.
+    """
     path = out_dir / "summary.txt"
 
     fps_vals    = [r.fps         for r in session.metrics if r.fps         is not None]
@@ -466,7 +495,8 @@ def _delta_str(old_val, new_val, lower_is_better: bool = True) -> str:
         return "0"
     sign = "+" if delta > 0 else ""
     pct = abs(delta / old_val * 100) if old_val else 0
-    # Значок: зелёный если улучшение, красный если регрессия
+    # Значок ставим только у заметной разницы, чтобы мелкий разброс замера
+    # не выглядел результатом.
     if pct > 5 or abs(delta) >= 10:
         is_improvement = (delta < 0) == lower_is_better
         icon = "✅" if is_improvement else "❌"
@@ -475,6 +505,7 @@ def _delta_str(old_val, new_val, lower_is_better: bool = True) -> str:
     return f"{sign}{round(delta, 1)} {icon}".strip()
 
 def write_comparison(s1: Session, s2: Session, path: Path):
+    """Пишет таблицу двух прогонов рядом, с разницей по каждой метрике."""
     fps1   = _stats([r.fps        for r in s1.metrics if r.fps        is not None])
     fps2   = _stats([r.fps        for r in s2.metrics if r.fps        is not None])
     pss1   = _stats([r.ram_pss_mb for r in s1.metrics if r.ram_pss_mb is not None])
@@ -574,7 +605,7 @@ def main():
     parser.add_argument("logcat", nargs="+", metavar="FILE.logcat",
                         help="Один или два .logcat файла")
     parser.add_argument("-o", "--out", default=None,
-                        help="Папка вывода (по умолчанию: logs/logcat_analyzed/)")
+                        help="Папка вывода, по умолчанию logs/logcat_analyzed/")
     args = parser.parse_args()
 
     if len(args.logcat) > 2:
@@ -597,13 +628,13 @@ def main():
         out_dir = base_out / p.stem
         write_outputs(session, out_dir)
 
-        print(f"Parsed {total} messages, {session.app_messages} app → {out_dir}/")
+        print(f"Parsed {total} messages, {session.app_messages} app -> {out_dir}/")
         sessions.append(session)
 
     if len(sessions) == 2:
         cmp_path = base_out / "comparison.txt"
         write_comparison(sessions[0], sessions[1], cmp_path)
-        print(f"Comparison → {cmp_path}")
+        print(f"Comparison -> {cmp_path}")
 
 if __name__ == "__main__":
     main()

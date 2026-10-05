@@ -1,8 +1,11 @@
 #!/bin/bash
-# Запускает perfetto_analyze.py в venv.
-# Использование:
-#   ./scripts/analyze_perfetto.sh logs/perfetto/A1_xxx.pb
-#   ./scripts/analyze_perfetto.sh logs/perfetto/A1_xxx.pb logs/perfetto/E1_xxx.pb
+#
+# Запускает perfetto_analyze.py в venv проекта. Сам venv создаёт при первом вызове
+# и ставит в него пакет perfetto.
+#
+#   ./scripts/analyze_perfetto.sh <файл.pb> [файл2.pb]
+#
+# Два файла означают сравнение, их разбирает сам perfetto_analyze.py.
 
 set -e
 
@@ -16,7 +19,6 @@ if [ "$#" -eq 0 ]; then
     exit 1
 fi
 
-# Создать venv и установить perfetto, если ещё не сделано
 if [ ! -f "$VENV/bin/python3" ]; then
     echo "Создаю venv: $VENV"
     python3 -m venv "$VENV"

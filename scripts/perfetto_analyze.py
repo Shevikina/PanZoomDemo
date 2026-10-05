@@ -1,26 +1,27 @@
 #!/usr/bin/env python3
 """
-Анализатор Perfetto-трейсов PanZoomDemo.
+Разбирает трейс Perfetto в CSV и сводку.
 
-Требует: perfetto Python package (в venv)
-  python3 -m venv .venv
-  source .venv/bin/activate
-  pip install perfetto
+    python3 scripts/perfetto_analyze.py <трейс>.pb
+    python3 scripts/perfetto_analyze.py <старый>.pb <новый>.pb
+    python3 scripts/perfetto_analyze.py <трейс>.pb -o /tmp/out
 
-Использование:
-    python scripts/perfetto_analyze.py logs/perfetto/<stem>.pb
-    python scripts/perfetto_analyze.py logs/perfetto/<old>.pb logs/perfetto/<new>.pb
-    python scripts/perfetto_analyze.py logs/perfetto/<stem>.pb -o /tmp/out
+Нужен пакет perfetto, его ставят в venv. Всё это делает analyze_perfetto.sh.
 
-Выходные файлы (logs/perfetto_analyzed/<stem>/):
-    summary.txt      — сводка: frames, custom slices, recompose, main thread top
-    frames.csv       — per-frame: rel_ms, dur_ms, janky
-    slices.csv       — кастомные секции: updateTiles, decodeTile.wait/decode, flushPendingTiles
-    recompose.csv    — Compose recompose-слайсы
-    slice_names.txt  — все имена слайсов в процессе (диагностика)
+    python3 -m venv .venv
+    .venv/bin/pip install perfetto
 
-ВАЖНО: трейс должен быть снят с atrace_categories "app"+"view" (startperf.sh уже исправлен).
-Трейсы без atrace не будут содержать updateTiles / decodeTile / recompose.
+На каждый трейс пишет каталог из пяти файлов.
+    summary.txt      сводка по кадрам, секциям, рекомпозициям и главному потоку
+    frames.csv       кадры SurfaceFlinger, по строке на кадр
+    slices.csv       секции приложения updateTiles, flushPendingTiles, decodeTile
+    recompose.csv    слайсы рекомпозиции Compose
+    slice_names.txt  все имена слайсов процесса, чтобы проверять сами запросы
+
+Два трейса дают ещё и comparison.txt.
+
+Секции приложения и рекомпозиции появляются в трейсе только с категориями atrace app
+и view, поэтому трейс без них даст пустые slices.csv и recompose.csv.
 """
 
 import argparse
@@ -32,11 +33,10 @@ from pathlib import Path
 from typing import Optional
 
 APP_PACKAGE = "com.shevikina.panzoomdemo"
-FRAME_BUDGET_MS = 16.667  # 60 fps
 
 # ── SQL ────────────────────────────────────────────────────────────────────────
-
-_PKG = APP_PACKAGE
+# Процесс ищется по LIKE, а не по полному имени, потому что в трейсе оно бывает
+# обрезано слева до последних символов.
 
 _SQL_T0 = f"""
     SELECT MIN(s.ts) AS t0
@@ -67,10 +67,11 @@ _SQL_APP_SLICES = f"""
     ORDER BY s.ts
 """
 
-# SurfaceFlinger frame timeline — точнее Choreographer#doFrame:
-# учитывает GPU-время и определяет jank_type со стороны SurfaceFlinger.
-# jank_type: None=smooth, 'App Deadline Missed'=реальный jank,
-#            'Buffer Stuffing'=minor (on_time_finish=1, не дроп кадра).
+# Кадры берём из таблицы SurfaceFlinger, а не по Choreographer#doFrame, потому что
+# она учитывает и время GPU, и сама размечает вид джанка.
+#
+# Пустой jank_type означает гладкий кадр. 'App Deadline Missed' это настоящий джанк,
+# а 'Buffer Stuffing' идёт вместе с on_time_finish=1 и дропом кадра не является.
 _SQL_FRAMES = f"""
     SELECT s.ts, s.dur / 1e6 AS dur_ms, s.jank_type, s.on_time_finish
     FROM actual_frame_timeline_slice s
@@ -112,7 +113,8 @@ _SQL_MAIN_TOP = f"""
     LIMIT 20
 """
 
-# Все имена слайсов в процессе — для диагностики, если нужные слайсы не найдены
+# Все имена слайсов процесса. Нужны, когда ожидаемых слайсов в трейсе не нашлось
+# и надо понять, чем они называются на самом деле.
 _SQL_ALL_NAMES = f"""
     SELECT s.name, t.name AS thread_name, COUNT(*) AS cnt
     FROM slice s
@@ -138,8 +140,8 @@ class AppSlice:
 class FrameRow:
     rel_ms: float
     dur_ms: float
-    jank_type: Optional[str]   # None | 'App Deadline Missed' | 'Buffer Stuffing' | ...
-    on_time: int               # 1 = delivered on time, 0 = late
+    jank_type: Optional[str]   # None, 'App Deadline Missed', 'Buffer Stuffing' и прочие
+    on_time: int               # 1 кадр доставлен вовремя, 0 с опозданием
 
 @dataclass
 class RecomposeRow:
@@ -174,13 +176,14 @@ class TraceSession:
 # ── Анализ ────────────────────────────────────────────────────────────────────
 
 def _import_tp():
+    """Класс TraceProcessor из пакета perfetto. Обрывает работу, если пакета нет."""
     try:
         from perfetto.trace_processor import TraceProcessor
         return TraceProcessor
     except ImportError:
         print(
             "\nОшибка: пакет 'perfetto' не найден.\n"
-            "Установи в venv:\n"
+            "Поставь его в venv.\n"
             "  python3 -m venv .venv\n"
             "  source .venv/bin/activate\n"
             "  pip install perfetto\n",
@@ -190,6 +193,11 @@ def _import_tp():
 
 
 def analyze(path: Path) -> TraceSession:
+    """Собирает из трейса всё, что нужно отчётам, одним набором запросов.
+
+    Времена в результате отсчитываются от первого слайса процесса, а не от начала
+    трейса, потому что трейс начинается раньше, чем приложение попадает в кадр.
+    """
     TraceProcessor = _import_tp()
     tp = TraceProcessor(trace=str(path))
 
@@ -288,7 +296,10 @@ def _frame_avg(session: TraceSession) -> Optional[float]:
     return round(sum(durs) / len(durs), 2) if durs else None
 
 def _janky(session: TraceSession) -> list:
-    """Реальные дропы кадров — App Deadline Missed или on_time=0."""
+    """Кадры, которые до пользователя вовремя не дошли.
+
+    Это либо App Deadline Missed, либо on_time=0. Buffer Stuffing сюда не попадает.
+    """
     return [f for f in session.frames if f.jank_type == "App Deadline Missed" or f.on_time == 0]
 
 def _jank_by_type(session: TraceSession) -> Counter:
@@ -327,7 +338,7 @@ def write_recompose_csv(session: TraceSession, out_dir: Path):
 
 def write_slice_names(session: TraceSession, out_dir: Path):
     with open(out_dir / "slice_names.txt", "w", encoding="utf-8") as f:
-        f.write(f"# Все слайсы в процессе {APP_PACKAGE} (топ-50 по кол-ву)\n")
+        f.write(f"# Все слайсы в процессе {APP_PACKAGE}, топ-50 по числу вызовов\n")
         f.write(f"# {'name':<55} {'thread':<25} {'count':>6}\n")
         f.write("# " + "─" * 88 + "\n")
         for e in session.all_names:
@@ -349,7 +360,7 @@ def write_summary(session: TraceSession, out_dir: Path):
     def _slice_line(name: str) -> str:
         st = _slice_stats(session, name)
         if not st:
-            return f"  {name:<26} —  (нет данных; нужен atrace_apps в startperf.sh)"
+            return f"  {name:<26} нет данных, нужен atrace_apps при снятии трейса"
         return (f"  {name:<26} count={st['n']:>5}  "
                 f"avg={st['avg']:>8}ms  max={st['max']:>8}ms  total={st['sum']:>10}ms")
 
@@ -373,7 +384,7 @@ def write_summary(session: TraceSession, out_dir: Path):
             lines.append("  worst late frames (ms): " + ", ".join(f"{f.dur_ms}" for f in worst))
     else:
         lines.append(
-            "  нет данных — нужен android.surfaceflinger.frametimeline в startperf.sh"
+            "  нет данных, нужен источник android.surfaceflinger.frametimeline"
         )
 
     lines += [
@@ -395,8 +406,8 @@ def write_summary(session: TraceSession, out_dir: Path):
             lines.append(f"    {name}: {cnt}")
     else:
         lines.append(
-            "  нет данных — нужен atrace_categories: app или view  "
-            "(или Compose не оставил recompose-секций в release)"
+            "  нет данных, нужны категории atrace app или view, "
+            "либо Compose не оставил секций рекомпозиции в release"
         )
 
     lines += [
@@ -436,11 +447,16 @@ def write_outputs(session: TraceSession, out_dir: Path):
 # ── Сравнение ─────────────────────────────────────────────────────────────────
 
 def _delta(v1, v2, lower_is_better: bool = True, unit: str = "") -> str:
+    """Разница между значениями для колонки сравнения.
+
+    Значок ставится только у заметной разницы, чтобы мелкий разброс замера
+    не выглядел результатом.
+    """
     if v1 is None or v2 is None:
         return "n/a"
     delta = v2 - v1
     if delta == 0:
-        return "—"
+        return "="
     sign = "+" if delta > 0 else ""
     pct = abs(delta / v1 * 100) if v1 else 0
     if pct > 3 or abs(delta) >= 0.5:
@@ -517,9 +533,9 @@ def main():
         description="Анализирует Perfetto .pb трейсы PanZoomDemo."
     )
     parser.add_argument("trace", nargs="+", metavar="FILE.pb",
-                        help="Один или два .pb файла (два → comparison.txt)")
+                        help="Один или два .pb файла, два дают comparison.txt")
     parser.add_argument("-o", "--out", default=None,
-                        help="Папка вывода (по умолчанию: logs/perfetto_analyzed/)")
+                        help="Папка вывода, по умолчанию logs/perfetto_analyzed/")
     args = parser.parse_args()
 
     if len(args.trace) > 2:
@@ -543,13 +559,13 @@ def main():
         fr_info = f"{len(session.frames)} frames" if session.frames else "no frame data"
         rc_info = f"{len(session.recompose)} recompose" if session.recompose else "no recompose data"
         sl_info = f"{len(session.app_slices)} app slices" if session.app_slices else "no atrace slices"
-        print(f"→ {out_dir}/  [{fr_info}, {rc_info}, {sl_info}]")
+        print(f"-> {out_dir}/  [{fr_info}, {rc_info}, {sl_info}]")
         sessions.append(session)
 
     if len(sessions) == 2:
         cmp_path = base_out / "comparison.txt"
         write_comparison(sessions[0], sessions[1], cmp_path)
-        print(f"Comparison → {cmp_path}")
+        print(f"Comparison -> {cmp_path}")
 
 
 if __name__ == "__main__":

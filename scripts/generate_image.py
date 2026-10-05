@@ -1,4 +1,15 @@
 #!/opt/homebrew/bin/python3
+"""Генерирует квадратное тестовое изображение из случайных серых кругов.
+
+    python3 scripts/generate_image.py [сторона] -o имя.jpg
+
+Круги, а не однотонная заливка, потому что по ним на любом зуме видно, подгрузился
+тайл или нет.
+
+Путь вывода считается от текущего каталога, поэтому запускать надо из корня проекта.
+Готовый файл переносят в app/src/main/assets руками.
+"""
+
 from PIL import Image, ImageDraw
 import argparse
 import random
@@ -13,6 +24,8 @@ W = H = args.size
 img = Image.new("RGB", (W, H), "white")
 draw = ImageDraw.Draw(img)
 
+# Радиус круга в пикселях исходника. Число кругов фиксировано, а сторона приходит
+# аргументом, поэтому на большой картинке круги лежат реже.
 circle_r=20
 for _ in range(50000):
     x, y = random.randint(0, W), random.randint(0, H)

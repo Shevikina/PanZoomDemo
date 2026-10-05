@@ -1,26 +1,56 @@
 #!/bin/bash
+#
+# Снимает 15-секундный трейс Perfetto и забирает его на компьютер.
+#
+#   ./scripts/startperf.sh <кейс>
+#
+# Приложение скрипт не трогает, потому что режим, ассет и тумблеры выставляются
+# до запуска.
+#
+# Категории atrace app, view и am обязательны, потому что без них в трейсе не будет
+# ни updateTiles, ни decodeTile, ни секций рекомпозиции.
 
-#  Что делает скрипт:
-#  1. Принимает номер сценария обязательным аргументом (аналог startrec/startlog) — startperf A0
-#  2. Формирует STEM в том же формате, что и другие скрипты
-#  3. Создаёт logs/perfetto/ если его нет
-#  4. Запускает adb shell perfetto с конфигом из п. 8.2 ровно на 15 секунд
-#  5. Делает adb pull трейса в logs/perfetto/A0_realme-RMX3371-Android-14_<timestamp>.pb
-#  6. Печатает путь и напоминание открыть в https://ui.perfetto.dev
+source "$(dirname "$0")/device.sh"
 
 CASE_N="${1:?Usage: $0 <case_n>  (e.g. $0 A0)}"
-STEM="realme-RMX3371-Android-14_$(date +%Y-%m-%d_%H%M)"
+STEM="$(device_stem)_$(date +%Y-%m-%d_%H%M)"
 OUT_DIR="$(dirname "$0")/../logs/perfetto"
 OUT="${OUT_DIR}/${CASE_N}_${STEM}.pb"
 
 mkdir -p "$OUT_DIR"
 
 REMOTE="/data/misc/perfetto-traces/trace.pb"
-adb shell mkdir -p /data/misc/perfetto-traces
+"$ADB" shell mkdir -p /data/misc/perfetto-traces
 
 echo "Recording 15s Perfetto trace → $OUT"
+echo
+echo "Приложение скрипт не трогает: оно должно быть УЖЕ в нужном состоянии."
+echo "Жест начинать сразу и вести все 15 секунд без пауз."
+echo
 
-adb shell perfetto -o "$REMOTE" \
+# Пауза перед стартом в секундах. Нужна, чтобы успеть взять телефон в руки, потому
+# что perfetto начинает писать сразу и первые секунды трейса иначе уходят на это.
+PREROLL="${PERF_PREROLL:-5}"
+while [ "$PREROLL" -gt 0 ]; do
+    printf "\rБери телефон, старт через %d... " "$PREROLL"
+    sleep 1
+    PREROLL=$((PREROLL - 1))
+done
+printf "\rПОШЛА ЗАПИСЬ, веди жест 15 секунд\033[K\n"
+
+# Отсчёт записи идёт фоном, потому что сам perfetto держит терминал все 15 секунд.
+(
+    LEFT=15
+    while [ "$LEFT" -gt 0 ]; do
+        printf "\r  ещё %2dс\033[K" "$LEFT"
+        sleep 1
+        LEFT=$((LEFT - 1))
+    done
+    printf "\r  запись окончена\033[K\n"
+) &
+COUNTER_PID=$!
+
+"$ADB" shell perfetto -o "$REMOTE" \
   -c - --txt <<EOF
 duration_ms: 15000
 buffers { size_kb: 131072 }
@@ -42,11 +72,13 @@ data_sources { config { name: "android.gpu.memory" } }
 data_sources { config { name: "android.surfaceflinger.frametimeline" } }
 EOF
 
-if ! adb shell "[ -f $REMOTE ]"; then
-    echo "Error: perfetto did not write $REMOTE — check 'adb shell perfetto --help' and SELinux." >&2
+wait "$COUNTER_PID" 2>/dev/null
+
+if ! "$ADB" shell "[ -f $REMOTE ]"; then
+    echo "Error: perfetto did not write $REMOTE - check 'adb shell perfetto --help' and SELinux." >&2
     exit 1
 fi
 
-adb pull "$REMOTE" "$OUT"
+"$ADB" pull "$REMOTE" "$OUT"
 echo "Done: $OUT"
 echo "Open at https://ui.perfetto.dev"
