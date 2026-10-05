@@ -11,3 +11,18 @@ local.properties
 /app/build
 /app/release
 /app/debug
+
+# Материалы доклада и рабочие каталоги: в репозиторий не едут.
+# Раньше этот список жил в .git/info/exclude, то есть у всех, кроме автора,
+# каталоги оказывались неигнорируемыми.
+/CLAUDE.md
+/.claude/
+/docs/
+/plans/
+/logs/
+/temp/
+/preza_draft/
+/presentation/preza_draft/
+/presentation/gifs/
+# scripts/logcat_to_csv.py сюда не переносится: он уже отслеживается,
+# и .gitignore на отслеженный файл не действует.
