@@ -1,0 +1,29 @@
+Session:  tiled-cl-large_E_realme-RMX3371-Android-14_2026-09-30_0037
+Duration: 59.1 s   App messages: 857  (total in log: 6506)
+
+FPS:
+  нет данных
+  нет данных
+
+Jank:
+  events=0  нет данных
+
+
+RAM PSS: samples=7  min=241MB  max=302MB  avg=261.0MB
+RAM J:   samples=8  min=4MB  max=9MB  avg=6.5MB
+RAM N:   samples=5  min=157MB  max=194MB  avg=173.0MB
+
+Pool hit-rate (raw tile ops): 566 hits / 600 total = 94.3%
+Pool stats snapshots: 11
+  Final: hit-rate=94%  items=35/96  miss_missing=0  miss_empty=34  evict=0
+  Cold-start (2nd snapshot): miss_missing=0  evict=0
+
+Decode: samples=600  min=7ms  max=175ms  avg=54.7ms
+Wait:   samples=600  min=0ms  max=1129ms  avg=95.6ms
+Sample sizes used: {1:474, 2:86, 4:40}
+Tile sizes used:   {'512x512': 600}
+
+Toggles (0):
+
+BitmapRegionDecoder warnings: 152
+Exceptions/crashes:           0

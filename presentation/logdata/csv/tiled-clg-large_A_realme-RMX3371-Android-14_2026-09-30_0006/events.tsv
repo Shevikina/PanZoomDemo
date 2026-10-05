@@ -1,0 +1,6 @@
+rel_sec	level	tag	message
+0.0	D	PanZoomDemo	Image test_image_large.jpg is open. Size: 36868477 bytes
+0.033	D	PanZoomDemo	dispose: active=4 fallback=0 pending=0 releasePending=0 loading=0
+0.034	D	PanZoomDemo	dispose: done, репозиторий тайлов закрыт
+0.091	D	PanZoomDemo	asset test_image_large.jpg скопирован в cache: 36868477 bytes
+0.973	D	PanZoomDemo	overview: ss=32 size=937×937px

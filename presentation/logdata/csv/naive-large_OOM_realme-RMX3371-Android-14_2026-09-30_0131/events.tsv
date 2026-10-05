@@ -1,0 +1,5 @@
+rel_sec	level	tag	message
+0.0	D	PanZoomDemo	Image test_image_large.jpg is open. Size: 36868477 bytes
+0.09	D	PanZoomDemo	asset test_image_large.jpg скопирован в cache: 36868477 bytes
+0.117	E	PanZoomDemo	Наивная загрузка LARGE упала: java.lang.IllegalStateException: Failed to decode test_image_large.jpg
+0.987	D	PanZoomDemo	overview: ss=32 size=937×937px

@@ -1,0 +1,29 @@
+Session:  naive-medium_OOM_realme-RMX3371-Android-14_2026-09-30_0129
+Duration: 8.1 s   App messages: 273  (total in log: 447)
+
+FPS:
+  нет данных
+  нет данных
+
+Jank:
+  events=0  нет данных
+
+
+RAM PSS: samples=4  min=263MB  max=401MB  avg=349.5MB
+RAM J:   нет данных
+RAM N:   samples=7  min=108MB  max=306MB  avg=233.7MB
+
+Pool hit-rate (raw tile ops): 19 hits / 256 total = 7.4%
+Pool stats snapshots: 2
+  Final: hit-rate=7%  items=0/96  miss_missing=15  miss_empty=206  evict=0
+  Cold-start (2nd snapshot): miss_missing=15  evict=0
+
+Decode: samples=256  min=7ms  max=159ms  avg=66.8ms
+Wait:   samples=256  min=0ms  max=5614ms  avg=1975.6ms
+Sample sizes used: {1:256}
+Tile sizes used:   {'512x512': 225, '320x512': 15, '512x320': 15, '320x320': 1}
+
+Toggles (0):
+
+BitmapRegionDecoder warnings: 0
+Exceptions/crashes:           1

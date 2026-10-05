@@ -1,0 +1,2 @@
+rel_sec,hit_rate_pct,items,max_items,buckets,miss_missing,miss_empty,evict,sizes
+1.028,100,18,96,1,0,0,0,(512×512:18)

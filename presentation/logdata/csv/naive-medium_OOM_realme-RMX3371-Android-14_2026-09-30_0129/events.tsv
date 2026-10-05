@@ -1,0 +1,4 @@
+rel_sec	level	tag	message
+0.0	D	PanZoomDemo	Image test_image_medium.jpg is open. Size: 13163661 bytes
+0.385	E	PanZoomDemo	Наивная отрисовка отклонена платформой: java.lang.RuntimeException: Canvas: trying to draw too large(256000000bytes) bitmap.
+0.7	D	PanZoomDemo	overview: ss=8 size=1000×1000px

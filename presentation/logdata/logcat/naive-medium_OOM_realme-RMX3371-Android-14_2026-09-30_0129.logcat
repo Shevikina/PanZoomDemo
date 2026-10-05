@@ -1,0 +1,449 @@
+--------- beginning of main
+09-30 01:29:36.543  3826  3826 D DeviceStatisticsService: onReceive: action= android.intent.action.BATTERY_CHANGED
+09-30 01:29:36.543  3613  3613 I SystemUi--Statusbar: BatteryControllerExt-->handleBroadcast() : broadcast = android.intent.action.BATTERY_CHANGED, charging = false, wirelessCharging = false, wirelessChargingReverse = false, pluggedIn = true, full = true, error = false, plugged = 2, status = 5, notifyCode = 100000000000010000000, wirelessReverseChgType = 0, level = 100
+09-30 01:29:36.544  3613  3613 I SystemUi--Statusbar: BatteryRepository-->model: BatteryStateModel:(level: 100, pluggedInWireless: false, charging: false, wirelessChargingReverse: false)
+09-30 01:29:36.544  5991  5991 E VendorNfcService: changeNfcStateByWirelessCharge: feature WIRELESS_CHARGING = true; mIsWirelessCharging: false; mIsReverseChargingSwitchOpen: false; mNfcWorkMode: 0; isOverSeaRegion() = true
+09-30 01:29:36.544  3613  3613 W SystemUi--Keyguard: ChargingAnimationImpl-->BatteryStatus is same as last time , return
+09-30 01:29:36.612  7703  7703 W libc    : Access denied finding property "ro.odm.prev.product.name"
+09-30 01:29:36.772  2340  3515 E OplusNetworkStatsNative: bpfGetAppPurStatsTotal return 0
+09-30 01:29:36.772  3829  4151 D OplusUidPurStatsSerivce-NAS: checkLoopProcess mLastStatsValue:0; curStats:0
+--------- beginning of system
+09-30 01:29:36.961  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.286 luxQueue=[344.0, 344.0, 344.0, 345.0, 345.0, 344.0, 344.0]
+09-30 01:29:37.048  2340  3855 I OplusHansManager : unfreeze uid: 10298 com.whatsapp pids: [2906] reason: AsyncBinder scene: |airPlane|LcdOn
+09-30 01:29:37.050  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F exit(), F stay=2, reason=AsyncBinder
+09-30 01:29:37.113  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:38.115  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:38.557  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp can not transition from M to F. reason: AsyncBinder
+09-30 01:29:38.675  2340  2534 I ActivityManager: Test idle passed
+09-30 01:29:38.677  3613  3613 I SeedlingSdk.PluginManager: (main) hostConfigurationChangedCallback onLowMemory,[sdk:v1.1.36-8ce39c1,plugin:v15.0.830-c935ada0]
+09-30 01:29:38.805  3613  3625 I ndroid.systemui: Background concurrent copying GC freed 7769KB AllocSpace bytes, 6(312KB) LOS objects, 49% free, 21MB/43MB, paused 68us,66us total 121.089ms
+09-30 01:29:38.807  3613  3823 D OpenGLRenderer: SkiaOpenGLPipeline::setSurface: this=0xb400007b535baf00, surface=NULL
+09-30 01:29:38.831  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.831  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.831  1499  2565 I SurfaceFlinger: [SF client] REMOVE (0xb4000072a47aac00) for (3613:com.android.systemui)
+09-30 01:29:38.832  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.832  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.833  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 4.03, bitrate 483191
+09-30 01:29:38.834  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.834  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.835  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.835  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.835  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.835  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.843  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.843  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.843  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.843  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.843  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:38.843  3613  3627 W System  : A resource failed to call release. 
+09-30 01:29:39.117  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:39.160  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.0 luxQueue=[344.0, 344.0, 344.0, 344.0, 344.0, 344.0, 344.0]
+09-30 01:29:39.786  1368  1478 D vendor.oplus.hardware.charger-V3-service: read content:,311,314,4404,4400,-37,500,1100,100,100,1,4,481250,5200,100,1,1048704,1,1,0,0,4435,0,0,0,0,0,0,0,-2740,0,4,1,0,0,0,0,0,0x0a,0x2d,0x16,0x73,0x36,0x16,0x3b,0x00,0xea
+09-30 01:29:39.786  1368  1478 D vendor.oplus.hardware.charger-V3-service: , ret_value:164
+09-30 01:29:39.787  1368  1478 D vendor.oplus.hardware.charger-V3-service: gmtime: 2026-09-30-01-29-39
+09-30 01:29:39.852  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 10.79, bitrate 1148705
+09-30 01:29:40.073  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F enter(), M stay=3
+09-30 01:29:40.082  2340  3833 I OplusHansManager : freeze uid: 10298 com.whatsapp pids: [2906] scene: |airPlane|LcdOn
+09-30 01:29:40.084  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = PKG, targetUid = 10298, pkgCmd = ADD_ONE_UID
+09-30 01:29:40.120  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:40.362  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.0 luxQueue=[344.0, 344.0, 344.0, 344.0, 344.0, 344.0]
+09-30 01:29:41.084  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = FROZEN_TRANS, targetUid = 10298, pkgCmd = PKG_CMD_MAX
+09-30 01:29:41.124  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:42.126  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:42.432  3951  3951 D SubsysBroadcastManager: onReceive action:android.intent.action.BATTERY_CHANGED
+09-30 01:29:42.434  3613  3613 I SystemUi--Statusbar: BatteryControllerExt-->handleBroadcast() : broadcast = android.intent.action.BATTERY_CHANGED, charging = false, wirelessCharging = false, wirelessChargingReverse = false, pluggedIn = true, full = true, error = false, plugged = 2, status = 5, notifyCode = 100000000000010000000, wirelessReverseChgType = 0, level = 100
+09-30 01:29:42.434  3613  3613 I SystemUi--Statusbar: BatteryRepository-->model: BatteryStateModel:(level: 100, pluggedInWireless: false, charging: false, wirelessChargingReverse: false)
+09-30 01:29:42.434  3613  3613 W SystemUi--Keyguard: ChargingAnimationImpl-->BatteryStatus is same as last time , return
+09-30 01:29:42.435  3826  3826 D DeviceStatisticsService: onReceive: action= android.intent.action.BATTERY_CHANGED
+09-30 01:29:42.435  5991  5991 E VendorNfcService: changeNfcStateByWirelessCharge: feature WIRELESS_CHARGING = true; mIsWirelessCharging: false; mIsReverseChargingSwitchOpen: false; mNfcWorkMode: 0; isOverSeaRegion() = true
+09-30 01:29:42.560  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:343.85733 luxQueue=[343.0, 344.0, 344.0, 344.0, 344.0, 344.0, 344.0]
+09-30 01:29:42.940  2340  3855 I OplusHansManager : unfreeze uid: 10298 com.whatsapp pids: [2906] reason: AsyncBinder scene: |airPlane|LcdOn
+09-30 01:29:42.941  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F exit(), F stay=2, reason=AsyncBinder
+09-30 01:29:43.129  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:43.498  2340  3037 I [UAH_CLIENT_WRAPPER]: [UahNotifyWapper] inputflinger, src:1000, type:0
+09-30 01:29:43.498  2340  3037 I [UAH_CLIENT]: uahRuleCtl, ruleId:1000, status:0
+09-30 01:29:43.498  2340  3096 D system_server: addOrUpdateWindow: set 3b9fd93 com.shevikina.panzoomdemo/com.shevikina.panzoomdemo.MainActivity firstDownTimeInTarget to 14298945502000
+09-30 01:29:43.498  2340  3096 D system_server: addOrUpdateWindow: set [Gesture Monitor] OplusExInputReceiver1 firstDownTimeInTarget to 14298945502000
+09-30 01:29:43.498  2340  3096 D system_server: addOrUpdateWindow: set [Gesture Monitor] swipe-up firstDownTimeInTarget to 14298945502000
+09-30 01:29:43.498  2340  3096 D system_server: addOrUpdateWindow: set [Gesture Monitor] edge-swipe firstDownTimeInTarget to 14298945502000
+09-30 01:29:43.499  1499  2257 D VRR [OTI]: handleIdle from 1 to 0
+09-30 01:29:43.499  1499  2257 D VRR [OTI-HW]: isStateReady 0
+09-30 01:29:43.499  1499  2257 D VRR [OTI-HW]: rate range: min {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} cur {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} max {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0}
+09-30 01:29:43.499  1499  2257 D VRR [OTI-HW]: keep rate.
+09-30 01:29:43.500  2340  3096 D PowerManagerService: userActivityNoUpdateLocked: groupId=0, eventTime=14298945, event=touch, flags=0x0, uid=1000
+09-30 01:29:43.501  3613  4202 I SystemUi--NavBar: NoBackGesture-->display_id_0 Start gesture: 
+09-30 01:29:43.501  3613  4202 I SystemUi--NavBar: SideGestureDetector-->display_id_0 updateNavBarHidden  mNavBarHidden = false display id =0
+09-30 01:29:43.501  3613  4202 I SystemUi--NavBar: NoBackGesture-->display_id_0 Not in side gesture area
+09-30 01:29:43.501  2340  3529 D OGG_Detector: D:done mCurrStatus: 0
+09-30 01:29:43.511  2340  3037 I [UAH_CLIENT_WRAPPER]: [UahEventAcquireWrapper] eventId:OSENSE_ACTION_TOUCH_BOOST, scene:none, identity:inputflinger, timeout:150
+09-30 01:29:43.511  2340  3037 I [UAH_CLIENT]: UahEventAcquire, cmdid:37, pkg:none, identity:inputflinger
+09-30 01:29:43.559  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.80023 luxQueue=[345.0, 345.0, 345.0, 345.0, 344.0]
+09-30 01:29:43.561  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 0.27, bitrate 7455
+09-30 01:29:43.575  2340  3037 I [UAH_CLIENT_WRAPPER]: [UahNotifyWapper] inputflinger, src:1000, type:1
+09-30 01:29:43.575  2340  3037 I [UAH_CLIENT]: uahRuleCtl, ruleId:1000, status:1
+09-30 01:29:43.578  7598  7598 D ViewRootImplExtImpl: the up motion event handled by client, just return
+09-30 01:29:43.579  7598  7635 D PanZoomDemo: Image test_image_medium.jpg is open. Size: 13163661 bytes
+09-30 01:29:43.682  2340  2534 I ActivityManager: Test idle passed
+09-30 01:29:43.964  7598  7598 E PanZoomDemo: Наивная отрисовка отклонена платформой: java.lang.RuntimeException: Canvas: trying to draw too large(256000000bytes) bitmap.
+09-30 01:29:44.130  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:44.279  7598  7635 D PanZoomDemo: overview: ss=8 size=1000×1000px
+09-30 01:29:44.303  7598  7635 D PanZoomDemo: pool stats: hit-rate=100% items=18/96 buckets=1 missMissing=0 missEmpty=0 evict=0 sizes=[(512×512:18)] bytes=18/96MB
+09-30 01:29:44.328  7598  7635 D PanZoomDemo: decodeTile: wait=0ms decode=25ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:44.337  7598  7635 D PanZoomDemo: decodeTile: wait=24ms decode=9ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:44.343  7598  7667 D PanZoomDemo: decodeTile: wait=0ms decode=39ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.344  7598  7653 D PanZoomDemo: decodeTile: wait=0ms decode=40ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.348  7598  7635 D PanZoomDemo: decodeTile: wait=33ms decode=11ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:44.356  7598  7667 D PanZoomDemo: decodeTile: wait=39ms decode=12ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.356  7598  7635 D PanZoomDemo: decodeTile: wait=43ms decode=8ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=1/3
+09-30 01:29:44.357  7598  7653 D PanZoomDemo: decodeTile: wait=39ms decode=13ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=1/3
+09-30 01:29:44.367  7598  7667 D PanZoomDemo: decodeTile: wait=53ms decode=9ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.369  7598  7653 D PanZoomDemo: decodeTile: wait=53ms decode=11ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.371  7598  7655 D PanZoomDemo: decodeTile: wait=53ms decode=13ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.378  7598  7667 D PanZoomDemo: decodeTile: wait=61ms decode=11ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.379  7598  7653 D PanZoomDemo: decodeTile: wait=61ms decode=10ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.383  7598  7655 D PanZoomDemo: decodeTile: wait=63ms decode=12ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.386  7598  7667 D PanZoomDemo: decodeTile: wait=70ms decode=7ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.399  7598  7653 D PanZoomDemo: decodeTile: wait=71ms decode=19ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.400  7598  7667 D PanZoomDemo: decodeTile: wait=75ms decode=15ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.403  7598  7655 D PanZoomDemo: decodeTile: wait=74ms decode=20ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.409  7598  7667 D PanZoomDemo: decodeTile: wait=90ms decode=9ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.418  7598  7653 D PanZoomDemo: decodeTile: wait=89ms decode=19ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.423  7598  7655 D PanZoomDemo: decodeTile: wait=93ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.424  7598  7667 D PanZoomDemo: decodeTile: wait=99ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.437  7598  7653 D PanZoomDemo: decodeTile: wait=107ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.438  7598  7667 D PanZoomDemo: decodeTile: wait=113ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.443  7598  7655 D PanZoomDemo: decodeTile: wait=112ms decode=20ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.445  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp can not transition from M to F. reason: AsyncBinder
+09-30 01:29:44.453  7598  7667 D PanZoomDemo: decodeTile: wait=127ms decode=15ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.456  7598  7653 D PanZoomDemo: decodeTile: wait=126ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.471  7598  7655 D PanZoomDemo: decodeTile: wait=132ms decode=27ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.474  7598  7667 D PanZoomDemo: decodeTile: wait=142ms decode=21ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.484  7598  7653 D PanZoomDemo: decodeTile: wait=145ms decode=28ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.495  7598  7667 D PanZoomDemo: decodeTile: wait=163ms decode=21ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.499  7598  7655 D PanZoomDemo: decodeTile: wait=160ms decode=28ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.511  7598  7653 D PanZoomDemo: decodeTile: wait=173ms decode=27ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.517  7598  7667 D PanZoomDemo: decodeTile: wait=184ms decode=22ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.528  7598  7655 D PanZoomDemo: decodeTile: wait=188ms decode=29ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.538  7598  7667 D PanZoomDemo: decodeTile: wait=205ms decode=21ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.540  7598  7653 D PanZoomDemo: decodeTile: wait=200ms decode=29ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.553  7598  7667 D PanZoomDemo: decodeTile: wait=226ms decode=15ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.556  7598  7655 D PanZoomDemo: decodeTile: wait=216ms decode=28ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.568  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 55.61, bitrate 6137839
+09-30 01:29:44.569  7598  7653 D PanZoomDemo: decodeTile: wait=228ms decode=29ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.574  7598  7667 D PanZoomDemo: decodeTile: wait=241ms decode=21ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.584  7598  7655 D PanZoomDemo: decodeTile: wait=244ms decode=28ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.596  7598  7653 D PanZoomDemo: decodeTile: wait=257ms decode=27ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.601  7598  7667 D PanZoomDemo: decodeTile: wait=262ms decode=27ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.617  7598  7598 D PanZoomDemo: RAM N: 108MB
+09-30 01:29:44.620  7598  7655 D PanZoomDemo: decodeTile: wait=272ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.622  7598  7667 D PanZoomDemo: decodeTile: wait=289ms decode=21ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.632  7598  7653 D PanZoomDemo: decodeTile: wait=284ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.649  7598  7667 D PanZoomDemo: decodeTile: wait=310ms decode=27ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.657  7598  7655 D PanZoomDemo: decodeTile: wait=308ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.663  7598  7667 D PanZoomDemo: decodeTile: wait=337ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.668  7598  7653 D PanZoomDemo: decodeTile: wait=320ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.691  7598  7667 D PanZoomDemo: decodeTile: wait=351ms decode=27ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.693  7598  7655 D PanZoomDemo: decodeTile: wait=345ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.703  7598  7653 D PanZoomDemo: decodeTile: wait=356ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.718  7598  7667 D PanZoomDemo: decodeTile: wait=379ms decode=27ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.729  7598  7655 D PanZoomDemo: decodeTile: wait=381ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.739  7598  7653 D PanZoomDemo: decodeTile: wait=391ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.745  7598  7667 D PanZoomDemo: decodeTile: wait=406ms decode=27ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.760  7598  7667 D PanZoomDemo: decodeTile: wait=432ms decode=15ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.765  7598  7655 D PanZoomDemo: decodeTile: wait=417ms decode=36ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.775  7598  7653 D PanZoomDemo: decodeTile: wait=426ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.785  7598  7655 D PanZoomDemo: decodeTile: wait=452ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.787  7598  7667 D PanZoomDemo: decodeTile: wait=447ms decode=27ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.787  1368  1478 D vendor.oplus.hardware.charger-V3-service: read content:,311,314,4429,4420,-139,500,1100,100,100,1,4,468750,5150,100,1,1048704,1,1,0,0,4435,0,0,0,0,0,0,0,-2740,0,4,1,0,0,0,0,0,0x0a,0x2d,0x16,0x73,0x36,0x16,0x3b,0x00,0xea
+09-30 01:29:44.787  1368  1478 D vendor.oplus.hardware.charger-V3-service: , ret_value:165
+09-30 01:29:44.788  1368  1478 D vendor.oplus.hardware.charger-V3-service: gmtime: 2026-09-30-01-29-44
+09-30 01:29:44.820  7598  7653 D PanZoomDemo: decodeTile: wait=462ms decode=45ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.820  7598  7667 D PanZoomDemo: decodeTile: wait=474ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.829  7598  7655 D PanZoomDemo: decodeTile: wait=472ms decode=44ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.835  7598  7667 D PanZoomDemo: decodeTile: wait=507ms decode=15ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.864  7598  7653 D PanZoomDemo: decodeTile: wait=507ms decode=44ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.868  7598  7667 D PanZoomDemo: decodeTile: wait=521ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.874  7598  7655 D PanZoomDemo: decodeTile: wait=515ms decode=45ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.901  7598  7667 D PanZoomDemo: decodeTile: wait=554ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.908  7598  7653 D PanZoomDemo: decodeTile: wait=550ms decode=44ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.918  7598  7655 D PanZoomDemo: decodeTile: wait=560ms decode=44ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.935  7598  7667 D PanZoomDemo: decodeTile: wait=587ms decode=34ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:44.952  7598  7653 D PanZoomDemo: decodeTile: wait=594ms decode=44ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:44.963  7598  7655 D PanZoomDemo: decodeTile: wait=604ms decode=45ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:44.968  7598  7667 D PanZoomDemo: decodeTile: wait=621ms decode=33ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.005  7598  7653 D PanZoomDemo: decodeTile: wait=638ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.008  7598  7667 D PanZoomDemo: decodeTile: wait=654ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.016  7598  7655 D PanZoomDemo: decodeTile: wait=649ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.047  7598  7667 D PanZoomDemo: decodeTile: wait=694ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.057  7598  7653 D PanZoomDemo: decodeTile: wait=691ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.068  7598  7655 D PanZoomDemo: decodeTile: wait=702ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.087  7598  7667 D PanZoomDemo: decodeTile: wait=733ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.110  7598  7653 D PanZoomDemo: decodeTile: wait=743ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.121  7598  7655 D PanZoomDemo: decodeTile: wait=753ms decode=53ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.127  7598  7667 D PanZoomDemo: decodeTile: wait=772ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.131  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:45.163  7598  7653 D PanZoomDemo: decodeTile: wait=795ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.166  7598  7667 D PanZoomDemo: decodeTile: wait=812ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.175  7598  7655 D PanZoomDemo: decodeTile: wait=806ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.206  7598  7667 D PanZoomDemo: decodeTile: wait=851ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.215  7598  7653 D PanZoomDemo: decodeTile: wait=848ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.228  7598  7655 D PanZoomDemo: decodeTile: wait=860ms decode=53ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.252  7598  7667 D PanZoomDemo: decodeTile: wait=891ms decode=46ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.259  7598  7653 D PanZoomDemo: decodeTile: wait=900ms decode=44ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.289  7598  7655 D PanZoomDemo: decodeTile: wait=913ms decode=61ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.298  7598  7667 D PanZoomDemo: decodeTile: wait=937ms decode=46ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.320  7598  7653 D PanZoomDemo: decodeTile: wait=944ms decode=61ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.333  7598  7655 D PanZoomDemo: decodeTile: wait=974ms decode=44ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.344  7598  7667 D PanZoomDemo: decodeTile: wait=983ms decode=46ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.378  7598  7655 D PanZoomDemo: decodeTile: wait=1018ms decode=45ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.381  7598  7653 D PanZoomDemo: decodeTile: wait=1005ms decode=61ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.390  7598  7667 D PanZoomDemo: decodeTile: wait=1029ms decode=46ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.436  7598  7667 D PanZoomDemo: decodeTile: wait=1074ms decode=46ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.439  7598  7655 D PanZoomDemo: decodeTile: wait=1062ms decode=61ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.441  7598  7653 D PanZoomDemo: decodeTile: wait=1065ms decode=60ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.482  7598  7667 D PanZoomDemo: decodeTile: wait=1120ms decode=46ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.500  7598  7655 D PanZoomDemo: decodeTile: wait=1123ms decode=61ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.502  7598  7653 D PanZoomDemo: decodeTile: wait=1125ms decode=61ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.534  7598  7667 D PanZoomDemo: decodeTile: wait=1166ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.568  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 47.97, bitrate 1677036
+09-30 01:29:45.573  7598  7655 D PanZoomDemo: decodeTile: wait=1184ms decode=73ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.573  7598  7653 D PanZoomDemo: decodeTile: wait=1186ms decode=71ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.587  7598  7667 D PanZoomDemo: decodeTile: wait=1218ms decode=53ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.628  7598  7598 D PanZoomDemo: RAM N: 175MB
+09-30 01:29:45.628  7598  7598 D PanZoomDemo: RAM PSS: 263MB
+09-30 01:29:45.639  7598  7667 D PanZoomDemo: decodeTile: wait=1271ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.642  7598  7653 D PanZoomDemo: decodeTile: wait=1257ms decode=69ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.643  7598  7655 D PanZoomDemo: decodeTile: wait=1257ms decode=70ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.685  7598  7667 D PanZoomDemo: decodeTile: wait=1323ms decode=46ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.712  7598  7655 D PanZoomDemo: decodeTile: wait=1327ms decode=69ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.713  7598  7653 D PanZoomDemo: decodeTile: wait=1326ms decode=71ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.738  7598  7667 D PanZoomDemo: decodeTile: wait=1369ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.781  7598  7655 D PanZoomDemo: decodeTile: wait=1396ms decode=69ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.782  7598  7653 D PanZoomDemo: decodeTile: wait=1396ms decode=69ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.790  7598  7667 D PanZoomDemo: decodeTile: wait=1421ms decode=52ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.842  7598  7667 D PanZoomDemo: decodeTile: wait=1473ms decode=52ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.850  7598  7655 D PanZoomDemo: decodeTile: wait=1464ms decode=69ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.852  7598  7653 D PanZoomDemo: decodeTile: wait=1465ms decode=70ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.888  7598  7667 D PanZoomDemo: decodeTile: wait=1525ms decode=46ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.911  7598  7655 D PanZoomDemo: decodeTile: wait=1533ms decode=61ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:45.929  7598  7653 D PanZoomDemo: decodeTile: wait=1530ms decode=77ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:45.947  7598  7667 D PanZoomDemo: decodeTile: wait=1566ms decode=59ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:45.955  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F enter(), M stay=3
+09-30 01:29:45.960  2340  3833 I OplusHansManager : freeze uid: 10298 com.whatsapp pids: [2906] scene: |airPlane|LcdOn
+09-30 01:29:45.960  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = PKG, targetUid = 10298, pkgCmd = ADD_ONE_UID
+09-30 01:29:45.988  7598  7655 D PanZoomDemo: decodeTile: wait=1589ms decode=77ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:46.006  7598  7667 D PanZoomDemo: decodeTile: wait=1624ms decode=59ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.007  7598  7653 D PanZoomDemo: decodeTile: wait=1607ms decode=78ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:46.064  7598  7667 D PanZoomDemo: decodeTile: wait=1683ms decode=58ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.084  7598  7653 D PanZoomDemo: decodeTile: wait=1684ms decode=77ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:46.098  7598  7635 D PanZoomDemo: decodeTile: wait=1665ms decode=110ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.123  7598  7667 D PanZoomDemo: decodeTile: wait=1741ms decode=59ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.132  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:46.162  7598  7653 D PanZoomDemo: decodeTile: wait=1761ms decode=77ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:46.177  7598  7635 D PanZoomDemo: decodeTile: wait=1775ms decode=79ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.182  7598  7667 D PanZoomDemo: decodeTile: wait=1800ms decode=58ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.239  7598  7653 D PanZoomDemo: decodeTile: wait=1839ms decode=77ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:46.247  7598  7667 D PanZoomDemo: decodeTile: wait=1859ms decode=65ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.255  7598  7635 D PanZoomDemo: decodeTile: wait=1854ms decode=78ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.311  7598  7667 D PanZoomDemo: decodeTile: wait=1924ms decode=64ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.340  7598  7635 D PanZoomDemo: decodeTile: wait=1932ms decode=85ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.360  7598  7661 D PanZoomDemo: decodeTile: wait=1916ms decode=121ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:46.376  7598  7667 D PanZoomDemo: decodeTile: wait=1988ms decode=65ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.426  7598  7635 D PanZoomDemo: decodeTile: wait=2017ms decode=86ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.441  7598  7667 D PanZoomDemo: decodeTile: wait=2053ms decode=65ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.447  7598  7661 D PanZoomDemo: decodeTile: wait=2037ms decode=87ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:46.506  7598  7667 D PanZoomDemo: decodeTile: wait=2118ms decode=65ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.512  7598  7635 D PanZoomDemo: decodeTile: wait=2103ms decode=85ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.534  7598  7661 D PanZoomDemo: decodeTile: wait=2124ms decode=87ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:46.571  7598  7667 D PanZoomDemo: decodeTile: wait=2183ms decode=65ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.598  7598  7635 D PanZoomDemo: decodeTile: wait=2189ms decode=85ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.613  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 29.67, bitrate 627108
+09-30 01:29:46.621  7598  7661 D PanZoomDemo: decodeTile: wait=2211ms decode=87ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:46.628  7598  7598 D PanZoomDemo: RAM N: 217MB
+09-30 01:29:46.636  7598  7667 D PanZoomDemo: decodeTile: wait=2248ms decode=64ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.683  7598  7635 D PanZoomDemo: decodeTile: wait=2275ms decode=85ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.707  7598  7667 D PanZoomDemo: decodeTile: wait=2313ms decode=70ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.716  7598  7661 D PanZoomDemo: decodeTile: wait=2298ms decode=95ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:46.775  2340  4359 E OplusNetworkStatsNative: bpfGetAppPurStatsTotal return 0
+09-30 01:29:46.776  3829  4151 D OplusUidPurStatsSerivce-NAS: checkLoopProcess mLastStatsValue:0; curStats:0
+09-30 01:29:46.776  7598  7635 D PanZoomDemo: decodeTile: wait=2360ms decode=93ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.778  7598  7667 D PanZoomDemo: decodeTile: wait=2384ms decode=71ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.812  7598  7661 D PanZoomDemo: decodeTile: wait=2393ms decode=96ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:46.849  7598  7667 D PanZoomDemo: decodeTile: wait=2455ms decode=71ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.869  7598  7635 D PanZoomDemo: decodeTile: wait=2453ms decode=93ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.907  7598  7661 D PanZoomDemo: decodeTile: wait=2489ms decode=95ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:46.920  7598  7667 D PanZoomDemo: decodeTile: wait=2526ms decode=71ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:46.959  7598  7635 D PanZoomDemo: decodeTile: wait=2546ms decode=90ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:46.961  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = FROZEN_TRANS, targetUid = 10298, pkgCmd = PKG_CMD_MAX
+09-30 01:29:47.000  7598  7661 D PanZoomDemo: decodeTile: wait=2584ms decode=93ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.006  7598  7667 D PanZoomDemo: decodeTile: wait=2597ms decode=86ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.030  7598  7635 D PanZoomDemo: decodeTile: wait=2636ms decode=70ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.095  7598  7661 D PanZoomDemo: decodeTile: wait=2678ms decode=94ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.100  7598  7667 D PanZoomDemo: decodeTile: wait=2683ms decode=94ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.100  7598  7635 D PanZoomDemo: decodeTile: wait=2707ms decode=70ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.133  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:47.178  7598  7635 D PanZoomDemo: decodeTile: wait=2777ms decode=78ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.197  7598  7661 D PanZoomDemo: decodeTile: wait=2772ms decode=102ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.201  7598  7667 D PanZoomDemo: decodeTile: wait=2777ms decode=101ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.256  7598  7635 D PanZoomDemo: decodeTile: wait=2855ms decode=77ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.300  7598  7661 D PanZoomDemo: decodeTile: wait=2874ms decode=103ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.303  7598  7667 D PanZoomDemo: decodeTile: wait=2878ms decode=102ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.333  7598  7635 D PanZoomDemo: decodeTile: wait=2933ms decode=77ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.402  7598  7661 D PanZoomDemo: decodeTile: wait=2977ms decode=102ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.406  7598  7667 D PanZoomDemo: decodeTile: wait=2980ms decode=103ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.410  7598  7635 D PanZoomDemo: decodeTile: wait=3010ms decode=77ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.488  7598  7635 D PanZoomDemo: decodeTile: wait=3086ms decode=78ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.504  7598  7661 D PanZoomDemo: decodeTile: wait=3079ms decode=102ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.509  7598  7667 D PanZoomDemo: decodeTile: wait=3083ms decode=103ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.546  3951  3951 D SubsysBroadcastManager: onReceive action:android.intent.action.BATTERY_CHANGED
+09-30 01:29:47.547  3613  3613 I SystemUi--Statusbar: BatteryControllerExt-->handleBroadcast() : broadcast = android.intent.action.BATTERY_CHANGED, charging = false, wirelessCharging = false, wirelessChargingReverse = false, pluggedIn = true, full = true, error = false, plugged = 2, status = 5, notifyCode = 100000000000010000000, wirelessReverseChgType = 0, level = 100
+09-30 01:29:47.547  3613  3613 I SystemUi--Statusbar: BatteryRepository-->model: BatteryStateModel:(level: 100, pluggedInWireless: false, charging: false, wirelessChargingReverse: false)
+09-30 01:29:47.547  3613  3613 W SystemUi--Keyguard: ChargingAnimationImpl-->BatteryStatus is same as last time , return
+09-30 01:29:47.548  3826  3826 D DeviceStatisticsService: onReceive: action= android.intent.action.BATTERY_CHANGED
+09-30 01:29:47.548  5991  5991 E VendorNfcService: changeNfcStateByWirelessCharge: feature WIRELESS_CHARGING = true; mIsWirelessCharging: false; mIsReverseChargingSwitchOpen: false; mNfcWorkMode: 0; isOverSeaRegion() = true
+09-30 01:29:47.558  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:345.0 luxQueue=[345.0, 345.0, 345.0, 345.0, 345.0]
+09-30 01:29:47.565  7598  7635 D PanZoomDemo: decodeTile: wait=3164ms decode=77ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.576  1499  2257 D VRR [OTI]: handleIdle from 0 to 1
+09-30 01:29:47.576  1499  2257 D VRR [OTI-HW]: isStateReady 0
+09-30 01:29:47.576  1499  2257 D VRR [OTI-HW]: rate range: min {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} cur {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} max {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0}
+09-30 01:29:47.576  1499  2257 D VRR [OTI-HW]: keep rate.
+09-30 01:29:47.608  7598  7661 D PanZoomDemo: decodeTile: wait=3180ms decode=103ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.611  7598  7667 D PanZoomDemo: decodeTile: wait=3185ms decode=102ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.624  7598  7635 D PanZoomDemo: decodeTile: wait=3241ms decode=59ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.647  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 24.19, bitrate 499445
+09-30 01:29:47.657  7598  7598 D PanZoomDemo: RAM N: 251MB
+09-30 01:29:47.657  7598  7598 D PanZoomDemo: RAM PSS: 341MB
+09-30 01:29:47.686  7598  7661 D PanZoomDemo: decodeTile: wait=3284ms decode=78ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.707  7598  7635 D PanZoomDemo: decodeTile: wait=3285ms decode=83ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.721  7598  7667 D PanZoomDemo: decodeTile: wait=3272ms decode=110ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.791  7598  7635 D PanZoomDemo: decodeTile: wait=3368ms decode=84ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.798  7598  7661 D PanZoomDemo: decodeTile: wait=3347ms decode=112ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.832  7598  7667 D PanZoomDemo: decodeTile: wait=3382ms decode=110ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.875  7598  7635 D PanZoomDemo: decodeTile: wait=3452ms decode=84ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:47.909  7598  7661 D PanZoomDemo: decodeTile: wait=3459ms decode=111ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-16] free=0/3
+09-30 01:29:47.942  7598  7667 D PanZoomDemo: decodeTile: wait=3493ms decode=110ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:47.958  7598  7635 D PanZoomDemo: decodeTile: wait=3536ms decode=83ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.043  7598  7635 D PanZoomDemo: decodeTile: wait=3619ms decode=85ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.049  2340  3855 I OplusHansManager : unfreeze uid: 10298 com.whatsapp pids: [2906] reason: AsyncBinder scene: |airPlane|LcdOn
+09-30 01:29:48.050  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F exit(), F stay=2, reason=AsyncBinder
+09-30 01:29:48.052  7598  7667 D PanZoomDemo: decodeTile: wait=3603ms decode=109ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:48.052  7598  7650 D PanZoomDemo: decodeTile: wait=3570ms decode=143ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-4] free=1/3
+09-30 01:29:48.127  7598  7635 D PanZoomDemo: decodeTile: wait=3704ms decode=84ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.135  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:48.162  7598  7667 D PanZoomDemo: decodeTile: wait=3713ms decode=109ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:48.163  7598  7650 D PanZoomDemo: decodeTile: wait=3713ms decode=111ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-4] free=0/3
+09-30 01:29:48.211  7598  7635 D PanZoomDemo: decodeTile: wait=3788ms decode=84ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.280  7598  7667 D PanZoomDemo: decodeTile: wait=3823ms decode=118ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:29:48.283  7598  7650 D PanZoomDemo: decodeTile: wait=3824ms decode=120ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-4] free=0/3
+09-30 01:29:48.301  7598  7635 D PanZoomDemo: decodeTile: wait=3872ms decode=90ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.392  7598  7635 D PanZoomDemo: decodeTile: wait=3961ms decode=90ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.402  7598  7650 D PanZoomDemo: decodeTile: wait=3943ms decode=118ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-4] free=0/3
+09-30 01:29:48.427  7598  7655 D PanZoomDemo: decodeTile: wait=3940ms decode=147ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:48.482  7598  7635 D PanZoomDemo: decodeTile: wait=4052ms decode=89ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.521  7598  7650 D PanZoomDemo: decodeTile: wait=4062ms decode=119ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-4] free=0/3
+09-30 01:29:48.547  7598  7655 D PanZoomDemo: decodeTile: wait=4087ms decode=120ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:48.572  7598  7635 D PanZoomDemo: decodeTile: wait=4142ms decode=89ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.640  7598  7650 D PanZoomDemo: decodeTile: wait=4181ms decode=119ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-4] free=0/3
+09-30 01:29:48.658  7598  7598 D PanZoomDemo: RAM N: 278MB
+09-30 01:29:48.662  7598  7635 D PanZoomDemo: decodeTile: wait=4232ms decode=90ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.668  7598  7655 D PanZoomDemo: decodeTile: wait=4207ms decode=121ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:48.679  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 24.22, bitrate 505252
+09-30 01:29:48.684  2340  2534 I ActivityManager: Test idle passed
+09-30 01:29:48.752  7598  7635 D PanZoomDemo: decodeTile: wait=4322ms decode=89ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.758  7598  7650 D PanZoomDemo: decodeTile: wait=4300ms decode=118ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-4] free=0/3
+09-30 01:29:48.795  7598  7655 D PanZoomDemo: decodeTile: wait=4328ms decode=127ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:48.848  7598  7635 D PanZoomDemo: decodeTile: wait=4412ms decode=96ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:48.886  7598  7650 D PanZoomDemo: decodeTile: wait=4418ms decode=128ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-4] free=0/3
+09-30 01:29:48.913  7598  7655 D PanZoomDemo: decodeTile: wait=4455ms decode=118ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:48.945  7598  7635 D PanZoomDemo: decodeTile: wait=4508ms decode=97ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:49.014  7598  7650 D PanZoomDemo: decodeTile: wait=4546ms decode=128ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-4] free=0/3
+09-30 01:29:49.020  7598  7655 D PanZoomDemo: decodeTile: wait=4573ms decode=107ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.072  7598  7635 D PanZoomDemo: decodeTile: wait=4604ms decode=126ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:49.117  7598  7655 D PanZoomDemo: decodeTile: wait=4679ms decode=96ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.136  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:49.137  1277  7835 I [UAH_CLIENT]: UahPlatformResAcquire
+09-30 01:29:49.137  1277  7835 I [UAH_CLIENT]: UahEventAcquire, cmdid:-3, pkg:1277 7835, identity:qcom-perfd
+09-30 01:29:49.139  1277  1459 E ANDR-PERF-RESOURCEQS: Resource with major=15, minor=30 not supported
+09-30 01:29:49.139  1277  1459 E ANDR-PERF-RESOURCEQS: Resource with major=15, minor=31 not supported
+09-30 01:29:49.141  1277  1459 E ANDR-PERF-RESOURCEQS: Resource with major=15, minor=22 not supported
+09-30 01:29:49.141  1277  1459 E ANDR-PERF-RESOURCEQS: Resource with major=15, minor=21 not supported
+09-30 01:29:49.173  7598  7653 D PanZoomDemo: decodeTile: wait=4673ms decode=159ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:49.198  7598  7635 D PanZoomDemo: decodeTile: wait=4731ms decode=126ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:49.213  7598  7655 D PanZoomDemo: decodeTile: wait=4776ms decode=96ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.302  7598  7653 D PanZoomDemo: decodeTile: wait=4832ms decode=129ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:49.309  7598  7655 D PanZoomDemo: decodeTile: wait=4872ms decode=96ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.309  7598  7655 D PanZoomDemo: pool stats: hit-rate=7% items=0/96 buckets=1 missMissing=15 missEmpty=206 evict=0 sizes=[(512×512:0)] bytes=0/96MB
+09-30 01:29:49.325  7598  7635 D PanZoomDemo: decodeTile: wait=4858ms decode=126ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:49.405  7598  7655 D PanZoomDemo: decodeTile: wait=4968ms decode=96ms [pool-miss] sampleSize=1 → 320×512px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.430  7598  7653 D PanZoomDemo: decodeTile: wait=4961ms decode=128ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:49.458  7598  7635 D PanZoomDemo: decodeTile: wait=4984ms decode=133ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:49.506  7598  7655 D PanZoomDemo: decodeTile: wait=5064ms decode=101ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.531  2203  3128 W DGW     : W[onPingFailure:598] ConnectivityManager ping failure TransientError domain: MNSDNSResolver code: 0 detail: getaddrinfo(): No address associated with hostname
+09-30 01:29:49.553  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp can not transition from M to F. reason: AsyncBinder
+09-30 01:29:49.558  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.14304 luxQueue=[344.0, 345.0, 344.0, 344.0, 344.0, 344.0, 344.0]
+09-30 01:29:49.562  7598  7653 D PanZoomDemo: decodeTile: wait=5089ms decode=131ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:49.590  7598  7635 D PanZoomDemo: decodeTile: wait=5116ms decode=132ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:49.606  7598  7655 D PanZoomDemo: decodeTile: wait=5164ms decode=99ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.666  7598  7598 D PanZoomDemo: RAM N: 301MB
+09-30 01:29:49.666  7598  7598 D PanZoomDemo: RAM PSS: 393MB
+09-30 01:29:49.692  7598  7653 D PanZoomDemo: decodeTile: wait=5220ms decode=130ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:49.697  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 25.55, bitrate 526961
+09-30 01:29:49.705  7598  7655 D PanZoomDemo: decodeTile: wait=5264ms decode=99ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.724  7598  7635 D PanZoomDemo: decodeTile: wait=5248ms decode=133ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:49.788  1368  1478 D vendor.oplus.hardware.charger-V3-service: read content:,312,314,4243,4233,387,500,1100,100,100,1,4,487500,5200,100,1,1048704,1,1,0,0,4435,0,0,0,0,0,0,0,-2740,0,4,1,0,0,0,0,0,0x0a,0x2d,0x16,0x73,0x36,0x16,0x3b,0x00,0xea
+09-30 01:29:49.788  1368  1478 D vendor.oplus.hardware.charger-V3-service: , ret_value:164
+09-30 01:29:49.788  1368  1478 D vendor.oplus.hardware.charger-V3-service: gmtime: 2026-09-30-01-29-49
+09-30 01:29:49.804  7598  7655 D PanZoomDemo: decodeTile: wait=5363ms decode=99ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.826  7598  7653 D PanZoomDemo: decodeTile: wait=5351ms decode=133ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:49.856  7598  7635 D PanZoomDemo: decodeTile: wait=5382ms decode=132ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:49.903  7598  7655 D PanZoomDemo: decodeTile: wait=5462ms decode=99ms [pool-miss] sampleSize=1 → 320×320px [DefaultDispatcher-worker-9] free=0/3
+09-30 01:29:49.957  7598  7653 D PanZoomDemo: decodeTile: wait=5484ms decode=130ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-7] free=0/3
+09-30 01:29:49.988  7598  7635 D PanZoomDemo: decodeTile: wait=5513ms decode=131ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-2] free=0/3
+09-30 01:29:50.003  7598  7655 D PanZoomDemo: decodeTile: wait=5560ms decode=99ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-9] free=1/3
+09-30 01:29:50.067  7598  7653 D PanZoomDemo: decodeTile: wait=5614ms decode=110ms [pool-miss] sampleSize=1 → 512×320px [DefaultDispatcher-worker-7] free=2/3
+09-30 01:29:50.141  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:50.668  7598  7598 D PanZoomDemo: RAM N: 306MB
+09-30 01:29:50.701  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 15.94, bitrate 332148
+09-30 01:29:50.759  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.0 luxQueue=[344.0, 344.0, 344.0, 344.0, 344.0, 344.0]
+09-30 01:29:50.773  2340  5969 D UsageStatsService: User[0] type=0 b=1790720837072 e=1790720990773 cb=1790674720925 ce=1790720963518 disk=0 all=10
+09-30 01:29:51.063  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F enter(), M stay=3
+09-30 01:29:51.069  2340  3833 I OplusHansManager : freeze uid: 10298 com.whatsapp pids: [2906] scene: |airPlane|LcdOn
+09-30 01:29:51.071  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = PKG, targetUid = 10298, pkgCmd = ADD_ONE_UID
+09-30 01:29:51.143  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:51.144  1277  7835 W ANDR-PERF-LM: FeatureState: writeState() 188: GameOptimization: State transition not allowed
+09-30 01:29:51.686  7598  7598 D PanZoomDemo: RAM PSS: 401MB
+09-30 01:29:51.709  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 9.92, bitrate 204286
+09-30 01:29:51.960  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.0 luxQueue=[344.0, 344.0, 344.0, 344.0, 344.0, 344.0]
+09-30 01:29:52.072  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = FROZEN_TRANS, targetUid = 10298, pkgCmd = PKG_CMD_MAX
+09-30 01:29:52.146  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:52.731  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 10.76, bitrate 223286
+09-30 01:29:53.148  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:29:53.160  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.60034 luxQueue=[345.0, 345.0, 344.0, 344.0, 345.0]
+09-30 01:29:53.439  3613  3613 I SystemUi--Statusbar: BatteryControllerExt-->handleBroadcast() : broadcast = android.intent.action.BATTERY_CHANGED, charging = false, wirelessCharging = false, wirelessChargingReverse = false, pluggedIn = true, full = true, error = false, plugged = 2, status = 5, notifyCode = 100000000000010000000, wirelessReverseChgType = 0, level = 100
+09-30 01:29:53.439  3613  3613 I SystemUi--Statusbar: BatteryRepository-->model: BatteryStateModel:(level: 100, pluggedInWireless: false, charging: false, wirelessChargingReverse: false)
+09-30 01:29:53.440  3613  3613 W SystemUi--Keyguard: ChargingAnimationImpl-->BatteryStatus is same as last time , return
+09-30 01:29:53.440  3951  3951 D SubsysBroadcastManager: onReceive action:android.intent.action.BATTERY_CHANGED
+09-30 01:29:53.440  5991  5991 E VendorNfcService: changeNfcStateByWirelessCharge: feature WIRELESS_CHARGING = true; mIsWirelessCharging: false; mIsReverseChargingSwitchOpen: false; mNfcWorkMode: 0; isOverSeaRegion() = true
+09-30 01:29:53.440  3826  3826 D DeviceStatisticsService: onReceive: action= android.intent.action.BATTERY_CHANGED
+09-30 01:29:53.690  2340  2534 I ActivityManager: Test idle failed due to 614a4c8 4559:com.google.android.gms/u0a108 runnable at +245ms because NORMAL
+09-30 01:29:53.747  2340  3032 V AlarmManager: sending alarm Alarm{7c5ad13 type 3 origWhen 21905689 whenElapsed 21905689 android} uid 1000 whenElapsed 21905689 windowLength 0 maxWhenElapsed 21905689 repeatInterval 0 action null component null tag StatsCompanionService.pull flags 0x9 procName system_server
+09-30 01:29:53.758  1303  1303 E android.hardware.power.stats-impl.oplus: HandleFactory::read open battery_level(/sys/class/oplus_chg/battery/chip_soc) failed! fd: -1 errno: 13
+09-30 01:29:53.758  1303  1303 W android.hardware.power.stats-impl.oplus: PruneException: Unknown binder exception (13) pruned into EX_TRANSACTION_FAILED
+09-30 01:29:53.758  5114  5143 W ostats_pullerd: handleFactory read failed.
+09-30 01:29:53.759  1303  1303 E android.hardware.power.stats-impl.oplus: HandleFactory::read open battery_ui_level(/sys/class/power_supply/battery/capacity) failed! fd: -1 errno: 13
+09-30 01:29:53.759  1303  1303 W android.hardware.power.stats-impl.oplus: PruneException: Unknown binder exception (13) pruned into EX_TRANSACTION_FAILED
+09-30 01:29:53.759  5114  5143 W ostats_pullerd: handleFactory read failed.
+09-30 01:29:53.759  5114  5143 D ostats_pullerd: PullAtomCallback handleBatteryLevel handler for realLevel = -1, uiLevel = -1
+09-30 01:29:53.762  1368  1368 D chg_exchange_soh_mesg: oplus_chg_init_ui_soh smart chg soh not support
+09-30 01:29:53.762  1368  1368 D chg_exchange_soh_mesg: [GET]uisoh not support, ui_soh_data.ui_soh: 0
+09-30 01:29:53.762  1368  1368 D chg_exchange_soh_mesg: [GET]uisoh data not init, ui_soh_data.ui_soh: 0
+09-30 01:29:53.762  1368  1368 D chg_exchange_soh_mesg: [GET]uisoh data not init, ui_soh_data.ui_soh: 0
+09-30 01:29:53.765  1303  1303 E android.hardware.power.stats-impl.oplus: HandleFactory::read open remaining_battery_power(/sys/class/oplus_chg/battery/battery_rm) failed! fd: -1 errno: 13
+09-30 01:29:53.765  1303  1303 W android.hardware.power.stats-impl.oplus: PruneException: Unknown binder exception (13) pruned into EX_TRANSACTION_FAILED
+09-30 01:29:53.766  5114  5143 W ostats_pullerd: handleFactory read failed.
+09-30 01:29:53.766  5114  5143 E ostats_pullerd: PullAtomCallback getContentByHandleKey read nodeKey: remaining_battery_power, len=0
+09-30 01:29:53.767  2340  3515 D CompatibilityChangeReporter: Compat change id reported: 171306433; UID 1000; state: ENABLED
+09-30 01:29:53.943  2340  3855 I OplusHansManager : unfreeze uid: 10298 com.whatsapp pids: [2906] reason: AsyncBinder scene: |airPlane|LcdOn
+09-30 01:29:53.944  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F exit(), F stay=2, reason=AsyncBinder
+09-30 01:29:54.050  1901  7730 I OMX-VENC: venc_dev: stats: avg. fps 0.76, bitrate 15536
+09-30 01:29:54.150  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0

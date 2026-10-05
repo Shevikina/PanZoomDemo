@@ -1,0 +1,44 @@
+rel_sec	level	tag	message
+0.0	D	PanZoomDemo	Image test_image_large.jpg is open. Size: 36868477 bytes
+0.036	D	PanZoomDemo	dispose: active=4 fallback=0 pending=0 releasePending=0 loading=0
+0.037	D	PanZoomDemo	dispose: done, репозиторий тайлов закрыт
+0.1	D	PanZoomDemo	asset test_image_large.jpg скопирован в cache: 36868477 bytes
+0.971	D	PanZoomDemo	overview: ss=32 size=937×937px
+5.823	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 441 active->fallback
+6.36	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 1 pending, promoted 53 active->fallback
+9.948	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 91 active->fallback
+10.939	D	PanZoomDemo	LOD changed: sampleSize=1 | discarded 1 pending, promoted 79 active->fallback
+15.584	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 1 pending, promoted 399 active->fallback
+15.938	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 1 pending, promoted 37 active->fallback
+17.623	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 54 active->fallback
+18.018	D	PanZoomDemo	LOD changed: sampleSize=1 | discarded 2 pending, promoted 18 active->fallback
+22.988	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 413 active->fallback
+23.271	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 3 pending, promoted 26 active->fallback
+24.952	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 55 active->fallback
+25.356	D	PanZoomDemo	LOD changed: sampleSize=1 | discarded 1 pending, promoted 37 active->fallback
+28.546	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 322 active->fallback
+28.749	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 1 pending, promoted 24 active->fallback
+28.974	D	PanZoomDemo	LOD changed: sampleSize=8 | discarded 3 pending, promoted 11 active->fallback
+30.399	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, promoted 24 active->fallback
+30.564	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 2 active->fallback
+31.769	D	PanZoomDemo	LOD changed: sampleSize=1 | discarded 1 pending, promoted 86 active->fallback
+33.592	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 1 pending, promoted 221 active->fallback
+34.059	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 2 pending, promoted 47 active->fallback
+34.443	D	PanZoomDemo	LOD changed: sampleSize=8 | discarded 1 pending, promoted 16 active->fallback
+35.871	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, promoted 23 active->fallback
+36.319	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 1 pending, promoted 16 active->fallback
+38.67	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, promoted 132 active->fallback
+39.022	D	PanZoomDemo	LOD changed: sampleSize=8 | discarded 0 pending, promoted 16 active->fallback
+40.454	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, promoted 22 active->fallback
+41.207	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 1 pending, promoted 28 active->fallback
+43.987	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, promoted 149 active->fallback
+44.707	D	PanZoomDemo	LOD changed: sampleSize=8 | discarded 0 pending, promoted 29 active->fallback
+46.082	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, promoted 24 active->fallback
+46.505	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 1 pending, promoted 10 active->fallback
+48.297	D	PanZoomDemo	LOD changed: sampleSize=1 | discarded 0 pending, promoted 109 active->fallback
+51.714	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 1 pending, promoted 330 active->fallback
+52.63	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, promoted 74 active->fallback
+53.74	D	PanZoomDemo	LOD changed: sampleSize=8 | discarded 0 pending, promoted 41 active->fallback
+57.674	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, promoted 45 active->fallback
+58.16	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 14 active->fallback
+58.846	D	PanZoomDemo	LOD changed: sampleSize=1 | discarded 1 pending, promoted 52 active->fallback

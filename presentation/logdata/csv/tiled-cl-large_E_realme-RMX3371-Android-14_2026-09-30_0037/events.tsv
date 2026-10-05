@@ -1,0 +1,18 @@
+rel_sec	level	tag	message
+0.0	D	PanZoomDemo	Image test_image_large.jpg is open. Size: 36868477 bytes
+0.022	D	PanZoomDemo	dispose: active=4 fallback=0 pending=0 releasePending=0 loading=0
+0.027	D	PanZoomDemo	dispose: done, репозиторий тайлов закрыт
+0.069	D	PanZoomDemo	asset test_image_large.jpg скопирован в cache: 36868477 bytes
+0.988	D	PanZoomDemo	overview: ss=32 size=937×937px
+49.807	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 3 pending, promoted 9 active->fallback
+50.952	D	PanZoomDemo	LOD changed: sampleSize=1 | discarded 0 pending, promoted 12 active->fallback
+53.208	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 3 pending, promoted 13 active->fallback
+53.235	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, active empty, fallback kept=13
+53.9	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 12 active->fallback
+53.984	D	PanZoomDemo	LOD changed: sampleSize=1 | discarded 0 pending, promoted 1 active->fallback
+55.725	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 11 active->fallback
+56.569	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 2 pending, promoted 37 active->fallback
+56.847	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 1 pending, active empty, fallback kept=8
+57.612	D	PanZoomDemo	LOD changed: sampleSize=1 | discarded 2 pending, promoted 11 active->fallback
+58.764	D	PanZoomDemo	LOD changed: sampleSize=2 | discarded 0 pending, promoted 19 active->fallback
+58.825	D	PanZoomDemo	LOD changed: sampleSize=4 | discarded 0 pending, active empty, fallback kept=19

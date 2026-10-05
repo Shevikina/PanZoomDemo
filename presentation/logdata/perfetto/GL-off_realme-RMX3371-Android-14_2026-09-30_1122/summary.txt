@@ -1,0 +1,36 @@
+=== Perfetto Trace Analysis ===
+Session:  GL-off_realme-RMX3371-Android-14_2026-09-30_1122
+Duration: 14.9 s
+
+Frames (SurfaceFlinger actual_frame_timeline):
+  total=518  avg=7.04ms  min=-0.0ms  max=27.08ms
+  smooth=340  App Deadline Missed=4  Buffer Stuffing=174
+  late (on_time=0): 7 (1.4%)
+  worst late frames (ms): 27.083, 25.948, 23.379, 22.791, -0.0
+
+Custom slices (Trace.beginSection):
+  updateTiles                count=  513  avg=    0.14ms  max=    1.78ms  total=      71.2ms
+  flushPendingTiles          count=   63  avg=    0.03ms  max=    0.05ms  total=       1.6ms
+  decodeTile.wait            нет данных, нужен atrace_apps при снятии трейса
+  decodeTile.decode          count=   75  avg=   94.28ms  max=  148.55ms  total=    7070.8ms
+
+Recompositions (Compose):
+  count=2320  rate=155.5/sec  avg=0.28ms  max=3.02ms  total=656.2ms
+    Recomposer:animation: 897
+    Recomposer:recompose: 897
+    Compose:recompose: 526
+
+Main thread top (depth=0, по суммарному времени):
+  Name                                        count    avg_ms    max_ms    total_ms
+  ────────────────────────────────────────────────────────────────────────────────
+  Choreographer#doFrame                         897      1.99     11.35      1783.5
+  Choreographer#onVsync                         897      0.04      0.22        34.2
+  deliverInputEvent                              16      1.72      3.56        27.5
+  checkForSemanticsChanges                       17      0.76      1.83        12.9
+  processInputEventForCompatibility              16      0.14      0.31         2.2
+  getAllUncoveredSemanticsNodesToIntObjectMap      4      0.42      0.61         1.7
+  measureAndLayout                               17      0.01      0.02         0.2
+
+Diagnostics:
+  Итого слайсов в процессе (уникальных имён): 50
+  Файл slice_names.txt содержит полный список для проверки SQL-запросов.

@@ -1,0 +1,38 @@
+=== COMPARISON ===
+  OLD: GL-on_realme-RMX3371-Android-14_2026-09-30_1121  (14.9s)
+  NEW: GL-off_realme-RMX3371-Android-14_2026-09-30_1122  (14.9s)
+
+  Metric                                 OLD              NEW              DELTA
+  ──────────────────────────────────────────────────────────────────────────────────────
+
+  --- Frames ---
+  Frames total                           502              518              +16 (+3.2%) ✅
+  Frame avg ms                           6.63ms           7.04ms           +0.41ms (+6.2%) ❌
+  App Deadline Missed                    9                4                -5 (55.6%) ✅
+  Buffer Stuffing                        214              174              -40 (18.7%) ✅
+  Late frames (on_time=0)                12               7                -5 (41.7%) ✅
+
+  --- Custom slices ---
+  updateTiles count                      495              513              +18 (+3.6%) ❌
+  updateTiles avg ms                     0.15ms           0.14ms           -0.01ms (6.7%) ✅
+  flushPendingTiles count                56               63               +7 (+12.5%) ❌
+  decodeTile.wait count                  0                0                =
+  decodeTile.wait avg ms                 n/a              n/a              n/a
+  decodeTile.wait max ms                 n/a              n/a              n/a
+  decodeTile.decode avg ms               93.72ms          94.28ms          +0.56ms (+0.6%) ❌
+  decodeTile.decode max ms               131.88ms         148.55ms         +16.67ms (+12.6%) ❌
+
+  --- Recompositions ---
+  Recompose count                        1809             2320             +511 (+28.2%) ❌
+  Recompose rate /sec                    121.1            155.5            +34.4 (+28.4%) ❌
+  Recompose avg ms                       0.15ms           0.28ms           +0.13ms (+86.7%) ❌
+
+  Recompose names (OLD):
+    Recomposer:animation: 898
+    Recomposer:recompose: 897
+    Compose:recompose: 14
+
+  Recompose names (NEW):
+    Recomposer:animation: 897
+    Recomposer:recompose: 897
+    Compose:recompose: 526

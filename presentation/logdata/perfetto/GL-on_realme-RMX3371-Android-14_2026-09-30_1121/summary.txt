@@ -1,0 +1,39 @@
+=== Perfetto Trace Analysis ===
+Session:  GL-on_realme-RMX3371-Android-14_2026-09-30_1121
+Duration: 14.9 s
+
+Frames (SurfaceFlinger actual_frame_timeline):
+  total=502  avg=6.63ms  min=-0.0ms  max=31.95ms
+  smooth=279  App Deadline Missed=9  Buffer Stuffing=214
+  late (on_time=0): 12 (2.4%)
+  worst late frames (ms): 31.952, 30.132, 28.486, 27.983, 23.731
+
+Custom slices (Trace.beginSection):
+  updateTiles                count=  495  avg=    0.15ms  max=    1.41ms  total=      72.7ms
+  flushPendingTiles          count=   56  avg=    0.02ms  max=    0.13ms  total=       1.3ms
+  decodeTile.wait            нет данных, нужен atrace_apps при снятии трейса
+  decodeTile.decode          count=   69  avg=   93.72ms  max=  131.88ms  total=    6466.6ms
+
+Recompositions (Compose):
+  count=1809  rate=121.1/sec  avg=0.15ms  max=7.92ms  total=277.4ms
+    Recomposer:animation: 898
+    Recomposer:recompose: 897
+    Compose:recompose: 14
+
+Main thread top (depth=0, по суммарному времени):
+  Name                                        count    avg_ms    max_ms    total_ms
+  ────────────────────────────────────────────────────────────────────────────────
+  Choreographer#doFrame                         898      1.66     17.96      1493.4
+  checkForSemanticsChanges                      106      0.73      4.44        77.6
+  getAllUncoveredSemanticsNodesToIntObjectMap    149      0.42      1.41        62.9
+  Choreographer#onVsync                         898      0.04      0.49        37.4
+  deliverInputEvent                              19      1.77      4.82        33.7
+  OnPositionedDispatch                          216      0.01       0.1         3.1
+  processInputEventForCompatibility              19       0.1      0.18         1.8
+  measureAndLayout                              106      0.02      0.09         1.7
+  updateTiles                                     3      0.12      0.17         0.4
+  scheduleTraversals                              3      0.07      0.08         0.2
+
+Diagnostics:
+  Итого слайсов в процессе (уникальных имён): 50
+  Файл slice_names.txt содержит полный список для проверки SQL-запросов.

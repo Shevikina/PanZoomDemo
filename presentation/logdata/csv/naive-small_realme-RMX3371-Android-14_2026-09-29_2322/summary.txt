@@ -1,0 +1,27 @@
+Session:  naive-small_realme-RMX3371-Android-14_2026-09-29_2322
+Duration: 58.6 s   App messages: 142  (total in log: 3806)
+
+FPS:
+  нет данных
+  нет данных
+
+Jank:
+  events=0  нет данных
+
+
+RAM PSS: samples=2  min=114MB  max=119MB  avg=116.5MB
+RAM J:   samples=13  min=4MB  max=9MB  avg=6.7MB
+RAM N:   samples=1  min=23MB  max=23MB  avg=23.0MB
+
+Pool hit-rate (raw tile ops): 0 hits / 0 total = n/a
+Pool stats snapshots: 0
+
+Decode: нет данных
+Wait:   нет данных
+Sample sizes used: {}
+Tile sizes used:   {}
+
+Toggles (0):
+
+BitmapRegionDecoder warnings: 0
+Exceptions/crashes:           0

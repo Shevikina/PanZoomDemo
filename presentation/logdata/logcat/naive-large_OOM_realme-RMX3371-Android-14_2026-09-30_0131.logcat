@@ -1,0 +1,927 @@
+--------- beginning of main
+09-30 01:31:12.003  8085  8085 D OplusUtils: OplusUtils [89]: 
+09-30 01:31:12.005  8085  8085 E app_process: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.005  8085  8085 E app_process: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.005  8085  8085 E app_process: Opened libsensorextimpl.so
+09-30 01:31:12.005  8085  8085 E app_process: Opened libsensorextimpl.so
+09-30 01:31:12.005  8085  8085 E app_process: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.006  8085  8085 E app_process: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.006  8085  8085 E app_process: Opened libinputextensionsimpl.so
+09-30 01:31:12.006  8085  8085 E app_process: Opened libinputextensionsimpl.so
+09-30 01:31:12.007  8085  8085 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+09-30 01:31:12.009  8085  8085 I AndroidRuntime: Using default boot image
+09-30 01:31:12.010  8085  8085 I AndroidRuntime: Leaving lock profiling enabled
+09-30 01:31:12.011  8085  8085 I app_process: Core platform API enforcement reporting only by runtime option
+09-30 01:31:12.011  8085  8085 I app_process: Using generational CollectorTypeCC GC.
+09-30 01:31:12.051  8085  8085 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+09-30 01:31:12.065  8085  8085 D nativeloader: Load libicu_jni.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+09-30 01:31:12.065  8085  8085 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+09-30 01:31:12.065  8085  8085 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt72l.dat
+09-30 01:31:12.066  8085  8085 D nativeloader: Load libjavacore.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+09-30 01:31:12.067  8085  8085 D nativeloader: Load libopenjdk.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+09-30 01:31:12.067  8085  8085 I app_process: Priority-to-niceness mapping: 19, 16, 13, 10, 0, -2, -4, -5, -6, -8
+09-30 01:31:12.091  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F enter(), M stay=3
+09-30 01:31:12.096  8085  8085 D ExtLoader: DEFAULT_DEBUG_DUMMY=false, DEFAULT_DEBUG_CREATE=false
+09-30 01:31:12.098  8085  8085 D nativeloader: Load libonetrace_jni.so using system ns (caller=/system/framework/oplus-framework.jar): ok
+09-30 01:31:12.098  8085  8085 D OplusTrace: register_android_os_OplusTrace
+09-30 01:31:12.098  2340  3833 I OplusHansManager : freeze uid: 10298 com.whatsapp pids: [2906] scene: |airPlane|LcdOn
+09-30 01:31:12.100  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = PKG, targetUid = 10298, pkgCmd = ADD_ONE_UID
+09-30 01:31:12.106  8085  8085 W libc    : Access denied finding property "ro.product.name_for_attestation"
+09-30 01:31:12.106  8085  8085 W libc    : Access denied finding property "ro.product.brand_for_attestation"
+09-30 01:31:12.106  8085  8085 W libc    : Access denied finding property "ro.product.model_for_attestation"
+09-30 01:31:12.107  8085  8085 W libc    : Access denied finding property "ro.vendor.mtk.hbt_binfmt_misc_support"
+09-30 01:31:12.107  8085  8085 W libc    : Access denied finding property "ro.vendor.mtk.app32_boost_support"
+09-30 01:31:12.107  8085  8085 W libc    : Access denied finding property "ro.vendor.oplus.tango_binfmt_misc_support"
+09-30 01:31:12.118  8085  8085 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+09-30 01:31:12.118  8085  8085 D AndroidRuntime: Calling main entry com.genymobile.scrcpy.Server
+09-30 01:31:12.119  8085  8085 W libc    : Access denied finding property "ro.vendor.mtk.hbt_dyn_type"
+09-30 01:31:12.120  8085  8085 I scrcpy  : Device: [realme] realme RMX3371 (Android 14)
+09-30 01:31:12.123  8085  8085 D OplusActivityThreadExtImpl: java.lang.NoSuchMethodException: dalvik.system.VMRuntime.SupressionGC [int, int]
+09-30 01:31:12.123  8085  8085 W libc    : Access denied finding property "persist.vendor.sys.activitylog"
+09-30 01:31:12.124  8085  8085 W libc    : Access denied finding property "qemu.sf.lcd_density"
+09-30 01:31:12.124  8085  8085 W libc    : Access denied finding property "qemu.sf.lcd_density"
+09-30 01:31:12.130  8085  8085 D nativeloader: Load libjavacrypto.so using APEX ns com_android_conscrypt for caller /apex/com.android.conscrypt/javalib/conscrypt.jar: ok
+09-30 01:31:12.136  8085  8085 I PackagePartitionsExtImpl:  non overlaied app dir /my_heytap/non_overlay, partitionName my_heytap
+09-30 01:31:12.136  8085  8085 I PackagePartitionsExtImpl:  non overlaied app dir /my_stock/non_overlay, partitionName my_stock
+09-30 01:31:12.136  8085  8085 I PackagePartitionsExtImpl:  overlaidStatus value is 1
+09-30 01:31:12.136  8085  8085 I PackagePartitionsExtImpl: custom partititions are overlaid;skip parse custom images
+09-30 01:31:12.149  8085  8085 W app_process: unable to execute idmap2: Permission denied
+09-30 01:31:12.149  8085  8085 W OverlayConfig: 'idmap2 create-multiple' failed: no mutable="false" overlays targeting "android" will be loaded
+09-30 01:31:12.150  8085  8085 W app_process: unable to execute idmap2: Permission denied
+09-30 01:31:12.150  8085  8085 W OverlayConfig: 'idmap2 create-multiple' failed: no mutable="false" overlays targeting "oplus" will be loaded
+09-30 01:31:12.152  8085  8085 E FeatureFlagsImplExport: android.os.flagging.AconfigStorageReadException: ERROR_PACKAGE_NOT_FOUND: package com.android.scheduling.flags cannot be found on the device
+09-30 01:31:12.156  8085  8085 W libc    : Access denied finding property "vendor.display.disable_rounded_corner"
+09-30 01:31:12.162  8085  8085 D OplusActivityManager: get AMS extension: android.os.BinderProxy@f6b2c4c
+09-30 01:31:12.163  8085  8085 D nativeloader: Load libsigprotector_jni.so using system ns (caller=/system/framework/oplus-framework.jar): ok
+09-30 01:31:12.175  5035  5035 I adbd    : adbd service requested 'reverse:killforward:localabstract:scrcpy_363008de'
+09-30 01:31:12.187  8097  8097 E libEGL  : No entry found in platform lookup table for eglSurfaceAttribMTK
+09-30 01:31:12.187  8097  8097 D ExtensionsLoader: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.187  8097  8097 D ExtensionsLoader: Opened libguiextimpl.so
+09-30 01:31:12.194  8097  8097 D OplusUtils: OplusUtils [89]: 
+09-30 01:31:12.196  8097  8097 E app_process: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.196  8097  8097 E app_process: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.196  8097  8097 E app_process: Opened libsensorextimpl.so
+09-30 01:31:12.196  8097  8097 E app_process: Opened libsensorextimpl.so
+09-30 01:31:12.196  8097  8097 E app_process: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.197  8097  8097 E app_process: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.197  8097  8097 E app_process: Opened libinputextensionsimpl.so
+09-30 01:31:12.197  8097  8097 E app_process: Opened libinputextensionsimpl.so
+09-30 01:31:12.197  8097  8097 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+09-30 01:31:12.198  8085  8101 D nativeloader: Load libmedia_jni.so using system ns (caller=/system/framework/framework.jar!classes2.dex): ok
+09-30 01:31:12.198  8085  8101 D MtpDeviceJNI: register_android_mtp_MtpDevice
+09-30 01:31:12.199  8085  8101 D MediaCodec: CreateByType: pid -1(8085)
+09-30 01:31:12.199  8085  8101 D MediaCodec: CreateByType: mime video/avc, encoder 1, pid -1
+09-30 01:31:12.200  8085  8101 D MediaCodecList: processName: app_process , mime: video/avc
+09-30 01:31:12.200  8097  8097 I AndroidRuntime: Using default boot image
+09-30 01:31:12.200  8097  8097 I AndroidRuntime: Leaving lock profiling enabled
+09-30 01:31:12.201  8085  8101 D MediaCodecList: codecHandlesFormat: no format, so no extra checks
+09-30 01:31:12.201  8085  8101 D MediaCodecList: codecHandlesFormat: no format, so no extra checks
+09-30 01:31:12.202  8085  8101 D MediaCodecList: codecHandlesFormat: no format, so no extra checks
+09-30 01:31:12.202  8097  8097 I app_process: Core platform API enforcement reporting only by runtime option
+09-30 01:31:12.202  8085  8101 W libc    : Access denied finding property "vendor.debug.stagefright.mediacodec.trace"
+09-30 01:31:12.202  8097  8097 I app_process: Using generational CollectorTypeCC GC.
+09-30 01:31:12.203  8085  8101 D OplusACodec: OplusACodec [147]: 
+09-30 01:31:12.203  8085  8101 W libc    : Access denied finding property "vendor.oplus.media.vpp.stutter"
+09-30 01:31:12.203  8085  8101 D ListServiceUtils: mListServiceUtils::init CallingPid 8085
+09-30 01:31:12.203  8085  8101 D ListServiceUtils: mListServiceUtils::init this 0xb400007df85ea140
+09-30 01:31:12.203  1878  6208 D MMListService: getListValueByUid module:sr-osie-whitelist, uid:2000
+09-30 01:31:12.203  8085  8101 D ListServiceUtils: checkInListByUid module:video-setsurface-error uid:2000 cost 44us return 0
+09-30 01:31:12.203  8085  8101 D OplusACodec: ACodec() ro.oplus.audio.effect.type = dolby ro.oplus.audio.dolby.type = none
+09-30 01:31:12.204  8085  8101 E MULTIMEDIAConfig: [getInt32:L80] Not find config, Returning default
+09-30 01:31:12.204  8085  8101 D MULTIMEDIAConfig: [getInt32:L85] Config name: oplus.software.video.sr_support value: 1
+09-30 01:31:12.204  1878  6208 D MMListService: getListValueByUid module:sr-osie-whitelist, uid:2000
+09-30 01:31:12.204  8085  8101 E OplusACodec: [OplusACodec:204] mSrOsieMMListCheckResult:0x0 mOsieVersion:2
+09-30 01:31:12.204  8085  8101 D OplusACodec: getBufferChannel: New
+09-30 01:31:12.204  8085  8101 D MediaCodec: [0xb400007dece9d800] init: CCodec 0xb400007df8559f10, CCodecBufferChannel 0xb400007decfab198
+09-30 01:31:12.204  8085  8102 D MediaCodec: [0xb400007dece9d800] setState: 1
+09-30 01:31:12.212  8085  8104 I OMXClient: IOmx service obtained
+09-30 01:31:12.213  1901 16414 D OMX_DumpInput: [DumpInput:L371][OMX.qcom.video.encoder.avc_96] this:0xf083d72c
+09-30 01:31:12.213  1901 16414 D OMX_DumpInput: checkDumpCondition 500, decodercheck 0, nonsecurecheck 1, regioncheck 0, platformcheck 1 
+09-30 01:31:12.213  1901 16414 I OMXMaster: makeComponentInstance(OMX.qcom.video.encoder.avc) in android.hardwar process
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32 Config name: vidc_perf_control_enable value: 0
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32: Returning default
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32 Config name: vidc_enc_log_in value: 0
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32 Config name: vidc_enc_log_out value: 0
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32 Config name: vidc_enc_csc_custom_matrix value: 0
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32 Config name: vidc_enc_auto_blur_disable value: 0
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32: Returning default
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32 Config name: vidc_enc_linear_color_format value: 0
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32 Config name: vidc_enc_bitrate_savings_enable value: 3
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInstance: Enter
+09-30 01:31:12.216  1901 16414 D PlatformConfig: getInt32 Config name: vidc_enc_quality_boost_enable value: 1
+09-30 01:31:12.222  1901 16414 I OMX-VENC: Component_init : OMX.qcom.video.encoder.avc : return = 0x0
+09-30 01:31:12.223  1499  2257 D VRR [OTI]: handleIdle from 0 to 1
+09-30 01:31:12.223  1499  2257 D VRR [OTI-HW]: isStateReady 0
+09-30 01:31:12.223  1499  2257 D VRR [OTI-HW]: rate range: min {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} cur {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} max {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0}
+09-30 01:31:12.224  1499  2257 D VRR [OTI-HW]: keep rate.
+09-30 01:31:12.224  8085  8102 D MediaCodec: [0xb400007dece9d800] setState: 2
+09-30 01:31:12.245  8097  8097 D nativeloader: InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
+09-30 01:31:12.253  8097  8097 D nativeloader: Load libicu_jni.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+09-30 01:31:12.253  8097  8097 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+09-30 01:31:12.253  8097  8097 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt72l.dat
+09-30 01:31:12.254  8097  8097 D nativeloader: Load libjavacore.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+09-30 01:31:12.254  8097  8097 D nativeloader: Load libopenjdk.so using APEX ns com_android_art for caller /apex/com.android.art/javalib/core-oj.jar: ok
+09-30 01:31:12.255  8097  8097 I app_process: Priority-to-niceness mapping: 19, 16, 13, 10, 0, -2, -4, -5, -6, -8
+09-30 01:31:12.257  8085  8101 I MediaCodec: [0xb400007dece9d800] [OMX.qcom.video.encoder.avc] configure, format : AMessage(what = 0x00000000) = {
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int32_t color-format = 2130708361
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int32_t i-frame-interval = 10
+09-30 01:31:12.257  8085  8101 I MediaCodec:   string mime = "video/avc"
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int32_t latency = 1
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int32_t width = 1080
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int32_t bitrate = 8000000
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int32_t color-range = 2
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int32_t priority = 0
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int32_t frame-rate = 60
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int64_t repeat-previous-frame-after = 100000
+09-30 01:31:12.257  8085  8101 I MediaCodec:   int32_t height = 2400
+09-30 01:31:12.257  8085  8101 I MediaCodec: }
+09-30 01:31:12.262  8085  8101 D CodecSeeding: Seed: codec OMX.qcom.video.encoder.avc, mediatype video/avc, overrideable 1
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-bpp,0)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-bpp-1080p,1.90)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-bpp-720p,2.25)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-bpp-540p,2.65)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-bpp-480p,3.00)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-bpp-320x240,0)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-qpmax,-1)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-qpmax-1080p,45)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-qpmax-720p,43)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-qpmax-540p,42)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-target-qpmax-480p,38)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-bitrate-phaseout,1.75)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setTuningValue(vq-boost-missing-qp,0.20)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setFeatureValue(_vq_eligible.device,1)
+09-30 01:31:12.262  8085  8101 D CodecProperties: setFeatureValue(_quality.target,1)
+09-30 01:31:12.262  8085  8101 D CodecSeeding: Seed: codec OMX.qcom.video.encoder.avc, mediatype video/avc, overrideable 0
+09-30 01:31:12.262  8085  8101 D VQApply : minquality: 1080x2400 outside of shaping range
+09-30 01:31:12.262  8085  8101 D MediaCodec: shapeMediaFormat: deltas(1): AMessage(what = 0x00000000) = {
+09-30 01:31:12.262  8085  8101 D MediaCodec:     int32_t android._encoding-quality-level = 0
+09-30 01:31:12.262  8085  8101 D MediaCodec:   }
+09-30 01:31:12.263  8085  8102 D MediaCodec: flushMediametrics
+09-30 01:31:12.263  8085  8102 D MediaCodec: [0xb400007dece9d800] setState: 3
+09-30 01:31:12.263  1878  6208 D MMListService: getListValueByUid module:qcom-encode-gop, uid:2000
+09-30 01:31:12.263  1878  6208 D MMListService: getListValueByUid module:qcom-encode-qp, uid:2000
+09-30 01:31:12.263  8085  8104 D OplusACodec: [configureCodec:L1526] OplusFeedbackInfo  mFeedbackID:-5476376605845250304
+09-30 01:31:12.263  8085  8104 W AString : ctor got NULL, using empty string instead
+09-30 01:31:12.264  1878  6208 E MMListServiceParser: open file /proc/8085/cmdline err 13
+09-30 01:31:12.264  8085  8104 D AtlasEventUploadUtils: setEvent event:atlas_event_video_monitor_network_switch
+09-30 01:31:12.264  8085  8104 D IAtlas  : IAtlas::init CallingPid 8085
+09-30 01:31:12.264  8085  8104 D IAtlas  : IAtlas::init this 0xb400007df8593560
+09-30 01:31:12.264  5045  5064 D OplusAtlas.OplusAtlasEventDispatch: setEvent:atlas_event_video_monitor_network_switch info:START,8085,Key,-5476376605845788672,Component,OMX.qcom.video.encoder.avc,Width,1080,Height,2400,IsMediaPlayer,0
+09-30 01:31:12.265  8085  8104 D ListServiceUtils: checkInListByUid module:notify-network-optimize uid:2000 cost 110us return 0
+09-30 01:31:12.265  8085  8104 D ListServiceUtils: checkInListByUid module:video-statistics uid:2000 cost 96us return 0
+09-30 01:31:12.265  1878  6208 D MMListService: getListValueByUid module:video-resolution-blurry, uid:2000
+09-30 01:31:12.265  1878  6208 D MMListService: getListValueByUid module:video-stutter-threshold, uid:2000
+09-30 01:31:12.265  5045  6865 D OplusAtlasVideo: callback success event:atlas_event_video_monitor_network_switch eventInfo:START,8085,Key,-5476376605845788672,Component,OMX.qcom.video.encoder.avc,Width,1080,Height,2400,IsMediaPlayer,0
+09-30 01:31:12.265  8085  8104 D OplusUtils: ACodec getComponentRole [99]: mime:video/avc
+09-30 01:31:12.265  1901 16414 I OMX-VENC: WARN: Enable/Disable allocate-native-handle allowed only in secure session
+09-30 01:31:12.266  1901 16414 E OMXNodeInstance: setParameter(0xf0cbd844:qcom.encoder.avc, OMX.google.android.index.allocateNativeHandle(0x7f00005d): Input:0 en=0) ERROR: UnsupportedSetting(0x80001019)
+09-30 01:31:12.266  1901 16414 I OMX-VENC: WARN: Enable/Disable allocate-native-handle allowed only in secure session
+09-30 01:31:12.266  1901 16414 E OMXNodeInstance: setParameter(0xf0cbd844:qcom.encoder.avc, OMX.google.android.index.allocateNativeHandle(0x7f00005d): Output:1 en=0) ERROR: UnsupportedSetting(0x80001019)
+09-30 01:31:12.266  1901 16414 I OMX-VENC: WARN: set_parameter: metamode is valid for input port only
+09-30 01:31:12.266  1901 16414 W OMXNodeInstance: [0xf0cbd844:qcom.encoder.avc] component does not support metadata mode; using fallback
+09-30 01:31:12.266  8085  8104 I ExtendedACodec: setupVideoEncoder()
+09-30 01:31:12.266  8085  8104 W OMXUtils: do not know color format 0x7fa30c06 = 2141391878
+09-30 01:31:12.267  8085  8104 W OMXUtils: do not know color format 0x7fa30c04 = 2141391876
+09-30 01:31:12.267  8085  8104 W OMXUtils: do not know color format 0x7fa30c00 = 2141391872
+09-30 01:31:12.267  8085  8104 W OMXUtils: do not know color format 0x7fa30c09 = 2141391881
+09-30 01:31:12.268  8085  8104 W OMXUtils: do not know color format 0x7fa30c0a = 2141391882
+09-30 01:31:12.268  8085  8104 W OMXUtils: do not know color format 0x7fa30c08 = 2141391880
+09-30 01:31:12.268  8085  8104 W OMXUtils: do not know color format 0x7fa30c07 = 2141391879
+09-30 01:31:12.269  8085  8104 W OMXUtils: do not know color format 0x7f000789 = 2130708361
+09-30 01:31:12.269  1901 16414 I OMX-VENC: venc_dev: WARN: Unsupported eColorFormat 0x7f000789
+09-30 01:31:12.269  8085  8104 E OplusACodec: [GetVideoCodingTypeFromMime:L1175] mime:video/avc
+09-30 01:31:12.270  1901 16414 E OMX-VENC: ERROR: unsupported index 1870659589
+09-30 01:31:12.270  8085  8104 I ACodec  : setupAVCEncoderParameters with [profile: Baseline] [level: Level1]
+09-30 01:31:12.271  8085  8104 I ACodec  : [OMX.qcom.video.encoder.avc] cannot encode HDR static metadata. Ignoring.
+09-30 01:31:12.271  8085  8104 I ACodec  : setupVideoEncoder succeeded
+09-30 01:31:12.271  8085  8104 I ExtendedACodec: [OMX.qcom.video.encoder.avc] configure, AMessage : AMessage(what = 'conf', target = 1) = {
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t color-format = 2130708361
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t i-frame-interval = 10
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   string mime = "video/avc"
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t latency = 1
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t width = 1080
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t bitrate = 8000000
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t color-range = 2
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t priority = 0
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t frame-rate = 60
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int64_t repeat-previous-frame-after = 100000
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t height = 2400
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t android._encoding-quality-level = 0
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t tp-ux-tid = 8101
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t flags = 1
+09-30 01:31:12.271  8085  8104 I ExtendedACodec:   int32_t encoder = 1
+09-30 01:31:12.271  8085  8104 I ExtendedACodec: }
+09-30 01:31:12.272  8085  8104 W OMXUtils: do not know color format 0x7f000789 = 2130708361
+09-30 01:31:12.272  1901 16414 E OMX-VENC: ERROR: unsupported index 1870659589
+09-30 01:31:12.272  1901 16414 E OMXNodeInstance: getConfig(0xf0cbd844:qcom.encoder.avc, ConfigLatency(0x6f800005)) ERROR: UnsupportedIndex(0x8000101a)
+09-30 01:31:12.281  8097  8097 D ExtLoader: DEFAULT_DEBUG_DUMMY=false, DEFAULT_DEBUG_CREATE=false
+09-30 01:31:12.282  8097  8097 D nativeloader: Load libonetrace_jni.so using system ns (caller=/system/framework/oplus-framework.jar): ok
+09-30 01:31:12.282  8097  8097 D OplusTrace: register_android_os_OplusTrace
+09-30 01:31:12.283  8085  8102 D MediaCodec: [0xb400007dece9d800] setState: 4
+09-30 01:31:12.284  1901 16414 E OMXNodeInstance: getConfig(0xf0cbd844:qcom.encoder.avc, ??(0x7f000062)) ERROR: UnsupportedSetting(0x80001019)
+09-30 01:31:12.284  1901 16414 I OMX-VENC: venc_dev: venc_get_consumer_usage 0x10000000
+09-30 01:31:12.284  1901 16414 D GraphicBufferSource: setting dataspace: 0x104, acquired=0
+09-30 01:31:12.285  1901 16414 I OMX-VENC: venc_dev: venc_get_consumer_usage 0x10000000
+09-30 01:31:12.285  1901 16414 D GraphicBufferSource: requesting color aspects (R:2(Limited), P:1(BT709_5), M:1(BT709_5), T:3(SMPTE170M))
+09-30 01:31:12.285  8085  8101 D ExtensionsLoader: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.286  8085  8101 D ExtensionsLoader: Opened libSchedAssistExtImpl.so
+09-30 01:31:12.287  8085  8101 E SchedAssist: ofbOpen failed with error=Permission denied
+09-30 01:31:12.287  8085  8101 E SchedAssist: sysOpen failed with error=Permission denied
+09-30 01:31:12.287  8085  8101 E SchedAssist: sharedImFd failed with error=Permission denied
+09-30 01:31:12.289  8085  8101 D ExtensionsLoader: createInstance(64bit) : createExtendedFactory
+09-30 01:31:12.289  8085  8101 D ExtensionsLoader: Opened libguiextimpl.so
+09-30 01:31:12.289  8085  8101 D nativeloader: Load liboplusgui_jni.so using system ns (caller=/system/framework/oplus-framework.jar): ok
+09-30 01:31:12.289  8097  8097 W libc    : Access denied finding property "ro.product.name_for_attestation"
+09-30 01:31:12.289  8097  8097 W libc    : Access denied finding property "ro.product.brand_for_attestation"
+09-30 01:31:12.289  8097  8097 W libc    : Access denied finding property "ro.product.model_for_attestation"
+09-30 01:31:12.290  8097  8097 W libc    : Access denied finding property "ro.vendor.mtk.hbt_binfmt_misc_support"
+09-30 01:31:12.290  8097  8097 W libc    : Access denied finding property "ro.vendor.mtk.app32_boost_support"
+09-30 01:31:12.290  8097  8097 W libc    : Access denied finding property "ro.vendor.oplus.tango_binfmt_misc_support"
+09-30 01:31:12.293   727   727 I hwservicemanager: TokenManager tokens count added by (uid: 2000, pid: 8085), now: 1
+09-30 01:31:12.294   727   727 I hwservicemanager: TokenManager tokens count removed by (uid: 1000, pid: 2340), now: 0
+--------- beginning of system
+09-30 01:31:12.296  2340  4343 I DisplayDeviceRepository: Display device added: DisplayDeviceInfo{"scrcpy": uniqueId="virtual:com.android.shell,2000,scrcpy,0", 1080 x 2400, modeId 28, renderFrameRate 60.0, defaultModeId 28, supportedModes [{id=28, width=1080, height=2400, fps=60.0, alternativeRefreshRates=[], supportedHdrTypes=[]}], colorMode 0, supportedColorModes [0], hdrCapabilities null, allmSupported false, gameContentTypeSupported false, density 1, 1.0 x 1.0 dpi, appVsyncOff 0, presDeadline 16666666, touch NONE, rotation 0, type VIRTUAL, deviceProductInfo null, state ON, committedState UNKNOWN, owner com.android.shell (uid 2000), frameRateOverride , brightnessMinimum 0.0, brightnessMaximum 0.0, brightnessDefault 0.0, hdrSdrRatio NaN, backlightType 0, FLAG_PRIVATE, installOrientation 0, displayShape DisplayShape{ spec=-1893857183 displayWidth=1080 displayHeight=2400 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}}
+09-30 01:31:12.298  2340  4343 D LogicalDisplayMapperExtImpl: setMainDisplayUniqueId+
+09-30 01:31:12.298  2340  4343 D LogicalDisplayMapperExtImpl: setMainDisplayUniqueId-
+09-30 01:31:12.298  2340  4343 I LogicalDisplayMapper: Applying layout: [{dispId: 0(ON), displayGroupName: , addr: {port=129, model=0x40446d83748990}, mThermalBrightnessThrottlingMapId: null, mRefreshRateZoneId: null, mLeadDisplayId: -1, mThermalRefreshRateThrottlingMapId: null}], Previous layout: [{dispId: 0(ON), displayGroupName: , addr: {port=129, model=0x40446d83748990}, mThermalBrightnessThrottlingMapId: null, mRefreshRateZoneId: null, mLeadDisplayId: -1, mThermalRefreshRateThrottlingMapId: null}]
+09-30 01:31:12.298  2340  4343 I LogicalDisplayMapper: Setting new display group 0 for display 27, from previous group: null
+09-30 01:31:12.300  2340  4343 I LogicalDisplayMapper: Adding new display: 27: DisplayInfo{"scrcpy", displayId 27, displayGroupId 0, FLAG_PRIVATE, real 1080 x 2400, largest app 1080 x 2400, smallest app 1080 x 2400, appVsyncOff 0, presDeadline 16666666, mode 2860.0, defaultMode 28, modes [{id=28, width=1080, height=2400, fps=60.0, alternativeRefreshRates=[], supportedHdrTypes=[]}], hdrCapabilities null, userDisabledHdrTypes [], minimalPostProcessingSupported false, rotation 0, state ON, committedState UNKNOWN, type VIRTUAL, uniqueId "virtual:com.android.shell,2000,scrcpy,0", app 1080 x 2400, density 1 (1.0 x 1.0) dpi, layerStack 27, colorMode 0, supportedColorModes [0], deviceProductInfo null, owner com.android.shell (uid 2000), removeMode 1, refreshRateOverride 0.0, brightnessMinimum 0.0, brightnessMaximum 0.0, brightnessDefault 0.0, installOrientation ROTATION_0, layoutLimitedRefreshRate null, hdrSdrRatio not_available, backlightType 0, thermalRefreshRateThrottling {}, thermalBrightnessThrottlingDataId default}
+09-30 01:31:12.300  8097  8097 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+09-30 01:31:12.300  8097  8097 D AndroidRuntime: Calling main entry com.genymobile.scrcpy.CleanUp
+09-30 01:31:12.301  2340  4343 D DisplayManagerServiceExtImpl: scheduleTraversalLocked intraversal=false
+09-30 01:31:12.301  2340  2513 D DisplayManagerService: Delivering display event: displayId=27, event=1
+09-30 01:31:12.302  2340  2340 I MultiDisplayRefreshRateManagerExtImpl: onDisplayAdded, mDecreaseRefreshRate: false, displayId: 27, uniquedId: virtual:com.android.shell,2000,scrcpy,0
+09-30 01:31:12.303  2340  3871 E OAPM    : onDisplayAdded: 27, name: scrcpy
+09-30 01:31:12.303  1499  1651 I SurfaceFlinger: [SF client] NEW(0xb4000072a4738500) for (2340:system_server)
+09-30 01:31:12.306  2340  2513 D DisplayManagerService: MSG_REQUEST_TRAVERSAL pendingCompleted=false
+09-30 01:31:12.306  8097  8097 W libc    : Access denied finding property "ro.vendor.mtk.hbt_dyn_type"
+09-30 01:31:12.307  8097  8097 D OplusActivityThreadExtImpl: java.lang.NoSuchMethodException: dalvik.system.VMRuntime.SupressionGC [int, int]
+09-30 01:31:12.307  8097  8097 W libc    : Access denied finding property "persist.vendor.sys.activitylog"
+09-30 01:31:12.307  8097  8097 W libc    : Access denied finding property "qemu.sf.lcd_density"
+09-30 01:31:12.307  8097  8097 W libc    : Access denied finding property "qemu.sf.lcd_density"
+09-30 01:31:12.309  2340  2511 D InputEventReceiver: Input log is disabled in InputEventReceiver.
+09-30 01:31:12.309  2207  2207 D ScreenStatusProducer: Display add, stack = [dalvik.system.VMStack.getThreadStackTrace(Native Method), java.lang.Thread.getStackTrace(Thread.java:2849), com.oplus.dataprovider.producer.ScreenStatusProducer$2.onDisplayAdded(SourceFile:14), android.hardware.display.DisplayManagerGlobal$DisplayListenerDelegate.handleMessage(DisplayManagerGlobal.java:1184), android.hardware.display.DisplayManagerGlobal$DisplayListenerDelegate.lambda$sendDisplayEvent$0(DisplayManagerGlobal.java:1160), android.hardware.display.DisplayManagerGlobal$DisplayListenerDelegate.$r8$lambda$aO0d1U2yv7-42_0MvY8uEf7AtpE(DisplayManagerGlobal.java:0), android.hardware.display.DisplayManagerGlobal$DisplayListenerDelegate$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:6), android.os.Handler.handleCallback(Handler.java:958), android.os.Handler.dispatchMessage(Handler.java:99), android.os.Looper.loopOnce(Looper.java:257), android.os.Looper.loop(Looper.java:368), android.app.ActivityThread.main(ActivityThread.java:8839), java.lang.reflect.Method.invoke(Native Method), com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:572), com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1049)]
+09-30 01:31:12.309  2340  2511 I DisplayContentExtImpl: isInteractiveRomAction = false, mPreVersion = false, mReleaseVersion = true, mCtaVersion = false, mDebugEnable = false
+09-30 01:31:12.310  8085  8102 D MediaCodec: [0xb400007dece9d800] setState: 5
+09-30 01:31:12.311  8097  8097 D nativeloader: Load libjavacrypto.so using APEX ns com_android_conscrypt for caller /apex/com.android.conscrypt/javalib/conscrypt.jar: ok
+09-30 01:31:12.313  1397  1520 I gameoptHal: handleed TGPA tfps 1 to -1
+09-30 01:31:12.313  1397  1512 I gameoptHal: targetfps updated 0 -- -1
+09-30 01:31:12.317  8097  8097 I PackagePartitionsExtImpl:  non overlaied app dir /my_heytap/non_overlay, partitionName my_heytap
+09-30 01:31:12.317  8097  8097 I PackagePartitionsExtImpl:  non overlaied app dir /my_stock/non_overlay, partitionName my_stock
+09-30 01:31:12.318  8097  8097 I PackagePartitionsExtImpl:  overlaidStatus value is 1
+09-30 01:31:12.318  8097  8097 I PackagePartitionsExtImpl: custom partititions are overlaid;skip parse custom images
+09-30 01:31:12.323  2340  2511 D DisplayContentExtImpl:  initOplusRefreshRatePolicy DEFAULT_DISPLAY support refresh switch dc=Display{#27 state=ON size=1080x2400 ROTATION_0},displayinfo=DisplayInfo{"scrcpy", displayId 27, displayGroupId 0, FLAG_PRIVATE, real 1080 x 2400, largest app 1080 x 2400, smallest app 1080 x 2400, appVsyncOff 0, presDeadline 16666666, mode 2860.0, defaultMode 28, modes [{id=28, width=1080, height=2400, fps=60.0, alternativeRefreshRates=[], supportedHdrTypes=[]}], hdrCapabilities null, userDisabledHdrTypes [], minimalPostProcessingSupported false, rotation 0, state ON, committedState UNKNOWN, type VIRTUAL, uniqueId "virtual:com.android.shell,2000,scrcpy,0", app 1080 x 2400, density 1 (1.0 x 1.0) dpi, layerStack 27, colorMode 0, supportedColorModes [0], deviceProductInfo null, owner com.android.shell (uid 2000), removeMode 1, refreshRateOverride 60.0, brightnessMinimum 0.0, brightnessMaximum 0.0, brightnessDefault 0.0, installOrientation ROTATION_0, layoutLimitedRefreshRate null, hdrSdrRatio not_available, backlightType 0, thermalRefreshRateThrottling {}, thermalBrightnessThrottlingDataId default}
+09-30 01:31:12.326  2340  2511 D OplusCompactWindowManagerService: updateRotation setDeviceFolded oldRotation =:0 ,newRotation=:0 ,mFoldState =:0 ,processTasks =:true ,DisplayId =:27 ,oritentationSource null
+09-30 01:31:12.326  2340  2511 D InputDispatcher: Request to change touch mode to true (calling pid=2340, uid=1000, hasPermission=true, target displayId=27, mTouchModePerDisplay[displayId]=not set)
+09-30 01:31:12.326  2340  2511 D DisplayContentExtImpl:  initOplusRefreshRatePolicy DEFAULT_DISPLAY support refresh switch dc=Display{#27 state=ON size=1080x2400 ROTATION_0},displayinfo=DisplayInfo{"scrcpy", displayId 27, displayGroupId 0, FLAG_PRIVATE, real 1080 x 2400, largest app 1080 x 2400, smallest app 1080 x 2400, appVsyncOff 0, presDeadline 16666666, mode 2860.0, defaultMode 28, modes [{id=28, width=1080, height=2400, fps=60.0, alternativeRefreshRates=[], supportedHdrTypes=[]}], hdrCapabilities null, userDisabledHdrTypes [], minimalPostProcessingSupported false, rotation 0, state ON, committedState UNKNOWN, type VIRTUAL, uniqueId "virtual:com.android.shell,2000,scrcpy,0", app 1080 x 2400, density 1 (1.0 x 1.0) dpi, layerStack 27, colorMode 0, supportedColorModes [0], deviceProductInfo null, owner com.android.shell (uid 2000), removeMode 1, refreshRateOverride 60.0, brightnessMinimum 0.0, brightnessMaximum 0.0, brightnessDefault 0.0, installOrientation ROTATION_0, layoutLimitedRefreshRate null, hdrSdrRatio not_available, backlightType 0, thermalRefreshRateThrottling {}, thermalBrightnessThrottlingDataId default}
+09-30 01:31:12.328  2340  2511 I DisplayManagerServiceExtImpl: handle logical display changed logicalDisplay=id=27,stack=27,content=false,displayInfo{stack=27,type=5,id=27,uId=virtual:com.android.shell,2000,scrcpy,0,state=ON,pkg=com.android.shell}
+09-30 01:31:12.329  2340  2511 I DisplayManagerServiceExtImpl: handle logical display changed logicalDisplay=id=27,stack=27,content=false,displayInfo{stack=27,type=5,id=27,uId=virtual:com.android.shell,2000,scrcpy,0,state=ON,pkg=com.android.shell}
+09-30 01:31:12.330  2340  2511 I WindowManager: Override config changes=20005df8 {0.0 ?mcc??mnc ?localeList ?layoutDir sw172800dp w172800dp h384000dp 1dpi xlrg long port ?uimode ?night -touch -keyb/h/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2400) mAppBounds=Rect(0, 0 - 1080, 2400) mMaxBounds=Rect(0, 0 - 1080, 2400) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} ?fontWeightAdjustmentmThemeChanged= 0, mThemeChangedFlags= 0, mFlipFont= 0, mScenario= -1, mAccessibleChanged= 0, mUxIconConfig= 0, mMaterialColor= ffffffffffffffff, mUserId= -1, mFontUserId= -1, mFontVariationSettings= ffffffff, mFoldingAngle = -1.0, mIconPackName= , mDarkModeBackgroundMaxL= -1.0, mDarkModeDialogBgMaxL= -1.0, mDarkModeForegroundMinL= -1.0, mOplusConfigType= 0, mOplusChangedConfigs= 0, OpSans= -1, mBurmeseFontFlag= -1, mFlag= 0, mFlexibleActivitySuitable= -1, mPuttDisplayFlag= -1} for displayId=27
+09-30 01:31:12.331  2340  2511 D OplusCompactWindowManagerService: updateRotation setDeviceFolded oldRotation =:0 ,newRotation=:0 ,mFoldState =:0 ,processTasks =:true ,DisplayId =:27 ,oritentationSource null
+09-30 01:31:12.331  8097  8097 W app_process: unable to execute idmap2: Permission denied
+09-30 01:31:12.331  8097  8097 W OverlayConfig: 'idmap2 create-multiple' failed: no mutable="false" overlays targeting "android" will be loaded
+09-30 01:31:12.331  8097  8097 W app_process: unable to execute idmap2: Permission denied
+09-30 01:31:12.331  8097  8097 W OverlayConfig: 'idmap2 create-multiple' failed: no mutable="false" overlays targeting "oplus" will be loaded
+09-30 01:31:12.331  3613  3728 W DisplayController: Skipping Display Configuration change on non-added display.
+09-30 01:31:12.332  2340  2511 V WindowManager: Content Recording: Successfully created a ContentRecordingSession for displayId=27 to mirror content from displayId=0
+09-30 01:31:12.332  2340  2511 V WindowManager: Content Recording: Display 27 has no content and is on, so start recording for state 2
+09-30 01:31:12.332  2340  2511 D ContentRecorder: Update mirror layer surface. curRotation =: 0
+09-30 01:31:12.332  2340  2511 D ContentRecorder:  scale=: 1.0 shiftedX=: 0 shiftedY=: 0
+09-30 01:31:12.332  2340  2511 D ContentRecorder:  surfaceSize.x=: 1080
+09-30 01:31:12.332  2340  2511 D ContentRecorder:  surfaceSize.y=: 2400
+09-30 01:31:12.332  2340  2511 D ContentRecorder:  recordedContentwidth=: 1080
+09-30 01:31:12.332  2340  2511 D ContentRecorder:  recordedContenthight=: 2400
+09-30 01:31:12.332  2340  2511 D ContentRecoderExtImpl: Need synchronize mirror transaction when display rotated
+09-30 01:31:12.334  8097  8097 E FeatureFlagsImplExport: android.os.flagging.AconfigStorageReadException: ERROR_PACKAGE_NOT_FOUND: package com.android.scheduling.flags cannot be found on the device
+09-30 01:31:12.334  2340  2511 D DisplayManagerService: performTraversalInternal pendingTraversal
+09-30 01:31:12.334  2340  2511 D DisplayDevice: setLayerStackLocked id=local:4630946728207028353 token=android.os.BinderProxy@7b1af1d stack=0->0
+09-30 01:31:12.334  2340  2511 D DisplayDevice: setLayerStackLocked id=virtual:com.android.shell,2000,scrcpy,0 token=android.os.BinderProxy@5168aa9 stack=-2->27
+09-30 01:31:12.334  2340  2511 I DisplayDevice: [27] Layerstack set to 27 for virtual:com.android.shell,2000,scrcpy,0
+09-30 01:31:12.335  2340  2511 D OplusMirageDisplaySecureSurfaceManager: device:[id=virtual:com.android.shell,2000,scrcpy,0,stack=27] surface:Surface(name=null)/@0x8eb82e
+09-30 01:31:12.335  1499  1499 D Layer   : reparent to null sequence=5008, seq[2], name=Display Overlays#5008
+09-30 01:31:12.335  1499  1499 D Layer   : reparent to null sequence=5001, seq[1], name=Display 27 name="scrcpy"#5001
+09-30 01:31:12.337   727   727 I hwservicemanager: TokenManager tokens count added by (uid: 2000, pid: 8085), now: 1
+09-30 01:31:12.337  1844  3659 W ResourceManagerService: Ignoring request to add new resource entry with value <= 0
+09-30 01:31:12.337  8097  8097 W libc    : Access denied finding property "vendor.display.disable_rounded_corner"
+09-30 01:31:12.337   727   727 I hwservicemanager: TokenManager tokens count removed by (uid: 1000, pid: 1499), now: 0
+09-30 01:31:12.338  8085  8102 D MediaCodec: [0xb400007dece9d800] setState: 6
+09-30 01:31:12.340  2340  2511 D OplusCompactWindowManagerService: updateRotation setDeviceFolded oldRotation =:0 ,newRotation=:0 ,mFoldState =:0 ,processTasks =:true ,DisplayId =:27 ,oritentationSource null
+09-30 01:31:12.340  2340  2511 V WindowManager: Content Recording: Display 27 was already recording, so apply transformations if necessary
+09-30 01:31:12.340  2340  2511 V WindowManager: Content Recording: Going ahead with updating recording for display 27 to new bounds Rect(0, 0 - 1080, 2400) and/or orientation -1.
+09-30 01:31:12.340  2340  2511 D ContentRecoderExtImpl: Need synchronize mirror transaction when display rotated
+09-30 01:31:12.340  2340  2511 D ContentRecorder: Update mirror layer surface. curRotation =: 0
+09-30 01:31:12.340  2340  2511 D ContentRecorder:  scale=: 1.0 shiftedX=: 0 shiftedY=: 0
+09-30 01:31:12.340  2340  2511 D ContentRecorder:  surfaceSize.x=: 1080
+09-30 01:31:12.340  2340  2511 D ContentRecorder:  surfaceSize.y=: 2400
+09-30 01:31:12.340  2340  2511 D ContentRecorder:  recordedContentwidth=: 1080
+09-30 01:31:12.340  2340  2511 D ContentRecorder:  recordedContenthight=: 2400
+09-30 01:31:12.340  2340  2511 D ContentRecoderExtImpl: Need synchronize mirror transaction when display rotated
+09-30 01:31:12.341  2340  2513 D OplusPowerManagerHelper: [onWakeUpFinish]
+09-30 01:31:12.341  2340  2513 E Biometrics/Fingerprint/OplusBiometricWakeupManager: return mBrightness != 0
+09-30 01:31:12.341  2340  2513 D OplusPowerManagerHelper: scheduleNotifyStopDream
+09-30 01:31:12.341  2340  2513 D OplusFeatureAOD: notifySfUnBlockScreenOn
+09-30 01:31:12.341  2340  2513 D DisplayManagerServiceExtImpl: scheduleTraversalLocked intraversal=false
+09-30 01:31:12.341  2340  2511 I oplus.android.OplusFrameworkFactoryImpl: get feature:IOplusDynamicVsyncFeature
+09-30 01:31:12.341  2340  2513 D DisplayManagerService: Delivering display event: displayId=27, event=2
+09-30 01:31:12.341  2340  2511 I oplus.android.OplusFrameworkFactoryImpl: get feature:IOplusDynamicVsyncFeature
+09-30 01:31:12.341  2340  2511 I oplus.android.OplusFrameworkFactoryImpl: get feature:IOplusDynamicVsyncFeature
+09-30 01:31:12.341  2340  2514 D DisplayManagerService: performTraversalInternal pendingTraversal
+09-30 01:31:12.341  2340  2514 D DisplayDevice: setLayerStackLocked id=local:4630946728207028353 token=android.os.BinderProxy@7b1af1d stack=0->0
+09-30 01:31:12.341  2340  2514 D DisplayDevice: setLayerStackLocked id=virtual:com.android.shell,2000,scrcpy,0 token=android.os.BinderProxy@5168aa9 stack=27->27
+09-30 01:31:12.342  1499  1651 I DispPerfService: NOTIFY_UNBLOCKSCREEN
+09-30 01:31:12.342  2340  2557 D OplusPowerManagerHelper: handleMessage:102
+09-30 01:31:12.342  2340  2557 D OplusPowerManagerHelper: MSG_STOP_DEAM
+09-30 01:31:12.344  2340  2511 V WindowManager: Content Recording: Display 27 state is now (2), so update recording?
+09-30 01:31:12.344  2340  2513 D DisplayManagerService: Delivering display event: displayId=27, event=2
+09-30 01:31:12.344  2340  2511 D OplusVFXScreenEffectFeature: notifySFCompatWindowStateChange entered false
+09-30 01:31:12.345  2340  2511 D FlexibleWindowManager: physicalDisplayChangedForFlexibleWindow displayId 27, current display info 1080 x 2400, new display info 1080 x 2400
+09-30 01:31:12.345  1499  1651 D [PREVIEW]: SF obtain preview_adapter: 0
+09-30 01:31:12.345  1499  1651 D [PREVIEW]: TabletPreviewAdapter::parallel world 0
+09-30 01:31:12.345  2340  2511 D FSS_FoldScreenBlackCoverController: displayChangeToOn, dc:Display{#27 state=ON size=1080x2400 ROTATION_0}
+09-30 01:31:12.346  2340  2340 I WallpaperManagerServiceExt: removeDisplayData. displayId = 27
+09-30 01:31:12.348  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 98
+09-30 01:31:12.350  2207  2207 D ScreenStatusProducer: Display change, stackTrace = [dalvik.system.VMStack.getThreadStackTrace(Native Method), java.lang.Thread.getStackTrace(Thread.java:2849), com.oplus.dataprovider.producer.ScreenStatusProducer$2.onDisplayChanged(SourceFile:8), android.hardware.display.DisplayManagerGlobal$DisplayListenerDelegate.handleMessage(DisplayManagerGlobal.java:1193), android.hardware.display.DisplayManagerGlobal$DisplayListenerDelegate.lambda$sendDisplayEvent$0(DisplayManagerGlobal.java:1160), android.hardware.display.DisplayManagerGlobal$DisplayListenerDelegate.$r8$lambda$aO0d1U2yv7-42_0MvY8uEf7AtpE(DisplayManagerGlobal.java:0), android.hardware.display.DisplayManagerGlobal$DisplayListenerDelegate$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:6), android.os.Handler.handleCallback(Handler.java:958), android.os.Handler.dispatchMessage(Handler.java:99), android.os.Looper.loopOnce(Looper.java:257), android.os.Looper.loop(Looper.java:368), android.app.ActivityThread.main(ActivityThread.java:8839), java.lang.reflect.Method.invoke(Native Method), com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:572), com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1049)], times in 5 seconds = 0
+09-30 01:31:12.351  2340  2514 D DisplayManagerService: performTraversalInternal pendingTraversal
+09-30 01:31:12.351  2340  2514 D DisplayDevice: setLayerStackLocked id=local:4630946728207028353 token=android.os.BinderProxy@7b1af1d stack=0->0
+09-30 01:31:12.351  2340  2514 D DisplayDevice: setLayerStackLocked id=virtual:com.android.shell,2000,scrcpy,0 token=android.os.BinderProxy@5168aa9 stack=27->27
+09-30 01:31:12.352  1499  1499 D ApolloEngine: processDisplayChanged token=0xb4000072a22cb5d0
+09-30 01:31:12.352  1499  1499 D SurfaceFlinger: processDisplayChanged Removing display id [] token[0xb4000072a22cb5d0]
+09-30 01:31:12.352  1499  1499 W H2BGraphicBufferProducer: getConsumerUsage is not fully supported
+09-30 01:31:12.353  1499  1499 D ColorManager: ColorManager colormanager.v1.plus [0]
+09-30 01:31:12.353  1499  1499 I CompositionEngine: Display::setConfiguration: mDisplayExtnIntf: 0x0
+09-30 01:31:12.353  1499  1499 D BufferQueueConsumer: [](id:5db00000019,api:0,p:-1,c:1499) connect: controlledByApp=false
+09-30 01:31:12.354  1499  1499 D BufferQueueProducer: [VDS: scrcpy](id:5db00000019,api:1,p:1499,c:1499) connect: api=1 producerControlledByApp=false
+09-30 01:31:12.354  1499  1499 I CompositionEngine: Enabling QtiRenderSurfaceExtension ...
+09-30 01:31:12.354  1499  1499 D ApolloEngine: processDisplayAdded token=0xb4000072a22cb5d0
+09-30 01:31:12.354  1499  1499 E HWComposer: getDisplayConnectionType failed for display 0: Invalid display
+09-30 01:31:12.354  1499  1499 D ApolloEngine: createApollo isSPApollo=1,size(1,0),apollo(0x0,549755813866),displayInfo(scrcpy,0,1,1,0x0),display(0xb4000072a22cb5d0,0xb400007296fea500,0xb4000072db818838)
+09-30 01:31:12.357  1499  1499 D SurfaceFlinger: VDS-scrcpy: dequeueBuffer cpid=8085
+09-30 01:31:12.357  2340  2513 D OplusInterceptLockScreenWindow: starting IOplusLockScreenCallbacks service...
+09-30 01:31:12.357  2340  2513 D DisplayManagerService: MSG_REQUEST_TRAVERSAL pendingCompleted=false
+09-30 01:31:12.358  1901 16414 D GraphicBufferSource: got buffer with new dataSpace #104
+09-30 01:31:12.360  1901  8108 I OMX-VENC: get_config (dataspace changed): ColorSpace: Recommend 601 for RGBA8888
+09-30 01:31:12.360  1901  8108 D OMXNodeInstance: Codec resolved it to (R:2(??), P:3(??), M:3(??), T:3(??)) err=0(NO_ERROR)
+09-30 01:31:12.360  1901  8108 E OMXNodeInstance: setConfig(0xf0cbd844:qcom.encoder.avc, ??(0x7f000062)) ERROR: UnsupportedSetting(0x80001019)
+09-30 01:31:12.360  8085  8104 D ACodec  : dataspace changed to 0x10c10000 (R:2(Limited), P:3(BT601_6_625), M:3(BT601_6), T:3(SMPTE170M)) (R:2(Limited), S:2(BT601_625), T:3(SMPTE_170M))
+09-30 01:31:12.360  1901  8106 W C2DColorConvert: calcYSize: Format not supported , 6
+09-30 01:31:12.362  3613  3613 I SystemUi--Keyguard: ScreenSizeHelper-->getScreenRect: 1080x2400, rotation: 0, stack: com.oplus.systemui.keyguard.helper.ScreenSizeHelper.isTablet:209
+09-30 01:31:12.362  3613  3613 I SystemUi--NavBar: NavigationBarController-->onDisplayReady: displayId=27 mIsLargeScreen = false
+09-30 01:31:12.795  5035  5035 I adbd    : adbd service requested 'shell,v2,TERM=xterm-256color:export ANDROID_LOG_TAGS=''; exec logcat '-v' 'threadtime' '-T' '1790721072.000''
+09-30 01:31:13.101  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = FROZEN_TRANS, targetUid = 10298, pkgCmd = PKG_CMD_MAX
+09-30 01:31:13.171  8085  8085 W libc    : Access denied finding property "ro.odm.prev.product.name"
+09-30 01:31:13.350  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 98
+09-30 01:31:13.359  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:345.0 luxQueue=[345.0, 345.0, 345.0, 345.0, 345.0, 345.0, 345.0]
+09-30 01:31:13.384  1901  8107 I OMX-VENC: venc_dev: stats: avg. fps 10.95, bitrate 1290042
+09-30 01:31:14.193   806   814 I android.system.suspend-service: System run for more than ten minutes, there are the wakelocks:
+09-30 01:31:14.194   806   814 I android.system.suspend-service: WakeLockInfo{name:PowerManagerService.Display, totalTime:7896619, isActive:1, activeTime:295063, isKernelWakelock:0, pid:2340}
+09-30 01:31:14.194   806   814 I android.system.suspend-service: WakeLockInfo{name:PowerManager.SuspendLockout, totalTime:7889738, isActive:1, activeTime:295063, isKernelWakelock:0, pid:2340}
+09-30 01:31:14.194   806   814 I android.system.suspend-service: WakeLockInfo{name:battery suspend wakelock, totalTime:11732892, isActive:1, activeTime:8460753, isKernelWakelock:1, pid:-1}
+09-30 01:31:14.194   806   814 I android.system.suspend-service: WakeLockInfo{name:a600000.ssusb, totalTime:11727873, isActive:1, activeTime:8460786, isKernelWakelock:1, pid:-1}
+09-30 01:31:14.194   806   814 I android.system.suspend-service: mAutosuspendClientTokens BBinder
+09-30 01:31:14.352  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 98
+09-30 01:31:14.462  2340  2534 I ActivityManager: Test idle passed
+09-30 01:31:14.559  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.0 luxQueue=[344.0, 344.0, 344.0, 344.0, 344.0, 344.0]
+09-30 01:31:14.705  3951  3951 D SubsysBroadcastManager: onReceive action:android.intent.action.BATTERY_CHANGED
+09-30 01:31:14.705  3613  3613 I SystemUi--Statusbar: BatteryControllerExt-->handleBroadcast() : broadcast = android.intent.action.BATTERY_CHANGED, charging = false, wirelessCharging = false, wirelessChargingReverse = false, pluggedIn = true, full = true, error = false, plugged = 2, status = 5, notifyCode = 100000000000010000000, wirelessReverseChgType = 0, level = 100
+09-30 01:31:14.705  3613  3613 I SystemUi--Statusbar: BatteryRepository-->model: BatteryStateModel:(level: 100, pluggedInWireless: false, charging: false, wirelessChargingReverse: false)
+09-30 01:31:14.705  3613  3613 W SystemUi--Keyguard: ChargingAnimationImpl-->BatteryStatus is same as last time , return
+09-30 01:31:14.707  3826  3826 D DeviceStatisticsService: onReceive: action= android.intent.action.BATTERY_CHANGED
+09-30 01:31:14.707  5991  5991 E VendorNfcService: changeNfcStateByWirelessCharge: feature WIRELESS_CHARGING = true; mIsWirelessCharging: false; mIsReverseChargingSwitchOpen: false; mNfcWorkMode: 0; isOverSeaRegion() = true
+09-30 01:31:14.814  1368  1478 D vendor.oplus.hardware.charger-V3-service: read content:,313,314,4369,4367,0,500,1100,100,100,1,4,-1,5225,100,1,1048704,1,1,0,0,4435,0,0,0,0,0,1,0,-2740,0,4,2,0,0,0,0,0,0x0a,0x2d,0x0c,0x73,0x26,0x16,0x03,0x00,0xea
+09-30 01:31:14.814  1368  1478 D vendor.oplus.hardware.charger-V3-service: , ret_value:158
+09-30 01:31:14.815  1368  1478 D vendor.oplus.hardware.charger-V3-service: gmtime: 2026-09-30-01-31-14
+09-30 01:31:14.867  2340  3833 I OplusHansManager : uid=10403, pkg=com.xiaomi.wearable F enter(), M stay=5
+09-30 01:31:14.879  2340  3833 I OplusHansManager : freeze uid: 10403 com.xiaomi.wearable pids: [3682, 2908, 2841] scene: |airPlane|LcdOn
+09-30 01:31:14.880  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = PKG, targetUid = 10403, pkgCmd = ADD_ONE_UID
+09-30 01:31:15.212  2340  3855 I OplusHansManager : unfreeze uid: 10298 com.whatsapp pids: [2906] reason: AsyncBinder scene: |airPlane|LcdOn
+09-30 01:31:15.213  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F exit(), F stay=3, reason=AsyncBinder
+09-30 01:31:15.355  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 98
+09-30 01:31:15.881  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = FROZEN_TRANS, targetUid = 10403, pkgCmd = PKG_CMD_MAX
+09-30 01:31:16.207  2340  3037 I [UAH_CLIENT_WRAPPER]: [UahNotifyWapper] inputflinger, src:1000, type:0
+09-30 01:31:16.207  2340  3037 I [UAH_CLIENT]: uahRuleCtl, ruleId:1000, status:0
+09-30 01:31:16.207  2340  3096 D system_server: addOrUpdateWindow: set 450bbdc com.shevikina.panzoomdemo/com.shevikina.panzoomdemo.MainActivity firstDownTimeInTarget to 14391654389000
+09-30 01:31:16.207  2340  3096 D system_server: addOrUpdateWindow: set [Gesture Monitor] OplusExInputReceiver1 firstDownTimeInTarget to 14391654389000
+09-30 01:31:16.207  2340  3096 D system_server: addOrUpdateWindow: set [Gesture Monitor] swipe-up firstDownTimeInTarget to 14391654389000
+09-30 01:31:16.207  2340  3096 D system_server: addOrUpdateWindow: set [Gesture Monitor] edge-swipe firstDownTimeInTarget to 14391654389000
+09-30 01:31:16.208  1499  2257 D VRR [OTI]: handleIdle from 1 to 0
+09-30 01:31:16.209  1499  2257 D VRR [OTI-HW]: isStateReady 0
+09-30 01:31:16.209  1499  2257 D VRR [OTI-HW]: rate range: min {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} cur {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} max {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0}
+09-30 01:31:16.209  1499  2257 D VRR [OTI-HW]: keep rate.
+09-30 01:31:16.209  2340  3096 D PowerManagerService: userActivityNoUpdateLocked: groupId=0, eventTime=14391654, event=touch, flags=0x0, uid=1000
+09-30 01:31:16.211  3613  4202 I SystemUi--NavBar: NoBackGesture-->display_id_0 Start gesture: 
+09-30 01:31:16.211  3613  4202 I SystemUi--NavBar: SideGestureDetector-->display_id_0 updateNavBarHidden  mNavBarHidden = false display id =0
+09-30 01:31:16.212  3613  4202 I SystemUi--NavBar: NoBackGesture-->display_id_0 Not in side gesture area
+09-30 01:31:16.212  2340  3037 I [UAH_CLIENT_WRAPPER]: [UahEventAcquireWrapper] eventId:OSENSE_ACTION_TOUCH_BOOST, scene:none, identity:inputflinger, timeout:150
+09-30 01:31:16.213  2340  3037 I [UAH_CLIENT]: UahEventAcquire, cmdid:37, pkg:none, identity:inputflinger
+09-30 01:31:16.213  2340  3529 D OGG_Detector: D:done mCurrStatus: 0
+09-30 01:31:16.269  1901  8107 I OMX-VENC: venc_dev: stats: avg. fps 0.35, bitrate 49738
+09-30 01:31:16.284  2340  3037 I [UAH_CLIENT_WRAPPER]: [UahNotifyWapper] inputflinger, src:1000, type:1
+09-30 01:31:16.284  2340  3037 I [UAH_CLIENT]: uahRuleCtl, ruleId:1000, status:1
+09-30 01:31:16.286  7945  7945 D ViewRootImplExtImpl: the up motion event handled by client, just return
+09-30 01:31:16.287  7945  8062 D PanZoomDemo: Image test_image_large.jpg is open. Size: 36868477 bytes
+09-30 01:31:16.356  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 98
+09-30 01:31:16.377  7945  8062 D PanZoomDemo: asset test_image_large.jpg скопирован в cache: 36868477 bytes
+09-30 01:31:16.404  7945  7945 E PanZoomDemo: Наивная загрузка LARGE упала: java.lang.IllegalStateException: Failed to decode test_image_large.jpg
+09-30 01:31:16.716  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp can not transition from M to F. reason: AsyncBinder
+09-30 01:31:16.819  2340  3485 E OplusNetworkStatsNative: bpfGetAppPurStatsTotal return 0
+09-30 01:31:16.819  3829  4151 D OplusUidPurStatsSerivce-NAS: checkLoopProcess mLastStatsValue:0; curStats:0
+09-30 01:31:17.274  7945  8062 D PanZoomDemo: overview: ss=32 size=937×937px
+09-30 01:31:17.315  7945  7983 D PanZoomDemo: pool stats: hit-rate=100% items=18/96 buckets=1 missMissing=0 missEmpty=0 evict=0 sizes=[(512×512:18)] bytes=18/96MB
+09-30 01:31:17.327  7945  7945 I Quality : Skipped: false 1 cost 29.050737 refreshRate 16653684 bit true processName com.shevikina.panzoomdemo
+09-30 01:31:17.337  1901  8107 I OMX-VENC: venc_dev: stats: avg. fps 33.69, bitrate 3282418
+09-30 01:31:17.356  7945  8011 D PanZoomDemo: decodeTile: wait=0ms decode=41ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.356  7945  7983 D PanZoomDemo: decodeTile: wait=0ms decode=42ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=1/3
+09-30 01:31:17.356  7945  8008 D PanZoomDemo: decodeTile: wait=1ms decode=38ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.361  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:31:17.366  7945  8011 D PanZoomDemo: decodeTile: wait=39ms decode=10ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.366  7945  7983 D PanZoomDemo: decodeTile: wait=39ms decode=10ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.367  7945  8008 D PanZoomDemo: decodeTile: wait=38ms decode=11ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.375  7945  8008 D PanZoomDemo: decodeTile: wait=49ms decode=8ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.376  7945  8011 D PanZoomDemo: decodeTile: wait=48ms decode=10ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.376  7945  7983 D PanZoomDemo: decodeTile: wait=48ms decode=10ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.384  7945  8008 D PanZoomDemo: decodeTile: wait=61ms decode=9ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.386  7945  7983 D PanZoomDemo: decodeTile: wait=57ms decode=9ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.386  7945  8011 D PanZoomDemo: decodeTile: wait=56ms decode=9ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.392  7945  8008 D PanZoomDemo: decodeTile: wait=64ms decode=8ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.395  7945  7983 D PanZoomDemo: decodeTile: wait=65ms decode=10ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.395  7945  8011 D PanZoomDemo: decodeTile: wait=66ms decode=9ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.400  7945  8008 D PanZoomDemo: decodeTile: wait=72ms decode=8ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.405  7945  7983 D PanZoomDemo: decodeTile: wait=74ms decode=10ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.405  7945  8011 D PanZoomDemo: decodeTile: wait=74ms decode=10ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.407  7945  8008 D PanZoomDemo: decodeTile: wait=79ms decode=7ms [pool-hit] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.415  7945  8008 D PanZoomDemo: decodeTile: wait=86ms decode=8ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.415  7945  8011 D PanZoomDemo: decodeTile: wait=84ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.416  7945  7983 D PanZoomDemo: decodeTile: wait=84ms decode=11ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.423  7945  8008 D PanZoomDemo: decodeTile: wait=94ms decode=7ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.425  7945  8011 D PanZoomDemo: decodeTile: wait=93ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.426  7945  7983 D PanZoomDemo: decodeTile: wait=94ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.430  7945  8008 D PanZoomDemo: decodeTile: wait=100ms decode=8ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.435  7945  8011 D PanZoomDemo: decodeTile: wait=103ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.436  7945  7983 D PanZoomDemo: decodeTile: wait=104ms decode=9ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.438  7945  8008 D PanZoomDemo: decodeTile: wait=107ms decode=8ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.445  7945  8011 D PanZoomDemo: decodeTile: wait=112ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.445  7945  8008 D PanZoomDemo: decodeTile: wait=115ms decode=7ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.445  7945  7983 D PanZoomDemo: decodeTile: wait=113ms decode=9ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.453  7945  8008 D PanZoomDemo: decodeTile: wait=122ms decode=8ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.455  7945  7983 D PanZoomDemo: decodeTile: wait=122ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.455  7945  8011 D PanZoomDemo: decodeTile: wait=122ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=1/3
+09-30 01:31:17.461  7945  8008 D PanZoomDemo: decodeTile: wait=130ms decode=8ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.465  7945  7983 D PanZoomDemo: decodeTile: wait=132ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.465  7945  8011 D PanZoomDemo: decodeTile: wait=132ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=1/3
+09-30 01:31:17.469  7945  8008 D PanZoomDemo: decodeTile: wait=138ms decode=7ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.475  7945  7983 D PanZoomDemo: decodeTile: wait=142ms decode=9ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.475  7945  8011 D PanZoomDemo: decodeTile: wait=141ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.476  7945  8008 D PanZoomDemo: decodeTile: wait=145ms decode=7ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.484  7945  8008 D PanZoomDemo: decodeTile: wait=152ms decode=8ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.484  7945  7983 D PanZoomDemo: decodeTile: wait=151ms decode=9ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.485  7945  8011 D PanZoomDemo: decodeTile: wait=151ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.491  7945  8008 D PanZoomDemo: decodeTile: wait=160ms decode=7ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.494  7945  7983 D PanZoomDemo: decodeTile: wait=160ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.495  7945  8011 D PanZoomDemo: decodeTile: wait=161ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.499  7945  8008 D PanZoomDemo: decodeTile: wait=167ms decode=8ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.504  7945  7983 D PanZoomDemo: decodeTile: wait=169ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.505  7945  8011 D PanZoomDemo: decodeTile: wait=170ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.507  7945  8008 D PanZoomDemo: decodeTile: wait=174ms decode=8ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.514  7945  7983 D PanZoomDemo: decodeTile: wait=179ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.515  7945  8008 D PanZoomDemo: decodeTile: wait=182ms decode=7ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.515  7945  8011 D PanZoomDemo: decodeTile: wait=180ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.522  7945  8008 D PanZoomDemo: decodeTile: wait=190ms decode=7ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.524  7945  7983 D PanZoomDemo: decodeTile: wait=189ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.525  7945  8011 D PanZoomDemo: decodeTile: wait=190ms decode=10ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.536  7945  8008 D PanZoomDemo: decodeTile: wait=196ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.541  7945  7983 D PanZoomDemo: decodeTile: wait=198ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.543  7945  8011 D PanZoomDemo: decodeTile: wait=199ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.543  7945  8008 D PanZoomDemo: decodeTile: wait=210ms decode=7ms [pool-miss] sampleSize=1 → 304×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.557  7945  8008 D PanZoomDemo: decodeTile: wait=216ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.559  7945  7983 D PanZoomDemo: decodeTile: wait=215ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.561  7945  8011 D PanZoomDemo: decodeTile: wait=217ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.571  7945  8008 D PanZoomDemo: decodeTile: wait=230ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.576  7945  7983 D PanZoomDemo: decodeTile: wait=232ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.580  7945  8011 D PanZoomDemo: decodeTile: wait=234ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.584  7945  8008 D PanZoomDemo: decodeTile: wait=243ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.594  7945  7983 D PanZoomDemo: decodeTile: wait=248ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.598  7945  8011 D PanZoomDemo: decodeTile: wait=252ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.598  7945  8008 D PanZoomDemo: decodeTile: wait=256ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.611  7945  8008 D PanZoomDemo: decodeTile: wait=270ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.613  7945  7983 D PanZoomDemo: decodeTile: wait=266ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.616  7945  8011 D PanZoomDemo: decodeTile: wait=270ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.625  7945  8008 D PanZoomDemo: decodeTile: wait=283ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.631  7945  7983 D PanZoomDemo: decodeTile: wait=285ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.634  7945  8011 D PanZoomDemo: decodeTile: wait=288ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.638  7945  8008 D PanZoomDemo: decodeTile: wait=296ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.650  7945  7983 D PanZoomDemo: decodeTile: wait=303ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.651  7945  8008 D PanZoomDemo: decodeTile: wait=310ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.652  7945  8011 D PanZoomDemo: decodeTile: wait=306ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.665  7945  8008 D PanZoomDemo: decodeTile: wait=323ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.668  7945  7983 D PanZoomDemo: decodeTile: wait=322ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.669  7945  8011 D PanZoomDemo: decodeTile: wait=324ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.678  7945  8008 D PanZoomDemo: decodeTile: wait=337ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.686  7945  7983 D PanZoomDemo: decodeTile: wait=339ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.687  7945  8011 D PanZoomDemo: decodeTile: wait=340ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.692  7945  8008 D PanZoomDemo: decodeTile: wait=349ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.704  7945  7983 D PanZoomDemo: decodeTile: wait=357ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.704  7945  8011 D PanZoomDemo: decodeTile: wait=358ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.705  7945  8008 D PanZoomDemo: decodeTile: wait=363ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.719  7945  8008 D PanZoomDemo: decodeTile: wait=376ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.721  7945  7983 D PanZoomDemo: decodeTile: wait=375ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.722  7945  8011 D PanZoomDemo: decodeTile: wait=375ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.732  7945  8008 D PanZoomDemo: decodeTile: wait=390ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.739  7945  7983 D PanZoomDemo: decodeTile: wait=392ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.739  7945  8011 D PanZoomDemo: decodeTile: wait=393ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.750  7945  8008 D PanZoomDemo: decodeTile: wait=403ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.754  7945  7983 D PanZoomDemo: decodeTile: wait=410ms decode=15ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.757  7945  8011 D PanZoomDemo: decodeTile: wait=410ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.768  7945  7983 D PanZoomDemo: decodeTile: wait=424ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.768  7945  8008 D PanZoomDemo: decodeTile: wait=420ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.775  7945  8011 D PanZoomDemo: decodeTile: wait=427ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.781  7945  7983 D PanZoomDemo: decodeTile: wait=438ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.786  7945  8008 D PanZoomDemo: decodeTile: wait=438ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.792  7945  8011 D PanZoomDemo: decodeTile: wait=445ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.795  7945  7983 D PanZoomDemo: decodeTile: wait=451ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.803  7945  8008 D PanZoomDemo: decodeTile: wait=456ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.808  7945  7983 D PanZoomDemo: decodeTile: wait=465ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.810  7945  8011 D PanZoomDemo: decodeTile: wait=462ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.821  7945  8008 D PanZoomDemo: decodeTile: wait=473ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.822  7945  7983 D PanZoomDemo: decodeTile: wait=478ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.827  7945  8011 D PanZoomDemo: decodeTile: wait=480ms decode=17ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.839  7945  8008 D PanZoomDemo: decodeTile: wait=490ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.841  7945  7983 D PanZoomDemo: decodeTile: wait=491ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.844  7945  8011 D PanZoomDemo: decodeTile: wait=496ms decode=17ms [pool-miss] sampleSize=1 → 304×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.855  7945  7983 D PanZoomDemo: decodeTile: wait=510ms decode=14ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.864  7945  8008 D PanZoomDemo: decodeTile: wait=508ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.869  7945  8011 D PanZoomDemo: decodeTile: wait=513ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.874  7945  7983 D PanZoomDemo: decodeTile: wait=524ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.889  7945  8008 D PanZoomDemo: decodeTile: wait=533ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.893  7945  7983 D PanZoomDemo: decodeTile: wait=542ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.894  7945  8011 D PanZoomDemo: decodeTile: wait=538ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.913  7945  7983 D PanZoomDemo: decodeTile: wait=561ms decode=20ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.914  7945  8008 D PanZoomDemo: decodeTile: wait=557ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.919  7945  8011 D PanZoomDemo: decodeTile: wait=562ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.927  7945  7983 D PanZoomDemo: decodeTile: wait=581ms decode=13ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.940  7945  8008 D PanZoomDemo: decodeTile: wait=577ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.944  7945  8011 D PanZoomDemo: decodeTile: wait=582ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.946  7945  7983 D PanZoomDemo: decodeTile: wait=589ms decode=20ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.957  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.60034 luxQueue=[345.0, 344.0, 344.0, 345.0, 345.0]
+09-30 01:31:17.965  7945  8008 D PanZoomDemo: decodeTile: wait=603ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.965  7945  7983 D PanZoomDemo: decodeTile: wait=609ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.969  7945  8011 D PanZoomDemo: decodeTile: wait=607ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:17.984  7945  7983 D PanZoomDemo: decodeTile: wait=628ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:17.990  7945  8008 D PanZoomDemo: decodeTile: wait=628ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:17.994  7945  8011 D PanZoomDemo: decodeTile: wait=632ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.003  7945  7983 D PanZoomDemo: decodeTile: wait=647ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.016  7945  8008 D PanZoomDemo: decodeTile: wait=653ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-17] free=0/3
+09-30 01:31:18.019  7945  8011 D PanZoomDemo: decodeTile: wait=657ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.023  7945  7983 D PanZoomDemo: decodeTile: wait=666ms decode=20ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.042  7945  7983 D PanZoomDemo: decodeTile: wait=686ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.044  7945  8011 D PanZoomDemo: decodeTile: wait=682ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.061  7945  7983 D PanZoomDemo: decodeTile: wait=705ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.069  7945  8011 D PanZoomDemo: decodeTile: wait=706ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.080  7945  7983 D PanZoomDemo: decodeTile: wait=723ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.081  7945  8010 D PanZoomDemo: decodeTile: wait=679ms decode=65ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.094  7945  8011 D PanZoomDemo: decodeTile: wait=731ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.099  7945  7983 D PanZoomDemo: decodeTile: wait=742ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.107  7945  8010 D PanZoomDemo: decodeTile: wait=743ms decode=26ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.118  7945  7983 D PanZoomDemo: decodeTile: wait=761ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.119  7945  8011 D PanZoomDemo: decodeTile: wait=756ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.133  7945  8010 D PanZoomDemo: decodeTile: wait=769ms decode=26ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.137  7945  7983 D PanZoomDemo: decodeTile: wait=780ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.144  7945  8011 D PanZoomDemo: decodeTile: wait=781ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.156  7945  7983 D PanZoomDemo: decodeTile: wait=799ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.159  7945  8010 D PanZoomDemo: decodeTile: wait=795ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.169  7945  8011 D PanZoomDemo: decodeTile: wait=806ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.175  7945  7983 D PanZoomDemo: decodeTile: wait=818ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.185  7945  8010 D PanZoomDemo: decodeTile: wait=821ms decode=26ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.194  7945  8011 D PanZoomDemo: decodeTile: wait=831ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.195  7945  7983 D PanZoomDemo: decodeTile: wait=837ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.210  7945  8010 D PanZoomDemo: decodeTile: wait=847ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.214  7945  7983 D PanZoomDemo: decodeTile: wait=855ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.219  7945  8011 D PanZoomDemo: decodeTile: wait=856ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.225  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F enter(), M stay=3
+09-30 01:31:18.230  2340  3833 I OplusHansManager : freeze uid: 10298 com.whatsapp pids: [2906] scene: |airPlane|LcdOn
+09-30 01:31:18.231  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = PKG, targetUid = 10298, pkgCmd = ADD_ONE_UID
+09-30 01:31:18.233  7945  7983 D PanZoomDemo: decodeTile: wait=874ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.237  7945  8010 D PanZoomDemo: decodeTile: wait=871ms decode=27ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.244  7945  8011 D PanZoomDemo: decodeTile: wait=880ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.252  7945  7983 D PanZoomDemo: decodeTile: wait=894ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.263  7945  8010 D PanZoomDemo: decodeTile: wait=898ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.269  7945  8011 D PanZoomDemo: decodeTile: wait=905ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.271  7945  7983 D PanZoomDemo: decodeTile: wait=913ms decode=19ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.289  7945  8010 D PanZoomDemo: decodeTile: wait=924ms decode=26ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.290  7945  7983 D PanZoomDemo: decodeTile: wait=932ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.294  7945  8011 D PanZoomDemo: decodeTile: wait=930ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.314  7945  8010 D PanZoomDemo: decodeTile: wait=950ms decode=24ms [pool-miss] sampleSize=1 → 304×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.314  7945  7983 D PanZoomDemo: decodeTile: wait=951ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.326  7945  8011 D PanZoomDemo: decodeTile: wait=955ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.339  7945  7983 D PanZoomDemo: decodeTile: wait=974ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.340  1901  8107 I OMX-VENC: venc_dev: stats: avg. fps 57.84, bitrate 1768973
+09-30 01:31:18.347  7945  8010 D PanZoomDemo: decodeTile: wait=974ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.356  7945  7945 D PanZoomDemo: RAM N: 325MB
+09-30 01:31:18.356  7945  7945 D PanZoomDemo: RAM PSS: 404MB
+09-30 01:31:18.358  7945  7983 D PanZoomDemo: decodeTile: wait=999ms decode=18ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.359  7945  8011 D PanZoomDemo: decodeTile: wait=986ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.362  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:31:18.380  7945  8010 D PanZoomDemo: decodeTile: wait=1007ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.382  7945  7983 D PanZoomDemo: decodeTile: wait=1018ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.392  7945  8011 D PanZoomDemo: decodeTile: wait=1019ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.407  7945  7983 D PanZoomDemo: decodeTile: wait=1042ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.414  7945  8010 D PanZoomDemo: decodeTile: wait=1040ms decode=34ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.427  7945  8011 D PanZoomDemo: decodeTile: wait=1052ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.432  7945  7983 D PanZoomDemo: decodeTile: wait=1067ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.449  7945  8010 D PanZoomDemo: decodeTile: wait=1074ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.456  7945  7983 D PanZoomDemo: decodeTile: wait=1091ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.461  7945  8011 D PanZoomDemo: decodeTile: wait=1087ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.481  7945  7983 D PanZoomDemo: decodeTile: wait=1108ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.481  7945  8010 D PanZoomDemo: decodeTile: wait=1101ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.494  7945  8011 D PanZoomDemo: decodeTile: wait=1113ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.505  7945  7983 D PanZoomDemo: decodeTile: wait=1133ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.514  7945  8010 D PanZoomDemo: decodeTile: wait=1133ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.528  7945  8011 D PanZoomDemo: decodeTile: wait=1146ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.530  7945  7983 D PanZoomDemo: decodeTile: wait=1157ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.546  7945  8010 D PanZoomDemo: decodeTile: wait=1166ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.554  7945  7983 D PanZoomDemo: decodeTile: wait=1181ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.562  7945  8011 D PanZoomDemo: decodeTile: wait=1179ms decode=34ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.578  7945  8010 D PanZoomDemo: decodeTile: wait=1197ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.579  7945  7983 D PanZoomDemo: decodeTile: wait=1205ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.596  7945  8011 D PanZoomDemo: decodeTile: wait=1213ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.602  2203  3128 I DGW     : I[notifyPingFailure:2321] StreamGroupTransport[notifgateway] kill connection on ping timeout
+09-30 01:31:18.602  2203  3128 I DGW     : I[notifyStreamGroupError:1937] StreamGroupTransport[notifgateway] notify StreamGroup error: StreamGroupNetworkRequest failed - ping timeout error
+09-30 01:31:18.603  7945  7983 D PanZoomDemo: decodeTile: wait=1230ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.611  7945  8010 D PanZoomDemo: decodeTile: wait=1229ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.628  7945  7983 D PanZoomDemo: decodeTile: wait=1254ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.629  7945  8011 D PanZoomDemo: decodeTile: wait=1247ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.643  7945  8010 D PanZoomDemo: decodeTile: wait=1262ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.652  7945  7983 D PanZoomDemo: decodeTile: wait=1279ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.662  7945  8011 D PanZoomDemo: decodeTile: wait=1280ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.675  7945  8010 D PanZoomDemo: decodeTile: wait=1294ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.677  7945  7983 D PanZoomDemo: decodeTile: wait=1302ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.695  7945  8011 D PanZoomDemo: decodeTile: wait=1312ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.702  7945  7983 D PanZoomDemo: decodeTile: wait=1327ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.707  7945  8010 D PanZoomDemo: decodeTile: wait=1325ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.726  7945  7983 D PanZoomDemo: decodeTile: wait=1351ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.727  7945  8011 D PanZoomDemo: decodeTile: wait=1345ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.740  7945  8010 D PanZoomDemo: decodeTile: wait=1357ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.751  7945  7983 D PanZoomDemo: decodeTile: wait=1376ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.757  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:345.0 luxQueue=[345.0, 345.0, 345.0, 345.0]
+09-30 01:31:18.760  7945  8011 D PanZoomDemo: decodeTile: wait=1377ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.772  7945  8010 D PanZoomDemo: decodeTile: wait=1390ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.775  7945  7983 D PanZoomDemo: decodeTile: wait=1400ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.793  7945  8011 D PanZoomDemo: decodeTile: wait=1409ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.800  7945  7983 D PanZoomDemo: decodeTile: wait=1424ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.804  7945  8010 D PanZoomDemo: decodeTile: wait=1421ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.824  7945  7983 D PanZoomDemo: decodeTile: wait=1449ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.826  7945  8011 D PanZoomDemo: decodeTile: wait=1442ms decode=33ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.836  7945  8010 D PanZoomDemo: decodeTile: wait=1453ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.849  7945  7983 D PanZoomDemo: decodeTile: wait=1473ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.858  7945  8011 D PanZoomDemo: decodeTile: wait=1475ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.868  7945  8010 D PanZoomDemo: decodeTile: wait=1485ms decode=32ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.873  7945  7983 D PanZoomDemo: decodeTile: wait=1497ms decode=24ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.891  7945  8011 D PanZoomDemo: decodeTile: wait=1506ms decode=32ms [pool-miss] sampleSize=1 → 304×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.898  7945  7983 D PanZoomDemo: decodeTile: wait=1521ms decode=25ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.908  7945  8010 D PanZoomDemo: decodeTile: wait=1516ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.928  7945  7983 D PanZoomDemo: decodeTile: wait=1546ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.931  7945  8011 D PanZoomDemo: decodeTile: wait=1539ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.947  7945  8010 D PanZoomDemo: decodeTile: wait=1556ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.958  7945  7983 D PanZoomDemo: decodeTile: wait=1576ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:18.971  7945  8011 D PanZoomDemo: decodeTile: wait=1579ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:18.987  7945  8010 D PanZoomDemo: decodeTile: wait=1595ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:18.989  7945  7983 D PanZoomDemo: decodeTile: wait=1606ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.011  7945  8011 D PanZoomDemo: decodeTile: wait=1619ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.019  7945  7983 D PanZoomDemo: decodeTile: wait=1637ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.027  7945  8010 D PanZoomDemo: decodeTile: wait=1635ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.049  7945  7983 D PanZoomDemo: decodeTile: wait=1666ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.052  7945  8011 D PanZoomDemo: decodeTile: wait=1659ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.067  7945  8010 D PanZoomDemo: decodeTile: wait=1674ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.080  7945  7983 D PanZoomDemo: decodeTile: wait=1696ms decode=31ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.093  7945  8011 D PanZoomDemo: decodeTile: wait=1699ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.107  7945  8010 D PanZoomDemo: decodeTile: wait=1714ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.110  7945  7983 D PanZoomDemo: decodeTile: wait=1727ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.128  3613  4102 I SystemUi--Statusbar: PrivacyDotViewController-->scheduleUpdate: 
+09-30 01:31:19.133  7945  8011 D PanZoomDemo: decodeTile: wait=1740ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.140  7945  7983 D PanZoomDemo: decodeTile: wait=1745ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.146  7945  8010 D PanZoomDemo: decodeTile: wait=1754ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.171  7945  7983 D PanZoomDemo: decodeTile: wait=1775ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.173  7945  8011 D PanZoomDemo: decodeTile: wait=1768ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.186  7945  8010 D PanZoomDemo: decodeTile: wait=1764ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.201  7945  7983 D PanZoomDemo: decodeTile: wait=1788ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.213  7945  8011 D PanZoomDemo: decodeTile: wait=1790ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.226  7945  8010 D PanZoomDemo: decodeTile: wait=1802ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.228  3613  4102 I SystemUi--Statusbar: PrivacyDotViewController-->processNextViewState: 
+09-30 01:31:19.230  3613  4102 I SystemUi--Statusbar: PrivacyDotViewController-->resolveState ViewState(viewInitialized=true, systemPrivacyEventIsActive=false, shadeExpanded=false, qsExpanded=false, portraitRect=Rect(150, 0 - 1080, 109), landscapeRect=Rect(108, 0 - 2400, 109), upsideDownRect=Rect(0, 0 - 1080, 109), seascapeRect=Rect(0, 0 - 2280, 109), layoutRtl=false, rotation=0, paddingTop=29, paddingBottom=1, cornerIndex=1, designatedCorner=android.widget.FrameLayout{14735a1 I.E...... ......ID 1012,0-1080,109 #7f0a0874 app:id/privacy_dot_top_right_container viewInfo = }, contentDescription=В приложениях используется микрофон., dotMargin=60)
+09-30 01:31:19.231  7945  7983 D PanZoomDemo: decodeTile: wait=1817ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.236  9336  9336 D IHansComunication: HANS sendMessageToKernel: threadId = 537366871216, netLinkSetup = 1, type = FROZEN_TRANS, targetUid = 10298, pkgCmd = PKG_CMD_MAX
+09-30 01:31:19.254  7945  8011 D PanZoomDemo: decodeTile: wait=1829ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.262  7945  8010 D PanZoomDemo: decodeTile: wait=1826ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.272  7945  7983 D PanZoomDemo: decodeTile: wait=1831ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.292  7945  8010 D PanZoomDemo: decodeTile: wait=1861ms decode=31ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.294  7945  8011 D PanZoomDemo: decodeTile: wait=1854ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.312  7945  7983 D PanZoomDemo: decodeTile: wait=1872ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.324  7945  8010 D PanZoomDemo: decodeTile: wait=1891ms decode=31ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.334  7945  8011 D PanZoomDemo: decodeTile: wait=1893ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.341  1901  8107 I OMX-VENC: venc_dev: stats: avg. fps 57.90, bitrate 1534116
+09-30 01:31:19.353  7945  7983 D PanZoomDemo: decodeTile: wait=1897ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.355  7945  8010 D PanZoomDemo: decodeTile: wait=1909ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.358  7945  7945 D PanZoomDemo: RAM N: 418MB
+09-30 01:31:19.363  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:31:19.373  7945  8011 D PanZoomDemo: decodeTile: wait=1918ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.384  1499  1499 I OplusPerfCount: The num of client composition of  in last 60026 ms is: 6
+09-30 01:31:19.384  1499  1499 I OplusPerfCount: The num of blur fliter in last 60026 ms is: 168
+09-30 01:31:19.384  1499  1499 I OplusPerfCount: The layer number in last 60026ms is: 4 layer, 385 time, 5 layer, 13 time, 6 layer, 15 time, 
+09-30 01:31:19.385  7945  8010 D PanZoomDemo: decodeTile: wait=1923ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.394  7945  7983 D PanZoomDemo: decodeTile: wait=1937ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.415  7945  8010 D PanZoomDemo: decodeTile: wait=1953ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.416  7945  8011 D PanZoomDemo: decodeTile: wait=1941ms decode=43ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.437  7945  7983 D PanZoomDemo: decodeTile: wait=1962ms decode=43ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.446  7945  8010 D PanZoomDemo: decodeTile: wait=1983ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.456  7945  8011 D PanZoomDemo: decodeTile: wait=1983ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.466  2340  2534 I ActivityManager: Test idle passed
+09-30 01:31:19.467  3613  3613 I SeedlingSdk.PluginManager: (main) hostConfigurationChangedCallback onLowMemory,[sdk:v1.1.36-8ce39c1,plugin:v15.0.830-c935ada0]
+09-30 01:31:19.477  7945  8010 D PanZoomDemo: decodeTile: wait=1997ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.479  7945  7983 D PanZoomDemo: decodeTile: wait=1988ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.496  7945  8011 D PanZoomDemo: decodeTile: wait=2007ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.507  7945  8010 D PanZoomDemo: decodeTile: wait=2028ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.522  7945  7983 D PanZoomDemo: decodeTile: wait=2029ms decode=43ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.534  3613  3823 D OpenGLRenderer: SkiaOpenGLPipeline::setSurface: this=0xb400007aa44ba280, surface=NULL
+09-30 01:31:19.536  7945  8011 D PanZoomDemo: decodeTile: wait=2046ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.538  7945  8010 D PanZoomDemo: decodeTile: wait=2041ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.538  3613  3627 W System  : A resource failed to call release. 
+09-30 01:31:19.538  3613  3627 W System  : A resource failed to call release. 
+09-30 01:31:19.538  1499  2378 I SurfaceFlinger: [SF client] REMOVE (0xb4000072db9fdf00) for (3613:com.android.systemui)
+09-30 01:31:19.538  3613  3627 W System  : A resource failed to call release. 
+09-30 01:31:19.558  2203  3128 W DGW     : W[onPingFailure:598] ConnectivityManager ping failure TransientError domain: MNSDNSResolver code: 0 detail: getaddrinfo(): No address associated with hostname
+09-30 01:31:19.562  7945  7983 D PanZoomDemo: decodeTile: wait=2056ms decode=40ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.568  7945  8010 D PanZoomDemo: decodeTile: wait=2071ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.576  7945  8011 D PanZoomDemo: decodeTile: wait=2069ms decode=39ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.598  7945  8010 D PanZoomDemo: decodeTile: wait=2101ms decode=30ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.604  7945  7983 D PanZoomDemo: decodeTile: wait=2095ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.624  7945  8011 D PanZoomDemo: decodeTile: wait=2093ms decode=49ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.634  7945  8010 D PanZoomDemo: decodeTile: wait=2116ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.651  7945  7983 D PanZoomDemo: decodeTile: wait=2121ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.664  7945  8011 D PanZoomDemo: decodeTile: wait=2141ms decode=40ms [pool-miss] sampleSize=1 → 304×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.670  7945  8010 D PanZoomDemo: decodeTile: wait=2135ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.699  7945  7983 D PanZoomDemo: decodeTile: wait=2151ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.706  7945  8010 D PanZoomDemo: decodeTile: wait=2170ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.713  7945  8011 D PanZoomDemo: decodeTile: wait=2164ms decode=49ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.742  7945  8010 D PanZoomDemo: decodeTile: wait=2206ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.746  7945  7983 D PanZoomDemo: decodeTile: wait=2199ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.760  7945  8011 D PanZoomDemo: decodeTile: wait=2213ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.778  7945  8010 D PanZoomDemo: decodeTile: wait=2226ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.793  7945  7983 D PanZoomDemo: decodeTile: wait=2229ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.808  7945  8011 D PanZoomDemo: decodeTile: wait=2243ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.813  7945  8010 D PanZoomDemo: decodeTile: wait=2261ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.815  1368  1478 D vendor.oplus.hardware.charger-V3-service: read content:,313,314,4369,4367,0,500,1100,100,100,1,4,-1,5150,100,1,1048704,1,1,0,0,4435,0,0,0,0,0,1,0,-2740,0,4,2,0,0,0,0,0,0x0a,0x2d,0x0c,0x73,0x26,0x16,0x03,0x00,0xea
+09-30 01:31:19.815  1368  1478 D vendor.oplus.hardware.charger-V3-service: , ret_value:158
+09-30 01:31:19.816  1368  1478 D vendor.oplus.hardware.charger-V3-service: gmtime: 2026-09-30-01-31-19
+09-30 01:31:19.841  7945  7983 D PanZoomDemo: decodeTile: wait=2276ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.849  7945  8010 D PanZoomDemo: decodeTile: wait=2281ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.856  7945  8011 D PanZoomDemo: decodeTile: wait=2290ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.885  7945  8010 D PanZoomDemo: decodeTile: wait=2316ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.888  7945  7983 D PanZoomDemo: decodeTile: wait=2309ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.904  7945  8011 D PanZoomDemo: decodeTile: wait=2307ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.921  7945  8010 D PanZoomDemo: decodeTile: wait=2336ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.936  7945  7983 D PanZoomDemo: decodeTile: wait=2339ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.952  7945  8011 D PanZoomDemo: decodeTile: wait=2355ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:19.957  7945  8010 D PanZoomDemo: decodeTile: wait=2355ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:19.957  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:344.50037 luxQueue=[344.0, 344.0, 345.0, 344.0, 345.0, 345.0]
+09-30 01:31:19.983  7945  7983 D PanZoomDemo: decodeTile: wait=2370ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:19.993  7945  8010 D PanZoomDemo: decodeTile: wait=2375ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.000  7945  8011 D PanZoomDemo: decodeTile: wait=2386ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.028  7945  8010 D PanZoomDemo: decodeTile: wait=2411ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.031  7945  7983 D PanZoomDemo: decodeTile: wait=2401ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.047  7945  8011 D PanZoomDemo: decodeTile: wait=2401ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.065  7945  8010 D PanZoomDemo: decodeTile: wait=2429ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.079  7945  7983 D PanZoomDemo: decodeTile: wait=2432ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.094  7945  8011 D PanZoomDemo: decodeTile: wait=2448ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.100  7945  8010 D PanZoomDemo: decodeTile: wait=2450ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.127  7945  7983 D PanZoomDemo: decodeTile: wait=2463ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.136  7945  8010 D PanZoomDemo: decodeTile: wait=2468ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.141  7945  8011 D PanZoomDemo: decodeTile: wait=2462ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.172  7945  8010 D PanZoomDemo: decodeTile: wait=2487ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.174  7945  7983 D PanZoomDemo: decodeTile: wait=2495ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.188  7945  8011 D PanZoomDemo: decodeTile: wait=2492ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.208  7945  8010 D PanZoomDemo: decodeTile: wait=2507ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.222  7945  7983 D PanZoomDemo: decodeTile: wait=2509ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.235  7945  8011 D PanZoomDemo: decodeTile: wait=2522ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.244  7945  8010 D PanZoomDemo: decodeTile: wait=2542ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.269  7945  7983 D PanZoomDemo: decodeTile: wait=2540ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.280  7945  8010 D PanZoomDemo: decodeTile: wait=2562ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.282  7945  8011 D PanZoomDemo: decodeTile: wait=2553ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.285  1499  2257 D VRR [OTI]: handleIdle from 0 to 1
+09-30 01:31:20.285  1499  2257 D VRR [OTI-HW]: isStateReady 0
+09-30 01:31:20.285  1499  2257 D VRR [OTI-HW]: rate range: min {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} cur {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0} max {id=2, hwcId=4, resolution=1080x2400, refreshRate=60.00 Hz, dpi=391.89x398.43, group=0}
+09-30 01:31:20.285  1499  2257 D VRR [OTI-HW]: keep rate.
+09-30 01:31:20.316  7945  8010 D PanZoomDemo: decodeTile: wait=2581ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.317  7945  7983 D PanZoomDemo: decodeTile: wait=2570ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.331  7945  8011 D PanZoomDemo: decodeTile: wait=2583ms decode=49ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.351  7945  8010 D PanZoomDemo: decodeTile: wait=2601ms decode=35ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.356  1901  8107 I OMX-VENC: venc_dev: stats: avg. fps 50.28, bitrate 1258296
+09-30 01:31:20.364  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:31:20.366  7945  7983 D PanZoomDemo: decodeTile: wait=2602ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.378  7945  8011 D PanZoomDemo: decodeTile: wait=2615ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.387  7945  8010 D PanZoomDemo: decodeTile: wait=2619ms decode=36ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.394  7945  7945 D PanZoomDemo: RAM N: 490MB
+09-30 01:31:20.394  7945  7945 D PanZoomDemo: RAM PSS: 577MB
+09-30 01:31:20.433  7945  8010 D PanZoomDemo: decodeTile: wait=2654ms decode=46ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.442  7945  7983 D PanZoomDemo: decodeTile: wait=2634ms decode=76ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.442  7945  8011 D PanZoomDemo: decodeTile: wait=2645ms decode=64ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.469  7945  8010 D PanZoomDemo: decodeTile: wait=2683ms decode=36ms [pool-miss] sampleSize=1 → 304×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.490  7945  7983 D PanZoomDemo: decodeTile: wait=2692ms decode=48ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.497  7945  8011 D PanZoomDemo: decodeTile: wait=2677ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.511  7945  8010 D PanZoomDemo: decodeTile: wait=2703ms decode=42ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.546  7945  7983 D PanZoomDemo: decodeTile: wait=2724ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.552  7945  8011 D PanZoomDemo: decodeTile: wait=2715ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.554  7945  8010 D PanZoomDemo: decodeTile: wait=2729ms decode=43ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.584  3951  3951 D SubsysBroadcastManager: onReceive action:android.intent.action.BATTERY_CHANGED
+09-30 01:31:20.584  5991  5991 E VendorNfcService: changeNfcStateByWirelessCharge: feature WIRELESS_CHARGING = true; mIsWirelessCharging: false; mIsReverseChargingSwitchOpen: false; mNfcWorkMode: 0; isOverSeaRegion() = true
+09-30 01:31:20.585  3826  3826 D DeviceStatisticsService: onReceive: action= android.intent.action.BATTERY_CHANGED
+09-30 01:31:20.587  3613  3613 I SystemUi--Statusbar: BatteryControllerExt-->handleBroadcast() : broadcast = android.intent.action.BATTERY_CHANGED, charging = false, wirelessCharging = false, wirelessChargingReverse = false, pluggedIn = true, full = true, error = false, plugged = 2, status = 5, notifyCode = 100000000000010000000, wirelessReverseChgType = 0, level = 100
+09-30 01:31:20.587  3613  3613 I SystemUi--Statusbar: BatteryRepository-->model: BatteryStateModel:(level: 100, pluggedInWireless: false, charging: false, wirelessChargingReverse: false)
+09-30 01:31:20.587  3613  3613 W SystemUi--Keyguard: ChargingAnimationImpl-->BatteryStatus is same as last time , return
+09-30 01:31:20.596  7945  8010 D PanZoomDemo: decodeTile: wait=2755ms decode=42ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.601  7945  7983 D PanZoomDemo: decodeTile: wait=2764ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.606  7945  8011 D PanZoomDemo: decodeTile: wait=2770ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.637  7945  8010 D PanZoomDemo: decodeTile: wait=2797ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.656  7945  7983 D PanZoomDemo: decodeTile: wait=2802ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.661  7945  8011 D PanZoomDemo: decodeTile: wait=2791ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.679  7945  8010 D PanZoomDemo: decodeTile: wait=2822ms decode=42ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.711  7945  7983 D PanZoomDemo: decodeTile: wait=2840ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.716  7945  8011 D PanZoomDemo: decodeTile: wait=2829ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.720  7945  8010 D PanZoomDemo: decodeTile: wait=2847ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.757  2340  2559 D OplusSmartBrightnessController: handleMessage MSG_LUX_CHANGED, mLux:345.0 luxQueue=[345.0, 345.0, 345.0, 345.0]
+09-30 01:31:20.762  7945  8010 D PanZoomDemo: decodeTile: wait=2872ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.766  7945  7983 D PanZoomDemo: decodeTile: wait=2879ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.771  7945  8011 D PanZoomDemo: decodeTile: wait=2868ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.803  7945  8010 D PanZoomDemo: decodeTile: wait=2913ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.822  7945  7983 D PanZoomDemo: decodeTile: wait=2901ms decode=56ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.825  7945  8011 D PanZoomDemo: decodeTile: wait=2905ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.844  7945  8010 D PanZoomDemo: decodeTile: wait=2921ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.877  7945  7983 D PanZoomDemo: decodeTile: wait=2940ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.880  7945  8011 D PanZoomDemo: decodeTile: wait=2926ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.886  7945  8010 D PanZoomDemo: decodeTile: wait=2945ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.927  7945  8010 D PanZoomDemo: decodeTile: wait=2971ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.933  7945  7983 D PanZoomDemo: decodeTile: wait=2978ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.935  7945  8011 D PanZoomDemo: decodeTile: wait=2965ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:20.968  7945  8010 D PanZoomDemo: decodeTile: wait=2995ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:20.988  7945  7983 D PanZoomDemo: decodeTile: wait=3001ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:20.989  7945  8011 D PanZoomDemo: decodeTile: wait=2987ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.010  7945  8010 D PanZoomDemo: decodeTile: wait=3020ms decode=42ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.043  7945  7983 D PanZoomDemo: decodeTile: wait=3039ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.044  7945  8011 D PanZoomDemo: decodeTile: wait=3007ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.051  7945  8010 D PanZoomDemo: decodeTile: wait=3028ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.087  2340  3855 I OplusHansManager : unfreeze uid: 10298 com.whatsapp pids: [2906] reason: AsyncBinder scene: |airPlane|LcdOn
+09-30 01:31:21.088  2340  3833 I OplusHansManager : uid=10298, pkg=com.whatsapp F exit(), F stay=2, reason=AsyncBinder
+09-30 01:31:21.092  7945  8010 D PanZoomDemo: decodeTile: wait=3053ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.098  7945  7983 D PanZoomDemo: decodeTile: wait=3061ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.099  7945  8011 D PanZoomDemo: decodeTile: wait=3046ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.134  7945  8010 D PanZoomDemo: decodeTile: wait=3093ms decode=42ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.153  7945  7983 D PanZoomDemo: decodeTile: wait=3082ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.153  7945  8011 D PanZoomDemo: decodeTile: wait=3066ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.175  7945  8010 D PanZoomDemo: decodeTile: wait=3101ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.208  7945  8011 D PanZoomDemo: decodeTile: wait=3105ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.208  7945  7983 D PanZoomDemo: decodeTile: wait=3120ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.217  7945  8010 D PanZoomDemo: decodeTile: wait=3127ms decode=42ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.258  7945  8010 D PanZoomDemo: decodeTile: wait=3135ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.263  7945  8011 D PanZoomDemo: decodeTile: wait=3143ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.263  7945  7983 D PanZoomDemo: decodeTile: wait=3126ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.300  7945  8010 D PanZoomDemo: decodeTile: wait=3176ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.317  7945  8011 D PanZoomDemo: decodeTile: wait=3165ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.318  7945  7983 D PanZoomDemo: decodeTile: wait=3148ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.341  7945  8010 D PanZoomDemo: decodeTile: wait=3185ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.357  1901  8107 I OMX-VENC: venc_dev: stats: avg. fps 41.96, bitrate 1063227
+09-30 01:31:21.366  1277  7835 E ANDR-PERF-LM: GamePerfEngine: runAsyncPeriodic() 619: AppState st 0
+09-30 01:31:21.372  7945  8011 D PanZoomDemo: decodeTile: wait=3185ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.372  7945  7983 D PanZoomDemo: decodeTile: wait=3186ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.382  7945  8010 D PanZoomDemo: decodeTile: wait=3193ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.399  7945  7945 D PanZoomDemo: RAM N: 553MB
+09-30 01:31:21.424  7945  8010 D PanZoomDemo: decodeTile: wait=3217ms decode=41ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.426  7945  8011 D PanZoomDemo: decodeTile: wait=3224ms decode=54ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.427  7945  7983 D PanZoomDemo: decodeTile: wait=3224ms decode=55ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.465  7945  8010 D PanZoomDemo: decodeTile: wait=3259ms decode=41ms [pool-miss] sampleSize=1 → 304×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.488  7945  8011 D PanZoomDemo: decodeTile: wait=3244ms decode=62ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.489  7945  7983 D PanZoomDemo: decodeTile: wait=3245ms decode=62ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.512  7945  8010 D PanZoomDemo: decodeTile: wait=3267ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.550  7945  8011 D PanZoomDemo: decodeTile: wait=3289ms decode=62ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.552  7945  7983 D PanZoomDemo: decodeTile: wait=3290ms decode=63ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.559  7945  8010 D PanZoomDemo: decodeTile: wait=3297ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.606  7945  8010 D PanZoomDemo: decodeTile: wait=3311ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.613  7945  8011 D PanZoomDemo: decodeTile: wait=3336ms decode=62ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.615  7945  7983 D PanZoomDemo: decodeTile: wait=3320ms decode=62ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.653  7945  8010 D PanZoomDemo: decodeTile: wait=3358ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.676  7945  8011 D PanZoomDemo: decodeTile: wait=3364ms decode=62ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.677  7945  7983 D PanZoomDemo: decodeTile: wait=3350ms decode=62ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.700  7945  8010 D PanZoomDemo: decodeTile: wait=3388ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.738  7945  8011 D PanZoomDemo: decodeTile: wait=3394ms decode=61ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.740  7945  7983 D PanZoomDemo: decodeTile: wait=3395ms decode=63ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.747  7945  8010 D PanZoomDemo: decodeTile: wait=3402ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.794  7945  8010 D PanZoomDemo: decodeTile: wait=3431ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
+09-30 01:31:21.800  7945  8011 D PanZoomDemo: decodeTile: wait=3440ms decode=62ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-20] free=0/3
+09-30 01:31:21.802  7945  7983 D PanZoomDemo: decodeTile: wait=3441ms decode=62ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-3] free=0/3
+09-30 01:31:21.841  7945  8010 D PanZoomDemo: decodeTile: wait=3478ms decode=47ms [pool-miss] sampleSize=1 → 512×512px [DefaultDispatcher-worker-19] free=0/3
