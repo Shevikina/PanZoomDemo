@@ -74,6 +74,89 @@ tasks.matching { it.name == "assembleRelease" || it.name == "bundleRelease" }.co
     }
 }
 
+/**
+ * Проверяет, что слой не импортирует то, что ему запрещено.
+ *
+ * Типизированная задача с inputs/outputs, а не doLast в скрипте: иначе проверка гоняется
+ * на каждый прогон check и не кешируется.
+ */
+@CacheableTask
+abstract class CheckLayerPurityTask : DefaultTask() {
+
+    /** Каталоги и отдельные файлы слоя. Коллекция, а не один каталог: слой presentation
+     *  живёт не только в своём пакете, composition root лежит в корневом. */
+    @get:InputFiles
+    @get:PathSensitive(PathSensitivity.RELATIVE)
+    abstract val sources: ConfigurableFileCollection
+
+    /** Регулярное выражение по строке импорта. */
+    @get:Input
+    abstract val forbiddenImports: Property<String>
+
+    /** Файлы, которым нарушение разрешено осознанно. Имена без пути. */
+    @get:Input
+    abstract val allowedFiles: SetProperty<String>
+
+    @get:OutputFile
+    abstract val report: RegularFileProperty
+
+    @TaskAction
+    fun check() {
+        val regex = Regex(forbiddenImports.get())
+        val allowed = allowedFiles.get()
+        val offenders = sources.asFileTree.asSequence()
+            .filter { it.isFile && it.extension == "kt" && it.name !in allowed }
+            .flatMap { file ->
+                file.readLines().asSequence().mapIndexedNotNull { index, line ->
+                    if (regex.containsMatchIn(line.trim())) {
+                        "${file.name}:${index + 1}: ${line.trim()}"
+                    } else {
+                        null
+                    }
+                }
+            }
+            .toList()
+        val reportFile = report.get().asFile
+        reportFile.parentFile.mkdirs()
+        reportFile.writeText(offenders.joinToString("\n"))
+        if (offenders.isNotEmpty()) {
+            error("Слой загрязнён зависимостями:\n" + offenders.joinToString("\n"))
+        }
+    }
+}
+
+fun layerDir(layer: String) = layout.projectDirectory.dir("src/main/java/com/shevikina/panzoomdemo/$layer")
+
+// Корневой пакет: Application и Activity. Это composition root, по смыслу presentation, но лежит
+// вне его пакета. Шаблон `*.kt` не спускается в подкаталоги, поэтому берёт только эти файлы -
+// и автоматически подхватит новые, если в корне что-то появится.
+val rootPackageSources = fileTree("src/main/java/com/shevikina/panzoomdemo") { include("*.kt") }
+
+// Ядро не должно зависеть от платформы: проверяем это сборкой, а не договорённостями.
+val checkDomainPurity by tasks.registering(CheckLayerPurityTask::class) {
+    group = "verification"
+    description = "Проверяет, что domain-слой не зависит от Android, Compose и других слоёв"
+    sources.from(layerDir("domain"))
+    forbiddenImports.set("^import (android|androidx|com\\.shevikina\\.panzoomdemo\\.(data|presentation|core))\\b")
+    report.set(layout.buildDirectory.file("reports/layer-purity/domain.txt"))
+}
+
+// Presentation не знает о data. Исключение ровно одно и документировано в самом файле.
+// Корневой пакет проверяется здесь же: Activity и Application - тоже presentation, и запрет
+// на data распространяется и на них.
+val checkPresentationPurity by tasks.registering(CheckLayerPurityTask::class) {
+    group = "verification"
+    description = "Проверяет, что presentation и корневой пакет не импортируют data"
+    sources.from(layerDir("presentation"), rootPackageSources)
+    forbiddenImports.set("^import com\\.shevikina\\.panzoomdemo\\.data\\b")
+    allowedFiles.set(setOf("DecodedImageKtx.kt"))
+    report.set(layout.buildDirectory.file("reports/layer-purity/presentation.txt"))
+}
+
+tasks.named("check") {
+    dependsOn(checkDomainPurity, checkPresentationPurity)
+}
+
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
