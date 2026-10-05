@@ -19,8 +19,6 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     // Логи внутри кадра включаются сборкой, а не правкой кода: в debug они нужны,
@@ -50,14 +48,22 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         compose = true
         // BuildConfig.DEBUG нужен проверкам контракта, а BuildConfig.HOT_LOGS - логам
         // внутри кадра: и то, и другое не должно стоить ничего в release.
         buildConfig = true
+    }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            // Держатели состояния логируют через android.util.Log; в юнит-тестах это заглушка,
+            // которая без флага бросает исключение вместо возврата значения по умолчанию.
+            isReturnDefaultValues = true
+        }
     }
 }
 
@@ -157,6 +163,21 @@ tasks.named("check") {
     dependsOn(checkDomainPurity, checkPresentationPurity)
 }
 
+// Один JDK на весь проект вместо трёх (Java 11 в compileOptions, JDK 21 в тестах, JBR из
+// Android Studio на сборке). JDK 21, а не 25: Robolectric лезет рефлексией в internals java.io
+// и на 25 не стартует. Нужную версию Gradle скачает сам.
+kotlin {
+    jvmToolchain(21)
+}
+
+tasks.withType<Test>().configureEach {
+    // Robolectric читает internals JDK рефлексией, с JDK 17+ модуль закрыт по умолчанию.
+    jvmArgs(
+        "--add-opens=java.base/java.io=ALL-UNNAMED",
+        "--add-exports=java.base/jdk.internal.access=ALL-UNNAMED",
+    )
+}
+
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
@@ -182,4 +203,13 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
+
+    // Tests
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.turbine)
+    testImplementation(libs.kotlinx.coroutines.test)
+    // Robolectric нужен единственному тесту: маппер TileRect <-> android.graphics.Rect
+    testImplementation(libs.robolectric)
 }
